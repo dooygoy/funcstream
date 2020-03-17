@@ -1,4 +1,4 @@
-# Haskell and functional thinking process
+# Functional thinking with Haskell
 
 This is an exploration of a beautiful programming language Haskell and functional thinking.
 I am learning from several books and documenting the learning here.
