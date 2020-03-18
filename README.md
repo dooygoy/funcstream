@@ -12,5 +12,5 @@ Sources used are
   * Hudak/Quick: The Haskell School of Music
   * David S. Touretzky: Common Lisp: A Gentle Introduction to Symbolic Computation 
   * Alejandro Serrano Mena: Practical Haskell - A Real World Guide to Programming
-  * [Bartosz Milewski](https://www.schoolofhaskell.com/user/bartosz)
+  * [Bartosz Milewski - School of Haskell](https://www.schoolofhaskell.com/user/bartosz)
 
