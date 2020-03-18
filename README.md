@@ -2,7 +2,7 @@
 
 This is an exploration of a beautiful programming language Haskell and functional thinking.
 I am learning from several books and documenting the learning here.
-The books used are
+Sources used are
 
   * Richard Bird: Thinking Functionally with Haskell
   * Graham Hutton: Programming in Haskell
@@ -12,4 +12,5 @@ The books used are
   * Hudak/Quick: The Haskell School of Music
   * David S. Touretzky: Common Lisp: A Gentle Introduction to Symbolic Computation 
   * Alejandro Serrano Mena: Practical Haskell - A Real World Guide to Programming
+  * [Bartosz Milewski](https://www.schoolofhaskell.com/user/bartosz)
 
