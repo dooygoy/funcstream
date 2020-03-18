@@ -17,6 +17,7 @@ Sources used are
   
 ## Online courses
 
+  * [Functional programming in Haskell: Supercharge your coding](https://www.futurelearn.com/courses/functional-programming-haskell)
   * [Bartosz Milewski - School of Haskell](https://www.schoolofhaskell.com/user/bartosz)
 
 ## Talks
