@@ -10,4 +10,5 @@ The books used are
   * Allen/Moronuki: Haskell From First Principles
   * Will Kurt: Get Programming with Haskell
   * Hudak/Quick: The Haskell School of Music
+  * David S. Touretzky: Common Lisp: A Gentle Introduction to Symbolic Computation 
 
