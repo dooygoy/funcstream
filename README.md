@@ -4,6 +4,8 @@ This is an exploration of a beautiful programming language Haskell and functiona
 I am learning from several books and documenting the learning here.
 Sources used are
 
+## Books
+
   * Richard Bird: Thinking Functionally with Haskell
   * Graham Hutton: Programming in Haskell
   * Simon Thompson: Haskell - The Craft of Functional Programming
@@ -14,3 +16,6 @@ Sources used are
   * Alejandro Serrano Mena: Practical Haskell - A Real World Guide to Programming
   * [Bartosz Milewski - School of Haskell](https://www.schoolofhaskell.com/user/bartosz)
 
+## Talks
+
+  * [Why algebraic data types are important - Bartosz Milewski ](https://youtu.be/LkqTLJK2API)
