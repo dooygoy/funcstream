@@ -23,3 +23,7 @@ Sources used are
 ## Talks
 
   * [Why algebraic data types are important - Bartosz Milewski ](https://youtu.be/LkqTLJK2API)
+  
+## Papers
+
+
