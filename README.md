@@ -11,4 +11,5 @@ The books used are
   * Will Kurt: Get Programming with Haskell
   * Hudak/Quick: The Haskell School of Music
   * David S. Touretzky: Common Lisp: A Gentle Introduction to Symbolic Computation 
+  * Alejandro Serrano Mena: Practical Haskell - A Real World Guide to Programming
 
