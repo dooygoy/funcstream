@@ -1,6 +1,9 @@
+
+# How to follow and explain in three?
+
 Often an explanation divided into three parts feels inuitively easy to grasp. After all we all have some sort of idea of a beginning, a middle and an end, or left, right and center. But there is so much more! The number three reminds us of a triangle which consists of three points. One point by itself signifies something which is difficult to identify in time and space, it is something very basic, we can only be aware of a point but what we notice is that it is difficult to know about the point since we cannot relate the point to anything in the universe except the universe itself. If we imagine seeing just two points we can immediatelly feel a dimension where we understand some notion of betweeness, an interval, thus giving some meaning to this relation, witnessing its direction, measuring its distance, or like in music, where hearing the distance between two tones we call an interval. In math, we could draw a line through these two points and then calculate the segment. My point is that effective explanations often have a tree like structure where branching spreads in three ways and then each branch again repeats the same process. It feels like zooming into a single branch and again seeing three branches which in turn again if we zoom in we witness another three branches. This could be compared to buiding a house where three floors have three rooms and each room has three floors where each floor has three rooms and so on.. 
 
-Notice the structure of explaining the workings of a calculator:
+Notice the structure of explaining the workings of a calculator (by Bartosz Milewski in his School of Haskell):
 
 At the very high level, the calculator is a loop that gets a line of text from the user and then calculates and displays the result.
   
