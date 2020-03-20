@@ -14,7 +14,9 @@ Sources used are
   * Hudak/Quick: The Haskell School of Music
   * David S. Touretzky: Common Lisp: A Gentle Introduction to Symbolic Computation 
   * Alejandro Serrano Mena: Practical Haskell - A Real World Guide to Programming
-  
+  * [Phil Freeman: Purescript by example](https://leanpub.com/purescript)
+
+
 ### Online courses
 
   * [Functional programming in Haskell: Supercharge your coding](https://www.futurelearn.com/courses/functional-programming-haskell)
