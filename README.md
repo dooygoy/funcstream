@@ -26,5 +26,5 @@ Sources used are
   * [Why algebraic data types are important - Bartosz Milewski ](https://youtu.be/LkqTLJK2API)
   
 ## Papers
-
-
+ 
+ * [Eugenio Moggi: Notions of computation and monads](https://person.dibris.unige.it/moggi-eugenio/ftp/ic91.pdf)
