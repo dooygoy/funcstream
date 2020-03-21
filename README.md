@@ -15,6 +15,7 @@ Sources used are
   * David S. Touretzky: Common Lisp: A Gentle Introduction to Symbolic Computation 
   * Alejandro Serrano Mena: Practical Haskell - A Real World Guide to Programming
   * [Phil Freeman: Purescript by example](https://leanpub.com/purescript)
+  * [Discrete Mathematics using a computer](http://www.x.edu.uy/inet/Springer.pdf)
 
 
 ### Online courses
