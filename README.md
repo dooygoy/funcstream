@@ -27,6 +27,7 @@ Sources used are
 ### Talks
 
   * [Why algebraic data types are important - Bartosz Milewski ](https://youtu.be/LkqTLJK2API)
+  * [PureScript: Tomorrow's JavaScript Today](https://youtu.be/5AtyWgQ3vv0)
   
 ### Papers
  
