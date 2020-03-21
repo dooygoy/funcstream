@@ -28,6 +28,7 @@ Sources used are
 
   * [Why algebraic data types are important - Bartosz Milewski ](https://youtu.be/LkqTLJK2API)
   * [PureScript: Tomorrow's JavaScript Today](https://youtu.be/5AtyWgQ3vv0)
+  * [LambdaConf 2015 - Learn Functional Programming with PureScript John A De Goes](https://youtu.be/LqYfdmb0eUU)
   
 ### Papers
  
