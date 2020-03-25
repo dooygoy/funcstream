@@ -35,3 +35,7 @@ Sources used are
  
  * [Eugenio Moggi: Notions of computation and monads](https://person.dibris.unige.it/moggi-eugenio/ftp/ic91.pdf)
  * [Raul Rojas: A Tutorial Introduction to the Lambda Calculus](https://arxiv.org/pdf/1503.09060.pdf)
+
+### Other:
+
+* [Monday Morning Haskell](https://mmhaskell.com/)
