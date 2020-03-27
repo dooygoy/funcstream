@@ -1,0 +1,137 @@
+#+BEGIN_QUOTE
+For instance, the fibonacci sequence is defined recursively. First, we define the first two fibonacci numbers non-recursively. We say that F(0) = 0 and that F(1) = 1, meaning that the 0th and the 1st fibonnaci numbers are 0 and 1, respectively. Then we say that for any other natural number, that fibonacci number is the sum of the previous two fibonacci numbers. 
+#+END_QUOTE
+
+What really clicked and helped me understand is the repetition of the word fibonacci. What do I mean by that? Every number in the fibonacci number universe is a small fibonacci number building block, a unit, a small atom! Our universe is made of fibonacci numbers, and they are all the same, they are equal even though they may increase in quantity and we can make all kinds of structures with them. How is our fibonacci building block made? Every fibonacci number itself, the building block of our universe is made of two previous fibonacci numbers, every fibonacci number is a new combination of two previous fibonacci numbers, defined by a rule describing this number. While a natural number is just a number by itself, the smallest possible container, like a point of a number, a fibonacci number is like an abstract number, a small space of a number. Imagine that natural numbers are like points on a line and fibonacci numbers are like tiny squares on a line. What we are used to is to immediately when we hear the word number think of - well just a number, a 1, 3, 23455, but the difference and the beauty here is that the fibonacci number itself is like a container or you could call it a small meta number. The /shape/ of this meta number is described by a function which is always the same because we want equal numbers on our number line. Every number of the fibonacci number line is described by a function, we are not just counting the fibonacci numbers like 1, 2, 3, but each number is made by combining the two previous numbers! This number is like a brick, a shape with which we build our universe and then we use natural numbers to count the building blocks of our universe, like counting the stars on an empty sky, or counting trees on a field. The tree is not a number but we use numbers to count them, It is like the natural number universe is described by natural numbers such as 1,2,3.. and the fibonacci universe is described by small fibonacci bricks which we count by usind natural numbers 1,2,3.. The error is to see the fibonacci bricks like natural numbers 1,2,3 and not like bricks which we count by using natural numbers 1,2,3..How do we express, describe a fibonacci number? By combining the two previous fibonacci numbers. Now, this is the part that might confuse because the number itself is defined linearly by a previous number so we cannot just jump back and forth blindly and define its structure. Let us start from the beginning, we subtract 1 from the current number (n - 1) which can be any number (that's why we use letter /n/ and then we subtract 2 from the same current number (n - 2). We then add those two numbers
+(n - 1) + (n - 2) and we get our fibonacci number!
+
+Some Fibonacci number n = Same Fibonacci number minus one plus
+same Fibonacci number minus two:
+
+F(n) = (n - 1) + (n - 2)
+
+Now the first idea we might get is to try this with any number like this:
+
+F(5) = (5 - 1) + (5 - 2) = 4 + 3 = 7
+
+Is this correct? No! Because we are defining our number, our building block beginning from a random natural number. This is a trap in which we might easily fall into. The process should be to begin building our universe from the first building block, then the next and the next.. OK, se what is the zero fibonacci number then? Well it is zero because we cannot subtract anything from it. 
+
+(0)
+F (0) = F(n - 1) + F(n - 2)
+F (0) = F(0 - 1) + F(0 - 2)
+F (0) = 0
+
+(1)
+F (1) = F(n - 1) + F(n - 2)
+F (1) = F(1 - 1) + F(1 - 2)
+F (1) = 0
+
+Woah wait! So First fibonacci number, fibonacci number 1 is 0? It is like the value of fibonacci number 1 is a natural number 0. We see now that we are counting fibonacci numbers but their values are our natural numbers. Let us see fibonacci number 2
+
+(2)
+F (2) = F(n - 1) + F(n - 2)
+F (2) = F(2 - 1) + F(2 - 2)
+F (2) = F(1) + F(0)
+F (2) = 1 + 0
+F (2) = 1
+
+Amazing! Fibonacci number two seems to have a value of 1. So we see the second fibonacci number, we constructed the second fibonacci number and its shape, its value is a natural number 1. 
+
+(3)
+
+F (3) = F(n - 1) + F(n - 2)
+F (3) = F(3 - 1) + F(3 - 2)
+F (3) = F(2) + F(1)
+F (3) = 2 + 1
+F (3) = 3
+
+So 3rd fibonacci number has a value of 3! Notice so far our fibonacci count of 0,1,2,3 makes 0,0,1,3 in natural numbers!
+
+F(4) = F(n - 1) + F(n - 2)
+F(4) = F(4 - 1) + F(4 - 2)
+F(4) = F(3) + F(2)
+F(4) = 3 + 2
+F(4) = 5
+
+F(5) = F(n - 1) + F(n - 2)
+F(5) = F(5 - 1) + F(5 - 2)
+F(5) = F(4) + F(3)
+F(5) = 4 + 3
+F(5) = 7
+
+... Wait.. something is wrong! I am just subtracting natural numbers, I am not using fibonacci numbers in the formula. I am using the formula, yes, but I am not subtracting the fibonacci numbers themselves. What is wrong here?
+
+The difference is that we should have been subtracting fibonacci numbers from the current number and not just plain natural numbers!
+
+F(0) = 0
+F(1) = 1 
+
+Why this? Well because fibonacci zero and fibonacci number is still zero and one. Same as zero flowers and one flower. We need no formula to know that we have one flower and one fibonacci is like one natural number though they do not have to be equal. The point is the idea of oneness. We have something and that something is one. OK, how about the second fibonacci number? So by the formula the second fibonacci number should be the combination of the two previous numbers which are fibonacci number 0 and fibonacci number 1. So that's it, we have fibonacci number two simple as that! 
+
+F(2) = F(n - 1) + F(n - 2)
+F(2) = F(2 - 1) + F(2 - 2)
+F(2) = F(1) + F(0)
+F(2) = 1
+
+But now comes the fun part! How about fibonacci number three. How do we make one? Well just add fibonacci number 1 and fibonacci number 2. What are the values of those two numbers? Fibonacci number one is equal to 1 and fibonacci number 2 is equal to 1 too!
+
+F(3) = F(n - 1) + F(n - 2)
+F(3) = F(3 - 1) + F(3 - 2)
+F(3) = F(2) + F(1)
+F(3) = 1 + 0
+F(3) = 1
+
+What we are doing really is this because this still might look confusing. We could write F(2) as [F(1) + F(1)] because Fibonacci number two is made of two fibonacci number one. Same as two equals one plus one so two fibonacci numbers equal to one fibonacci number plus one fibonacci number. Let us use that:
+
+F(3) = F(2) + F(1)
+F(3) = [F(1) + F(1)] + F(1)
+F(3) = [F((n - 1)+(n - 2)) + F((n - 1)(n - 2))] + F((n - 1)+(n - 2))
+F(3) = [F((1 - 1)+(1 - 2)) + F((1 - 1)(1 - 2))] + F((1 - 1)+(1 - 2))
+F(3) = [F(0 + (-1)) + F(0 + (-1)) + F(0 + (-1))
+F(3) = [F(-1) + F(-1) + F(-1)]
+F(3) = F(-1 + -1 + -1)
+F(3) = F(-3)
+F(3) = -3
+
+Oops, what is wrong?? :( We have been getting -1 because fibonacci one is defined as one already so we cant use the formula, not yet. One is still just one, it's not minus one!
+
+The problem I notice I keep falling back to just using natural numbers while working with fibonacci numbers which makes me tired and wrong at the same time.. also fibonacci number two is not just fibonacci number one plus fibonacci number one! oh let us try again!
+
+F(3) = F(2) + F(1) OK, so fibonacci (lets use *fib*, too much to type..), so fib 2 is 1 and fib 1 is 1 which makes fib three 2!
+OK! That sounds good! Let us try with four and I truly hope I get it right this time!
+
+F(4) = F(3) + F(2)
+F(4) = 2 + 1 = 3
+
+Ok, but I had to look up the value of fib 3 and fib 2. How to calculate it without looking the previous value? Googling the solution I found out that it involves a /complicated/ formula which was found by some guy called Binet in 19th century and which was known by some guy called Euler.. that's nice. So what was the point of this error filled exploration? I was calculating using the natural numbers while that was not possible. The recursive formula merely states that to get the fib number you add the value of two previous numbers. And that's it. It is not possible to prove it like that. It is merely a howto description, a definition of how these numbers are built. It is a description, a declarative description, not an imperative do this, do that. I am just supposed to add the previous two values.. which means that
+ 
+F(0) =  0 
+F(1) =  1 
+F(2) = F(1) + F(0) = 1 - 0 = 1
+F(3) = F(2) + F(1) = 1 + 1 = 2
+F(4) = F(3) + F(2) = 2 + 1 = 3
+F(5) = F(4) + F(3) = 3 + 2 = 5
+F(6) = F(5) + F(4) = 5 + 3 = 8
+
+and now we got it finally but how to express it in code? I don't want to constantly look for previous values of fib! Well we just write the formula as code:
+
+#+BEGIN_SRC haskell
+fib :: Integer -> Integer 
+fib 0 = 0
+fib 1 = 1
+fib n = fib (n - 1) + fib (n - 2)
+#+END_SRC
+
+
+#+BEGIN_QUOTE
+Recursion is important to Haskell because unlike imperative languages, you do computations in Haskell by declaring what something is instead of declaring how you get it.
+#+END_QUOTE
+
+And here lies the crux of it. Remembering my early math classes, I was so used to imperatively solve problems, calculating  what steps one must take instead of being taught how to describe the behaviour of the numbers, leaving the computer to do the calculations. Humans are naturally talented in describing behaviours and structures but not so much describing calculating steps even though there are some really talented individuals but that is not the point. Computers are far better at doing that and why should we compete with them in the first place. A more intuitive and human approach is to develop our abstraction structures and learn to describe behaviours and patterns of behaviours, patterns of our universe so that we can better understand life itself. What I love about recursion is that is natural and inclusive in the sense that it does not impose difficult "missions" to calculate but uncovers new vistas of thinking about things instead of defining what they are.
+
+
+
+
+
+
+
