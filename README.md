@@ -41,5 +41,5 @@ Sources used are
 
 ### Other:
 
-* [Execution in The Kingdom of Nouns](http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html)
+* [Steve Yegge - Execution in The Kingdom of Nouns](http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html)
 * [Monday Morning Haskell](https://mmhaskell.com/)
