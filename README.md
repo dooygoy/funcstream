@@ -19,7 +19,7 @@ Sources used are
 
 
 ### Online courses
-
+  * [Bartosz Milewski Super Awesome Category Theory Lectures!](https://www.youtube.com/user/DrBartosz/playlists)
   * [Functional programming in Haskell: Supercharge your coding](https://www.futurelearn.com/courses/functional-programming-haskell)
   * [Bartosz Milewski - School of Haskell](https://www.schoolofhaskell.com/user/bartosz)
   * [Functional programming in Haskell](https://www.youtube.com/playlist?list=PLJ5C_6qdAvBFJP1RiUrUUJI4GEhnJhgQw)
