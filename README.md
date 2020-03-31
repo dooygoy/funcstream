@@ -5,6 +5,7 @@ I am learning from several books and documenting the learning here.
 Sources used are
 
 ### Books
+  * [A type of programming](https://atypeofprogramming.com/)
   * [Learn you a Haskell for Greater Good](http://learnyouahaskell.com/)
   * Richard Bird: Thinking Functionally with Haskell
   * Graham Hutton: Programming in Haskell
