@@ -57,6 +57,10 @@ And when functions start lying about the things they return, you can no longer r
  * [How To Do Basic Error Handling Logging](https://williamyaoh.com/posts/2019-10-12-how-to-basic-error-handling-logging.html)
  * [Basic Haskell: An Examination of a Todo List](https://www.benlopatin.com/basic-haskell-todo/)
 
+### Haskell Code
+
+ * [Lambda launcher](https://github.com/balsoft/lambda-launcher)
+
 ### Inspirational (poems etc..)
 
 * [Wallace Stevens - Thea idea of order at Key West](https://www.poetryfoundation.org/poems/43431/the-idea-of-order-at-key-west)
