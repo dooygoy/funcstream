@@ -56,3 +56,15 @@ And when functions start lying about the things they return, you can no longer r
  * [You Could Have Invented Monads](http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html)
  * [How To Do Basic Error Handling Logging](https://williamyaoh.com/posts/2019-10-12-how-to-basic-error-handling-logging.html)
  * [Basic Haskell: An Examination of a Todo List](https://www.benlopatin.com/basic-haskell-todo/)
+
+### Inspirational (poems etc..)
+
+* [Wallace Stevens - Thea idea of order at Key West](https://www.poetryfoundation.org/poems/43431/the-idea-of-order-at-key-west)
+>  The sea was not a mask. No more was she.   
+The song and water were not medleyed sound   
+Even if what she sang was what she heard,   
+Since what she sang was uttered word by word.
+It may be that in all her phrases stirred   
+The grinding water and the gasping wind;   
+But it was she and not the sea we heard.
+
