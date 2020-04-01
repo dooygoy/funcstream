@@ -55,3 +55,4 @@ And when functions start lying about the things they return, you can no longer r
  * [The Road to Proficient Haskell](https://williamyaoh.com/posts/2020-01-11-road-to-proficient.html)
  * [You Could Have Invented Monads](http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html)
  * [How To Do Basic Error Handling Logging](https://williamyaoh.com/posts/2019-10-12-how-to-basic-error-handling-logging.html)
+ * [Basic Haskell: An Examination of a Todo List](https://www.benlopatin.com/basic-haskell-todo/)
