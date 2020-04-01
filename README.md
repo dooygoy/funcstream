@@ -1,6 +1,6 @@
-# Functional thinking with Haskell
+# Functional programming with Haskell
 
-This is an exploration of a beautiful programming language Haskell and functional thinking.
+This is an exploration of a beautiful programming language Haskell and functional programming.
 I am learning from several books and documenting the learning here.
 Sources used are
 
