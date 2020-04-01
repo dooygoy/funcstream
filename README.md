@@ -48,5 +48,6 @@ Sources used are
 >The problem with partial functions is that they're liars. Consider head: its type is [a] -> a, which means "give me a list of as and I'll give you an a". So I give it [] - does it give me an a? No, it doesn't, it throws an exception instead.
 And when functions start lying about the things they return, you can no longer reason about them.
  * [Applied Haskell Syllabus](https://tech.fpcomplete.com/haskell/syllabus)
+ > Applied Haskell is a commercial training program focusing on teaching intermediate Haskell. The goal is to help someone move from knowing Haskell basics to being able to write commercial software, with enough knowledge to pick up any new skills needed on demand.
  * [Haskell Learn - FPComplete](https://tech.fpcomplete.com/haskell/learn)
  * [An introduction to recursion schemes](https://blog.sumtypeofway.com/posts/introduction-to-recursion-schemes.html)
