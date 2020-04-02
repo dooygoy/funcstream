@@ -78,7 +78,7 @@ in haskell,
 ```
 
 
-What I notice is how Haskell influences my mind stream in a non intrusive way, morphing its patterns silently, functionally clearing the obstacles by constantly rearranging small thunks into understandable units, softly echoing old patterns, illuminating their repetitive resonance. While I express functionally, I reflect each turn, thus making no turns, I begin unknowingly to understand the essence of lazy evaluation. What is lazy evaluation? Lazy evaluation is like doing a step only when you need it not before you need it. I will go now to study then return again.
+What I notice is how Haskell influences my mind stream in a non intrusive way, morphing its patterns silently, functionally clearing the obstacles by constantly rearranging small thunks into understandable units, softly echoing old patterns, illuminating their repetitive resonance. While I express functionally, I reflect each turn, thus making no turns, I begin unknowingly to understand the essence of lazy evaluation. What is lazy evaluation? Lazy evaluation is like doing a step only when you need it not before you need it. I need to study more to express cleary. I am learning **Emacs** editor to better document, **github** so that I can better follow, and **NixOS** too, a declarative functional Linux OS distribution which helps me stay functional even when I interact with my daily OS. Also these three tools are functional in their nature and they help me deepen the understanding of the functinal approach while mixing different levels of interactions. Stay tuned and remember to commit!
 
 
 
