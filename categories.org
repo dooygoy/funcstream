@@ -1,0 +1,455 @@
+* 1.2 What is a category?
+
+*Abstraction*
+*Composition*
+*Identity*
+
+/Homotopy type/ theory. What is equal? What it identity?
+
+Composition and Identity is what defines category theory.
+
+We are now ready for first definition!
+
+A category is a /bunch/ of objects. What can be bigger than a set? Sets are defined by membership. Elements of sets can also be sets. They have a set hammer and everything is a set nail.. What is a good example of a set that is a member of itself? A bunch of dogs is not a dog. /Barbers paradox/ Who shaves the barber?
+
+A Category consists of objects, and arrows. These arrows are also called morphisms. So a morphism is an arrow that goes from a to b   a---(f)--->b
+What is an object? It has no properties. What is an arrow, morphism? It is just a name for an arrow. We percieve the universe through these notions described by hunter gatherers, with spatial relationships. Categorists put things in space, higher or lower level abstractions.. Hunter gatherers understand movement too. Realize what language you are using and how it constrains you. 
+
+So what kind of things can happen?
+You can have zero or more arrows for each pair of objects.
+Some objects are not connected, some are, some are connected with infinite number of arrows. So if you have an idea that category is a graph except you have to be open minded what is a graph.
+
+You can have arrow going from a to b, from b to a and arrows going from a to a and from b to b.. it's OK, just give them different names. 
+
+Composition is a very simple property that if you have an arrow going from a to b and an arrow from b to c you have an arrow going from a to c.
+
+A --- f ---> B --- g ---> C
+           g . f
+    ------------------->
+
+
+So this is called composition. The category is defined by saying what the objects are and arrow and then defining the composition, like multiplication table for arrows. Different composition tables will give you different categories. 
+
+Identity for every object, there is this arrow that we call identity, one per object. Why am I calling it identity? Because of composition. If I compose f with identity b I get f again. so 
+~(id a ---> a) a --- f ---> b (id b ---> b)~
+~idb after f = f~
+So if you think of it as a graph it has to have some properties, it has to have an identity arrow on each node.
+So that is left and right identity. The third law is the law of associativity. 
+
+ f ----> g ----> h
+
+g after f and then I compose this with h. So I have
+
+~h . (g . f) == (h . g) . f~
+
+That is extremely important to make is manageable for us humans. Is it possible to have no associativity? There are mathematicians that work on making associativity weak..
+
+If objects form a set it's called a /small/ category, if not it's called a /large/ category.
+
+In programming, objects are types and arrows are functions. A function is an arrow or a morphism between two types. In /Haskell/ is a little more complicated because of laziness, so the trick is that every type contains the bottom value, because categories don't really take into account /time/. Time is hard to describe in mathematics but in programming is important. When does the calculation terminates? If the function never ends what is its type? So in Haskell it return an Int type, the bottom type, which means it never terminates.
+
+/You might ask what are types?/
+
+Sets of values? There is a simplistic model, they are just sets of values so we can model programming as in a category of sets, sets of values and functions are just functions between sets. And that's a good model too. So a mathematical function is between sets. 
+
++#BEGIN_QUOTE
+NOTE: Interesting when drawing arrows between sets the arrows as functions are not morphism. They seem to just map objects but do not morph them. It is like a different view. Seeing morphisms blindly like seeing on which objects they work but without seeing the work, the type of work itself. 
++#END_QUOTE
+
+When I put my categories glasses I see no structures like in sets. 
+
+We are studying the sets and we find out there are many functions going from set to itself, we find the identity function and this is the identity morphism in my big multiplication table.. I'm abstracting, forgeting what's inside the objects, what the functions do and I end up with a category sets. I have these arrow I forget where they came from.. but I have the multiplication table which fulfills my laws. I can forget where it came from. I don't care about the structure of my functions or objects, I forget what these are.. What can I say about these objects if I just /look/ at the morphism? Oh this set is /empty/ How do you know it? Well, it turnes out the empty set has this property that can be expressed just in terms of morphisms.. it's not easy but it's possible.. You can identify a lot of properties about sets just by looking at the multiplication table without looking at the sets.. If you just look at the sets you are like doing assembly language.. instead you use a higher language of categories looking at the relations.. You look at the /interface/ not the objects. Think /data hidding/ and /abstraction/. This is the end of road for abstraction. The most abstract language you can think of. 
+We can stop now. (Clap)
+
+#+BEGIN_SRC haskell
+(.) :: (b -> c) -> (a -> b) -> a -> c
+f . g = \x -> f (g x)
+#+END_SRC
+
+* 2.1 Functions, epimorphisms
+
+recap: Category of types and category of functions
+Identity and composability
+
+operational vs denotational semantics, sometimes I use semantics of sets and sometimes semantics of types.
+A mathematical functions are total functions while in imperative programming we use partial functions which explode for some conditions. 
+
+/How can you tall if a functions is pure?/
+A function is pure if you can memoize it, if you can turn it into a lookup table. Like functions on characters are easy to tabulate, while functions of strings or integers are not easy to tabulate, though that is a problem of resources. 
+
+/What is the lowest, or the highest level of abstraction? The simplest building blocks with which we can build complex stuff? We want to get to the bottom so that we can recompose stuff./
+
+*So now we have this category of types and functions*
+
+/How can we use functions as category of morphisms on sets?/
+
+So functions are defined as special kind of relations. So we have two sets, and we look at elements. A relation is a subset of pairs of elements. So.. it's just pairing. This element is in a relation with this element.
+
+/What is a set of pairs?/
+A Cartesian Product. The set of all pairs forms a cartesian product. Now we take a subset of these pairs and any subset is a relation, by definition. There are no other requirements. So in this sense, a relation has no directionality while functions have these arrows. Functions have some kind of directionality. What kind of condition do we have to impose on a relation to be a function. 
+
+So many elements from set 1 can be in relation with one element with set 2 but one element cannot be mapped with bunch of things. It's still OK for many to be mapped to one value. And all elements have to be mapped into something in the other set. However not all elements of the second set have to be mapped to the first set.
+
+~Domain ----- f ----->  Codomain~
+
+The mapped part(subset) is called the /image/ of the function
+This directionality is very important, this intuition of functions.
+
+Ask yourself, is the function invertible? Usually it's not, there isn't always a function that goes other way arount, an /inverse/ function. 
+
+~f :: a -> b~
+
+The function is invertible if there is a function that goes from b to a
+
+~g :: b -> a~
+
+~g . f = id~
+~f . g = id~
+
+A function that is invertible, symmetric, is called isomorphism.
+
+#+BEGIN_SRC 
+                     f
+  (id a) <-  a < ========= > b -> (id b)
+                     g
+#+END_SRC
+
+One reason for a function not to be isomorphic is to collapse. 
+All even numbers map to True, all odd numbers map to False. That's one reason not to be invertible.
+
+Other reason is that it's whole image does not fill the whole codomain. So if you had to invert this whole image what to do with elements beyond the image in the second set? So instead inverting you could also say the counterimage, fiber.. you could build a set of fibers so on a set of fibers this thing is invertible.. fibration is interesting in categories too!
+
+So there are these two reasons for invertibility. So a function takes place in time. A function that is not invertible is something that increases /entropy/. You cannot unboil an egg. These two phenomena correspond to very interesting thought process, abstraction. Like I am throwing some information and I am left with one piece of information. Like abstracting numbers to even or odd. 
+
+Like embedding a shadow on a wall of a cave..
+
+If a function does not collapse things than it's called injection. An injective function does not collapse things. No shrinking, no abstraction, it just injects..
+
+x1 ---> f x2
+y1 ---> f y2
+
+If the function covers the whole codomain, if the image covers the whole codomain it's called surjective. If its surjective and injective it is called isomorphism.
+
+For all ys there exists an x that y = f x
+
+/So I have defined something in terms of elements/
+/How can I talk about category theory now if I cannot look at the elements?/
+
+I have to express this stuff only in terms in morphisms. It is a very holistic approach. 
+
+/If my microscopes don't work maybe my telescopes work?/
+
+Note: In category theory we don't like latin we like greek.
+
+When something is surjective is called *epic*, when something is injective is called *monic*. (when you consider set theory)
+
+*Epimorphism* and *Monomorphism*
+
+Let us say that we have guys that are in terra incognita, outside of the image in set /b/ so I make a set /c/ and map a function g to c.
+
+So g after f will actually not probe this terra incognita even though g maps everything, inside composition it will actually only act on this inside a composition. Ok if I have two of these functions g1 and g2 mapping the same point, but if they are outside of f function halo then the composition is the same. So the converse of this is if g1 after f is equal to g2 after f then g1 = g2, so the function is surjective. Now I have expressed this purely in categorical terms. This is an *epimorphism*
+If I have g1 . f = g2 . f then I can cancel f meaning g1 = g2
+
+* 2.2 Monomorphisms, simple types
+Recap:
+
+f :: a -> b
+
+/f is an epimorphism from a to b if for every other object c and for every pair of morphisms that goes from b to c, if the composition g1 after f is the same as g2 after f follows then g1 = g2, then this is an epimorphism. In another words if have a composition g1.f equals to g2.f we can cancel the f on the right./
+
+[[https://en.wikipedia.org/wiki/Epimorphism][Epimorphism]]
+
+Note: wiki
+
+#+BEGIN_QUOTE
+In category theory, an *epimorphism* (also called *epic morphism* or, an *epi*) is a morphism f : X -> Y that is right-cancellative in the sense that, for all objects Z and all morphisms g1, g2: Y -> Z,
+
+g1 . f = g2 . f => g1 = g2
+#+END_QUOTE
+
+Epimorphisms are categorical analogues of surjective functions (and in the category of sets the concept corresponds exactly to the surjective functions), but it may not exactly coincide in all contexts
+
+A function /f/ from a set X to a set Y is surjective (also known as *onto*, or a *surjection*), if for every element /y/ in the codomain Y of f, there is at least one element x in the domain X of f such that f(x) = y. It is not required that x be unique; the function f may map one or more elements of X to the same element of Y. A function would not be surjective if the image does not fill the whole codomain. 
+
+Identity function idx on X is surjective. 
+
+The function f : Z -> {0,1} defined by f(n) = n mod 2
+(that is, even integers are mapped to 0 and odd integers to 1) is surjective. 
+
+/So let's start with something that's not a monomorphism/
+A non-injective function will just map two different elements on one set to the sem element of set B, like x1 and x2 are mapped to the same y.
+
+#+BEGIN_SRC
+ --g1--->   x1 \
+z               ---f---> y
+ --g2--->   x2 /
+#+END_SRC 
+
+If you compose g1 with f and g2 with f you get the same result. They only differ in the way they map z but you get the same result. f after g1 will be equal to f after g2. This is similar to epimorphism, we use precomposition rather than postcomposition.
+
+For every object C and every pair of g1 and g2, this time they go from c -> a if f after g1 = f after g2 leads to g1 equal g2 always then we say it is a /monomorphism/. Notice f is not monomorphism by itself. I have to use the whole universe to define this product, a universal property. 
+
+/I hope you get some better feel what functions do/
+
+Let's talk about sets a little bit. Sets are models for types. Let's think of simplest possible types/sets.
+Empty set! Doesn't empty set correspond to a type in programming? You find it in Haskell. An empty set corresponds to a type (forget for a moment for functions that do not terminate) /Void/. There is no way to construct a /Void/ type. Can we define functions that take Void as argument?
+
+f :: Void -> Int ?
+
+Mathematically speaking yes. I have a function of type Void, I challange you :)
+
+~id void :: Void -> Void~
+
+This is a good function, you can never call it though, it exists in vacuum when you cannot provide an argument.
+
+In Haskell it has a name:
+~absurd :: Void -> Int~
+
+In logic Void corresponds to false, because you cannot construct falsity from something, you cannot prove something is false, it has no proof. Proof is a function, in this case since you cannot create void there is no proof of falsity, but on the other hand if you assume false, you can derive anything. So it's a polymorphic function.
+~absurd :: Void -> a~
+
+Next is a singleton set, in Haskell is called a Unit ~()~
+it has only one element.
+~() :: ()~ corresponds to ~True~
+
+~Unit :: a -> ()~ What about a function that takes a Unit and returns an Int ~() -> Int~? This function must be constant, has to return the same integer. There are many functions like this. ~one :: () -> Int~, boolean..
+
+What about a type that has two elements? It's just boolean. Boolean has True and False, whatever you call it. Boolean is not an atomic construction in sets or categories, it can actually be defined as a sum of two units.
+
+We can talk about functions from bool to bool. A function that returns a boolean is called a predicate. 
+
+* 3.1 Examples of categories, orders, monoids
+
+Last time we talked about sets, sets as sets of elements. That's not a very categorical view, I was trying to reformulate some of the properties of sets in terms of morphisms or functions. It makes sense to reformulate them between sets, then we can ask how does this generalize to an arbitrary category.. but we don't know many categories? Let's broaden our horizons!
+
+Let's start with simplest possible category! Very few objects. Zero! But a category is defined with objects and arrows, so there are *no objects* then there are *no arrows*. Are the conditions then fulfilled. Well the answer is yes, if there aren't any then it's automatically satisfied, so is there an identity arrow? We can say anything about it then since there are no objects. It sort of sounds like a joke. What's the use of this category? It's useless, however the value is in context. Just like zero by itself is useless. What is the context. The context is a /category of all categories/. In that context, it's an /initial object/.
+
+The next category has one object. There has to be an identity arrow ~id~. That will be a /terminal object/
+
+Next is two objects. Two objects with two identity arrows, two arrows from a to b and b to a and so on..
+In general we can always start with a /graph/. But not every graph is a category. It turns out if we start with a graph we can keep adding additional arrows to get a category. The first thing we need are identity arrows, for every node in the graph. Then we come up with composition. For every pair or composable arrows f and g we have a third arrow g(f), g after f. We need to satisfy /associativity/. These compositions produce the same arrows, then some can be identified. This kind of construction is called *free construction* since we are not imposing any constraints other than constraints of category theory.
+
+*Order* categories - in orders arrows are not functions, arrows represent relations. An interesting relation is less than equal =< 
+
+#+BEGIN_SRC 
+    =<
+a ------> b
+#+END_SRC
+
+So this arrow doesn't have any meaning other than a is less than of equal to b. It's a relation. Or we can say a /comes before/ b in some order. There are different types of orded. There is /preorder/, /partial/ order, /total/ order. 
+
+A /preorder/ satisfies just the minimum of conditions, it has to be composable, so if a is less than b and b is less than c we want a to be less than c. 
+
+#+BEGIN_SRC 
+   =<       =<
+a ----> b -----> c
+  ------------>
+       =<
+#+END_SRC
+
+We recognize this as composition from category theory. Is it /associative/? It is! Why? It's because two objects are either in a relation or not. If there are no relation than there is no arrows, it's a binary choice. Now in /total arrow/ you can say between any two objects there is an arrow. But in /preorder/ that is not true.
+
+2nd condition (identity)!
+So is it true that for every object this object is less 
+than or equal to itself? That's called /reflexivity/.
+
+Here we have only one arrow going from a to b and another arrow from b to a, but we cannot have multiple arrows. A category like this is called a *thin category*.
+
+The set of arrows between any two objects has a name also, it is called a ~hom-set :: C (a,b)~ or ~C(a,a)~
+
+A *thin category* is one in which a every hom-set is either an empty set or a singleton set. That's the definition in terms of /hom-sets/. 
+
+We can now impose additional conditions and the next thing we get is /partial order/. We don't like preorder, we don't like loops. So partial order has no loops because if there is an arrow from a to b then you cannot have an arrow from b to a. If you look at a graph it corresponds to a *DAG* /directed acyclic graph/ and further if you say OK, a /total order/ is an order in which there is an arrow between /any two/ objects.
+
+And now with this /preorder/ category I can show you epi and mono. Something whats both epi and mono does not have to be invertible. In sets it corresponded to injective and surjective and if it was both it was reversible, called /bijection/ but that is *not true* in every category. You can have an epi and mono that is not inversible. 
+
+#+BEGIN_SRC 
+
+      mono                          epi
+z === h1,h2 ===> a --- f ---> b === g1,g2 ===> c
+
+
+#+END_SRC
+
+Every arrow in preorder is a monomorphism and every arrow in preorder is a epimorphism, but it's not invertible, especially in partial order than it's definetly not invertible because there are no arrow going back. So that't a counter example. 
+
+You can think of the most general category as being like a preorder that is /thick/. It gives you a different intuition. Here when you have order you think of it as a relation and this means it is true or false. So it's a /black and white/ world. Now in a /thick/ category you might say, if I have a number of arrows, and each of these arrows sort of represent a /proof/ of this relation. Here is one proof called g, here is another called f.. so you might think of a category like a proof relevant /preorder/. A thin category defines a relation and a thick category defines a proof relevant definition. That's a different way of looking. It's not only enough to show that something is related to something, /Homotopy/ type theory studies relations in that sense.
+
+In one object category we can have many arrows. We can have many mor loops.
+
+#+BEGIN_SRC 
+-- Monoid
+
+  /  <===>
+m -- <===> id
+  \  <===>
+
+#+END_SRC
+
+So any category with a single object and many arrows is called a Monoid, sort of a pre-group. Monoid is usually defined as a set of elements with some operation defined on them, let us say multiplication. So it's a binary operator. And this binary operator, we can impose certain conditions. We want one of these elements to be the ~unit~ (/identity/), sort of like multiplication by ~1~, you always get the same result. And the other condition that can be imposed is /associativity/.
+~(a * b) * c = a * (b * c)~
+~e * a = a * e~
+
+String concatenation, that's an interesting monoid, does it have a unit? Yes, an empty string, you append or preappend an empty string don't change anything. It's associative. It is a good example because it's not symmetric. Multiplication and addition is symmetric, you can change the order, with strings you can't, you append two strings, the result will be different if you append them in the opposite order, so this is a very nice example of a monoid. And lists, appending lists forms a monoid. In Haskell, strings are lists of characters and they form a monoid. So thi is /one view/ of a monoid from set theory. 
+
+Let's call this Monoid M. There is only one hom-set from
+M(m,m) since there is only one object. This hom-set is a set, right? This category defines a set, and guess what, there is a third element that corresponds to the composition to these two arrows. Well, let's say this is our multiplication. So the third element is the product of two elements. If you pick any two arrows in hom-set, the end of one is the beginning of the next, so there is a third one, f, g, g after f, so g after f is also an element. And then id is here also. All these arrows are members of this set. Example, arrows would correspond to adding a number in some category.
+So the binary operator in a monoid has to be defined for all elements of the set, has to be a total function of two arguments. 
+
+So a category of types corresponds to a strongly typed system. You cannot compose any two functions. The result of one function has to have a type that is the same as the argument of the next function. That's strong typing. Not any two functions are composable. The types have to match. A monoid is a very special category in which every two functions are composable, that corresponds to your languages, that have weak typing, any two functions are composable. 
+
+* Kleisl category
+
+Let's define a relation on sets, this is a relation of /inclusion/, what it means to be a subset of another set. It is a relation, the question is what kind of relation is this? Is this an order, preorder? What should we check? Identity in terms of order is /reflexivity/.
+
+If a is a subset of b and b is a subset of c we have composition. Is it associative? Yes.
+So it is definetly a preorder, is it a partial order? We have no loops.
+~if a =< b and b =< a then a = b~ so it is a partial order, is it a total order? No. Is it possible to have like a diamond relation? They form a /dag/. 
+
+#+BEGIN_SRC 
+      a
+    /   \
+   b /=  c
+    \   /
+      d
+#+END_SRC
+
+I want to introduce a category close to us programmers, not based on types and function, we get to it by solving a real programming problem.
+The problem is this:
+
+/We have a library of functions. One day the manager says there is a new requirements, that every function has to have a audit trail, every function has to create a little log that says the name or something, has to be appended to a log. Now go and rewrite our library so that every function leaves a trail./ 
+
+The simplest imperative solution would be: have a global log. A simple solution introducing many dependicies. But logs don't compose, deadlocks..
+
+#+BEGIN_SRC haskell
+pair <bool, string>
+negate (bool x, string log) {
+  return makePair (!x, log + "Not!");
+}
+#+END_SRC
+
+The subtle problem is this use of plus, why does a function called /negate/ knows about appending strings? This one function is more local but still it has this element knowing stuff it does not belong. So this is a good solution but not quite. 
+
+#+BEGIN_SRC haskell
+par <bool,string>
+negate (bool x) {
+  return make_pair (!x, "not!");
+}
+#+END_SRC
+
+Who does appending of this logs? Somebody has to concatenate these logs. So the answer is.. what do we do with these functions? We compose them. What if we modify how we compose functions? Let us define a new way of composing functions.
+
+/Appending strings/ is in essence composing of functions.
+
+[[https://blog.softwaremill.com/kleisli-category-from-theory-to-cats-fbd140bf396e][Kleisli-category-rom-theory-to-cats]]
+
+#+BEGIN_QUOTE
+Note: I didn't get this at all :( but will keep watching the lectures :). I also do not understand the examples in scala above. What I do understand that the composition between a and b resultet in an embellished function where a defines a b and a string, so it is not just a to b but a to b which results in pairing the result with another string. So this makes a monad, a way of composing special functions. 
+#+END_QUOTE
+
+
+
+
+* Terminal and Initial Objects
+Recap of Kleisl categories, important to understand Monads. It seems challenging because you have to hold two categories in your head
+
+So you start with one category in which you have objects and arrows. Now based on this category you are trying to build another category, the Kleisli category, and you are building it this way - you're saying /the objects in this category are exactly the same as in the starting category/, however the arrows in this category are not the same arrows as here so if I have an arrow from a to b is not the same arrow as the one in category C from a to b. 
+
+/Actually I have something that for every object here in C gives me some other object./
+
+Now, we talked about a particular case in which for every type, if I had a type a, I assign to it a new type that's a pair of a and String. A /pair/ of a and string is a different type than a, but it's a mapping of types, so for every type a I have this type. Let me call this f a, but maybe not, it's not a function. So let me call it *m*.
+Now, *m* is a mapping that mapps objects to objects or types to types. Later we will learn that this kind of mapping is called a functor. 
+
+For type b I will have a type *m b* (the pair of b and string) so if there is an arrow from ~a -> m b~ this will be my arrow from ~a -> b~ in my Kleisli category, so this is equal to this.  
+
+#+BEGIN_SRC 
+*C*                    *Kleisli*
+a ----> ma              a <====> id
+|\     (a, String)      |
+| \ ------------------> | 
+|  \                    |
+b   m b                 b
+|\  (b,String)          |
+| \                     |
+|  \                    |
+c   m c                 c
+     (c,String)
+#+END_SRC
+
+So it's like im implementing a new category(Kleisli) in terms of this(C) category, I'm implementing the arrow in this category as an arrow in this category, this is an arrow (Kleisli), this is how it's implemented (C).
+
+/How do I know it's a category?/
+
+So what's an arrow from b to c (In Kleisli)?
+It's not an arrow from b to c (In C)
+It's implemented as an arrow as b to (c, String), or in general some mc, right?
+So in this (C) categry they do not compose because the end of this one(mb) is not the same as the beginning of this one(b).
+
+How do I compose these (Kleisli) guys? In principle I don't know.
+
+Now I showed you that in this case when is (b, String) and (c, String), let me call this function first (a -> mb) and I'll get this pair (b, String) and I will split this pair into *b and String* and then I will pass this *b* (/b,String/) here (points to *b* (a -> b)) and I will get this (c, String), I will get c and String, right? And then I can combine these things, I can concatenate these two strings, and return a pair *(c, s1 ++ s2)* so I have now a way of composing these arrows. 
+
+Now in general for any kind of mapping it's not true, I was just lucky. There was a composition, I could define a clever way of composing these things! If I find the way of cleverly composing the implementation here (C) then I can say this is how I compose these arrows in this Kleisli category, and for this to be a category I have to have an identity. How is identity implemented?
+
+It has to go from *a* to this *m a* or in another words *(a, String)* and it has to be a Unit with respect to my new special kind of composition. I have to pick a string thats an empty string so that the concatenation with an empty string will give back the original string.  
+
+Once I do that than I can say this is a category and if this is a Kleisli category, then this mapping from a to a string or in general from ~a -> ma~ is called a Monad!
+So this is one of many definitions of a monad. This is a very categorical construction.
+
+          *****************
+
+And now for something completely different.
+So we talked about sets and there is this category set and there is also set theory, and there are these two views, that very useful. One view is sets are things that have elements and we can define things like function, mapping elements to elements, so a lot of these things can be defined in terms of elements. And then we have this category set and in this category we suddenly got amnesia and we are forbidden to talk about elements, only about arrows. We started from arrows, and we know functions between sets so every time we have a function between two sets there will be an arrow in category of sets. And we know how to compose functions. 
+
+What is an empty set? How do I define an empty set if I don't know anything about elements, a singleton? A cartesian product (set of pairs)? So all this stuff have to be completely rediscovered. Just in terms of arrows and compositions. There is this method of defining things. It's called /Universal construction/
+We use this in category theory to pick a particular kind of pattern. Since we cannot go inside of the object we define the properties of the object in terms of the relation to other objects. So we have to define everything in terms of arrows coming and going to this object. We have to think about the whole universe, and we talked about it with epi and mono.
+
+So it's like googling. Think of a simple pattern, OK google in this category, show me all hits, so everything that matches this pattern, and usually you have lots of hits. The next thing you do is you have to /rank/ these hits. If you have two hits, see which one is better. The best match defines the object that you are looking for. 
+
+We will try to define a singleton set.
+How does this set relate to other set? Think arrows!
+There is one property of singleton set that's interesting.
+It has an arrow coming from every other set. There is an arrow from any other set to singleton set. In programming we call it *Unit type*, an empty tuple *()* so from any type or any set there is a function to Unit and this function is called Unit, it's a polymorphic function, it just ignores it's argument and creates a unit and returns it ~a --- Unit ---> ()~, or ~Void --- Unit void --> ()~
+
+Does it really single out singleton object? Is there any other type that have the same property? Well unfortunately yes because set is a category that is extremely rich in arrows! 
+
+Only, if you have an non empty set and empty set there is no function there!
+You can only say they all map to the same element, /and I'm fucked!/
+
+So for instance, OK, Bool, the type bool of two element set, is there an arrow from every other set to it? You bet, right? In fact there are two arrows from any other set. One is called /True/ and /False/. They just ignore the argument and return true or false.
+
+The singleton type or unit type there is always a /unique/ arrow from any other object, so this way we can define using pure arrows we can define what we mean by singleton set, without talking about elements.
+
+Let's forget about sets! What would we call this object? We will call it /terminal object/, for all arows, all arrows will converge on this object. Not every category has a terminal object. We can try, we'll say a terminal object in a category is an object that has a unique arrow coming from any other object. Understand, these are two separate conditions. For all objects/type a there exist an f that goes from ~a -> ()~. So this is one condition.
+
+And for every two functions from ~a -> ()~ they have to be equal. That's how you define uniqueness.
+
+#+BEGIN_SRC 
+(for all) a (there exist) f :: a -> ()
+(for all) f :: a -> (), g :a -> () => f = g
+#+END_SRC
+
+An empty set can be defined by outgoing arrows (singleton set by incoming arrows) ~Void --- absurd ---> a~
+So I have just reversed the definition I used for terminal object. By the same token I want this arrow to be unique. This object will be called /initial object/, the opposite from /terminal/, it has a /unique/ outgoing arrow to every other object. This corresponds to empty set, or in programming to /Void/. 
+
+The property of the /terminal/ object, no matter what path you take to the terminal object you can always shrink it to one arrow and it's always the same arrow, this is where uniqueness comes. With boolean for example  there would be two ways of shrinking, some path would become true paths some false, see there are more ways of shrinking these paths. When this object is terminal there is only one true path, leading you to the terminal object. 
+
+Ok, the next question we might ask, how many of these objects are there? How many empty sets are there? Just one, seems natural to think that, what about terminal object, how many singleton sets are there? Tougher question.. is it the same, the set that contains one apple is it the same as the set containing one orange? I don't know.. from perspective category theory, what does it mean for two objects to be equal? I don't know, *there is no equality of objects.* There is an equality of arrows, if they have the same ends and beginnings, right? So we can compare arrows for equality but cannot compare objects for equality, instead we can ask if they are /isomorphic/. Isomorphism is this fact that you have two arrows, one being inverse of the other.
+
+/Terminal object is unique up to an isomorphism./
+
+And even stronger condition is that there is an unique isomorphism between them. Like if you have two element sets, (true and false) and (black and white), true is black, false is white, these are two morphisms, both invertible.
+
+Suppose we have two terminal objects ~a~ and ~b~, so there will be an arrow from b to a, and it is a unique arrow because a is terminal object, but b is a terminal object so there is unique arrow coming from a to b. What's the composition? It's a loopy thing.
+
+#+BEGIN_SRC 
+          <------g----
+(id a)  a              b (id b)
+          ------f-----> 
+
+-- Unique isomorphism:
+g . f = id a
+f . g = id b
+#+END_SRC
+
+How does the pattern and ranking relate to this? So my pattern is an object, a simple pattern, now show me all example of this pattern in your category, what will you show me? You will show me all your objects, because I didn't specify anything about it, that's a very imprecise query, it gives you huge recall, but we have the ranking. So if I have two matches I will say a is better than b if there is a unique arrow from b to a. OK, maybe there is no unique arrows.. ok fine well then you don't compare these objects. I didn't say its a total order, its a partial order. What is like the best fit? One that is better than all else, so terminal object is better than any other object. The difference between initial and terminal object is just in the ranking. 
