@@ -58,6 +58,7 @@ And when functions start lying about the things they return, you can no longer r
  * [How To Do Basic Error Handling Logging](https://williamyaoh.com/posts/2019-10-12-how-to-basic-error-handling-logging.html)
  * [Basic Haskell: An Examination of a Todo List](https://www.benlopatin.com/basic-haskell-todo/)
  * [Standardized ladder of functional programming](https://pbs.twimg.com/media/CydL5EYUsAAI-61.jpg:large)
+ * [Sum Types](https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/sum-types)
 
 ### Haskell Code
 
