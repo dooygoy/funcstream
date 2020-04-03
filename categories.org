@@ -349,7 +349,6 @@ Note: I didn't get this at all :( but will keep watching the lectures :). I also
 
 
 
-
 * Terminal and Initial Objects
 Recap of Kleisl categories, important to understand Monads. It seems challenging because you have to hold two categories in your head
 
@@ -453,3 +452,171 @@ f . g = id b
 #+END_SRC
 
 How does the pattern and ranking relate to this? So my pattern is an object, a simple pattern, now show me all example of this pattern in your category, what will you show me? You will show me all your objects, because I didn't specify anything about it, that's a very imprecise query, it gives you huge recall, but we have the ranking. So if I have two matches I will say a is better than b if there is a unique arrow from b to a. OK, maybe there is no unique arrows.. ok fine well then you don't compare these objects. I didn't say its a total order, its a partial order. What is like the best fit? One that is better than all else, so terminal object is better than any other object. The difference between initial and terminal object is just in the ranking. 
+* Products
+
+There was a question about terminal objects. There is nothing I said about outgoing arrows from the terminal object. I talked about incoming arrows to the terminal object, they have to be unique from every object. It doesn't mean there are no outgoing arrows and in fact there are usually outgoing arrows from the terminal object and these are the arrows that helps us define generalized elements in other objects, every arrow from the terminal object to another object is a definition of a generalized element in this other object. This is what happens in set, when you map a singleton set into some other set, thats equivalent of picking one element and say, this element of singleton set is mapped to this particular element of the other set, so its picking another one, there are many morphisms, each of them picks a different element.
+
+/Now let's talk../
+
+We have now two examples of universal construction, the terminal object and initial object. I talked about reversing the arrows. It turns out this has a much deeper meaning. Every construction in category theory has its opposite construction that is done by reversing arrows. If you define the terminal object you get for free the definition of the initial object. You can allways create a new category which is identital to another category but with arrows reversed.
+
+#+BEGIN_SRC 
+C (a -- f --> b)    C op (b -- fop --> a)
+f . g               (g . f) op
+
+(g . f) op = f op . g op
+#+END_SRC
+
+*Cartesian product* (the set of pairs), for instance a plane is a cartesian product of two axis, and cartesian product corresponds to a point.
+
+For every cartesian project there are these functions, called projections. In Haskell we call then /fst/ and /snd/. Of a x b there are these two arrows called first and second. First maps to ~a~ second maps to ~b~. That's a pattern. I'll call ~a x b~ a ~C~, maybe I'll call these two arrows ~p(fst)~ and ~q(snd)~. There could be many such things, it could be anything. Now one of that is my cartesian product, but which one?
+
+Universal construction to the rescue! I have to be able to rank them, that some cartesian product is better than another one. So let us say we have ~c~ and ~c'~. We say c is better than c' if there is a morphism, let's call it m.
+
+#+BEGIN_SRC 
+                    C'
+                  / | \
+               p'/  |  \ q'
+                /   m   \
+               /  p | q  \
+            a <---- C ----> b       
+
+p . m = p'
+q . m = q'
+
+Later: 
+a = Int
+b = Bool
+p = fst
+q = snd
+#+END_SRC
+
+Is this enough to pick? No it's still not enough.
+So to summarize, c is better than c' if there is a unique morphism m from c' to c such that, this is true (p.m=p', q.m=q'). How do we read this?
+
+If this were multiplication then you would say p' factorizes into p times m and q' factorizes into q times m. So they have a common factor /m/. So I can like extract a common factor. So this morphism is special, it factorizes these two projections. It takes the /worst/ out of these two projections, condenses them. Why the worst? If you look at different candidates, like the goldilocks principle, some candidates are too small some too big, they don't fit. Morphism can loose information, it can squeeze, may not cover, so like all this non injectivity is concentrated in this /m/. This is a bad guy, it does all this non injective non surjective stuff, they are concentrated in there. Like ~p~ is this nice clean projection but if you add this uglines you get this ~p'~ projection. 
+
+So the real product of a and b is a pair (a,b). That's the type. 
+
+#+BEGIN_SRC haskell
+fst (a,_) = a
+snd (_,b) = b
+
+a = Int
+b = Bool
+(Int, Bool)
+
+Int candidate
+
+p :: Int -> Int
+p = identity
+
+q :: Int -> Bool
+q = True
+#+END_SRC
+
+I have to show there is an mapping ~m~. 
+#+BEGIN_SRC haskell
+m :: Int -> (Int, Bool)
+m x = (x, True)  -- non-injective badness
+#+END_SRC
+
+/Correction: I mean non-surjective, It misses pairs of the form (x, False)/
+
+Let's try a different candidate. We want a richer candidate. Let's have a triple. ~(Int, Int, Bool)~
+Now I can define a projection 
+
+#+BEGIN_SRC haskell 
+p' :: (Int, Int, Bool) -> Int
+p' (x,_,_) = x
+q' :: (Int, Int, Bool) -> Bool
+q' (_,_,b) = b
+#+END_SRC
+
+But this guy (p') is too big, like 3D cube and my product is just a square, so I'm shrinking stuff. What is the ~m~ in this case. ~m~ would have to be a mapping from the bad candidate which is (Int,Int,Bool) -> (Int,Bool)
+~m (x,y,b) = (x,b)~ so it's /non-injective/
+
+How do we define a product?
+So a categorical product of two objects a and b is a third object c with two projections p and q.
+#+BEGIN_SRC 
+C   p : c -> a
+    q : c -> b
+#+END_SRC
+
+For any other C' that has some p' from c' to a, and q' from c' to b, for any other pretender there is a unique morphism ~m~ that goes from C' to C which factorizes the two projections. ~p' = p . m~ and ~q'= q . m~
+
+/You remember the picture, the commuting diagram/
+/Two paths through a diagram give you a same result/
+
+*C is called the product of a and b*
+
+* Coproducts, sum types
+
+Today I show you the dual of the product, the same thing but in the opposite category, I will take the product and reverse the arrows and show you whats produced and the thing constructed is called coproduct. Co- is usually called when you reverse something, Monad, Comonad..
+
+So a product is this object with two morphism *p* and *q* into /a/ and /b/. So it's a product of a and b and a product *C*, but there are lots of things that have two projections, so product is the best, the ultimate!
+
+But what about this *C'* prime, it also has projections p' and q' why this is not a product? There is a unique mapping ~m~ that makes these two triangles commute. This *C* is the best candidate if for any other candidate we can do this direct mapping, we can reduce it to this one *C* and these two projections (p,q) which in sets were just (a,b) so now if we /reverse/ the arrows, we will try to draw this upside down, we want the diagram flow from top to bottom.
+
+#+BEGIN_SRC 
+                 a             b
+                    \       /
+                     \     /
+                \   i \   / j   /
+                 \    \\ //    /
+                  i'    C     j'
+                   \    |    /
+                        |
+                        |
+                        C'
+#+END_SRC
+
+So a *coproduct* will match this pattern, It's an object with two arrows coming to it from a and b, and these two arrows are called injections. We just reverse the arrows. 
+So instead of mapping the fake candidate into the real thing using a unique morphism we are mapping the real thing using a unique morphism into the fake candidate. 
+
+#+BEGIN_SRC 
+i' = m . i
+j' = m . j
+#+END_SRC
+
+In programming cartesian product gives us a tuple, a pair of two things. ~(a,b)~ and this is well known thing. However a coproduct? What is it in set theory? So the fact that we have this injection means we are embedding the set a into C and be are embeddin a set b into set C, I'm thinking function, because we want to figure out what this gives us. This is like the best fit for this pattern so we want this to inject the whole set without collapsing, so what happens is that like the best fit would be a set which contains both a and b so it's like s /union/ of these two sets. Injected /faithfully/, means that the whole set a is mapped into this and the whole set b is mapped into this and there is no bloating, no unmapped things, just a and just b and nothing else and this defines absolute best possible fit and this is true of every universal construction, picking the ideal thing. Two objects, two injections, a coproduct. Here we can say that a product is something that every other candidate can be shrunk into this product that we can recognize, map this candidate into the product while here, in *coproduct* we can recognize a and b inside of C and this unique morphism tells us which parts of C' belong where, what we can find in C'. This does not completely define this thing. In set theory you have this union of two sets. What happens when they overlap? What's a union of set with itself? Just the same set, but you can tag these elements, it's actually duplicated, because it has a tag. I came from the left one, I came from the right one, so this is called a /discriminated union/. It turnse out that it is a *discriminated union*. There is a mapping from discriminated union to union. a left and a right. So we have twice as many elements, which can be mapped to a single a, a /non-injective/ mapping and it's a unique mapping of this discriminated union into a regular union. The other way around we couldn't. There is no way of mapping of mapping an a from union to a discriminated union because a function cannot split.
+
+What is it then in terms of types?
+In terms of types discriminated union is called a /tagged union/ or a /variant/. It means you have a /data type/ like which if you take a union of Integer and Boolean, this is something that either contains an Int or a Bool, not both of them, a pair is something that contains both, you need both to construct it, in order to construct a /discriminated union/ you either give me a integer and I give you this union, and I tag it, I'm an integer if you look inside me you find an integer, or if you give me a boolen we will have a tag that says it's a bool. 
+
+The simplest example of this is an /enumeration/. It is an union of things, it can be either this or that.
+
+A sum type is not built in and the canonical example is called Either
+
+#+BEGIN_SRC haskell
+data Either a b = Left a | Right b
+#+END_SRC
+
+You read it either left a or right b. It means you can construct an element of this type, either by calling this constructor and it contains an a or by calling this constructor and it contains b, so these two constructors correspond to this ~i~ and ~j~, one of them injects a and other one injects b whereas in a pair I had two, lets say /distructors/, they destroyed the pair by picking it a part (fst, snd) se here I have two /projections/ here I have two /injections/.
+
+Because this is a dual picture, how do we extract stuff? 
+Somebody gave me something ~x :: Either Int Bool~ I cannot just say give me an integer from this x, I can't do that because maybe it is a boolean, I do not know how is constructed. I have to take into account both possibilities, to write code that will work in either case, and that's called /pattern matching/, code that will match left pattern and right pattern. 
+
+#+BEGIN_SRC haskell
+f :: Either Int Bool -> Bool
+f (Left i) = i > 0
+f (Right j) = b
+-- they will only match when f is called with left element
+-- and will make this i equal to the integer sitting
+-- inside
+#+END_SRC 
+
+Now we pretty much have the foundation of the type system. In every programming language product types are all over the place. 
+#+BEGIN_SRC haskell
+data Point = P Float Float
+    -- record syntax
+           = { x :: Float
+             , y :: Float
+             }
+#+END_SRC
+
+Most of programming is done with products.
+Standard union in C++ is not tagged. Why is is called a product and a sum? Well sort of like a union, maybe.. so this is sort of like multiplication, like a /plus/
+
+(take a break) and we come back to /algebraic data types/.
+
