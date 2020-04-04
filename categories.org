@@ -298,7 +298,7 @@ So the binary operator in a monoid has to be defined for all elements of the set
 
 So a category of types corresponds to a strongly typed system. You cannot compose any two functions. The result of one function has to have a type that is the same as the argument of the next function. That's strong typing. Not any two functions are composable. The types have to match. A monoid is a very special category in which every two functions are composable, that corresponds to your languages, that have weak typing, any two functions are composable. 
 
-* Kleisl category
+* 3.2 Kleisl category
 
 Let's define a relation on sets, this is a relation of /inclusion/, what it means to be a subset of another set. It is a relation, the question is what kind of relation is this? Is this an order, preorder? What should we check? Identity in terms of order is /reflexivity/.
 
@@ -348,8 +348,7 @@ Note: I didn't get this at all :( but will keep watching the lectures :). I also
 #+END_QUOTE
 
 
-
-* Terminal and Initial Objects
+* 4.1 Terminal and Initial Objects
 Recap of Kleisl categories, important to understand Monads. It seems challenging because you have to hold two categories in your head
 
 So you start with one category in which you have objects and arrows. Now based on this category you are trying to build another category, the Kleisli category, and you are building it this way - you're saying /the objects in this category are exactly the same as in the starting category/, however the arrows in this category are not the same arrows as here so if I have an arrow from a to b is not the same arrow as the one in category C from a to b. 
@@ -452,7 +451,7 @@ f . g = id b
 #+END_SRC
 
 How does the pattern and ranking relate to this? So my pattern is an object, a simple pattern, now show me all example of this pattern in your category, what will you show me? You will show me all your objects, because I didn't specify anything about it, that's a very imprecise query, it gives you huge recall, but we have the ranking. So if I have two matches I will say a is better than b if there is a unique arrow from b to a. OK, maybe there is no unique arrows.. ok fine well then you don't compare these objects. I didn't say its a total order, its a partial order. What is like the best fit? One that is better than all else, so terminal object is better than any other object. The difference between initial and terminal object is just in the ranking. 
-* Products
+* 4.2 Products
 
 There was a question about terminal objects. There is nothing I said about outgoing arrows from the terminal object. I talked about incoming arrows to the terminal object, they have to be unique from every object. It doesn't mean there are no outgoing arrows and in fact there are usually outgoing arrows from the terminal object and these are the arrows that helps us define generalized elements in other objects, every arrow from the terminal object to another object is a definition of a generalized element in this other object. This is what happens in set, when you map a singleton set into some other set, thats equivalent of picking one element and say, this element of singleton set is mapped to this particular element of the other set, so its picking another one, there are many morphisms, each of them picks a different element.
 
@@ -550,7 +549,7 @@ For any other C' that has some p' from c' to a, and q' from c' to b, for any oth
 
 *C is called the product of a and b*
 
-* Coproducts, sum types
+* 5.1 Coproducts, sum types
 
 Today I show you the dual of the product, the same thing but in the opposite category, I will take the product and reverse the arrows and show you whats produced and the thing constructed is called coproduct. Co- is usually called when you reverse something, Monad, Comonad..
 
@@ -620,3 +619,218 @@ Standard union in C++ is not tagged. Why is is called a product and a sum? Well 
 
 (take a break) and we come back to /algebraic data types/.
 
+* 5.2 Algebraic Data Types
+
+So we have products and we have sums, just like in algebra. Product, sort of like multiplication, what does it mean, it means we have a monoid, at least, right? 
+So a monoid would be something that has multiplication, associative and that has a unit. But now we are talking about types. Is there something like an alebgra of types? Is the product in algebra of types actually behaving like multiplication? Let's check a few things in haskall.
+
+The product of numbers, it's not true of every monoid, but a product of numbers is symmetric, let's see if a product of two types is symetric.
+
+~(a, b)~ is it the same as ~(b, a)~? No it's not. If you have a function that takes a pair of Int and Bool it will not accept a pair of Bool and Int. So these two types are not the same, however they contain exactly the same information, they encode it slightly differently, which means that actually they are /isomorphic/. And this isomorphism is called /swap/. 
+
+#+BEGIN_SRC haskell
+swap :: (a, b) -> (b, a)
+swap p = (snd p, fst p)
+#+END_SRC
+
+It is symmetric up to isomorphism.
+
+The monoid product is associative. What does that mean?
+~((a, b) c)~ is it the same as ~(a, (b, c))~. This won't typecheck. But again they contain the same information.
+
+#+BEGIN_SRC haskell
+assoc ((a, b) c) = (a (b, c))
+#+END_SRC
+
+swap is isomorphic because if you swap two times you get the same thing. 
+
+Does it have a unit of multiplication? What would be the type if you pair it with any other type, you will just get back the same type? Well it has to be a type that has only one element. So the type that has one element is called a unit. ~(a, ()) /= a~
+
+#+BEGIN_SRC haskell
+munit (x, ()) = x
+munit_inv x   = (x, ())
+
+munit       = fst
+munit_inv x = (x, ())
+#+END_SRC
+
+This follows from sum being associative up to isomorphism.
+#+BEGIN_SRC haskell
+Either a b ~ Either b a
+
+data Triple a b c = Left a
+                  | Right c
+                  | Middle b
+#+END_SRC
+
+What's the unit of sum? /Void/.
+#+BEGIN_SRC haskell
+Either a Void ~ a
+       a + 0 = a
+#+END_SRC
+
+So we have two monoids but that's not all!
+
+We would like to combine these two monoids into a bigger thing. What would be that?
+
+From algebra we know that we can multiply to 0, we have this ~a * 0 = 0~ so a pair of (a, Void) ~ Void
+So I can never construct a pair of a and Void which is the same as Void. So a times zero is zero.
+
+There is /distributive law/. 
+~a * (b + c) = a * b + a * c~
+
+#+BEGIN_SRC haskell
+(a, Either b c) ~ Either (a, b) (a, c)
+#+END_SRC
+
+What is this structure called when you have multiplication and addition in the same thing. It is called /a ring/. Except a ring has an inverse of addition. And here we don't have inverses. We don't know how to /subtract/ something. What's the inverse of integer of a type, it's nothing.. 
+
+A ring that has no inverse is called a /Rig/ or /Semiring/
+
+What is the correspondence of 2 = 1 + 1? So 1 is a unit type, we can call left unit true and right ne false, so 2 is a bool.
+
+What else? 1 + a is our friend ~Maybe~
+~data Maybe a = Nothing | Just a~ (So Nothing is equivalent to (left) unit ~()~, and right Just a is ~a~.
+
+But there is more one interesting trick :) Let's solve equations!
+
+So the equation i want to solve is this
+#+BEGIN_SRC haskell
+l(a) = 1 + a * l(a)
+l(a) - a * l(a) = 1
+l(a)(1 - a) = 1
+l(a) = 1 / 1 - a
+#+END_SRC
+
+#+BEGIN_SRC haskell
+data List a = Nil | Cons a (List a)
+#+END_SRC
+
+Now, unfortunately I cannot do division and subtraction.
+Does anybody recognize this? It is a sum of geometric sequence. For n = 0 to infinity a to the power of n.
+
+#+BEGIN_SRC 
+  ~
+= E  a^n = 1 + a + (a * a) + (a * a * a) + ...
+ n=0       ^   ^      ^           ^
+           ^   ^      ^           ^
+	   ^   ^      ^           ^
+          []  [a]   [a,a]      [a,a,a]
+#+END_SRC
+
+What is not a trick or is a little trick that can be explained later is that this equation can be solved by substitution. This expantion ends in a /fixed point/. This can be formalized in a fixed point combinator. So this is how you get a list. 
+
+#+BEGIN_SRC 
+L(a) = 1 + a * (1 + a * L(a))
+     = 1 + a + a * a (1 + a * L(a))
+#+END_SRC
+This is why these are called /algebraic data types/. We will get to the point when we do exponentials. Then our algebra will be really really interesting!
+
+* 6.1 Functors
+
+So today I want to talk about functors. So all previous lectures were just introduction to functors. Mathematicians will say /natural transformations/ are important and you need functors for it.
+
+Why are they important?
+
+There are things in category theory that are formalized that we thought were not. What is really universtal construction about? It about being able to define what is means to be a perfect embodiment of a idea, to be an ideal. It's like we say how do we define a product. Well we have all these possibilities, how do we pick one? Well we just say let's pick the best one. And we have these two types of universal construction, one for product one for coproduct and they sort of define slightly different ways what is more ideal than other thing. And the property of this perfect thing there is a morphism coming from any other candidate (product) which means anything else you throw at me can be /distilled/, any two objects with projections and I can distill it into this perfect thing called a product, finding a unique morphism.
+
+With a coproduct it means here is an ideal coproduct and any other candidate has an image in it because there is a morphism from this perfect ideal thing down to any other candidate that's not perfect, that kind of embedds it, finds this element of perfection. So *functors* now.
+
+Mathematically speaking it's a simple idea, Functor is just a mapping from one category to another. When we talked about products and coproduct I used a loose language, looking for a pattern. So we have this pattern which constists of single object (terminal, initial) or an object and two morphisms (product, coproduct) and now we are trying to find this pattern, match this pattern in our big category. What does it mean? 
+ 
+So pattern recognition, category theory tells us how to formalize /pattern recognition/. Well if you want to recognize a pattern inside a category, you have to define what you mean by a pattern, a pattern must be some kind of structure and you sort of have to map this pattern into this category but you have to map it in such a way that you recognize this as a pattern, meaning you have to preserve the structure. What is structure? Well category is a definition of structure, its pure structure, dots and arrows. So if you want to say I want to recognize a certain structure it means you want to define your pattern as a category. 
+
+So if you want to map one category to another category you first map the objects (small category example) and since objects form sets in a small category its just mapping of sets, and thats a function. 
+
+But there is something funny about functions that i have not mentioned, that functions are sort of primitive, trivial. What we are really interested in are mappings that preserve structure and it so happens that function are *mappings between sets and sets have no structure* They have just a bunch of objects. It's really hard to implement something that totally disorganized on top of hardware thats organized so people implement trees. But in order to implement a tree you need to be able to compare elements.. what is important is to find mappings that *preserve structure*. We are not really used to thinking about what does it mean to preserve structure. 
+
+/A discrete category corresponds to a single set/ 
+
+Any category that is no discrete by definition has structure. So if we want to preserve structure our mapping has to have arrows.
+
+So first we preserve mapping between objects. 
+
+#+BEGIN_SRC 
+*C*                                   *D*
+
+a -------------- F ------------------> Fa
+|\                                     |  \
+| \                                    |   \ 
+f   g.f                                | Ff \    
+|    \                                 |     \ F(g.f)
+|                                      |      \
+b------------------------------------> Fb      \
+ \                                      \
+  \                                   Fg \Fb
+   \                                      \
+    c                                      Fc
+
+C(a,b) ----------------------------> D(Fa, Fb)
+
+F (g.f) = Fg . Ff
+
+#+END_SRC
+
+/Hom-set/ *C(a, b)*                 
+/Hom-set/ *D(Fa, Fb)*
+
+A functor is /huge/ potentially number of separate functions. One function per every hom-set. And I haven't even talked about preserving structure, which is defined by composition. I have to map composition I want to preserve structure.
+
+A /functor/ is this kind of mapping of objects and morphisms that preserves composition and identity. This is sort of obvious way to define a functor. And this also formalizes this idea what does it mean to preserve structure. So functor is something that preserves structure. What else can be say about this functor. Whenever objects are connected in source category they will be connected in target category. Doesn't mean every morphism will have a corresponding morphism, it doesnt have to be surjective of injective, but we can never destroy connections. If you done calculus it is sort of like /continuous transformation/. Essentially thinking about this continuity. Otherwise you can shrink things, you can collapse things, and in particular you can define functors that don't break things.
+
+If the mapping of /hom-sets/ is /injective/ than we call such mapping /faithful/. So a /faithful functor/ is injective on all hom-sets
+
+So a functor is /full/ when /surjective/ on hom-sets.
+
+So it can collapse objects and still be /injective/ on morphisms. Or it can map the whole category into a tiny category and still be surjective on hom-sets. 
+
+The most beautiful is the /fully faithful functor/, the one that preserves, an isomorphism on hom-sets. Surjectivly, injectivly.
+
+What's a functor whose source is just a one object category (will have to have an ~id~)? So if we map it inside another category, well it has to be mapped into an identity as well, functor must map identity to identity. So that's equivalent to just picking just an object in this category. Just like we had with functions, from terminal object to another object. 
+
+The other way around is a bit interesting. So, a functor that just mapps every object in this category into one single category, so it collapses every single, the whole category into a single object, a black hole, and all morphism collapse into one identity morphism.
+This is an important functor. This is called 
+/constant functor/. So this one is called ~delta C~ from c to c. Very important. 
+
+OK, now what does all this have to do with programming?
+Most common functors in programming will just deal with single category because that is the category of types and functions. But I never said that C and D have to be different categories. In principle it can be the same category. Objects in this category can be mapped into the same objects in that category. That's called an /endo-functor/. (going inside)
+In Haskell these endofunctors are just called functors. 
+
+So what is a functor translating this (image above)?
+
+A functor has to be a mapping of types, a total mapping, every object has to have an image, which means it's a /type constructor/ but that's just one part of a functor. The type constructor is a mapping on types, function that works on objects, but it also has to map morphisms which means it has to map functions, so let's just grab some examples and see how we can define, starting from a type constructor.
+
+#+BEGIN_SRC haskell
+data Maybe a
+#+END_SRC
+
+So a is a parameter, so for every type a we are defining a new type a. So we are mapping types to types.
+
+#+BEGIN_SRC haskell
+a ----- Maybe -----> Maybe a
+
+data Maybe a = Nothing | Just a
+#+END_SRC
+
+Is this a functor? We need to define functions between hom-sets. If we have a and some b, b will go to some Maybe b, we have to define a function that goes from Maybe a to Maybe b, so if this is f this is the mapping of f using the functor. This mapping of functions is called fmap of f
+
+#+BEGIN_SRC 
+        Maybe 
+a -----------------> Maybe a
+|                  |
+|                  |
+f                  | fmap f
+|                  |
+|                  |
+b -----------------> Maybe b
+#+END_SRC
+
+#+BEGIN_SRC haskell
+fmap :: (a -> b) -> (Maybe a -> Maybe b)
+fmap f  Nothing = Nothing
+fmap f (Just x) = Just (f x)
+#+END_SRC
+
+fmap for Maybe must be of this signature. What can we put instead of ~fmap f Nothing = Nothing~? .. mental block.. We could say.. It's nothing unless the type a is Integer, Just zero? Why not?
+
+There is somthing called /ad-hoc/ polymorphism but we don't want to use it here. We are kind of straying from mathematics when programming with Haskell. We are actually imposing stronger condition, parametric polymorphism, we are making it restrictive, leading to /theorems for free/. This is something that says because in Haskell can actually only implement functions of some limited kind, a certain type of polymorphism, that imposes the conditions of what we can do. 
