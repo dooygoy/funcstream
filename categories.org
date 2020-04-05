@@ -834,3 +834,104 @@ fmap f (Just x) = Just (f x)
 fmap for Maybe must be of this signature. What can we put instead of ~fmap f Nothing = Nothing~? .. mental block.. We could say.. It's nothing unless the type a is Integer, Just zero? Why not?
 
 There is somthing called /ad-hoc/ polymorphism but we don't want to use it here. We are kind of straying from mathematics when programming with Haskell. We are actually imposing stronger condition, parametric polymorphism, we are making it restrictive, leading to /theorems for free/. This is something that says because in Haskell can actually only implement functions of some limited kind, a certain type of polymorphism, that imposes the conditions of what we can do. 
+* 6.2 Functor II
+
+So we have defined a functor. Maybe we have maybe we haven't :)
+
+How do we know this preserves composition and identity. Well we cannot express this in Haskell, in type system we cannot encode these conditions. Unlike in other languages there is a way of using haskell on a whiteboard to prove things about the language. We would like to prove this functors preserves identity.
+
+~fmap id = id~
+
+Now this id works on a different object than this id.
+
+~fmap  id a = id Maybe a~
+
+and we want it to preserve composition:
+
+~fmap (g . f) = fmap g . fmap f~
+
+What does it mean functions are equal? They have equal values on equal arguments. Whats so special about Haskell is that every definition in Haskell is an equality. And it means what is says. These two things are equal. It is an equation. Left side is same as the right side. In programming this is sometimes called /inlining/, but if you have pure functions you can do /inlining/ and you can do the other way around, /refactoring/, turning an expression into a function call. 
+
+When ~fmap~ acts on ~id~ it produces a function from ~Maybe a~ to ~Maybe a~, right? So I have two cases to check, this ~Maybe~ could be a ~Nothing~ or it could be a ~Just~
+
+~fmap id Nothing = Nothing = id Nothing~
+/see what did here? I did refactoring, replacing Nothing with id Nothing, so this checks/
+~fmap id (Just x) = Just (id x) = Just x~
+~id (Just x) = Just x~
+
+Let's talk how to define a functor in general in Haskell. 
+
+/Lifting/
+#+BEGIN_SRC 
+Maybe a--------> Maybe b
+  ^     fmap f  ^
+  |             |
+  |             |
+  |             |
+  a ------------> b
+#+END_SRC
+
+*fmap* is a higher order polymorphic function.
+
+It's not like you write one formula for fmap for all functors. So now you are seeing a different kind of polymorphism, in which depending on what your parameter is, in this case the functor, you get a different implementation of a function, fmap in this case. So this is an example of /ad hoc/ polymorphism. It's just we use a slightly different tool for /ad hoc/ polymorphism which is called a /typeclass/. A *Typeclass* is, you define a whole family, or a class of types that share some common interface. So in Haskell this is called a class.
+
+#+BEGIN_SRC haskell
+class Eq a where
+  (==) :: a -> a -> Bool
+#+END_SRC
+
+So every type that supports this operator, that takes two a's and produces a boolean, but ~(==)~ is one name that will serve us for many different types, and its implementation will be different for every type, you implement equality different for integers, different for strings. So that's /ad-hoc/ polymorphism.
+
+Functors are actually /type constructors/. So Maybe is a functor, because it takes a type and produces a type.
+
+So if we want to define a functor we have to define it as a class.
+#+BEGIN_SRC haskell
+class Functor f where 
+  fmap :: (a -> b) -> (f a -> fb)
+#+END_SRC
+/So f here is actually a type constructor! a is a type, b is a type, then f must be something that acts on a type to produce another type./
+
+The most intuitive example of a functor is list.
+
+#+BEGIN_SRC haskell
+data List a = Nil | Cons a (List a)
+instance Functor List where
+  fmap _ Nil = Nil
+ -- h type of a, t type of list of a
+  fmap f (Cons h t) = Cons (f h) (fmap f t) 
+#+END_SRC
+
+fmap = map /map is just a particular implementation of fmap for lists/ But lists came earlier before functors, so they already had this map defined, but it's really fmap.
+
+#+BEGIN_SRC haskell
+type Reader r a = r -> a
+
+#+END_SRC
+
+The arrow itself
+~(->)~ arrow takes two types ~r~ and ~a~ and produces a type of function from ~r~ to ~a~. 
+
+Now, so far we've been talking about these type constructors that just take one type as an argument, and here we something that takes two types. But we can always just fix one type and say, we only care about the second type. We fix the arrow and we say let's just /vary/ ~a~.
+#+BEGIN_SRC 
+    Reader r
+a -----------> (r -> a)
+#+END_SRC
+
+First one is fixed to bool for example and second one varies. This is called partial application, currying. 
+
+#+BEGIN_SRC haskell
+                                    g     f
+           f            g        (r --> a --> b)
+           ^            ^
+           ^            ^  
+fmap :: (a -> b) -> (r -> a) -> (r -> b)
+-- functor acting on a functor acting on b
+fmap f g = f . g = (.) f g  -- I cross f g on both sides
+fmap = f . g = (.)
+fmap = (.)
+#+END_SRC
+What is the general intuition behind this? I still haven't showed you identity or const functor. There is one intuition that works for endofunctors, some say it's bad some say it's good. The intuition is that a functor when it's acting on some type encapsulates, hides, the values of this type, so an element of the type Functor of a has elements of a in it, and something that has something inside is usually called a /container/. List is a container, it contains a's, a list of integers, a /tree/ which is a functor too is a container of objects, a vector is a container of elements and it's a Functor. But then there are these Functors that are problematic, like Maybe, it may contain an a or maybe not. A container can be empty? It kinda works and this idea that something is a container, what does it mean to apply a function to the contents of the container, just open this container, look at this stuff and apply the function. So this is what we did with Maybe, if it contains Nothing do nothing well if it contains an a just do this. But then we have this Reader guy, how is this a container? Look at a function that a Boolean and returns some other type? How many possible values does this function have. Two, true and false, so can I say it is a container of two values? I can memoize this function, replace it with a table lookup, which contains these two values. What about a function of integer, it is just an infinite sequence of ints, maybe I cannot memoize the whole thing, maybe I can partially and so on. So this distinction between a function and a data type, if you think about it is, /weak/. A list is a container, ok in Haskell I have a list from one to infinity ~[1..]~, obviously I cannot store it in memory, how is this implemented? As a function. All data types in Haskell, are /thunks/, they are function that can be evaluated to return a value, data are really functions, functions are really data. And we will talk about what function types are in category theory and you will see that it is actually an exponential, which is a data type. The only thing about Functor that's important is that you can apply a function to what it contains, there is no way at least the Functor does not provide you a way to retrieve this value, that's not a part of definition of a Functor. 
+
+I want to leave you with this idea, that functors, /endofunctors/ are containers.
+
+ 
