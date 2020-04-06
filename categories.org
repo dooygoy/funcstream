@@ -347,7 +347,6 @@ Who does appending of this logs? Somebody has to concatenate these logs. So the 
 Note: I didn't get this at all :( but will keep watching the lectures :). I also do not understand the examples in scala above. What I do understand that the composition between a and b resultet in an embellished function where a defines a b and a string, so it is not just a to b but a to b which results in pairing the result with another string. So this makes a monad, a way of composing special functions. 
 #+END_QUOTE
 
-
 * 4.1 Terminal and Initial Objects
 Recap of Kleisl categories, important to understand Monads. It seems challenging because you have to hold two categories in your head
 
@@ -935,3 +934,72 @@ What is the general intuition behind this? I still haven't showed you identity o
 I want to leave you with this idea, that functors, /endofunctors/ are containers.
 
  
+* 7.1 Functoriality, bifunctors
+
+Remember, a functor is like lots of functions put together, there is one major function that mapps objects and that's an actual function only if the category is /small/, objects form a set and functor is just a function on objects, but it also has to /preserve structure/ and that is the most important part, we learned what it means to preserve structure, so functor maps not the only objects but also mapps connections between objects which are morphisms. So for every connection between objects we have this set of arrows between them, which we call a /hom-set/, and as these two ends of a hom-set are mapped from one category to another we define also a mapping of these morphisms between hom-sets, and since hom-sets are sets in a /locally small category/, that's also a function so for every hom-set there is a function that maps it to the corresponding hom-set in the second category. That means preserving connection between objects. 
+
+Since functors are built from functions, we know that functions compose. 
+
+Category in which functors are morphisms and categories are objects is called /Cat/. 
+
+Let's combine two endofunctors we know about, ~Maybe~ and ~List~. There is this function called ~tail~ and tail takes a list of some a's and returns a list of a's.
+~tail :: [a] -> [a]~
+It's defined so that it just throws away the head of the list, so it's well defined only for lists that are not empty. What if the list is empty? The program dies. The only reason people use it is because it's more optimal, because otherwise you always have to check is it empty? Otherwise it is the /achilles heal/ of ~Prelude~.
+
+But if we want to be sure, then let's define something called safe tail, that takes into account the possibility that list can be empty.
+#+BEGIN_SRC haskell
+safeTail :: [a] -> Maybe [a]
+safeTail [] = Nothing
+safeTail (x:xs) = Just xs
+
+mis :: Maybe [Int]
+sq :: Int -> Int
+
+fmap (fmap sq) mis
+(fmap . fmap) sq mis
+#+END_SRC
+
+Most type constructors that you woul normally used are sort of automatically functorial, what it means is that you have a type constructor and defining fmap for it kinda falls out automatically, it's like most data structures are regular in this sense, what it means, that algebraic data structures are automatically functorial. How do you define them? You form them using things like products or sums and you apply it to a unit or a type variable. If you create an algebraic data type using these operations then you automatically have a functor, so we have to start by asking ourselves is a product a functor? 
+
+So a product of two types ~(a,b)~, this can be rewriten as a type constructor acting on a,b ~(,) a b~ so we could ask is this a functor in b? If we fix a. It kinda is. It's a type constructor. We can construct a type by pairing it with some fixed type. If a function goes from ~a -> b~ we can lift it ~(e,a)~ and ~(e,b)~ with ~fmap f~ where this fmap takes ~fmap f (e,x) = (e, fx)~.
+
+We can define something that is a product of two categories then a functor from a product of two categories would be equivalent to a functor of two arguments, one from one one from another category. We know in category theory products are these beasts and now I'm saying I want to do something bigger, a product of two categories! It turns out that a product of two categories is easier to define than a product from two objects in a category. 
+
+OK, let me take two categories C and D and we take objects from C and D and we form a pair ~(c,d)~ that we call ~CxD~ (/c cross d/) in which objects are pairs of objects so really the objects are cartesian product of the sets of objects. What else do I need? Morphisms.
+And again, this is easy to do this pairing, I can do cartesian product of this hom-set and this hom-set. So I have a new category, called a /product category/.
+#+BEGIN_SRC 
+(f', g') . (f, g) = (f'. f, g'. g)
+(id a, id b) = id (a,b)
+#+END_SRC
+
+Now when I have a product category is just a category, now I can define a functor that goes from this category. ~C x D -> E~ It means for every pair of objects I pick and object in E. And on morphisms, a morphism in C cross D is a pair of morphisms paired with a morphism in E. 
+This functor is called a /bifunctor/. A bifunctor is a functor from a product category. In haskell we would have to lift a morphism from a product category. This would be a product with a same category with itself. ~C x C -> C~
+but notice that we are actually talking about a functor that's not set from set, or ~hask~ to ~hask~, it's a functor from some other category to hask, a product of two hasks, so we are already getting outside of hask and getting into /hask "squared"/
+
+What does it mean in terms of function we know? We have a mapping from two types into a type. That looks sort of like this ~(,) a b~. What about morphism? It is a pair of functions, we are lifting two functions /at the same time/. So if we want to define a bifunctor in haskell and just like functor it will be defined as a class.
+It will have to have this way of lifting two functions at the same time. This higher order function corresponding to fmap will be called ~bimap~
+#+BEGIN_SRC haskell
+class Bifunctor f where
+  bimap :: (a -> a') -> (b -> b') -> (f a b -> f a' b')
+#+END_SRC
+
+OK, product is /bifunctorial/. What about /sum/? mmm... Do we have to go through this construction and come up with a sum of two categories? What happens is that, we can use the same bifunctor idea for a sum so ~Either a b~ - thats the sum type, the canonical sum type of two types. Either a b is actually a bifunctor! So we can define the action of two actions of either a b. So Either a b takes a pair of types from a product category! It is a function of two arguments, takes two types and produces a third type of ~Either a b~. What we want to have in general is that if we have a product in a category, then this product /is/ actually a bifunctor and its a bifunctor of this type ~C x C -> C~. Here we have two examples in /hask/ one is the product in hask one is in hask they both are bifunctors like this. So a coproduct is also a bifunctor. 
+
+#+BEGIN_SRC 
+             a x b               
+           /   .   \               ------+
+     p   /   / . \   \q                    == ------>
+       /    /  .  \    \           ......+
+     /     /   .   \     \
+    + f.p /    .    \g.q  +        ......+ = f x g
+    a    /     +     \    b
+    |   /    a'x b'   \   |
+    |  /   /      \    \  | 
+   f| /  /          \   \ |g
+    |  /p'     q'     \   |
+    +/                  \ + 
+    a'                    b'
+
+(a, b)  -> a x b
+(C x C) -> C
+#+END_SRC
