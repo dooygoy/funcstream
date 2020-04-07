@@ -933,7 +933,6 @@ What is the general intuition behind this? I still haven't showed you identity o
 
 I want to leave you with this idea, that functors, /endofunctors/ are containers.
 
- 
 * 7.1 Functoriality, bifunctors
 
 Remember, a functor is like lots of functions put together, there is one major function that mapps objects and that's an actual function only if the category is /small/, objects form a set and functor is just a function on objects, but it also has to /preserve structure/ and that is the most important part, we learned what it means to preserve structure, so functor maps not the only objects but also mapps connections between objects which are morphisms. So for every connection between objects we have this set of arrows between them, which we call a /hom-set/, and as these two ends of a hom-set are mapped from one category to another we define also a mapping of these morphisms between hom-sets, and since hom-sets are sets in a /locally small category/, that's also a function so for every hom-set there is a function that maps it to the corresponding hom-set in the second category. That means preserving connection between objects. 
@@ -1003,3 +1002,95 @@ OK, product is /bifunctorial/. What about /sum/? mmm... Do we have to go through
 (a, b)  -> a x b
 (C x C) -> C
 #+END_SRC
+
+
+* 7.2 Monoidal Categories, Functoriality of ADTs
+
+In a monoidal category we would like to define what does it mean to multiply two objects, ha? (waves hands) :)
+So a product, categorical product is sort of way like multiplying object, we already have one part of a monoid, we have this binary operation, on object, right?
+
+What was the unit for product in Haskell. It was the unit type :D which is a singleton set (in set theory). How do we define a singleton set? Terminal object. Is this terminal object maybe good candidate for a unit in our newly formed monoid structure? It would mean if you construct a product in which you have some object ~a~ and you have this terminal object ~()~, so ~a x ()~ with ~a~ and ~()~ projections. So I want to prove that a is actualy product of a and terminal object and if you multiply a by terminal object you get back a. 
+
+What are the projections here? ~id a~ and this is ~unit~, it's a good candidate, is it the best candidate? Let's try some other, a ~b~, a /candidate/ is really a triple, its an object plus two projections. It has to have a projection that goes to a, lets call it ~p~, and and one that goes to unit, call it ~unit b~ so in order to prove this is the best guy I have to show there is a unique morphism from ~b -> a~
+
+#+BEGIN_SRC 
+
+                      b
+                    / | \
+                  /   |   \
+              p /     |p    \ unit b 
+              /       +       \
+            /   ida /   \       \
+          /      /         \unit a \
+         +    /               \     +
+           a +                 + () 
+#+END_SRC
+
+A product is defined up to unique isomorphism. So a categorical product, then you have this new structure, monoidal structure on objects, I can do the same thing with a coproduct, the unit would be the initial object, so that would also be a monoidal category with coproduct and initial object, in general maybe there are other things like this, but what we really need is a product which is a /bifunctor/, we need this binary operation on object, and we need this unit for the bifunctor and we get the monoidal category.
+
+What is a good name that could be a coproduct or a bifunctor, a good name is a /tensor product/. (writen as circle with a cross inside). 
+
+I started all this discussion because I said ADTs are functorial. So product and coproduct are functorial. What else we use to construct data types? We can construct a datatype that does not depend on a data type. We have this way of constructing a trivial functor from a constant object, called a /Const Functor/, that takes two data types. Constant functor maps every object in one category into a single object in the second category, like a black hole, called ~delta c~ so in Haskell:
+#+BEGIN_SRC haskell
+data Const c a = Const c
+
+instance Functor (Const c) where
+ -- fmap :: (a -> b) -> Const c a -> Const c b
+  fmap f (Const c) = Const c
+
+data Identity a = Identity a
+  fmap f (Identity a) = Identity (f a)
+
+data Maybe a = Nothing | Just a
+           -- Either () (Identity a)
+--                   ^
+--                   ^
+               Const () a                     
+#+END_SRC
+
+There is an extesion in Haskell, 
+~{-# LANGUAGE DeriveFunctor #-}~, then you can just say ~data Maybe = .... deriving Functor~ and the compiler will derive you the correct ~fmap~. 
+
+There is one more type constructor that takes two arguments? Right! Function, the arrow. ~(->) a b = a -> b~
+So arrow is a type constructor, it takes two types a and b and produces a third type which is a type of functions from a to b. Now strictly speaking I have not yet talked about function types, next lecture.. 
+#+BEGIN_SRC haskell
+newtype Reader c a = Reader (c -> a)
+#+END_SRC
+Is this a bifunctor?
+Well, let's just check if we fix the second, because here we are fixing c, this argument type, what if we instead fix the return type and vary the argument type, can we create fmap for it?
+#+BEGIN_SRC haskell
+data Op c a = Op (a -> c)   
+  fmap :: (a -> b) -> Op c a -> Op c b
+--           ^        a -> c     b -> c
+--           ^
+--       wrong arrow
+#+END_SRC
+
+a -> c, a -> b, makes b -> c not good, we need b -> c to make it work. 
+
+This kind of functor that works on the hask on inverted arrows is called /contravariant/
+#+BEGIN_SRC haskell
+class Contravariant f where
+  contramap :: (b -> a) -> (f a -> f b)
+#+END_SRC
+
+A contravariant functor, its not like a container, its sort of like a negative container, not only it does not contain it just actually requires a's for its action, needs "fuel" of type a. If you say instead of a's I will be providing you b's then you need to show how to convert b's to a's so that the functor accepts the a's. /"It contains the empty matter of type a, so you have to have a warp converter" :D/
+
+The arrow is a covariant functor in the second argument in the return type and its a contravariant functor in the first argument. Now if you combine these two things, another interesting thing, arrow itself as a functor thingy ~C^op x C -> C~, you take a pair of morphism but the first one is flipped, so a thing of this kind of type is called a /profunctor/. Why is it called profunctor? I don't know..
+#+BEGIN_SRC haskell
+data class Profunctor p where
+  dimap :: (a' -> a) -> (b -> b') -> p a b -> p a' b'
+--             f           g         (a->b)    (a'->b')
+--                                     h
+--            result: g . h . f
+{-
+
+               a' ---f---> a ---h---> b
+               |                   /  
+        result |                /
+               |            / g
+               |        /   
+               b'   /          
+#+END_SRC
+
+An arrow is indeed the simplest profunctor. 
