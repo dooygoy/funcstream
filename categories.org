@@ -1204,6 +1204,8 @@ So if you want to prove a proposition you just have to prove that a type has an 
 
 
 |------------+----------+---------+-------+------------+--------|
+|                  Curry Howard Lambek isomorphism              |
+|------------+----------+---------+-------+------------+--------|
 | /Logic/    | true     | false   | and   | a or b     | a => b |
 |------------+----------+---------+-------+------------+--------|
 | /Types/    | ()       | Void    | (a,b) | Either a b | a -> b |
