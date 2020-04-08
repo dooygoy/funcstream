@@ -1203,15 +1203,15 @@ So this isomorphism between type theory and programming in general and logic on 
 So if you want to prove a proposition you just have to prove that a type has an element. In logic there are these two basic values, true and false. So the corresponding things in type theory would be void type which corresponds to false, and unit type which corresponds to true. Unit type is always inhabited with one element.
 
 
-|------------+----------+---------+-------+------------+--------|
-|                  Curry Howard Lambek isomorphism              |
-|------------+----------+---------+-------+------------+--------|
-| /Logic/    | true     | false   | and   | a or b     | a => b |
-|------------+----------+---------+-------+------------+--------|
-| /Types/    | ()       | Void    | (a,b) | Either a b | a -> b |
-|------------+----------+---------+-------+------------+--------|
-| /Category/ | terminal | initial | a x b | a sum b    | b^a    |
-|------------+----------+---------+-------+------------+--------|
+|---------------------------------+----------+---------+-----------------+---------------------+--------|
+| Curry Howard Lambek isomorphism |          |         |                 |                     |        |
+|---------------------------------+----------+---------+-----------------+---------------------+--------|
+| /Logic/                         | true     | false   | and             | a or b              | a => b |
+|---------------------------------+----------+---------+-----------------+---------------------+--------|
+| /Types/                         | ()       | Void    | (a,b)           | Either a b          | a -> b |
+|---------------------------------+----------+---------+-----------------+---------------------+--------|
+| /Category/                      | terminal | initial | a x b (product) | a sum b (coproduct) | b^a    |
+|---------------------------------+----------+---------+-----------------+---------------------+--------|
 
 
 
