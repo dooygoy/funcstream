@@ -1003,7 +1003,6 @@ OK, product is /bifunctorial/. What about /sum/? mmm... Do we have to go through
 (C x C) -> C
 #+END_SRC
 
-
 * 7.2 Monoidal Categories, Functoriality of ADTs
 
 In a monoidal category we would like to define what does it mean to multiply two objects, ha? (waves hands) :)
@@ -1094,3 +1093,124 @@ data class Profunctor p where
 #+END_SRC
 
 An arrow is indeed the simplest profunctor. 
+* 8.1 Function objects, exponentials
+
+Functions are separate from types. So far we've worked with this model in which types are objects in our category and morphisms are functions, types are objects soo.. functions are not on the same footing as types, right? If you are working in the category of set, which is approximation of what we do in programming, you can think of, you have object a and object b, functions between form a /hom-set/ so if types are sets, then functions are sets too. So this is sort of like sefl-referential thing about this particulary category of sets, so hom-set which is a set of morphisms between objects is also a set. But that's not generally true. In an arbitrary category we don't have this object, what we have is the /hom-set/ being an /external thing/. A hom-set being actually member of set. What we would like to have is an /internal hom-set/, an object in a category that corresponds to the sets of morphisms between two objects, a and b, somehow represents this set of morphisms. And it's possible to define it. So how would we go about this universal construction for a function object.
+
+First we define a pattern, then we define a ranking for matches and then we find the best match.
+
+So this /pattern/ for a function object must involve two types, argument type and return type, object a and b and the third part would be the third object, the candidate function object, let's call it ~z~. We have to have some kind of connection. 
+
+What would define for us the action of a function on a argument that produces a result? We have to find a morphism between some of these objects that would represent this idea. But it is a relation between three objects. So we would like to put an arrow between these two objects and the third object, we can't do it in a category. How to do it in sets?
+
+Let's pick an element of this set that would be an argument and form a pair, function and an argument, this pair can be mapped to result, which is an element of b. So pairing in sets corresponds to taking a cartesian product of these two guys, ok so we can generalize it to a category called product and say ok, so we have a product
+
+#+BEGIN_SRC 
+ 
+
+    z'       z' x a
+     |--|  |-------|
+     |  |  |       |\
+     |  |  |       | \
+     |--|  |       |  \
+      |     -------    \
+    h |         |       \
+      |   h x id|        \ g'
+    z +         +         \ 
+     |--|  |-------|       \
+     |  |  | z x a |        \
+a->b |  |..|       | \       \
+     |  |  |       |  \       \ 
+     ----   ---.----   \g(eval)\
+               .        \       \
+           |--------|    \       \
+           |        |     +--------|
+           ----------     |        |
+               a          ----------
+                         b
+#+END_SRC
+
+#+BEGIN_QUOTE
+So thats the pattern we are looking at. But notice, that in order to define this pattern, we have to have a product in our category. And thats a very important thing. In order to define a function object in a category, you have to first define a product. If a category doesn't have a product, then we cannot perform this construction, and you will see later that it actually makes more sense when you think about function object as algebraicly as exponential, because an exponential is like iterated product, right? So if you don't have a product, how can you have an exponential? So thats the idea behind this.  
+#+END_QUOTE
+
+In the end we call this /eval/, that morphism is called evaluating a function. So thats the first thing to do. The next thing is ranking. So suppose that we have another candidate, ~z'~
+
+z with g is better than z' with g' only if there is a unique morphism h from z' to z such that this diagram commutes
+~g' = g (eval) . (h x id)~
+
+And finally the third part of universal construction is picking the winner, the function object. ~a~ changes name to ~a -> b~ and ~g~ to ~eval~ meaning that for any other candidate ~z~ that has this function ~g~ from ~z x a~ to ~b~, there is a unique morphism ~h~ that maps z to ~a -> b~ such that this triangle commutes.
+
+/We can think of g as a function of two arguments, f(x,y,z)/
+
+But now we are seeing something, that a function of two arguments, is equivalent to a single function that takes an argument and returns a /function type/, (hand points to z and then a -> b).
+
+There is one to one correspondence between g and h, so I have equivalence of /two ways of thinking/, one way of thinking I have a function of two arguments as a function that takes a product, and the other one its a function of one argument but it produces a function. And that's called currying. 
+
+~h :: z -> (a -> b)~ because in Haskell this function object is really represented by an arrow. And
+~g :: (z, a) -> b~
+#+BEGIN_SRC haskell
+curry :: ((a, b) -> c) -> (a -> (b -> c))
+curry f = \a -> (\b -> f(a, b))
+
+uncurry :: (a -> (b -> c) -> ((a, b) -> c)
+uncurry f = \(a,b) -> (f a) b
+#+END_SRC
+
+In category theory people often don't call this a function object, they call it an exponential. So a function from a to b would be called b to the power of a, b^a, argument goes to the top, result goes to the bottom. 
+
+If we have a function that goes from ~Bool -> Int~, so its really a pair of integers, one for false, one for true. So all possible functions from Bool to Int well there are just all possible pairs of Ints, so this is really a cartesian product of ints. So you can write it as ~Int x Int~ or ~Int^2~ (/Int squared/) so also Int to the power of Bool like
+
+1 - ()
+2 - Bool
+...
+
+The number of functions from a to b is really b to the power of a, if you look at all possible combinations, so by counting the number of possible functions you get the counting argument, and also this shows you the connection between product and exponential. An iterated product gives you an exponential. What we do want for programming in which we have exponentials, or function types. We definently want products. There are special kinds of categories called *CCC* /cartesian closed categories/ that are useful in programming. Cartesian category is one that has products for every pair of objects, /closed/ means it has exponentials as well, for every pair of objects a and b it has an exponential a to the power of b, and it also has a terminal object. Terminal object is like a /zeroth/ power of an object. Its like the first power is the object itself, second power of the object is ~a x a~, then we can have these exponentials, but the zero power is terminal object.
+
+We actually want a little bit more in programming, we want /coproducts/ and /initial object/ so something that has not only cartesian products but also coproducts is called *BCCC* /bicartesian closed category/ and in a BCCC we can do our beautiful algebra of types. So far we've seen the algebra using products, coproducts, initial and terminal objects, first we saw that products form a monoid, coproducts form another monoid but we can combine them and they give you this /semiring/ and now we are adding exponentials. With exponentials we can do more algebra!
+
+For instance, whats a to the power of zero ~a ^ 0~? One. ~1~. But is it true for types? What is zero? Thats our initial object, it is ~void~
+
+~a ^ 0 = 1~
+~Void -> a ~ ()~
+~absurd~
+
+So its a function from void to a, the right hand side is /One/, one is a terminal object, that the unit type. Are these two types equivalent. A unit type is a type that has one element. So if this is a singleton as well then we are done. So first of all, is there a function from void to a and how many are there? Well we seen this function it is called absurd. It takes a void and produces an a, so there is a function likee this, absurd.
+
+What about ~1 ^ a = 1~ This is a function that takes an argument of type a and produces a unit
+~a -> () ~ ()~ so there is only one function like this, it maps all elements of a into this unit element, this is collapsing, a const turning everything into a single values.
+
+~a ^ 1 = a~ First power of an object is the object itself, but it also has this meaning ~() -> a ~ a~ unit to a is isomorphic to type a and remember what this is, its a function that takes one element from a. There is one to one correspondence, I call it generalized element (mathematicians call it a global element)
+
+* 8.2 Type alegbra, Curry-Howard-Lambek isomorphism.
+
+~a^b + c = a^b x a^c~
+~Either b c -> a~
+~(b -> a, c -> a)~
+
+~(a^b)^c = a^b x c~
+~c -> (b -> a) ~ (b, c) -> a~ Currying!
+
+~(a x b)^c = a^c x b^c~
+~c -> (a, b) ~ (c -> a, c -> b)~  
+
+Sort of like you have to learn just one thing, and then everything else kinda falls out. So probably like the best thing is to start, instead of going to highschool, just start with category theory and then everything else will just follow from this. 
+
+The other thing that, exactly the same structures for types and categories appear in logic. And thats the basis of famous Curry Howard isomorphism, or sometimes called propositions as types. 
+
+So this isomorphism between type theory and programming in general and logic on the other side starts with identifying what it means to, what is a proposition. In logic is a statement that can be true or false so these propositions correspond to types in programming. Just as a proposition can be true or false, type can be inhabited or not, so the truth of a proposition means that type that corresponds to it has elements, members, its inhabited and most of the types we deal with are inhabited, so they are kinda like true propositions but there are types that are not inhibited, and they correspond to false propositions, and we know one such type, thats void.
+
+So if you want to prove a proposition you just have to prove that a type has an element. In logic there are these two basic values, true and false. So the corresponding things in type theory would be void type which corresponds to false, and unit type which corresponds to true. Unit type is always inhabited with one element.
+
+
+|-----------+----------+---------+-------+------------+--------|
+| /Logic/   | *true*   | *false* | *and* | a *or* b   | a => b |
+| /Types/   | ()       | Void    | (a,b) | Either a b | a -> b |
+| /Category | terminal | initial | a x b | a sum b    | b^a    |
+|-----------+----------+---------+-------+------------+--------|
+
+
+
+(a => b), a) -> b
+a => b *and* a -> b   /modus ponens/
+
