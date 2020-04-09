@@ -1218,3 +1218,68 @@ So if you want to prove a proposition you just have to prove that a type has an 
 (a => b), a) -> b
 a => b *and* a -> b   /modus ponens/
 
+* 9.1 Natural Transformations
+
+Triad of things that are foundations of category theory:
+1. Category 
+2. Functors
+3. Natural Transformations.
+
+Category is about structure, what it means. Functors are these mappings between categories that preserve structure, intuition is that they take a category and embedd it inside another category, sometimes called modelling. What if we have two different functors? How are two images related? So we would like to be able to compare images given by functors. So natural transformations are defined as mappings between functors. And these mappings have to preserve structure. 
+
+Let's start with two categories ~C~ and ~D~, lets concentrate on a single object in category C, object ~a~. One functor maps this object into ~F a~ in category D, second functor ~G~ maps the same object to some object ~G a~. 
+
+A /natural transformation/ would be picking a morphism between these two objects (In D, one morphism from this /hom-set/, ~Fa -> Ga~. In this way I am creating a whole family of morphism, these are /components/ of natural transformation. So the related morphism in D would be called ~alpha a~, between ~Fa -> Ga~
+Now we map object b the same way ~Fb -> Gb~ and we have ~alpha b~
+
+Having a natural transformation between two functors means they are somehow related. *See naturality square*
+
+#+BEGIN_QUOTE
+personal notu: This seem like an abstract jump to a higher level. Feeling kinda lost now but am continuing to watch the lecture. Need time to process and contemplate. Same actions are used but all together somehow making a much more complex /image/. As Bartosz says natural transformation gives us a higher level language of commuting diagrams. Notice natural transformation is a higher level language in category theory while just describing commuting diagrams is like /assembly language/. And then instead of just talking about commuting diagrams you begin to notice relations between functors. In this sense products and coproduts are just a case of limits and colimits and later there will be adjunctions etc..
+#+END_QUOTE
+
+In programming, natural transformation would be a family of functions between endofunctors, parametirized by a type, so a natural transformation would be a polymorphic function. 
+
+#+BEGIN_SRC haskell
+alpha :: forall a . Fa -> Ga
+#+END_SRC
+
+The subtle difference being, in this haskell example, in this form, we are assuming parametric polymorphism meaning if we want to define this function we must use one single formula for all a's. We cannot say do this thing for integers and do this thing for booleans. One single formula for all. And this is /much stronger/ than a categorical definition.
+#+BEGIN_SRC haskell
+alpha . fmap f = fmap f . alpha
+#+END_SRC
+
+Let's pick a list functor and a maybe functor. We talked about safe tail, lets talk about safe head.
+#+BEGIN_SRC haskell
+safeHead :: [a] -> Maybe a
+safeHead [] = Nothing
+safeHead (x:xs) = Just x
+#+END_SRC
+This is a function that works for every ~a~, a total function, parametric polymorphic so it is automatically /natural/. But lets prove it, lets do equational reasoning on it. Show it on both empty list and non-empty list.
+#+BEGIN_SRC haskell
+safeHead . fmap f []             safeHead [] 
+   
+   Nothing                .        Nothing
+
+                                   Nothing
+
+safeHead . fmap f (x:xs)
+           f x : fmap f xs
+
+Just (f x)
+       \
+        \    safeHead (x:xs)
+         \       Just x
+          - - -Just (f x)
+#+END_SRC
+
+If you look at it it is actually an /optimization/. Applying an fmap on a list is expensive, so being able to safeHead first and then fmap is cheaper, of course not in Haskell, because Haskell is lazy.
+
+Basically we use a lot of natural transformations in programming so ~a -> [a]~, thats actually a naturally transformation because ~a~ is just an identity functor acting on ~a~. There are also these function that take polymorphic object and return a number, like ~length~ of a list. Takes arbitrary type of list and returns a length. Thats also a functor, the ~const~ functor which ignores its argument. Natural transformation from a list to a const functor. If you have a function from one ADT to another ADT its a natural transformation because algebraic data types are functors. Not all are because we have these /contravariant/ functors, so if we have a polymorphic function which turns weird stuff it would not be a natural transformation. At some point you might learn about generalized natural transformations which operates on mixed convariants.
+#+BEGIN_SRC haskell
+return :: a -> m a
+#+END_SRC
+is actually a function from identity functor to ~m~, a natural transformation and when we talk about monads this thing will be defined as a natural transformation, so a Kleisli category really has to take into account that these transformations are natural. 
+
+* 9.2 Bicategories
+
