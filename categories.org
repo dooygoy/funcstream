@@ -1,3 +1,5 @@
+#+TITLE:Category Theory I
+
 * 1.2 What is a category?
 
 *Abstraction*
@@ -1282,4 +1284,105 @@ return :: a -> m a
 is actually a function from identity functor to ~m~, a natural transformation and when we talk about monads this thing will be defined as a natural transformation, so a Kleisli category really has to take into account that these transformations are natural. 
 
 * 9.2 Bicategories
+
+OK, lets talk about category theory but just like in a really really wide area, I want to give you the view of category theory as far as I was able to look into it. Because we have these basic part of category theory, categories, functors and natural transformations. 
+
+Natural transformations are mapping of functors, now every time we have mappings of things we ask ourselves do these mappings compose? That should be the first thing on our mind. What does it mean to compose natural transformations?
+
+\alpha F -> G
+\beta  G -> H
+
+\beta . \alpha
+Is this a natural transformation? We have to check, we have to have another object b
+
+a -> b -> (-> F G H) -> (Fa -> Ga -> Ha) -> (Ff Gf Hf) ->
+Fb -> Gb -> Hb
+
+Notation used is [C, D] or D^C, that suggests something :)
+
+Note: Feeling lost now, but following along. Its all abstracted while using the same words like before, product, category, functor, it seems simple yet still not reachable, like being there but still blind not able to remember the last movement, thus feeling lost in a known environment. 
+
+...
+
+* 10.1 Monads
+* 10.2 Monoid in the category of endofunctors
+** Monad Graham Hutton tutorial 
+
+Note: At this point Graham Hutton's [[https://youtu.be/t1e8gqXLbsU][Monad tutorial]] seems intuitive so I will follow along and write the code leading up to the monad itself.
+
+Monads are a concept invented in mathematics in 1960s, rediscovered in computer science in the 90s and what it gives you  is a new way of thinking about programming with effects. This is one of the most important new ideas in programming languages in last 25 years.
+
+The example we are going to look at is the idea of writing a function that evaluates simple experessions. What we are going to start with is by defining a simple data type for the kind of expressions that we are going to be evaluating.
+
+#+BEGIN_SRC haskell
+-- data type Expr has two new constructors
+-- Val builds expressions from Integers
+-- Div builds expressions from two sub-expressions
+-- 1                 Val 1
+-- 6 / 2             Div (Val 6) (Val 2)
+-- 6 / (3 / 1)       Div (Val 6) (Div (Val 3) (Val 1))
+
+data Expr = Val Int | Div Expr Expr
+
+-- first version of evaluator
+eval :: Expr -> Int
+
+eval (Val n)   = n
+eval (Div x y) = eval x / eval y
+
+safediv :: Int -> Int -> Maybe Int
+safediv n m = if m == 0 then
+                 Nothing
+              else 
+                 Just (n / m)
+-- new evaluator
+
+eval :: Expr -> Maybe Int
+eval (Val n)   = Just n
+eval (Div x y) = case eval x of
+                    Nothing -> Nothing
+                    Just n  -> case eval y of
+                         Nothing -> Nothing
+                         Just m  -> safediv n m
+
+-- too much management of failure, too much noise
+-- the idea here is we are going to observe a common pattern
+-- there are two case analysis.
+-- when you see the same thing multiple times you 
+-- abstract them out and have them as a definition
+
+            m
+case __(maybe value)_____ of
+
+    Nothing -> Nothing       f    
+    Just x -> __(function to process result)_____ x
+
+m >>= f = case m of
+            Nothing -> Nothing
+            Just x -> f x
+
+---------------------------------
+
+eval :: Expr -> Maybe Int
+eval (Val n)   = return n
+eval (Div x y) = eval x >>= (\n -> 
+                 eval y >>= (\m ->
+                 safediv n m))
+----------------------------------
+
+eval :: Expr -> Maybe Int
+eval (Val n)   = return n
+eval (Div x y) = do n <- eval x
+                    m <- eval y
+                    safediv n m
+
+-- the maybe monad
+return :: a -> Maybe a
+>>=    :: Maybe a -> (a -> Maybe b) -> Maybe b
+#+END_SRC
+
+1. Same idea works for other effects as well
+2. Supports pure programming with effects
+3. Use of effects is explicit in types
+4. Functions that work for any polymorphism
 
