@@ -61,11 +61,28 @@ And when functions start lying about the things they return, you can no longer r
  * [Basic Haskell: An Examination of a Todo List](https://www.benlopatin.com/basic-haskell-todo/)
  * [Standardized ladder of functional programming](https://pbs.twimg.com/media/CydL5EYUsAAI-61.jpg:large)
  * [Sum Types](https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/sum-types)
+ * [How Laziness works](https://two-wrongs.com/how-laziness-works)
+ > What I'm about to describe is completely useless to learn how to write Haskell, but if you're like me and like poking at things under the hood, by all means join in.
+ * [Space Leak Zoo](http://blog.ezyang.com/2011/05/space-leak-zoo/)
+ > There are a few different types of space leak here, but they are quite different and a visitor would do well not to confuse them (the methods for handling them if encountered in the wild vary, and using the wrong technique could exacerbate the situation).
+ * [Money in the type system where it belongs](https://ren.zone/articles/safe-money)
+ > Notwithstanding the value civilization gives to a particular currency, the amount of said currency one owns can't spontaneously increase nor decrease in number. As programmers, we do play a crucial role in ensuring amounts of currency are never made up nor lost. In this article we will explore how we can leverage types, functional programming, and in particular the safe-money Haskell library to ensure that our software deals with monetary values and world currencies as carefully as civilization requires. Mostly, we will be exploring the type system and learning how to reason through types.
+ * [Embedding Linear Lambda Calculus, Quickly and Easily](https://blog.functorial.com/posts/2017-08-05-Embedding-Linear-Lambda-Calculus.html)
+  > Suppose you want to create an embedded DSL based on the linear lambda calculus. Why might you want to do this? Well, you might want to control access to some resource, or perhaps you've heard that linear types can change the world and now you'd like to compile your EDSL to some target language and optimize things using mutable data structures.
+ * [Imperative Haskell](https://vaibhavsagar.com/blog/2017/05/29/imperative-haskell/)
+  > I was working through Tim Roughgarden’s Algorithms 1 (which has now been replaced by two smaller courses) and attempting to do all the exercises in Haskell when I bumped up against an uncomfortable truth. 
+ * [An Opiniated Guide to Haskell in 2018](https://lexi-lambda.github.io/blog/2018/02/10/an-opinionated-guide-to-haskell-in-2018/)
+ > In the meantime, in the interest of both sharing with others the small amount of wisdom I’ve gained and preserving it for my future self, I’ve decided to write a long, rather dry overview of a few select parts of the Haskell workflow I developed and the ecosystem I settled into. 
+ * [Functor-Oriented Programming](http://r6.ca/blog/20171010T001746Z.html)
+ > My style of Haskell programming has been evolving over the 15 years that I have been working with it. It is turning into something that I would like to call “functor oriented programming”. The traditional use of typed functional programming focuses on data types. One defines data types to model the data structures that your program operates on, and one writes functions to transform between these structures. One of the primary goals in this traditional methodology is to create data structures that exclude erroneous states to the extent that is reasonably possible. As long as one ensures that pattern matching is complete, then the type system catches many errors that would otherwise lead to these erroneous states, which have been crafted to be unrepresentable. Functor oriented programming is a refinement of this traditional focus on data types. 
 
 ### Haskell Code
 
  * [Lambda launcher](https://github.com/balsoft/lambda-launcher)
-
+ * [Input Output](https://github.com/input-output-hk)
+ * [Input Output/Plutus](https://github.com/input-output-hk/plutus)
+ * [Awesome Haskell List](https://github.com/krispo/awesome-haskell)
+ * 
 ### Inspirational (poems etc..)
 
 * [Wallace Stevens - Thea idea of order at Key West](https://www.poetryfoundation.org/poems/43431/the-idea-of-order-at-key-west)
