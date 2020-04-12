@@ -1305,6 +1305,37 @@ Note: Feeling lost now, but following along. Its all abstracted while using the 
 ...
 
 * 10.1 Monads
+
+A monad is really such a simple concept. Why do people have problems with monads. It's the wrong approach of explaining what a monad is. Suppose you explain what function is, it like you go to a tropical island, there are some friendly natives and they want to learn functional programming from you and they ask you what is a function? You try to explain and give them an example, like you can have a function that takes a list of fisherman and orders them by the number of fish they caught, or another function takes  person and gives you their age, or another function that takes grain and gives you alcohol, right? And they say wow this is some amazing stuff, it does all these things, and more? Function is some powerful.. then you realize maybe thats not the best approach of explaining what a function is. 
+
+Maybe we try this, function is like an animal, it has a mouth and it eats input and produces output on the other side, thats a better analogy but you get in big trouble when you try to explain function composition (laugh :D)
+
+Why do we use function? So that we can structure our program, so that we can decompose our program into smaller pieces and recompose it, and the power of function is really in the dot. Thats what the power is. Dot is the composition operator in Haskell, combines the output of one into input of the other. Functions are about composition, and so is the Monad.
+
+People start by giving examples of monads, there is state monad, there is exception monad, you know, thats, these are completely different things, what do exceptions have to do with state, with input output? Well its just like with functions, functions can be used to implement so many things, but really functions are about composition and so is the monad. Monad is all about composing stuff. It replaces this dot with the /Kleisli/ arrow. ~>=>~
+
+The so called fish operator. Ok dot ~.~ is used for this simple functions, where output matches the input, the most trivial way of composing stuff. The fish operator is used to compose these functions whose output type is /embellished/, it really the output type of a function type would ~b~, but now we are embellishing it with some stuff, with logging, by adding a string to it, the logging Kleisli arrow, but then in order to compose these things, we have like unpack the return type before we can send it to the next so actually inside the /dot/ not much is happening, just one function is called and the result is passed to another function. Inside /fish/ much more is happening because there is unpacking and there is the passing of the argument to the next function, and also, maybe some decision is taken, like in the case of exceptions we will see that. Once we have this additional step of combining functions we can make decisions, maybe we don't want to call the next function at all?
+A lot of stuff can happen inside the fish.
+
+And just like we have the identity function here, identity with respect to the dot, here we have this kleisli arrow that represents identity that return the embellished result of the same type and we call it ~return~ in haskell. And its called return because at some point you want to be able to program like imperative programmer. It's not like imperative programming is bad. It could be good as long as its control, and the monad lets you do in this kinda imperative style, sometimes is easier to understand your code even though it is immediately translated into this style of composing function, so this is just for our convenience.
+
+Using the kleisli arrow is equivalent of using the dot. We don't see many programs even in Haskell that are written using dots, this is called point free style where you just compose function after function and never mention arguments to these function, they are hidden, they are not given any names, they just go straight from output from one function to the input of another function. Point free style is popular with some people but it is considered hard to read. So this definition of a monad with fish operator is not the main definition that is used in other languages. 
+
+** Fish anatomy
+
+#+BEGIN_SRC
+~(>=>)~ :: (a -> m b) -> (b -> m c) -> (a -> m c)
+
+f >=> g = \a -> let mb = f a 
+                in 
+
+#+END_SRC
+
+Remember this is all polymorphic in a, b and c. A, b and c are completely arbitrary types, we have to be able to define the fish operator for /any/ type a,b,c. Once you say this is any type it means you cannot do anything type specific, which means you cannot do anything :D
+except! you have a function here that takes an ~a~, thats like you only chance to do something to a, well apply ~f~ to ~a~. So the sytax is ~let mb = f a~ like defining a local variable in other languages, in Haskell it just means giving a name, binding a name to some value.  
+
+pause @(18:28)
+
 * 10.2 Monoid in the category of endofunctors
 ** Monad Graham Hutton tutorial 
 
