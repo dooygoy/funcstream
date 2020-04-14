@@ -25,6 +25,7 @@ Sources used are
   * [Bartosz Milewski - School of Haskell](https://www.schoolofhaskell.com/user/bartosz)
   * [Functional programming in Haskell](https://www.youtube.com/playlist?list=PLJ5C_6qdAvBFJP1RiUrUUJI4GEhnJhgQw)
   * [C9 Lectures: Dr. Erik Meijer - Functional Programming Fundamentals](https://youtu.be/UIUlFQH4Cvo)
+  * [Haskell Summer Course](https://www.youtube.com/playlist?list=PLaAHmR4OoQXcrQl7kgkraWQAgQ-8FpEmS)
 
 ### Talks
 
