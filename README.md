@@ -35,6 +35,7 @@ Sources used are
   * [PureScript: Tomorrow's JavaScript Today](https://youtu.be/5AtyWgQ3vv0)
   * [LambdaConf 2015 - Learn Functional Programming with PureScript John A De Goes](https://youtu.be/LqYfdmb0eUU)
   * [Adventures with Types - SPJ](https://youtu.be/6COvD8oynmI)
+  * [Conal Elliott - Denotational Design: From Meanings to Programs](https://youtu.be/bmKYiUOEo2A)
   
 ### Papers
  * [Ralf Hinze collection of papers](https://www.cs.ox.ac.uk/people/ralf.hinze/publications/index.html)
