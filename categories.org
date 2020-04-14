@@ -1323,18 +1323,119 @@ Using the kleisli arrow is equivalent of using the dot. We don't see many progra
 
 ** Fish anatomy
 
-#+BEGIN_SRC
+#+BEGIN_SRC haskell
 ~(>=>)~ :: (a -> m b) -> (b -> m c) -> (a -> m c)
 
 f >=> g = \a -> let mb = f a 
-                in 
+                in mb >>= g
 
+|-->   (>>=) :: m b -> (b -> m c) -> m c
+|
+|
+|                  class Monad m where
+|                  (>>=) :: m a -> (a -> mb) -> m b
+|                  return :: a -> m a
+|                ------------------------
+|                class Functor m => Monad m where
+|                   join :: m(ma) -> ma
+|                   return :: a -> ma
+|
+|   -- but mathematicians go deeper into the fish, how to implement
+|    -- bind?
+|
+|-->   ma >>= f =   join ( fmap f ma)
+                   /      (a -> ma) m a
+                  /        m (mb)
+                 /
+                /
+               /
+            join :: m(ma) -> m a
 #+END_SRC
+
 
 Remember this is all polymorphic in a, b and c. A, b and c are completely arbitrary types, we have to be able to define the fish operator for /any/ type a,b,c. Once you say this is any type it means you cannot do anything type specific, which means you cannot do anything :D
 except! you have a function here that takes an ~a~, thats like you only chance to do something to a, well apply ~f~ to ~a~. So the sytax is ~let mb = f a~ like defining a local variable in other languages, in Haskell it just means giving a name, binding a name to some value.  
 
-pause @(18:28)
+
+
+Why are we using these monads? Monads are used to provide composition for kleisli arrows, but why kleisli arrows? The magic is not in what a monad is, its just composition, the magis is why are these kleisli arrows so useful, what kind of problems they solve and why? The idea was that functional programming, everything is a pure function, and as programmers we know pure functions cannot express everything, there are so many computation like basic things, input output is not pure, a function that getChar if it returns a different character, it returns a different character every time you call it, so its not a pure functions. Then there are functions that throw exceptions. It turns out and this is a miracle that everything that can be computed using non-pure function, they can all be converted as long as you replace pure functions with functions that return an embellished result. This result is encapsulated in some weird way, this is the interesting part. Where does the monad come in, when we say I have this gigantic function that starts with argument a and produces this embellished result, and do I have to write it all inline? No, I want to chop it into pieces, into hundred side effects and then compose it. This is where monad comes in play, when you want to compose these functions you use the monad. The monad lets you split you computations into smaller computations and glue them together. One example are functions that are not defined for everything, so called /partial functions/. Square root is defined for positive integers for example, what you do? The program can blow up or it can throw an exception, but a function is not pure if it throws an exception. So we can use ~Maybe~.
+#+BEGIN_SRC haskell
+a -> b
+a -> Maybe b
+
+join :: Maybe (Maybe a) -> Maybe a
+join (Just (Just a)) = Just a
+join _ = Nothing
+
+-- this doesn't explain the cleverness of maybe so let me
+-- define bind
+
+Nothing >>= f = Nothing
+Just a  >>= f = f a
+return a = Just a
+
+-- Notice we are shortcircuiting, like exceptions, this
+-- function f serves like continuation. If the first part
+-- of the computation fails, abandon the computation
+-- If we want to pass information about the arrow
+-- then instead of Maybe we use the Either type, either string
+-- or value
+#+END_SRC
+
+Second example is /State/
+
+#+BEGIN_SRC haskell
+-- you have a computation from a to b that accesses some
+-- external state S, reading of modifying it but it can be turned
+-- into pure function as long as we pass the state
+-- explicitly
+
+a -> b
+
+(a, s) -> (b, s)
+
+-- using currying. This is a kleisli arrow!
+
+a -> (s -> (b, s))
+
+newtype State s a = State (s -> (a, s))
+#+END_SRC
+
+#+BEGIN_SRC haskell
+-- categorical terms
+
+m -> T
+join -> \mu
+return -> \eta
+
+\eta :: Id -> T
+\mu  :: 
+
+m (m a) -> m a
+T . T --.--> T
+
+                  Id
+           ---------------->
+          +        |         +
+         C    \eta |        C
+                   |         
+           ---------------->
+                   T
+
+
+
+           T           T 
+        C ----->  C  ----> C 
+        \         T       /
+         \ ------------> /
+          \      |      /
+           \     |\mu  /
+             \   |   /
+               \   /
+                 T
+#+END_SRC
+
+For better diagrams google /horizontal composition of two natural transformations/. These are now two dimensional diagrams!
 
 * 10.2 Monoid in the category of endofunctors
 ** Monad Graham Hutton tutorial 
