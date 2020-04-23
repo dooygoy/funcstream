@@ -2,9 +2,17 @@
 
 This is an exploration of a beautiful programming language Haskell and functional programming.
 I am learning from several books and documenting the learning here.
-Sources used are
 
-### Books
+### Table of contents
+* [Books](#books)
+* [Online Courses](#online-courses)
+* [Talks](#talks)
+* [Papers](#papers)
+* [Blogs](#blogs)
+* [Code](#code)
+* [Inspirational](#inspirational)
+
+## Books
   * [A type of programming](https://atypeofprogramming.com/)
   * [Learn you a Haskell for Greater Good](http://learnyouahaskell.com/)
   * Richard Bird: Thinking Functionally with Haskell
@@ -19,7 +27,7 @@ Sources used are
   * [Discrete Mathematics using a computer](http://www.x.edu.uy/inet/Springer.pdf)
 
 
-### Online courses
+## Online courses
   * [Bartosz Milewski Super Awesome Category Theory Lectures!](https://www.youtube.com/user/DrBartosz/playlists)
   * [Functional programming in Haskell: Supercharge your coding](https://www.futurelearn.com/courses/functional-programming-haskell)
   * [Bartosz Milewski - School of Haskell](https://www.schoolofhaskell.com/user/bartosz)
@@ -31,7 +39,7 @@ Sources used are
 
     > A happy byproduct of this approach is that the modules are fairly self-contained and can now be used by anyone to learn the material. Reading through all the modules and working through the exercises should be a great option for anyone wishing to learn some basics of programming language design and implementation. For example, I know I will probably reuse it to get summer research students up to speed. Note that the course assumes no knowledge of Haskell (so those familiar with Haskell can safely skip the first few modules), but introduces just enough to get where I want to go.
 
-### Talks
+## Talks
 
   * [Why is Haskell so Hard to Learn and How to Deal With It](https://youtu.be/RvRVn8jXoNY)
   * [Stop Treading Water: Learning to Learn](https://youtu.be/j0XmixCsWjs)
@@ -41,14 +49,14 @@ Sources used are
   * [Adventures with Types - SPJ](https://youtu.be/6COvD8oynmI)
   * [Conal Elliott - Denotational Design: From Meanings to Programs](https://youtu.be/bmKYiUOEo2A)
   
-### Papers
+## Papers
  * [Ralf Hinze collection of papers](https://www.cs.ox.ac.uk/people/ralf.hinze/publications/index.html)
  * [Graham Hutton: Universality and expressiveness of fold](http://www.cs.nott.ac.uk/~pszgmh/fold.pdf) 
  * [Eugenio Moggi: Notions of computation and monads](https://person.dibris.unige.it/moggi-eugenio/ftp/ic91.pdf)
  * [Raul Rojas: A Tutorial Introduction to the Lambda Calculus](https://arxiv.org/pdf/1503.09060.pdf)
  * [Why calculating is better than scheming](https://www.cs.kent.ac.uk/people/staff/dat/miranda/wadler87.pdf)
 
-### Other:
+## Blogs:
 
 * [Steve Yegge - Execution in The Kingdom of Nouns](http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html)
 > Hello, world! Today we're going to hear the story of Evil King Java and his quest for worldwide verb stamp-outage.
@@ -88,7 +96,7 @@ And when functions start lying about the things they return, you can no longer r
  * [Functor-Oriented Programming](http://r6.ca/blog/20171010T001746Z.html)
  > My style of Haskell programming has been evolving over the 15 years that I have been working with it. It is turning into something that I would like to call “functor oriented programming”. The traditional use of typed functional programming focuses on data types. One defines data types to model the data structures that your program operates on, and one writes functions to transform between these structures. One of the primary goals in this traditional methodology is to create data structures that exclude erroneous states to the extent that is reasonably possible. As long as one ensures that pattern matching is complete, then the type system catches many errors that would otherwise lead to these erroneous states, which have been crafted to be unrepresentable. Functor oriented programming is a refinement of this traditional focus on data types. 
 
-### Haskell Code
+## Code
 
  * [Lambda launcher](https://github.com/balsoft/lambda-launcher)
  * [Input Output](https://github.com/input-output-hk)
@@ -104,7 +112,7 @@ And when functions start lying about the things they return, you can no longer r
 6 + 5
 11
 ```
-### Inspirational (poems etc..)
+## Inspirational
 
 * [Wallace Stevens - Thea idea of order at Key West](https://www.poetryfoundation.org/poems/43431/the-idea-of-order-at-key-west)
 >  The sea was not a mask. No more was she.   
