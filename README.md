@@ -94,7 +94,16 @@ And when functions start lying about the things they return, you can no longer r
  * [Input Output](https://github.com/input-output-hk)
  * [Input Output/Plutus](https://github.com/input-output-hk/plutus)
  * [Awesome Haskell List](https://github.com/krispo/awesome-haskell)
- * 
+ * [Chris Done - a demo web browser engine](https://github.com/chrisdone/vado)
+ > This is a demonstration program that is able to load a web page up and render it like in the early 90's. It supports laying out text, different font sizes for headings, inline and block elements, hyperlinks, bold and italics. It supports mousewheel scrolling, too. I wrote this in a couple evenings, because it seemed straight-forward to do so given the libraries available today. That's a good sign for Haskell. Also, there's an inarticulate gut feeling I have that tells me maybe it's worth celebrating these days in which the web is still viewable in its simplest, earliest form.
+ * [Chris Done - subset of Haskell, aimed at aiding teachers teach Haskell](https://github.com/chrisdone/duet)
+ ```
+ $ duet run demo.hs
+(\x -> x + 5) (2 * 3)
+(2 * 3) + 5
+6 + 5
+11
+```
 ### Inspirational (poems etc..)
 
 * [Wallace Stevens - Thea idea of order at Key West](https://www.poetryfoundation.org/poems/43431/the-idea-of-order-at-key-west)
