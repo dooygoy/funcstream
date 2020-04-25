@@ -22,7 +22,7 @@ I am learning from several books and documenting the learning here.
   * Allen/Moronuki: Haskell From First Principles
   * Will Kurt: Get Programming with Haskell
   * Hudak/Quick: The Haskell School of Music
-  * David S. Touretzky: Common Lisp: A Gentle Introduction to Symbolic Computation 
+  * David S. Touretzky: Common Lisp: A Gentle Introduction to Symbolic Computation
   * Alejandro Serrano Mena: Practical Haskell - A Real World Guide to Programming
   * [Phil Freeman: Purescript by example](https://leanpub.com/purescript)
   * [Discrete Mathematics using a computer](http://www.x.edu.uy/inet/Springer.pdf)
@@ -49,10 +49,10 @@ I am learning from several books and documenting the learning here.
   * [LambdaConf 2015 - Learn Functional Programming with PureScript John A De Goes](https://youtu.be/LqYfdmb0eUU)
   * [Adventures with Types - SPJ](https://youtu.be/6COvD8oynmI)
   * [Conal Elliott - Denotational Design: From Meanings to Programs](https://youtu.be/bmKYiUOEo2A)
-  
+
 ## Papers
  * [Ralf Hinze collection of papers](https://www.cs.ox.ac.uk/people/ralf.hinze/publications/index.html)
- * [Graham Hutton: Universality and expressiveness of fold](http://www.cs.nott.ac.uk/~pszgmh/fold.pdf) 
+ * [Graham Hutton: Universality and expressiveness of fold](http://www.cs.nott.ac.uk/~pszgmh/fold.pdf)
  * [Eugenio Moggi: Notions of computation and monads](https://person.dibris.unige.it/moggi-eugenio/ftp/ic91.pdf)
  * [Raul Rojas: A Tutorial Introduction to the Lambda Calculus](https://arxiv.org/pdf/1503.09060.pdf)
  * [Why calculating is better than scheming](https://www.cs.kent.ac.uk/people/staff/dat/miranda/wadler87.pdf)
@@ -73,7 +73,7 @@ And when functions start lying about the things they return, you can no longer r
  > Applied Haskell is a commercial training program focusing on teaching intermediate Haskell. The goal is to help someone move from knowing Haskell basics to being able to write commercial software, with enough knowledge to pick up any new skills needed on demand.
  * [Haskell Learn - FPComplete](https://tech.fpcomplete.com/haskell/learn)
  * [An introduction to recursion schemes](https://blog.sumtypeofway.com/posts/introduction-to-recursion-schemes.html)
-> Because nested structures appear in almost every problem domain and programming environment, from databases to 3D graphics to filesystems, the act of iterating through these structures is common, so common that most programmers barely notice when they’re doing it. As such, generalizing the act of recursive traversals provides immediate real-world benefits: our new generalized traversal can replace a host of type-specific traversal functions. In addition, by decoupling how a function recurses over data from what the function actually does, we reduce cognitive overhead and can focus entirely on the core behavior of our recursive functions. 
+> Because nested structures appear in almost every problem domain and programming environment, from databases to 3D graphics to filesystems, the act of iterating through these structures is common, so common that most programmers barely notice when they’re doing it. As such, generalizing the act of recursive traversals provides immediate real-world benefits: our new generalized traversal can replace a host of type-specific traversal functions. In addition, by decoupling how a function recurses over data from what the function actually does, we reduce cognitive overhead and can focus entirely on the core behavior of our recursive functions.
  * [The Road to Proficient Haskell](https://williamyaoh.com/posts/2020-01-11-road-to-proficient.html)
  * [Getting started with Haskell](https://stackoverflow.com/questions/1012573/getting-started-with-haskell/1016986#1016986)
  * [You Could Have Invented Monads](http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html)
@@ -91,11 +91,11 @@ And when functions start lying about the things they return, you can no longer r
  * [Embedding Linear Lambda Calculus, Quickly and Easily](https://blog.functorial.com/posts/2017-08-05-Embedding-Linear-Lambda-Calculus.html)
   > Suppose you want to create an embedded DSL based on the linear lambda calculus. Why might you want to do this? Well, you might want to control access to some resource, or perhaps you've heard that linear types can change the world and now you'd like to compile your EDSL to some target language and optimize things using mutable data structures.
  * [Imperative Haskell](https://vaibhavsagar.com/blog/2017/05/29/imperative-haskell/)
-  > I was working through Tim Roughgarden’s Algorithms 1 (which has now been replaced by two smaller courses) and attempting to do all the exercises in Haskell when I bumped up against an uncomfortable truth. 
+  > I was working through Tim Roughgarden’s Algorithms 1 (which has now been replaced by two smaller courses) and attempting to do all the exercises in Haskell when I bumped up against an uncomfortable truth.
  * [An Opiniated Guide to Haskell in 2018](https://lexi-lambda.github.io/blog/2018/02/10/an-opinionated-guide-to-haskell-in-2018/)
- > In the meantime, in the interest of both sharing with others the small amount of wisdom I’ve gained and preserving it for my future self, I’ve decided to write a long, rather dry overview of a few select parts of the Haskell workflow I developed and the ecosystem I settled into. 
+ > In the meantime, in the interest of both sharing with others the small amount of wisdom I’ve gained and preserving it for my future self, I’ve decided to write a long, rather dry overview of a few select parts of the Haskell workflow I developed and the ecosystem I settled into.
  * [Functor-Oriented Programming](http://r6.ca/blog/20171010T001746Z.html)
- > My style of Haskell programming has been evolving over the 15 years that I have been working with it. It is turning into something that I would like to call “functor oriented programming”. The traditional use of typed functional programming focuses on data types. One defines data types to model the data structures that your program operates on, and one writes functions to transform between these structures. One of the primary goals in this traditional methodology is to create data structures that exclude erroneous states to the extent that is reasonably possible. As long as one ensures that pattern matching is complete, then the type system catches many errors that would otherwise lead to these erroneous states, which have been crafted to be unrepresentable. Functor oriented programming is a refinement of this traditional focus on data types. 
+ > My style of Haskell programming has been evolving over the 15 years that I have been working with it. It is turning into something that I would like to call “functor oriented programming”. The traditional use of typed functional programming focuses on data types. One defines data types to model the data structures that your program operates on, and one writes functions to transform between these structures. One of the primary goals in this traditional methodology is to create data structures that exclude erroneous states to the extent that is reasonably possible. As long as one ensures that pattern matching is complete, then the type system catches many errors that would otherwise lead to these erroneous states, which have been crafted to be unrepresentable. Functor oriented programming is a refinement of this traditional focus on data types.
 
 ## Code
 
@@ -117,12 +117,12 @@ And when functions start lying about the things they return, you can no longer r
 ## Inspirational
 
 * [Wallace Stevens - Thea idea of order at Key West](https://www.poetryfoundation.org/poems/43431/the-idea-of-order-at-key-west)
->  The sea was not a mask. No more was she.   
-The song and water were not medleyed sound   
-Even if what she sang was what she heard,   
+>  The sea was not a mask. No more was she.
+The song and water were not medleyed sound
+Even if what she sang was what she heard,
 Since what she sang was uttered word by word.
-It may be that in all her phrases stirred   
-The grinding water and the gasping wind;   
+It may be that in all her phrases stirred
+The grinding water and the gasping wind;
 But it was she and not the sea we heard.
 
 ## Observations
@@ -133,7 +133,7 @@ by using the chakra system and seed sounds of each chakra analogy:
 ```
 soundToChakra :: Sound -> Chakra
 soundToChakra = \x ->
-  case x of 
+  case x of
     Lam -> Muladhara
     Vam -> Svadishtana
     Ram -> Manipura
@@ -150,7 +150,7 @@ stringToSound = \x ->
     "yam" -> Just Yam
     "ham" -> Just Ham
     "aum" -> Just Aum
-    _     -> Nothing 
+    _     -> Nothing
 ```
   * What is interesting is that in Haskell you don't say, "well, maybe this or maybe
 that" like I hear often people say in real life, and true, it does seem
@@ -177,7 +177,7 @@ might get irritated if we are asked to explain our *Maybe's*.
 Bob: "Maybe"
 Alice: "What do you mean maybe?"
 Bob: "Well I mean that I am going to just do it or I am going to `Just` sit back
-and do `Nothing`. 
+and do `Nothing`.
 Alice: "But Bob please if you can't do it then do the other thing please, you
 can't `Just` sit back and do `Nothing`.
 Bob: "Ok then, I am going to do `Either` this thing or that thing if you need it
@@ -194,7 +194,7 @@ fromEither = \x ->
     Left s -> This s
     Right c -> That c
 
-toEither :: ThisOrThat -> Either Sound Chakra 
+toEither :: ThisOrThat -> Either Sound Chakra
 toEither = \x ->
   case x of
     This s -> Left s
@@ -206,11 +206,11 @@ Right Chakra == toEither (fromEither (Right Chakra))
 That Chakra == fromEither (toEither (That Chakra))
 ```
 
-So `That` is on our `Right` and `This` is on our `Left`. `That` contains 
+So `That` is on our `Right` and `This` is on our `Left`. `That` contains
 all the 6 chakras we have in our body and `This` contains all the sounds we
 utter that work on each chakra. The intuitive distinction that might seem
 hard to grasp is that we seem to have another layer when we visualise
-the either containers, or better to say when we visualise the path from 
+the either containers, or better to say when we visualise the path from
 chakra container to sound container. We cannot just visualise sound and chakra
 flowing between but instead we must so to say go up the tree root using
 two levels of Either to understand the whole structure, this needs to be done
@@ -228,16 +228,23 @@ to one another.
                          \                       /
                           \                     /
                            \                   /
-                                     
+
                                      *
                                      |
                                      |
                                      |
                                   toEither
-                                  
+
                     Right Chakra == toEither (fromEither (Right Chakra))
                     That Chakra == fromEither(toEither (That Chakra))
-                    
+
                     Left Sound == toEither (fromEither (Left Sound))
                     This Sound == fromEither (toEither (This Sound))
 ```
+> `Either sound chakra` is making a statement saying that we have *one* of two possible values of types x *or* y in it. It turns out that `Either`, or *sum types* more generally, have a very reasonable and useful *dual* construction in which we have *both x and y*. In Haskell, we can convey thia idea as well. Let's call it `Pair`.
+
+`data Pair x y = MakePair x y`
+
+That is, a pair of a Chakra and a Sound will have type `Pair Chakra Sound`.
+So while with `Maybe` we had to just pick one or nothing at all, and in `Either` we could pick this or that, which were some real alternatives, in a `Pair` we have this notion of carrying both alternatives with us, they are together and we are not making a choice by choosing either this or that.
+It does seem like `Maybe` relates somehow to the notion of `Identity` since it is just giving us the thing we ask while the Either resembles to a Boolean choice or either this or that, either though we could say `Maybe` as well resembles a boolean choice since Just could be understood as `true` and Nothing as `false`. It is interesting to find relations with basic mathematical functions. In that case `Either` could be understood as showing two truth values and yet we are only supposed to pick one, now that really resembles to `OR`! But bool values always pick just one so even though this thought process *smells* wrong it does bring benefit when learning Haskell to compare it with previous concepts.
