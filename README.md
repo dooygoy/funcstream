@@ -248,3 +248,25 @@ to one another.
 That is, a pair of a Chakra and a Sound will have type `Pair Chakra Sound`.
 So while with `Maybe` we had to just pick one or nothing at all, and in `Either` we could pick this or that, which were some real alternatives, in a `Pair` we have this notion of carrying both alternatives with us, they are together and we are not making a choice by choosing either this or that.
 It does seem like `Maybe` relates somehow to the notion of `Identity` since it is just giving us the thing we ask while the Either resembles to a Boolean choice or either this or that, either though we could say `Maybe` as well resembles a boolean choice since Just could be understood as `true` and Nothing as `false`. It is interesting to find relations with basic mathematical functions. In that case `Either` could be understood as showing two truth values and yet we are only supposed to pick one, now that really resembles to `OR`! But bool values always pick just one so even though this thought process *smells* wrong it does bring benefit when learning Haskell to compare it with previous concepts.
+
+> Quote from atop: 
+We say `Either` and `Pair` are fundamental because once we can group or tell
+apart two things, we can group or tell apart as many things as we want.
+
+Once we begin to extend our space of pairs we realize pairs are just like
+containers of two. Can we imagine triples? Or quads? If we jump to a musical
+analogy, a pair is a musical interval, a pair of two tones in any scale makes an
+interval. Once we hear a tone it is like hearing a point in space, though it can
+sound pretty we know very little about it since the whole sound is coming from
+one source (aha but what when both sources sing the same tone? Where is the
+source then?). To get back a pair of two tones is like a line, and a triplet of
+three tones can be understood as a triangle, a musical chord, defining a space between three
+tones. Technically speaking a musical chord is a cluster of three or more tones.
+Let us add three tones, c, e, and g that will make a C chord
+
+```haskell
+add3tones :: (Tone, Tone, Tone) -> Tone
+add3tones = \(c, e, g) -> c + e + g 
+```
+
+
