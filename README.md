@@ -11,6 +11,7 @@ I am learning from several books and documenting the learning here.
 * [Blogs](#blogs)
 * [Code](#code)
 * [Inspirational](#inspirational)
+* [Observations](#observations)
 
 ## Books
   * [A type of programming](https://atypeofprogramming.com/)
@@ -105,7 +106,8 @@ And when functions start lying about the things they return, you can no longer r
  * [Chris Done - a demo web browser engine](https://github.com/chrisdone/vado)
  > This is a demonstration program that is able to load a web page up and render it like in the early 90's. It supports laying out text, different font sizes for headings, inline and block elements, hyperlinks, bold and italics. It supports mousewheel scrolling, too. I wrote this in a couple evenings, because it seemed straight-forward to do so given the libraries available today. That's a good sign for Haskell. Also, there's an inarticulate gut feeling I have that tells me maybe it's worth celebrating these days in which the web is still viewable in its simplest, earliest form.
  * [Chris Done - subset of Haskell, aimed at aiding teachers teach Haskell](https://github.com/chrisdone/duet)
- ```
+
+```
  $ duet run demo.hs
 (\x -> x + 5) (2 * 3)
 (2 * 3) + 5
@@ -122,4 +124,64 @@ Since what she sang was uttered word by word.
 It may be that in all her phrases stirred   
 The grinding water and the gasping wind;   
 But it was she and not the sea we heard.
+
+## Observations
+
+  * Explaining Haskell datatypes and constructors to a buddhist/yogi
+by using the chakra system and seed sounds of each chakra analogy:
+
+```
+soundToChakra :: Sound -> Chakra
+soundToChakra = \x ->
+  case x of 
+    Lam -> Muladhara
+    Vam -> Svadishtana
+    Ram -> Manipura
+    Yam -> Anahata
+    Ham -> Vishuddha
+    Aum -> Ajna
+
+stringToSound :: String -> Maybe Sound
+stringToSound = \x ->
+  case x of
+    "lam" -> Just Lam
+    "vam" -> Just Vam
+    "ram" -> Just Ram
+    "yam" -> Just Yam
+    "ham" -> Just Ham
+    "aum" -> Just Aum
+```
+  * What is interesting is that in Haskell you don't say, "well, maybe this or maybe
+that" like I hear often people say in real life, and true, it does seem
+ambiguous to use maybe for more possibilities than one or nothing at all. You
+instead say "Well, maybe just this or nothing at all" and if you want to express
+more outputs, or results that involve something more than just nothing you use
+"Well, either this or that". But even more, the `Maybe` is actually made of
+"Just this or nothing at all" so there is always this layered approach to
+composition of functions, of expressions. The `Maybe` itself is defined by
+`Just` this or `Nothing` at all. Why? Well, It seems it is because we can call
+it `Maybe` precisely because it somehow produces an *action* and a terminating
+*non-action*; we can also visualise it as a parent node whose name is Maybe with
+two children, named Just and Nothing. This intuitive tricky part is that Nothing
+is not like Just, Just will eventually pass something while Nothing will just
+say no to what ever is being passed on, simply declaring Nothing if or Maybe
+gets something which it doesn't need, which is not defined explicitly. In
+Haskell it seems each expression can have a name itself, so that it is possible
+to connect it to anything else, while at the same time it is defined *totally*
+or at least that is what we strive to do. In real life we sometimes use a name
+for an expression and then offer an explanation of what we really mean. We even
+might get irritated if we are asked to explain our *Maybe's*.
+
+> Alice: "Are you gonna do it?"
+Bob: "Maybe"
+Alice: "What do you mean maybe?"
+Bob: "Well I mean that I am going to just do it or I am going to `Just` sit back
+and do `Nothing`. 
+Alice: "But Bob please if you can't do it then do the other thing please, you
+can't `Just` sit back and do `Nothing`.
+Bob: "Ok then, I am going to do `Either` this thing or that thing if you need it
+so much, is that ok? *Just* give me some time.
+
+Yet people often use the word maybe for more than one thing. You could maybe do
+this, or you could maybe do that, or bla.. which does seem a bit *unprecise*.
 
