@@ -150,6 +150,7 @@ stringToSound = \x ->
     "yam" -> Just Yam
     "ham" -> Just Ham
     "aum" -> Just Aum
+    _     -> Nothing 
 ```
   * What is interesting is that in Haskell you don't say, "well, maybe this or maybe
 that" like I hear often people say in real life, and true, it does seem
