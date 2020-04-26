@@ -268,5 +268,78 @@ Let us add three tones, c, e, and g that will make a C chord
 add3tones :: (Tone, Tone, Tone) -> Tone
 add3tones = \(c, e, g) -> c + e + g 
 ```
+--------------------------------------------------------------------
 
+### Let vs Where
 
+It seems the difference between let and where lies in the order of declaration.
+When we want to first name the *things* we want to use in our action we use let
+in the sense, let there be light, let there be this, let there be that and then
+after we have declared all out *lets* we will begin an action like "ok now
+create this". We could understand it like this as well:
+```haskell
+let there be a human called "Bob"
+let there be a human called "Alice"
+in "Alice" loves "Bob"
+
+-- further
+
+let human = "Bob"
+let human = "Alice"
+"Bob" loves "Alice"
+
+-- further we ommit using let twice
+
+let firstHuman = "Bob"
+    secondHuman = "Alice"
+in "Bob" loves "Alice"
+
+{- 
+This was not valid Haskell code, but it is written like this in order to
+increase conceptual understanding of let vs where expressions
+-}
+
+-- valid Haskell 
+
+let x = 2
+    y = 3
+in x + y
+```
+
+Now, when we use `where` we like to first define our action or an event happening
+and then tell something about our actors who define the event itself. Something
+like "where some event is happening, its components are this and that, or where
+Alice loves Bob, Bob is human and Alice is human too." If we miss describin a
+sinble component of our event the event will not compile, Haskell will not
+accept our declaration. Notice we could define a component and not use it in our
+action, that will go thrugh, the event will not fail, same as declaring "Alice",
+"Bob" and "Hayka" and then telling "Alice" loves "Hayka", the program would run
+even though "Bob" was left all by himself.
+
+The above let expression can be written with where like:
+
+```haskell
+love = human1 + human3
+  where human1 = "Bob"
+        human2 = "Alice"
+        human3 = "Hayka"
+```
+Lets use correct Haskell code for our love program. We will use '++' instead
+of just '+' since '++' is used to add or *concatenate* words, aka strings 
+(of characters).
+
+```haskell
+love = human2 ++ " loves  " ++  human3
+  where human1 = "Bob"
+        human2 = "Alice"
+        human3 = "Hayka"
+
+-- and our previous number example with let
+
+add = x + y
+  where x = 2
+        y = 3
+       		
+
+	
+	
