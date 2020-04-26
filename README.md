@@ -309,10 +309,10 @@ in x + y
 Now, when we use `where` we like to first define our action or an event happening
 and then tell something about our actors who define the event itself. Something
 like "where some event is happening, its components are this and that, or where
-Alice loves Bob, Bob is human and Alice is human too." If we miss describin a
-sinble component of our event the event will not compile, Haskell will not
+Alice loves Bob, Bob is human and Alice is human too." If we miss describing a
+single component of our event the event will not compile, Haskell will not
 accept our declaration. Notice we could define a component and not use it in our
-action, that will go thrugh, the event will not fail, same as declaring "Alice",
+action, but it will still go through, and the event will not fail, same as declaring "Alice",
 "Bob" and "Hayka" and then telling "Alice" loves "Hayka", the program would run
 even though "Bob" was left all by himself.
 
@@ -324,7 +324,7 @@ love = human1 + human3
         human2 = "Alice"
         human3 = "Hayka"
 ```
-Lets use correct Haskell code for our love program. We will use '++' instead
+Let's use correct Haskell code for our love program. We will use '++' instead
 of just '+' since '++' is used to add or *concatenate* words, aka strings 
 (of characters).
 
