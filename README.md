@@ -46,8 +46,8 @@ induce higher stress levels since one is always striving for correctness.
 * [Code](#code)
 * [Inspirational](#inspirational)
 * [Observations](#observations)
-	*[Let vs Where](#let-vs-where)
-	*[More of where](#more-of-where)
+  * [Let vs Where](#let-vs-where)
+  * [More of where](#more-of-where)
 
 ## Books
   * [A type of programming](https://atypeofprogramming.com/)
