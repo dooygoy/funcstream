@@ -46,6 +46,8 @@ induce higher stress levels since one is always striving for correctness.
 * [Code](#code)
 * [Inspirational](#inspirational)
 * [Observations](#observations)
+  *[Let vs Where](#let-vs-where)
+  *[More of where](#more-of-where)
 
 ## Books
   * [A type of programming](https://atypeofprogramming.com/)
@@ -374,6 +376,8 @@ add = x + y
   where x = 2
         y = 3
 ```
+### More of where
+
 Let us use the where in a slightly developed example, this is a variation on
 "Haskell from first principles" chapter 3 exercise, but we will use first and last
 name instead of hello world. The difference is in two examples is that we will
