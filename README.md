@@ -38,6 +38,7 @@ induce higher stress levels since one is always striving for correctness.
 > them and to give a full exposition of what that is.
 
 ### Table of contents
+
 * [Books](#books)
 * [Online Courses](#online-courses)
 * [Talks](#talks)
@@ -48,9 +49,13 @@ induce higher stress levels since one is always striving for correctness.
 * [Observations](#observations)
   * [Let vs Where](#let-vs-where)
   * [More of where](#more-of-where)
-
+  * [Scope](#scope)
+  * [To String or not to String](#to-string-or-not-to-string)
+  * [Types](#types)
+ 
 ## Books
-  * [A type of programming](https://atypeofprogramming.com/)
+
+* [A type of programming](https://atypeofprogramming.com/)
   * [Learn you a Haskell for Greater Good](http://learnyouahaskell.com/)
   * Richard Bird: Thinking Functionally with Haskell
   * Graham Hutton: Programming in Haskell
@@ -65,6 +70,7 @@ induce higher stress levels since one is always striving for correctness.
 
 
 ## Online courses
+
   * [Bartosz Milewski Super Awesome Category Theory Lectures!](https://www.youtube.com/user/DrBartosz/playlists)
   * [Functional programming in Haskell: Supercharge your coding](https://www.futurelearn.com/courses/functional-programming-haskell)
   * [Bartosz Milewski - School of Haskell](https://www.schoolofhaskell.com/user/bartosz)
@@ -87,6 +93,7 @@ induce higher stress levels since one is always striving for correctness.
   * [Conal Elliott - Denotational Design: From Meanings to Programs](https://youtu.be/bmKYiUOEo2A)
 
 ## Papers
+
  * [Ralf Hinze collection of papers](https://www.cs.ox.ac.uk/people/ralf.hinze/publications/index.html)
  * [Graham Hutton: Universality and expressiveness of fold](http://www.cs.nott.ac.uk/~pszgmh/fold.pdf)
  * [Eugenio Moggi: Notions of computation and monads](https://person.dibris.unige.it/moggi-eugenio/ftp/ic91.pdf)
@@ -448,6 +455,7 @@ though as a learning aid repetition is very good. Little children like to
 repeat things they learn, so do we. 
 
 ---------------------------------------------------------------------------
+### Scope
 
 Note:
 Haskell from first principles builds intuition by first going through various 
@@ -497,6 +505,8 @@ you should cut it. Unfortunately these situations sometimes happen in various
 shapes and sizes. 
 
 ------------------------------------------------------------------------------
+
+### To String or not to String
 
 Let's go through some of the exercises from chapter 3 in HaskellBook and try
 out basic abstractions. We would like to append or concatenate two separate strings into one string.
@@ -558,6 +568,73 @@ True
 > concatenateTwoStrings = \firstString secondString -> firstString ++ secondString
 > concatenateTwoStrings "hello" " world"
 "hello world"
+```
+### Types
+
+Though usually first basic dataype that is introduced in Haskell books is the 
+`Bool` datatype we will start with something different, which might bring our
+intuition *closer* to Bool. It is important to note that while HaskellBook begins
+the whole *type* story with introducing `data Bool = False | True`, same as
+Graham Hutton's *Programming Haskell*, *A Type of Programming* introduces types
+as four seasons of the year.
+
+```haskell
+data Bool = False | True
+
+data Season = Winter | Spring | Summer | Fall
+```
+We too will define a `Human` datatype with its two data constructors `Male` or
+`Female`
+
+```haskell
+data Human = Male | Female
+
+-- let's change some genders, for now just keeping it as a binary choice for 
+-- making things simple
+
+changeGender :: Human -> Human
+changeGender Male = Female
+changeGender _    = Male
+
+> changeGender Male
+Female
+> changeGender Female
+Male
+```
+
+We are using *or* instead of *and* because the `|` symbol,
+the so called Pipe, indicating logical disjunction "or", indicates that 
+this is a *sum type*. So a human can be a female or a male but not 
+both at the same time. But is this the only way we can write data declarations?
+How about using *and* and various *what if* this and that happens relations. Types
+are never so pure in real life, and we often need to ponder before we implement
+a solution. Seems to me a Haskeller can spend an eternity just pondering basic
+questions. "A type!" a haskeller says, "What the hell is a type?" 
+It is important not to over think the type relations but somehow mix and match 
+while progressing in our composition. The good part is that type driven design can eliminate many failures that can 
+happen along the way, and in turn enable us to deal with future turns with much
+greater success. HaskellBook tells this in a very clear way by describing the
+basic flow of a data type declaration.
+
+> The whole thing is called a data declaration. Data declaration do not always 
+follow precisely the same pattern - there are datatypes that use logical 
+conjuction (*and*) instead of disjunction, and some type constructors and 
+data constructors may have arguments. The thing they have in common is the keyword
+`data` followed by the type constructor (or name of the type that will appear in
+type signatures), the equals sign to denote a definition, and then data constructors
+(or names of values that inhabit your term-level code). 
+
+```haskell
+data Mood = Happy | Sad
+
+changeMood :: Mood -> Mood
+changeMood Happy = Sad
+changeMood _     = Happy
+
+> changeMood Happy
+Sad
+> changeMood Sad
+Happy
 ```
 
 
