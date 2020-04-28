@@ -374,6 +374,138 @@ add = x + y
   where x = 2
         y = 3
 ```
+Let us use the where in a slightly developed example, this is a variation on
+"Haskell from first principles" chapter 3 exercise, but we will use first and last
+name instead of hello world. The difference is in two examples is that we will
+abstract our name into first and last while in the book "hello" and "world" is 
+used for expression and for the function name as well.
+
+```haskell
+module MyName where
+
+{- before we define our name, I am just using my own here, 
+   we say that myName is a type of a string, as in a string of characters,
+   then we define myName by concatenating the first and the last name. We are not
+   explicitly mentioning first and last name, but instead just providing the value
+   of the first and last name, which is "domagoj" and "miskovic"
+-}
+
+myName :: String
+myName = "domagoj" ++ " miskovic"
+
+-- but now we will declare the firstName is "domagoj"
+firstName :: String
+firstName = "domagoj"
+
+-- and last name as "miskovic"
+lastName :: String
+lastName = "miskovic"
+
+{- and now we will print out the myName and then we will link together
+   our firstName and lastName into one expression by calling our firstName and
+   lastName and Haskell should print out the values we provided before when we
+   run the program. 
+-}
+
+main :: IO ()
+main = do
+  putStrLn myName
+  putStrLn firstAndLast
+  where firstAndLast = 
+    concat [firstName, " ", lastName]
+```
+We introduced `firstAndLast` function with a `where` which was not maybe 
+necessary. We could have just linked together before declared firstName 
+and lastName without the `where` by writing `putStrLn (concat [firstName, " ", lastName])`
+but in Haskell, even from simplest examples, one is *practicing* composability,
+abstracting from the tiniest to the grossest. Since we learned `where` which
+is like a basic tool for abstracting, describing our processes, like separating
+the what and the who, we should use it in our exploratory learning and try to apply
+it when ever we can. Here is a simple sum of squares example with where:
+
+```haskell 
+-- sumOfSquares.hs
+
+sumOfSquares x y = square x + square y
+  where square n = n * n
+```
+Let us use lambda for our Sum of Squares
+
+```haskell
+module SOS where
+
+sumOfSquares :: Integer -> Integer -> Integer
+sumOfSquares = \x y -> square x + square y
+  where square = \n -> n * n
+```
+Here also, we could have just used `sumOfsquares x y = x*x + y*y` instead. But
+there is something else too, there are too many squares, square this square that,
+though as a learning aid repetition is very good. Little children like to
+repeat things they learn, so do we. 
+
+---------------------------------------------------------------------------
+
+Note:
+Haskell from first principles builds intuition by first going through various 
+syntax examples and then plays with local and top level definitions by using
+`let` and `where` as basic tools for abstraction. What we notice is the importance
+of *spacing* in Haskell code, from *whitespace* that has a silent like mysterious
+*apply* function because a simple `f x` meaning `f` is *applied* to `x`, to the
+silent matrix like grid system or invisible columns and rows define the 
+play between local and *global* or *top-level* definitions. Global might be a 
+*wrong* word so we use top-level which brings us somewhat closer to the code at hand,
+and a bit away from all expansive *global* notions. 
+
+a top-level definition is basically like a tree and local definitions are like
+branches which have a life of their own within that same tree. 
+```     
+         /----- 
+   + ===[ ------
+   |     \-----
+   |
+   |
+   |     /-----
+   + ==={------
+         \_____
+```
+--------------------------------------------------------------------------------
+Sometimes in real life conversations you will listen to two people talking,
+and one of them will ask a question to another but you will not really know what
+they mean by it. The second person might already answer it and you will still ponder
+what the first person really meant. Then later when the second person leaves you
+ask the person who was answering: "Hey what did she mean with that question? I
+did not understand it." "Oh, you know sometimes she talks like this, she knows
+I know what she really means so she just cuts out the whole question and asks me
+implicitly."
+
+What basically happened is that I was *left out* of the *scope* of the 
+conversation so I could not put together what they meant by it. They were talking
+about local definitions without providing explicit values to those definitions
+so I was left out wondering what those values were. Unfortunately sometimes 
+people get angry too when you do not ask them explicitly something but *force*
+you to provide explicit local definitions, remebering something they wish to tell
+. People use these aggresive tactics sometimes. Somebody might tell you:
+"Hey, when are you going to cut your hair!?" What they mean by it it that your
+hair is too long but they do not explicitly say it out loud. You might play naive
+and ask them, well I do not know, why do you ask? Then the other person expects
+you to *know* what they really mean and that is that your hair is too long and that
+you should cut it. Unfortunately these situations sometimes happen in various 
+shapes and sizes. 
+
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
 
        		
 
