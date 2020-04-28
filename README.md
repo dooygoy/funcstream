@@ -498,8 +498,67 @@ shapes and sizes.
 
 ------------------------------------------------------------------------------
 
+Let's go through some of the exercises from chapter 3 in HaskellBook and try
+out basic abstractions. We would like to append or concatenate two separate strings into one string.
+Our first string will be "Curry is awesome" and our second string will be an exclamation mark '!'.
+Our '!' exclamation mark is actually a character, and characters are embraced by single quotes `' '` while actual strings
+which are a collection of characters are embraced by double quotes `" "` so a letter a is written as `'a'` while a 
+string abcd is written as `"abcd"`. Now, can we write a character a as a string by putting double quotes around it, as in
+`"a"`. Yes we can. But how is that possible?
 
+```haskell
+> "a" == 'a'
+..error:
+    Couldn't match expected type '[Char]' with actual type 'Char'
 
+> "a" == ['a']
+True
+
+> [' ', 'a', ' ']
+" a "
+
+> " a " == "a"
+False
+```
+Hmm.. what is actually happening here? Let us try appending two chars, `a` and `b` and
+at the same time check with `==` sign if our expression is true
+
+```haskell
+> appendTwoChars = "a" ++ "b" == "ab"
+> appendTwoChars
+True
+
+-- by trial and error we see that
+
+> appendTwoChars = 'a' : 'b' : [] == "ab"
+> appendTwoChars 
+True
+```
+
+Looking at this we could say that a string is a *list* of characters, represented by square brackets `[ ]`
+while characters have only single quotes meaning double quotes are *like* single quotes embraced by a bracked.
+```haskell
+> ['a'] == "a"
+True
+```
+Ok, so back again to our "curry is awesome" and "!" example. Let's concatonate them and abstract these examples into a 
+function that will concatenate any two strings.
+
+```haskell
+> concatenateTwoStrings = ("Curry is awesome" ++ "!") == "Curry is awesome!"
+> concatenateTwoStrings
+True
+
+> concatenateTwoStrings firstString secondString = firstString ++ secondString
+> concatenateTwoStrings "first" " second"
+"first second"
+
+-- using beloved lambda
+
+> concatenateTwoStrings = \firstString secondString -> firstString ++ secondString
+> concatenateTwoStrings "hello" " world"
+"hello world"
+```
 
 
 
