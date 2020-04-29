@@ -52,10 +52,11 @@ induce higher stress levels since one is always striving for correctness.
   * [Scope](#scope)
   * [To String or not to String](#to-string-or-not-to-string)
   * [Types](#types)
+  * [Five Types of Buddhas](#five-types-of-buddhas)
  
 ## Books
 
-* [A type of programming](https://atypeofprogramming.com/)
+  * [A type of programming](https://atypeofprogramming.com/)
   * [Learn you a Haskell for Greater Good](http://learnyouahaskell.com/)
   * Richard Bird: Thinking Functionally with Haskell
   * Graham Hutton: Programming in Haskell
@@ -636,10 +637,61 @@ Sad
 > changeMood Sad
 Happy
 ```
+### Five Types of Buddhas
 
+Playing with *sum types* and five Buddha families
 
+```haskell
 
+data Buddha = Vairocana
+	    | Amoghasiddhi
+	    | Amitabha
+	    | Ratnasambhava
+	    | Akshobhya
 
+data Color = White | Green | Red | Gold | Blue
+data Element = Space | Air | Fire | Earth | Water
+data Cardinality = Center | North | West | South | East
+data Stress = Ignorance | Jealousy | Selfishness | Pride | Aggresion
+data Season = None | Summer | Spring | Autumn | Winter
+data Wisdom = Meditation | Perfection | Observation | Equanimity | Reflection
+data Symbol = Wheel | Vajra | Lotus | Jewel | Sceptre
+data Means = Turn | Protect | Magnetize | Enrich | Pacify
+
+colorOfBuddhas :: Buddha -> Color
+colorOfBuddhas = \x ->
+  case x of
+    Vairocana -> White
+    Amoghasiddhi -> Green
+    Amitabha -> Red
+    Ratnasambhava -> Gold
+    Akshobhya -> Blue
+
+seasonOfBuddhas :: Buddha -> Season
+seasonOfBuddhas = \x ->
+  case x of
+    Vairocana -> None
+    Amoghasiddhi -> Summer
+    Amitabha -> Spring
+    Ratnasambhava -> Autumn
+    Akshobhya -> Winter
+
+wisdomOfBuddhas :: Buddha -> Wisdom
+wisdomOfBuddhas = \x ->
+  case x of
+    Vairocana -> Meditation
+    Amoghasiddhi -> Perfection
+    Amitabha -> Observation
+    Ratnasambhava -> Equanimity
+    Akshobhya -> Reflection
+```
+This looks clear and yet we feel something missing. We would like to now define
+more complex constructors, and we will get back to this when we understand a bit
+more about `Either` and `Maybe` which will *enrich* our flow of types. I showed 
+this chart to a person who knows something about these Buddhas and yoga and 
+intuitively the person understood the flow of types. There five families are also
+a nice way to put various groups of five together and think on various functions
+between them.
 
 
 
