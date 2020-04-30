@@ -899,7 +899,7 @@ order to accept "multiple" arguments. The way the (->) type constructor for
 functions works means `a -> a -> a` represents successive function applications,
 each taking one argument and returning one result. The difference is that the
 function at the outermost layer is returning *another* function that accepts the
-next argument. This is called *currying*. 
+next argument. This is called *currying*.
 
 Our `addTwo` was defined for just two input numbers. What if we provide three
 numebrs to add?
@@ -912,7 +912,7 @@ numebrs to add?
 > (+) 1 2
 3
 > (+) 1 2 3
-error:Non type-variable argument in the constraint.. 
+error:Non type-variable argument in the constraint..
 -- hmm..
 ```
 ```scheme
@@ -931,7 +931,7 @@ error:Non type-variable argument in the constraint..
 Let's get back to Haskell. Though it is possible to put plus before the
 arguments similar to lisp it does not really work the same way, it still somehow
 takes only two arguments. Is this limited? Not really, what I understand now is
-that the plus function itself is defined minimally in Haskell, like the very 
+that the plus function itself is defined minimally in Haskell, like the very
 essence of plus is defined as something that adds *at least* two things, but
 to go even further in Haskell, only two things! If you need to add three things
 then use two pluses, use two functions to add three things. If we
@@ -942,6 +942,43 @@ behaviour like in lisp example. This does seem super cool, meaning functions in
 Haskell are interlinked somehow each having one input and one output. Even our
 imaginary *mapping* function would not really add a million numbers but would tell
 plus to add a million numbers, orchestrating the event coordinating many little
-pluses to do the addition, collapsing the numbers like dominoes. 
-So how is lisp then just adding many numbers by having a plus function at 
-the beginning of the expression? Ponder the pond.. 
+pluses to do the addition, collapsing the numbers like dominoes.
+So how is lisp then just adding many numbers by having a plus function at
+the beginning of the expression? Ponder the pond..
+
+> The way the type constructor for functions, (->), is defined makes currying the default in Haskell. This is because it is an infix operator and right associative. Because it associates to the right, types are implicitly parenthesized like so:
+```haskell
+f :: a -> a -> a
+
+-- associates to
+
+f :: a -> (a -> a)
+
+-- and
+
+map :: (a -> b) -> [a] -> [b]
+
+-- associates into
+
+map :: (a -> b) -> ([a] -> [b])
+```
+> The association here, or grouping into parentheses, is not to control precedence or order of evaluation; it only serves to group the parameters into argmuents and results, since there can only be one argmuent and one result per arrow...
+
+But this very technical desription of this action does not fully explain this behaviour except by mapping out every movement into words. What I do realize from previous pondering is that as with our plus sign visually it is supposed to be right associative merely because the result is the last thing we are going to get if the function completes so the result is *embraced* with the last argument meaning the last function is going to take the numbers given to it by all the previous functions and give us the result. At least this idea helped me to deepen the understanding of this movement. Notice also the explanation says that
+
+> This is because it is an infix operator and right associative..
+
+Now the expression is saying that something happens because something is like this or that. Such definitions only provoke further questions but why is is like that then? Next it continues with again just repeating the previous expression with
+> Because it associates to the right..
+
+And again I know and see it associates to the right but why is the word *because* used to explain something by just repeating what was already said? And that is why it is parenthesized like that. But I already see that myself, what idea is actually expressed here? I am sure many might stop and ponder what this really means. By thinking on functions that only pass on what was given and at the same time do just a small calculation that in whole creates the final result we can see that it might be obvious that it will be parenthesized to the right. Again it is difficult to put this thinking flow into words since words are so vague and well, code is really explicit. Maybe that is why I am pondering so much on this plus sign, associativity and commutativity.
+
+```haskell
+> map (+) [1,2,3,4]
+error
+
+> map (1+) [1,2,3,4,5]
+[2,3,4,5,6]
+
+-- hmm
+```
