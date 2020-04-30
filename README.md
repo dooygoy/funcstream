@@ -53,6 +53,7 @@ induce higher stress levels since one is always striving for correctness.
   * [To String or not to String](#to-string-or-not-to-string)
   * [Types](#types)
   * [Five Types of Buddhas](#five-types-of-buddhas)
+  * [Addition Inc Dec](#addition-inc-dec)
  
 ## Books
 
@@ -693,13 +694,176 @@ intuitively the person understood the flow of types. There five families are als
 a nice way to put various groups of five together and think on various functions
 between them.
 
+------------------------------------------------------------------------------
+
+### Addition Inc Dec
+
+```haskell          
+addOne :: Natural -> Natural 
+addOne = \x -> x + 1
+
+addTwo :: Natural -> Natural -> Natural
+addTwo = \x -> addOne (addOne x)
+
+
+                         addTwo
+             -----------------------------------            
+           /                /                  /\ 
+          /                /                  /  \
+         /    addOne      /       addOne     /    
+         -----------------  -----------------
+        | \x    ------    || \x     ------   |
+        |      |      |   ||       |      |  |
+ x ----------->|  +   |----------->|  +   |-----------> 
+        | 1--->|      |   ||  1--->|      |  |
+        |       ------    ||        ------   |
+        |                 ||                 |
+         -----------------  -----------------
+
+```
+Our `addOne` can be also understood an an *incrementor* functions because it
+*increases* the number we give it to. So if we give a number 0 to the incrementor
+function it gives us back the number 1, then if we give it the number 1 it gives
+us back the number 2; we can give it any number and it will always give back *one*
+number back. You could also say it *sends* the number it recieves to the next one.
+It is a very simple function. What does *simple* mean? Maybe better to use the
+word *primitive* or *small* in the sense that it is easy to understand conceptually.
+Simple is a *complex* word because people have different notions on what
+is simple and what is complex.
+
+The opposite of our increment function would be a function that would send the 
+number we provide to the previous number, so if we gave it a number 3 it would give
+us the number 2. It decreases the number we give it to, so we will call it the
+decrement function. So within our natural number realm our increment function 
+behaves the same as our `addOne` function because it *adds* a number 1, and our
+decrement function behaves the same as the function `subtractOne` which
+*subtracts* a number 1 from the one we give it to.
+
+```haskell
+addOne :: Natural -> Natural
+addOne = \x -> x + 1
+
+subtractOne :: Natural -> Natural
+subtractOne = \x -> x - 1
+
+-- rewritten as increment and decrement would be
+
+incr :: Natural -> Natural
+increment = \x -> x + 1
+
+decr :: Natural -> Natural
+decrement = \x -> x - 1
+
+-- hmm can we make these functions  to add any number we want?
+
+incAny n = \x -> x + n
+decAny n = \x -> x - n
+
+-- Maybe you haven't applied a function to enough arguments?
+
+incAny x n = \x -> x + n
+decAny x n = \x -> x - n
+
+-- Maybe you haven't applied a function to enough arguments?
+
+incAny x n = \x n -> x + n
+decAny x n = \x n -> x - n
+
+--  Maybe you haven't applied a function to enough arguments?
+
+incAny = \x n -> x + n
+decAny = \x n -> x - n
+
+> incAny 3 4
+7
+> decAny 3 4
+-1
+```
+> Addition is a function that maps two natural numbers to another one. 
+
+```haskell
+addition = \x y -> (increment x) + (decrement y)
+
+> addition 3 4
+> (increment 3) + (decrement 4)
+> ((\x -> x + 1) 3) + ((\x -> x - 1) 4)
+> ([x=3] 3 + 1) + ([x=4] 4 - 1)
+> (3 + 1) + (4 - 1)
+> 4 + 3
+> 7
+
+addition = \x y -> 1 + ((decrement x) + y)
+
+addition 3 4
+1 + ((decrement 3) + 4
+1 + ((\x -> x - 1) 3) + 4
+1 + ([x=3] 3 - 1) + 4
+1 + (3 - 1) + 4
+1 + 2 + 4
+1 + 6
+7
+
+> :type addition
+addition :: Integer -> Integer -> Integer
+```
+Addition is associative `((x + y) + z = x + (y + z)` meaning if three people
+x y and z want to go out of the house, no matter who comes out first by the time
+all three come out of the house there will be three of them out of the house.
+Also notice if you haven't actually witnessed these people coming out of the
+house how can you tell who came out first and what actual difference does it
+make? If we the three of us are going to a party and all three of us come out of
+the house to take the bus, there is no difference who comes out first or who
+goes in the bus first since all three of us are going to the party anyway. Well
+maybe it does matter for some mysterious spooky action at a distance reason, but
+our coming out of the house is an associative operation. Also when we have to
+pay for the ticket 10 dollars, it makes no difference if we give the driver
+first a 5 dollar note and then a 2 dollar notes and then a 1 dollar note or if
+we give the driver the money in some other order. We still have to pay 10
+dollars. But these are *simple* examples. I'm thinking on what would be an
+associative operation in music, as in if I have a chord of three notes does the
+order matter when I play them? The similar idea to our three little friends
+would be if I had to play the three notes at the same time, then there would be
+no difference, but still, then I cannot see the whole process of two separate
+groupings of three notes. Still, you could visualise *giving* more awareness to
+some two notes within a three note chord and they will then sound a bit
+different even though you will play them at the same time. *This* is one of the
+key features of great musicians that even when they play three notes at the same
+time, they never really play them in the same way, they often do subtle
+movements that somehow *increment* your perception of music. These movements are
+so subtle they could be barely described as movements and still, if you are
+attentive you can hear them. 
+
+------------------------------------------------------------------------------
+
+> In Mathematics, the **associative property** is a property of some binary
+operations. Within an expression containing two or more occurrences in a row of
+the same associative operator, the order in which the operations are performed
+does not matter as long as the sequence of the operands is not changed.
+
+> Associativity is not the same as commutativity, which addresses whether or not
+the order of two operands changes the result. 
+
+Seems to me my whole previous rambling was describing *commutativity* and not
+*associativity*! But they do seem awfully similar:
+
+```
+x + (y + z) = (x + y) + z               x + (y + z) = (x + y) + z
+1 + (2 + 3) = (1 + 2) + 3               1 + (1 + 1) = (1 + 1) + 1
+1 + 5 = 3 + 3                           1 + 2 = 2 + 1 
+6 = 6
+```
+Still what seems clear from this is we can *shift* things around, we can commute
+them around and we get the same result while with associative property we can
+group things differently but the operations we apply to them will not change the
+result. Why does this require so much pondering? There is this
+smell that associative properties and commutative properties can change and
+often seem intermixed depending on the operations we use with them.
 
 
 
 
 
 
-       		
 
-	
+
 	
