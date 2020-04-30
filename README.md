@@ -947,6 +947,7 @@ So how is lisp then just adding many numbers by having a plus function at
 the beginning of the expression? Ponder the pond..
 
 > The way the type constructor for functions, (->), is defined makes currying the default in Haskell. This is because it is an infix operator and right associative. Because it associates to the right, types are implicitly parenthesized like so:
+
 ```haskell
 f :: a -> a -> a
 
