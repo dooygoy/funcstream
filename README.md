@@ -53,7 +53,7 @@ induce higher stress levels since one is always striving for correctness.
   * [To String or not to String](#to-string-or-not-to-string)
   * [Types](#types)
   * [Five Types of Buddhas](#five-types-of-buddhas)
-  * [Addition Inc Dec](#addition-inc-dec)
+  * [Addition Curry](#addition-curry)
 
 ## Books
 
@@ -696,7 +696,7 @@ between them.
 
 ------------------------------------------------------------------------------
 
-### Addition Inc Dec
+### Addition Curry
 
 ```haskell
 addOne :: Natural -> Natural
@@ -833,7 +833,6 @@ addition 3 4
   = 1 + 6
   = 7
 ```
-
 I still can't explain how but I find the second version so pretty,
 it remembers its steps, as in takes much more care when calculating, it
 just seems more intelligent way to add things, even though it requires more
@@ -893,3 +892,56 @@ group things differently but the operations we apply to them will not change the
 result. Why does this require so much pondering? There is this
 smell that associative properties and commutative properties can change and
 often seem intermixed depending on the operations we use with them.
+
+> All functions in Haskell take one argument and return one result. This is
+because functions in Haskell are nested like Matryoshka (Babushka) dolls in
+order to accept "multiple" arguments. The way the (->) type constructor for
+functions works means `a -> a -> a` represents successive function applications,
+each taking one argument and returning one result. The difference is that the
+function at the outermost layer is returning *another* function that accepts the
+next argument. This is called *currying*. 
+
+Our `addTwo` was defined for just two input numbers. What if we provide three
+numebrs to add?
+
+```haskell
+> 1 + 2
+3
+> 1 + 2 + 3
+6
+> (+) 1 2
+3
+> (+) 1 2 3
+error:Non type-variable argument in the constraint.. 
+-- hmm..
+```
+```scheme
+;; this is written in lisp, a functional language but here plus
+;; is applied to every argument when written in prefix notation.
+
+> (+ 1 2)
+3
+
+(+ 1 2 3)
+6
+
+(+ 1 2 3 4 5)
+15
+```
+Let's get back to Haskell. Though it is possible to put plus before the
+arguments similar to lisp it does not really work the same way, it still somehow
+takes only two arguments. Is this limited? Not really, what I understand now is
+that the plus function itself is defined minimally in Haskell, like the very 
+essence of plus is defined as something that adds *at least* two things, but
+to go even further in Haskell, only two things! If you need to add three things
+then use two pluses, use two functions to add three things. If we
+wanted to apply plus to more than two arguments without defining how many, it
+seems we would need a function that would *map* somehow this plus to any number of
+numbers we want. This seems like we actually need two functions to get a similar
+behaviour like in lisp example. This does seem super cool, meaning functions in
+Haskell are interlinked somehow each having one input and one output. Even our
+imaginary *mapping* function would not really add a million numbers but would tell
+plus to add a million numbers, orchestrating the event coordinating many little
+pluses to do the addition, collapsing the numbers like dominoes. 
+So how is lisp then just adding many numbers by having a plus function at 
+the beginning of the expression? Ponder the pond.. 
