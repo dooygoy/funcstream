@@ -1,30 +1,30 @@
 # Functional programming with Haskell
 
 This is an exploration of a beautiful programming language Haskell and functional programming.
-I am learning from several books and documenting the learning here. There are 
+I am learning from several books and documenting the learning here. There are
 Haskell related links and I will attempt to write short reviews on each, and then
 there are observation that are following books I currently read, often using
-real life analogies and examples. 
+real life analogies and examples.
 
 I find that observing code not just through
-numbers but through seemingly unrelated analogies enables me in turn to get a 
+numbers but through seemingly unrelated analogies enables me in turn to get a
 better grasp at numbers. When I try to explain some Haskell code to people who
 do not know programming I notice they intuitively *do* get programming, it's just
 the thing with numbers is that they can induce heavy feelings of guilt or remind
-them on how bad were they in math which is only the fault of the teachers and 
+them on how bad were they in math which is only the fault of the teachers and
 their reluctance and to bring clarity that is also rich with a variety of
 conceptual examples that are not just stiff images but life like analogies that
 motivate and *remind* the human about processes they are familiar with that are in
-their essence programming, and not just that but at their core, functional 
-programming. There will be *errors* and before your vents go off please notice that 
-I am thinking in what  you could call a *free jazz improvisational* method, or 
+their essence programming, and not just that but at their core, functional
+programming. There will be *errors* and before your vents go off please notice that
+I am thinking in what  you could call a *free jazz improvisational* method, or
 the so called Miles Davis *there are no wrong notes* method in which after you
 make a mistake you do not *correct* the mistake but find a new turn from which
 the wrong note, or sound will *sound* correct. Such exploration may be tedious
-in the beginning, and yet this *spaced error repetition* eventually builds a 
+in the beginning, and yet this *spaced error repetition* eventually builds a
 different kind of knowledge, one that goes from errors to correctness, from
-exploring a variety of *mistakes* to a much richer *correct* understanding of 
-the issue at hand. It also reduces the memory footprint since by pruning the 
+exploring a variety of *mistakes* to a much richer *correct* understanding of
+the issue at hand. It also reduces the memory footprint since by pruning the
 errors and developing from them, our understanding becomes capable of a much
 wider web of connections. If one orients on just being correct it is possible to
 induce higher stress levels since one is always striving for correctness.
@@ -33,7 +33,7 @@ induce higher stress levels since one is always striving for correctness.
 > it is exhaustively treated when it is *worked out*. Nor is the *result* which is
 > reached the *actual* whole itself; rather, the whole is the result together with
 > the way the result comes to be. The easiest thing of all is to pass judgements on
-> what is substantial and meaningful. It is much more difficult to get a real grip 
+> what is substantial and meaningful. It is much more difficult to get a real grip
 > on it, and what is the most difficult of all is both to grasp what unites each of
 > them and to give a full exposition of what that is.
 
@@ -54,7 +54,7 @@ induce higher stress levels since one is always striving for correctness.
   * [Types](#types)
   * [Five Types of Buddhas](#five-types-of-buddhas)
   * [Addition Inc Dec](#addition-inc-dec)
- 
+
 ## Books
 
   * [A type of programming](https://atypeofprogramming.com/)
@@ -294,7 +294,7 @@ That is, a pair of a Chakra and a Sound will have type `Pair Chakra Sound`.
 So while with `Maybe` we had to just pick one or nothing at all, and in `Either` we could pick this or that, which were some real alternatives, in a `Pair` we have this notion of carrying both alternatives with us, they are together and we are not making a choice by choosing either this or that.
 It does seem like `Maybe` relates somehow to the notion of `Identity` since it is just giving us the thing we ask while the Either resembles to a Boolean choice or either this or that, either though we could say `Maybe` as well resembles a boolean choice since Just could be understood as `true` and Nothing as `false`. It is interesting to find relations with basic mathematical functions. In that case `Either` could be understood as showing two truth values and yet we are only supposed to pick one, now that really resembles to `OR`! But bool values always pick just one so even though this thought process *smells* wrong it does bring benefit when learning Haskell to compare it with previous concepts.
 
-> Quote from atop: 
+> Quote from atop:
 We say `Either` and `Pair` are fundamental because once we can group or tell
 apart two things, we can group or tell apart as many things as we want.
 
@@ -311,7 +311,7 @@ Let us add three tones, c, e, and g that will make a C chord
 
 ```haskell
 add3tones :: (Tone, Tone, Tone) -> Tone
-add3tones = \(c, e, g) -> c + e + g 
+add3tones = \(c, e, g) -> c + e + g
 ```
 --------------------------------------------------------------------
 
@@ -339,12 +339,12 @@ let firstHuman = "Bob"
     secondHuman = "Alice"
 in "Bob" loves "Alice"
 
-{- 
+{-
 This was not valid Haskell code, but it is written like this in order to
 increase conceptual understanding of let vs where expressions
 -}
 
--- valid Haskell 
+-- valid Haskell
 
 let x = 2
     y = 3
@@ -370,7 +370,7 @@ love = human1 + human3
         human3 = "Hayka"
 ```
 Let's use correct Haskell code for our love program. We will use '++' instead
-of just '+' since '++' is used to add or *concatenate* words, aka strings 
+of just '+' since '++' is used to add or *concatenate* words, aka strings
 (of characters).
 
 ```haskell
@@ -390,13 +390,13 @@ add = x + y
 Let us use the where in a slightly developed example, this is a variation on
 "Haskell from first principles" chapter 3 exercise, but we will use first and last
 name instead of hello world. The difference is in two examples is that we will
-abstract our name into first and last while in the book "hello" and "world" is 
+abstract our name into first and last while in the book "hello" and "world" is
 used for expression and for the function name as well.
 
 ```haskell
 module MyName where
 
-{- before we define our name, I am just using my own here, 
+{- before we define our name, I am just using my own here,
    we say that myName is a type of a string, as in a string of characters,
    then we define myName by concatenating the first and the last name. We are not
    explicitly mentioning first and last name, but instead just providing the value
@@ -417,18 +417,18 @@ lastName = "miskovic"
 {- and now we will print out the myName and then we will link together
    our firstName and lastName into one expression by calling our firstName and
    lastName and Haskell should print out the values we provided before when we
-   run the program. 
+   run the program.
 -}
 
 main :: IO ()
 main = do
   putStrLn myName
   putStrLn firstAndLast
-  where firstAndLast = 
+  where firstAndLast =
     concat [firstName, " ", lastName]
 ```
-We introduced `firstAndLast` function with a `where` which was not maybe 
-necessary. We could have just linked together before declared firstName 
+We introduced `firstAndLast` function with a `where` which was not maybe
+necessary. We could have just linked together before declared firstName
 and lastName without the `where` by writing `putStrLn (concat [firstName, " ", lastName])`
 but in Haskell, even from simplest examples, one is *practicing* composability,
 abstracting from the tiniest to the grossest. Since we learned `where` which
@@ -436,7 +436,7 @@ is like a basic tool for abstracting, describing our processes, like separating
 the what and the who, we should use it in our exploratory learning and try to apply
 it when ever we can. Here is a simple sum of squares example with where:
 
-```haskell 
+```haskell
 -- sumOfSquares.hs
 
 sumOfSquares x y = square x + square y
@@ -454,26 +454,26 @@ sumOfSquares = \x y -> square x + square y
 Here also, we could have just used `sumOfsquares x y = x*x + y*y` instead. But
 there is something else too, there are too many squares, square this square that,
 though as a learning aid repetition is very good. Little children like to
-repeat things they learn, so do we. 
+repeat things they learn, so do we.
 
 ---------------------------------------------------------------------------
 ### Scope
 
 Note:
-Haskell from first principles builds intuition by first going through various 
+Haskell from first principles builds intuition by first going through various
 syntax examples and then plays with local and top level definitions by using
 `let` and `where` as basic tools for abstraction. What we notice is the importance
 of *spacing* in Haskell code, from *whitespace* that has a silent like mysterious
 *apply* function because a simple `f x` meaning `f` is *applied* to `x`, to the
-silent matrix like grid system or invisible columns and rows define the 
-play between local and *global* or *top-level* definitions. Global might be a 
+silent matrix like grid system or invisible columns and rows define the
+play between local and *global* or *top-level* definitions. Global might be a
 *wrong* word so we use top-level which brings us somewhat closer to the code at hand,
-and a bit away from all expansive *global* notions. 
+and a bit away from all expansive *global* notions.
 
 a top-level definition is basically like a tree and local definitions are like
-branches which have a life of their own within that same tree. 
-```     
-         /----- 
+branches which have a life of their own within that same tree.
+```
+         /-----
    + ===[ ------
    |     \-----
    |
@@ -492,10 +492,10 @@ did not understand it." "Oh, you know sometimes she talks like this, she knows
 I know what she really means so she just cuts out the whole question and asks me
 implicitly."
 
-What basically happened is that I was *left out* of the *scope* of the 
+What basically happened is that I was *left out* of the *scope* of the
 conversation so I could not put together what they meant by it. They were talking
 about local definitions without providing explicit values to those definitions
-so I was left out wondering what those values were. Unfortunately sometimes 
+so I was left out wondering what those values were. Unfortunately sometimes
 people get angry too when you do not ask them explicitly something but *force*
 you to provide explicit local definitions, remebering something they wish to tell
 . People use these aggresive tactics sometimes. Somebody might tell you:
@@ -503,8 +503,8 @@ you to provide explicit local definitions, remebering something they wish to tel
 hair is too long but they do not explicitly say it out loud. You might play naive
 and ask them, well I do not know, why do you ask? Then the other person expects
 you to *know* what they really mean and that is that your hair is too long and that
-you should cut it. Unfortunately these situations sometimes happen in various 
-shapes and sizes. 
+you should cut it. Unfortunately these situations sometimes happen in various
+shapes and sizes.
 
 ------------------------------------------------------------------------------
 
@@ -514,7 +514,7 @@ Let's go through some of the exercises from chapter 3 in HaskellBook and try
 out basic abstractions. We would like to append or concatenate two separate strings into one string.
 Our first string will be "Curry is awesome" and our second string will be an exclamation mark '!'.
 Our '!' exclamation mark is actually a character, and characters are embraced by single quotes `' '` while actual strings
-which are a collection of characters are embraced by double quotes `" "` so a letter a is written as `'a'` while a 
+which are a collection of characters are embraced by double quotes `" "` so a letter a is written as `'a'` while a
 string abcd is written as `"abcd"`. Now, can we write a character a as a string by putting double quotes around it, as in
 `"a"`. Yes we can. But how is that possible?
 
@@ -543,7 +543,7 @@ True
 -- by trial and error we see that
 
 > appendTwoChars = 'a' : 'b' : [] == "ab"
-> appendTwoChars 
+> appendTwoChars
 True
 ```
 
@@ -553,7 +553,7 @@ while characters have only single quotes meaning double quotes are *like* single
 > ['a'] == "a"
 True
 ```
-Ok, so back again to our "curry is awesome" and "!" example. Let's concatonate them and abstract these examples into a 
+Ok, so back again to our "curry is awesome" and "!" example. Let's concatonate them and abstract these examples into a
 function that will concatenate any two strings.
 
 ```haskell
@@ -573,7 +573,7 @@ True
 ```
 ### Types
 
-Though usually first basic dataype that is introduced in Haskell books is the 
+Though usually first basic dataype that is introduced in Haskell books is the
 `Bool` datatype we will start with something different, which might bring our
 intuition *closer* to Bool. It is important to note that while HaskellBook begins
 the whole *type* story with introducing `data Bool = False | True`, same as
@@ -591,7 +591,7 @@ We too will define a `Human` datatype with its two data constructors `Male` or
 ```haskell
 data Human = Male | Female
 
--- let's change some genders, for now just keeping it as a binary choice for 
+-- let's change some genders, for now just keeping it as a binary choice for
 -- making things simple
 
 changeGender :: Human -> Human
@@ -605,26 +605,26 @@ Male
 ```
 
 We are using *or* instead of *and* because the `|` symbol,
-the so called Pipe, indicating logical disjunction "or", indicates that 
-this is a *sum type*. So a human can be a female or a male but not 
+the so called Pipe, indicating logical disjunction "or", indicates that
+this is a *sum type*. So a human can be a female or a male but not
 both at the same time. But is this the only way we can write data declarations?
 How about using *and* and various *what if* this and that happens relations. Types
 are never so pure in real life, and we often need to ponder before we implement
 a solution. Seems to me a Haskeller can spend an eternity just pondering basic
-questions. "A type!" a haskeller says, "What the hell is a type?" 
-It is important not to over think the type relations but somehow mix and match 
-while progressing in our composition. The good part is that type driven design can eliminate many failures that can 
+questions. "A type!" a haskeller says, "What the hell is a type?"
+It is important not to over think the type relations but somehow mix and match
+while progressing in our composition. The good part is that type driven design can eliminate many failures that can
 happen along the way, and in turn enable us to deal with future turns with much
 greater success. HaskellBook tells this in a very clear way by describing the
 basic flow of a data type declaration.
 
-> The whole thing is called a data declaration. Data declaration do not always 
-follow precisely the same pattern - there are datatypes that use logical 
-conjuction (*and*) instead of disjunction, and some type constructors and 
+> The whole thing is called a data declaration. Data declaration do not always
+follow precisely the same pattern - there are datatypes that use logical
+conjuction (*and*) instead of disjunction, and some type constructors and
 data constructors may have arguments. The thing they have in common is the keyword
 `data` followed by the type constructor (or name of the type that will appear in
 type signatures), the equals sign to denote a definition, and then data constructors
-(or names of values that inhabit your term-level code). 
+(or names of values that inhabit your term-level code).
 
 ```haskell
 data Mood = Happy | Sad
@@ -645,10 +645,10 @@ Playing with *sum types* and five Buddha families
 ```haskell
 
 data Buddha = Vairocana
-	    | Amoghasiddhi
-	    | Amitabha
-	    | Ratnasambhava
-	    | Akshobhya
+        | Amoghasiddhi
+        | Amitabha
+        | Ratnasambhava
+        | Akshobhya
 
 data Color = White | Green | Red | Gold | Blue
 data Element = Space | Air | Fire | Earth | Water
@@ -688,8 +688,8 @@ wisdomOfBuddhas = \x ->
 ```
 This looks clear and yet we feel something missing. We would like to now define
 more complex constructors, and we will get back to this when we understand a bit
-more about `Either` and `Maybe` which will *enrich* our flow of types. I showed 
-this chart to a person who knows something about these Buddhas and yoga and 
+more about `Either` and `Maybe` which will *enrich* our flow of types. I showed
+this chart to a person who knows something about these Buddhas and yoga and
 intuitively the person understood the flow of types. There five families are also
 a nice way to put various groups of five together and think on various functions
 between them.
@@ -698,8 +698,8 @@ between them.
 
 ### Addition Inc Dec
 
-```haskell          
-addOne :: Natural -> Natural 
+```haskell
+addOne :: Natural -> Natural
 addOne = \x -> x + 1
 
 addTwo :: Natural -> Natural -> Natural
@@ -707,34 +707,34 @@ addTwo = \x -> addOne (addOne x)
 
 
                          addTwo
-             -----------------------------------            
-           /                /                  /\ 
+             -----------------------------------
+           /                /                  /\
           /                /                  /  \
-         /    addOne      /       addOne     /    
+         /    addOne      /       addOne     /
          -----------------  -----------------
         | \x    ------    || \x     ------   |
         |      |      |   ||       |      |  |
- x ----------->|  +   |----------->|  +   |-----------> 
+ x ----------->|  +   |----------->|  +   |----------->
         | 1--->|      |   ||  1--->|      |  |
         |       ------    ||        ------   |
         |                 ||                 |
          -----------------  -----------------
 
 ```
-Our `addOne` can be also understood an an *incrementor* functions because it
-*increases* the number we give it to. So if we give a number 0 to the incrementor
-function it gives us back the number 1, then if we give it the number 1 it gives
-us back the number 2; we can give it any number and it will always give back *one*
+Our `addOne` can be also understood an an *incrementor* function because it
+*increases* or increments the number we give it to. So if we give a number 0 to the
+incrementor function it gives us back the number 1, then if we give it the number 1
+it gives us back the number 2; we can give it any number and it will always give back *one*
 number back. You could also say it *sends* the number it recieves to the next one.
 It is a very simple function. What does *simple* mean? Maybe better to use the
 word *primitive* or *small* in the sense that it is easy to understand conceptually.
 Simple is a *complex* word because people have different notions on what
 is simple and what is complex.
 
-The opposite of our increment function would be a function that would send the 
+The opposite of our increment function would be a function that would send the
 number we provide to the previous number, so if we gave it a number 3 it would give
 us the number 2. It decreases the number we give it to, so we will call it the
-decrement function. So within our natural number realm our increment function 
+decrement function. So within our natural number realm our increment function
 behaves the same as our `addOne` function because it *adds* a number 1, and our
 decrement function behaves the same as the function `subtractOne` which
 *subtracts* a number 1 from the one we give it to.
@@ -779,7 +779,10 @@ decAny = \x n -> x - n
 > decAny 3 4
 -1
 ```
-> Addition is a function that maps two natural numbers to another one. 
+> Addition is a function that maps two natural numbers to another one.
+
+Let's see different ways we could add two numbers using our incrementor and
+decrementor function
 
 ```haskell
 addition = \x y -> (increment x) + (decrement y)
@@ -806,6 +809,38 @@ addition 3 4
 > :type addition
 addition :: Integer -> Integer -> Integer
 ```
+Now let's expand our calculation with more steps.
+
+```haskell
+addition = \x y -> (increment x) + (decrement y)
+addition 3 4
+  = (\x y -> (increment x) + (decrement y)) 3 4
+  = (increment 4) + (decrement 3)
+  = (increment 5) + (decrement 2)
+  = (increment 6) + (decrement 1)
+  = 7 + 0
+  = 7
+
+addition = \x y -> 1 + ((decrement x) + y)
+addition 3 4
+  = (\x y -> 1 + ((decrement x) + y)) 3 4
+  = 1 + ((decrement 3) + 4)
+  = 1 + (1 + (decrement 2) + 4)
+  = 1 + (1 + (1 + (decrement 1) + 4))
+  = 1 + (1 + (1 + 0 + 4))
+  = 1 + (1 + (1 + 4))
+  = 1 + (1 + 5)
+  = 1 + 6
+  = 7
+```
+
+I still can't explain how but I find the second version so pretty,
+it remembers its steps, as in takes much more care when calculating, it
+just seems more intelligent way to add things, even though it requires more
+steps. I always would find it strange when people talk about something taking less time as being better. I could see my mind stopping and pondering why would that be true, why would optimizing have this guideline which seems so narrow. Yes, there are valid explanations and reasons for this but still, the notion of embedding more information within each level
+of your computation somehow seems much more intelligent approach in the long run. Who knows maybe artificial intelligence is precisely one long extensive computation where each step is carrying a billion other steps all in sync so why not explore that direction instead. Well, for more
+input on these increment and decrement function check the amazing SICP lectures by Abelson and Sussman. These are just pure awesomeness, I have yet to write about them and how they helped in motivating this functional pursuit into haskell. Who knows, maybe Lisp lurks somewhere in Haskell heart too.
+
 Addition is associative `((x + y) + z = x + (y + z)` meaning if three people
 x y and z want to go out of the house, no matter who comes out first by the time
 all three come out of the house there will be three of them out of the house.
@@ -831,7 +866,7 @@ key features of great musicians that even when they play three notes at the same
 time, they never really play them in the same way, they often do subtle
 movements that somehow *increment* your perception of music. These movements are
 so subtle they could be barely described as movements and still, if you are
-attentive you can hear them. 
+attentive you can hear them.
 
 ------------------------------------------------------------------------------
 
@@ -841,7 +876,7 @@ the same associative operator, the order in which the operations are performed
 does not matter as long as the sequence of the operands is not changed.
 
 > Associativity is not the same as commutativity, which addresses whether or not
-the order of two operands changes the result. 
+the order of two operands changes the result.
 
 Seems to me my whole previous rambling was describing *commutativity* and not
 *associativity*! But they do seem awfully similar:
@@ -849,7 +884,7 @@ Seems to me my whole previous rambling was describing *commutativity* and not
 ```
 x + (y + z) = (x + y) + z               x + (y + z) = (x + y) + z
 1 + (2 + 3) = (1 + 2) + 3               1 + (1 + 1) = (1 + 1) + 1
-1 + 5 = 3 + 3                           1 + 2 = 2 + 1 
+1 + 5 = 3 + 3                           1 + 2 = 2 + 1
 6 = 6
 ```
 Still what seems clear from this is we can *shift* things around, we can commute
@@ -858,12 +893,3 @@ group things differently but the operations we apply to them will not change the
 result. Why does this require so much pondering? There is this
 smell that associative properties and commutative properties can change and
 often seem intermixed depending on the operations we use with them.
-
-
-
-
-
-
-
-
-	
