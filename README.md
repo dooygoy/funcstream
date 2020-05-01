@@ -54,6 +54,7 @@ induce higher stress levels since one is always striving for correctness.
   * [Types](#types)
   * [Five Types of Buddhas](#five-types-of-buddhas)
   * [Addition Curry](#addition-curry)
+  * [Mappings](#mappings)
 
 ## Books
 
@@ -983,3 +984,93 @@ error
 
 -- hmm
 ```
+
+### Mappings
+
+> Consider the expression `7 - 4 + 2`. The result could be either `(7 - 4) + 2 = 5` or `7 - (4 + 2) = 1`. The former result corresponds to the case when `+` and `-` are left-associative, the latter to when `+` and `-` are right-associative.
+
+When I type this expression into ghci or an android calculator I get 5 as the result.
+
+> A mapping function applies a given function to each element of a list or other collemtion.
+```elisp
+(mapcar 'car '((a 1) (b 2) (c 3)))
+    => (a b c)
+
+(mapcar 'cdr '((a 1) (b 2) (c 3)))
+    => (1 2 3)
+
+(mapcar 'string "abc")
+    => ("a" "b" "c")
+```
+
+How is this mappping `mapcar` defined in emacs lisp?
+
+```elisp
+(defun mapcar (function &rest args)
+  "Apply FUNCTION to successive cars(heads) of all ARGS.
+   Return the list of results."
+
+  ;; If no list is exhausted,
+  (if (not (memq nil args))
+
+       ;; apply function to cars.
+       (cons (apply function (mapcar 'car args))
+             (apply 'mapcar function
+
+                     ;; recurse for rest of elements
+                     (mapcar 'cdr args)))))
+
+(mapcar 'cons '(a b c) '(1 2 3 4))
+     => ((a . 1) (b . 2) (c . 3))
+```
+Compare the elisp mapcar with the Haskell definition of `map`
+
+```haskell
+map :: (a -> b) -> [a] -> [b]
+map _ [] = []
+map f (x:xs) = f x : map f xs
+```
+We notice that from line `f x : map f x` the `f x` looks like ` (mapcar 'car args)) and `f xs` looks like (mapcar 'cdr args). `car` in lisp lingo is actually same as haskell's `first` and `cdr` is same as `rest`, meaning `x` and `xs` are written in the same style, like saying after the `first beginning` come many more `beginningS`. Actually after the first comes always the rest, no matter how many or in which way they appear. There wouldn't be any firsts if there were no rests, right?
+
+In Haskell they like to use variable names like `n` and `ns` for `number` and `numbers` and some more polymorphic like variables for `x` and `xs`
+
+Notice also that `cons` from elisp definition is the cons operator which is represented in haskell as *infix* operator `:` stuck between `f x` and `map f xs`. Also elisp mapcar definition first says `(if (not (memq nix args))` which relates to haskell's `map _ [] = []`. Haskell seems to be just saying if anything, meaning `_` as an empty placeholder which is used in pattern matching, is provided to an empty `map _ []` then return an empty list `[]` Why? Because we have nothing to do with an empty list. We could define an amazing function but if we do not provide any arguments to it nothing will happen, because an empty list has no members, it is just empty. And out of an empty list input how would we create a *filled* list of an output? This imaginary function would have to be some sort of an artist that would create something out of nothing, worth pondering about..
+
+```haskell
+map f (x:xs) = f x : map f xs
+
+map (+3) [1, 2, 3, 4, 5]
+
+[(1 + 3), map (+3) [2, 3, 4, 5]]
+[(1 + 3), (2 + 3), map (+3) [3, 4, 5]]
+[(1 + 3), (2 + 3), (3 + 3), map (+3) [4, 5]]
+[(1 + 3), (2 + 3), (3 + 3), (4 + 3), map (+3) 5]
+[(1 + 3), (2 + 3), (3 + 3), (4 + 3), (5 + 3)]
+[(1 + 3), (2 + 3), (3 + 3), (4 + 3), 8]
+[(1 + 3), (2 + 3), (3 + 3), 7, 8]
+[(1 + 3), (2 + 3), 6, 7, 8]
+[(1 + 3), 5, 6, 7, 8]
+[4, 5, 6, 7, 8]
+```
+Let's see how map is defined in another functional lisp dialect, Clojure
+
+> Returns a lazy sequence constisting of the result of applying f to the set of first items of each coll, followed by applying f to the set of second items of each coll, until any one of the colls is exhausted. Any remaining items in other colls are ignored. Function f should accept number-of-colls arguments. Returns a transducer when no collection is provided.
+
+``` clojure
+(map inc [1 2 3 4 5])
+;;=> (2 3 4 5 6)
+
+(map + [1 2 3] [4 5 6])
+;;=> (5 6 7)
+```
+
+From [Brave Clojure](https://www.braveclojure.com/core-functions-in-depth/)
+> I think of abstractions as named collections of operations. If you can perform all of an abstraction's operation on an object, then that object is an instance of the abstraction. I think this way even outside of programming.
+
+This seems like a nice thinking process for building *something like* abstractions but I feel this notion of an abstraction being a named collection of operations should also have a unique property, the result which transformed the collection itself. This abstraction principle does not have to go both ways just by unfolding the operation which was applied to the collection. In some sense, you could abstract the mapping of pluses to a completely different operation that would in turn do the addition as a side effect while just mapping pluses to an arbitrary number of operands does seem like a trivial form of abstraction principle.
+
+> The prejudice and respect for abstract thinking are so great that sensitive nostrils will begin to smell some satire or irony at this point
+
+Seems to me Hegel would be a wonderful Haskeller, this short description somehow relates in a nice way to our mapping definitions, just think of the difference between a total and a partial function:
+
+> For Hegel, only the whole is true. every stage or phase or moment is partial, and therefore partially untrue. Hegel's grand idea is "**totality**" which preserves within it each of the ideas or stages that it has overcome or subsumed. Overcoming or subsuming is a developmental **process** made up of "moments" (stages or phases). The **totality** is the **product** of that process which preserves all of its "moments" as elements in a structure, rather than as stages or phases.
