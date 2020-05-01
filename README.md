@@ -992,6 +992,7 @@ error
 When I type this expression into ghci or an android calculator I get 5 as the result.
 
 > A mapping function applies a given function to each element of a list or other collemtion.
+
 ```elisp
 (mapcar 'car '((a 1) (b 2) (c 3)))
     => (a b c)
