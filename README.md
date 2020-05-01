@@ -1030,7 +1030,7 @@ map :: (a -> b) -> [a] -> [b]
 map _ [] = []
 map f (x:xs) = f x : map f xs
 ```
-We notice that from line `f x : map f x` the `f x` looks like ` (mapcar 'car args)) and `f xs` looks like (mapcar 'cdr args). `car` in lisp lingo is actually same as haskell's `first` and `cdr` is same as `rest`, meaning `x` and `xs` are written in the same style, like saying after the `first beginning` come many more `beginningS`. Actually after the first comes always the rest, no matter how many or in which way they appear. There wouldn't be any firsts if there were no rests, right?
+We notice that from line `f x : map f x` the `f x` looks like `(mapcar 'car args))` and `f xs` looks like (mapcar 'cdr args). `car` in lisp lingo is actually same as haskell's `first` and `cdr` is same as `rest`, meaning `x` and `xs` are written in the same style, like saying after the `first beginning` come many more `beginningS`. Actually after the first comes always the rest, no matter how many or in which way they appear. There wouldn't be any firsts if there were no rests, right?
 
 In Haskell they like to use variable names like `n` and `ns` for `number` and `numbers` and some more polymorphic like variables for `x` and `xs`
 
