@@ -55,6 +55,7 @@ induce higher stress levels since one is always striving for correctness.
   * [Five Types of Buddhas](#five-types-of-buddhas)
   * [Addition Curry](#addition-curry)
   * [Mappings](#mappings)
+  * [Viewing Type Signatures](#viewing-type-signatures)
 
 ## Books
 
@@ -1075,3 +1076,44 @@ This seems like a nice thinking process for building *something like* abstractio
 Seems to me Hegel would be a wonderful Haskeller, this short description somehow relates in a nice way to our mapping definitions, just think of the difference between a total and a partial function:
 
 > For Hegel, only the whole is true. every stage or phase or moment is partial, and therefore partially untrue. Hegel's grand idea is "**totality**" which preserves within it each of the ideas or stages that it has overcome or subsumed. Overcoming or subsuming is a developmental **process** made up of "moments" (stages or phases). The **totality** is the **product** of that process which preserves all of its "moments" as elements in a structure, rather than as stages or phases.
+>
+--------------------------------------------------------------
+
+### Viewing type signatures
+
+In chapter five exercises page 221 of HaskellBook
+it is asked to figure out how the type would change and why, and make a note of what we think of the new inferred type would be.
+
+```haskell
+-- Type signature of general function
+
+(++) :: [a] -> [a] -> [a]
+
+-- How might that change when we apply
+-- it to the following value?
+
+myConcat x = x ++ " yo"
+```
+We will get `myCOncat :: [Char] -> [Char]` but what is interesting that somehow the type did not seem to change but only the frame of reference from which the signature is being observed, as in first we saw the type signature by unfolding the `(++)` which said that it concatenates two *things* to get another *thing*, and then we see the `myConcat` function which is made out of concatenating a thing with some other thing called " yo". The first frame is seeing just the `(++)` and how it *interlinks* `[a]` with `[a]` into an `[a]` while the second frame is seeing the same `(++)` but this time we are witnessing a type of a function which is using the `(++)` to interlink two `[Char]`s. That's why we have only two `[Char]` and not three `[a]`s like in the pure `(++)` signature. Did the type really change as the exercise says it does? I find this actually confusing because the viewpoint seems to change while the signature stays the same. Let's try with the next one.
+
+```haskell
+(*) :: Num a => a -> a -> a
+
+myMult x = (x / 3) * 5
+
+:t myMult
+myMult :: Fractional a => a -> a
+```
+And here we witness that the `myMult` has a signature which seems to be an *instance* of the more general `Num a` typeclass. Again we see the conversion of the view, in the first type signature the `(*)` is being seen as an operator that interlinks from one to the second which gives the third while our `myMult` function is some fractional instance or a result that is being interlinked from two variables `a` and `a`. We can intuitively understand that a fractional number is an instance of a larger family of numbers. After all we do say a fractional *number* and Haskell's type system works in the same way, *type classes* are like large families of instances of minor type families which are often automatically inferred by Haskell, inferred meaning Haskell can sign our functions with appropriate types. But it cannot do that for all. If we use our Buddha example from before Haskell would not know anything about the Buddha typeclass and all the instances of deities, buddhas, sages, etc that belong to the Buddha typeclass.
+
+In the next example we can see this *changing* view even better.
+```haskell
+(>) :: Ord a => a - > a -> Bool
+
+myCom x = x > (length [1..10])
+
+:t myCom
+myCom :: Int -> Bool
+```
+
+Here it seems that the `myCom` signature is telling us just the beginning and the end of our function which is defined as some operation that takes an `Int` and produces a `Bool` while the `(>)` signature has nothing at all to do with this function because it is defined just by itself, how it an instance of some Order typeclass apparently having something to do with ordering things and that it will take something and compare it with something else, finally producing a `Bool` which will tell us `True` or `False`, meaning if the first thing we provide it is trully greater than the second thing. `myCom` on the other hand is just saying: "Hey I'm some function that is going to tell you if your number is true or not". Seems to me we cannot really see what is happening from this type signature `myCom :: Int -> Bool`, what is this type actually doing?
