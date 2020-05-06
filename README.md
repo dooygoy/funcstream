@@ -57,9 +57,10 @@ induce higher stress levels since one is always striving for correctness.
   * [Mappings](#mappings)
   * [Viewing Type Signatures](#viewing-type-signatures)
   * [Credit Card Digits](#credit-card-digits)
-    * [Exercise 2](#exercise-2)
-    * [Exercise 3](#exercise-2)
-    
+    * [Exercise 1](#exercise-1)
+    * [Exercise 3](#exercise-3)
+    * [Exercise 4](#exercise-4)
+
 ## Books
 
   * [A type of programming](https://atypeofprogramming.com/)
