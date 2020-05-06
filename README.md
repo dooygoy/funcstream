@@ -147,7 +147,9 @@ And when functions start lying about the things they return, you can no longer r
  > In the meantime, in the interest of both sharing with others the small amount of wisdom I’ve gained and preserving it for my future self, I’ve decided to write a long, rather dry overview of a few select parts of the Haskell workflow I developed and the ecosystem I settled into.
  * [Functor-Oriented Programming](http://r6.ca/blog/20171010T001746Z.html)
  > My style of Haskell programming has been evolving over the 15 years that I have been working with it. It is turning into something that I would like to call “functor oriented programming”. The traditional use of typed functional programming focuses on data types. One defines data types to model the data structures that your program operates on, and one writes functions to transform between these structures. One of the primary goals in this traditional methodology is to create data structures that exclude erroneous states to the extent that is reasonably possible. As long as one ensures that pattern matching is complete, then the type system catches many errors that would otherwise lead to these erroneous states, which have been crafted to be unrepresentable. Functor oriented programming is a refinement of this traditional focus on data types.
-
+ * [The "What are Monads" Fallacy](https://two-wrongs.com/the-what-are-monads-fallacy.html)
+ > The Haskell community has a monad problem. No, that's not quite right. Let me rephrase that.Haskell beginners have a monad problem, and the Haskell community is partly to blame. 
+ 
 ## Code
 
  * [Lambda launcher](https://github.com/balsoft/lambda-launcher)
@@ -167,7 +169,8 @@ And when functions start lying about the things they return, you can no longer r
 ```
  * [FER UNIZG Haskell programming assignments](https://www.fer.unizg.hr/_download/repository/puh-ha4[1].pdf)
  * [How to make a random guessing game in Haskell](https://aibhsec.home.blog/2020/01/22/how-to-make-a-random-number-guessing-game-in-haskell/)
-
+ * [Simple Haskell - Random Number Game](https://loganbrown.dev/example%20problems/post-simp-hask-randnumgame/)
+ * [Writing a Snake clone in Haskell part 1](https://joseph.weston.cloud/blog/haskell-snake/)
 ## Inspirational
 
 * [Wallace Stevens - Thea idea of order at Key West](https://www.poetryfoundation.org/poems/43431/the-idea-of-order-at-key-west)
@@ -178,6 +181,7 @@ Since what she sang was uttered word by word.
 It may be that in all her phrases stirred
 The grinding water and the gasping wind;
 But it was she and not the sea we heard.
+ * [Technical Writing: Learning from Kernigham](https://two-wrongs.com/technical-writing-learning-from-kernighan.html)
 
 ## Observations
 
