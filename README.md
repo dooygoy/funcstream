@@ -1276,7 +1276,79 @@ toDigitsRev n
 
 > Well, that seemed to work, but is it nicer...? I don't know. Now it just seems more verbose, honestly. I can't really decide..
 
-End of **Exercise 1**
 
 (break) -- gotta do lunch..
 
+:gem:
+We see that easily we can decompose our thinking process into smaller and smaller functions, or maybe better to say our flow of thinking includes creating small functions chained together, each chain creating in turn a higher function, and so it continues. Sometimes, as in the first lexi-lambda example where we see only a partial application of `div` and `mod` abstracted into a unique function while in stack overflow answers these calculations are not abstracted but included in the final `toDigitsRev` function. What seems better? Am I to abstract partial applications as well? As a learning method this seems good. Chaining smallest possible entities into larger ones. How flexible is that actually? Is there some cognitive upper bound since there are many abstracted functions. This also brings to the point the qestion on naming functions. Our names should reflect the intention of the function. Also seems to me that abstracted functions are *easier* to read since there are visually *fewer* calculations. Hm.. 
+
+End of **Exercise 1 and 2**
+
+(break) -- gotta do lunch..
+
+**Exercise 3**
+
+The output of `doubleEveryOther` has a mix of one-digit and two-digit numbers. Define the function: `sumDigits :: [Integer] -> Integer`
+to calculate the sum of all digits. 
+*Example*: `sumDigits [16,7,12,5] = 1+6+7+1+2+5=22`
+
+So here as well we need to reuse the function `toRevDigits` to split the number into a digit seems to me.
+
+```haskell
+sumDigits :: [Integer] -> Integer
+sumDigits = sum . concatMap toRevDigits
+```
+
+[stack answer on concatMap](https://stackoverflow.com/questions/5225396/what-does-concatmap-do)
+
+Yes, the `concatMap` function is just `concat` and `map` put together. Hence the name. Putting functions together simply means composing them:
+`(.) :: (b -> c) -> (a -> b) -> a -> c`
+However `concat` and `map` cannot be put together by simply using function composition because of the type signature of `map`:
+```haskell
+map :: (a -> b) -> [a] -> [b]
+        ^^^^^^     ^^^    ^^^ 
+           a        b      c
+```
+* [ ] - why is this understood as *a, b, c*, I do not really understand since this now seems to merely put visual blocks between arrows into another layer of variable letters?
+
+Let's see concat, map, and concatMap in action!
+```haskell
+map (+1) [1,2,3,4]
+> [2,3,4,5]
+```
+Will this work on strings too? Compare how `map` still keeps the list while `concatMap` somehow has a list without the commas in between, without the elements separated. What is the length of `"some string"`?
+```haskell
+map (++"!") ["one", "two", "three"]
+> ["one!", "two!", "three!"]
+
+concatMap (++"! ") ["one", "two", "three"]
+> "one! two! three!"
+
+length ["one!", "two!", "three!"]
+> 3
+
+length "one! two! three!"
+> 16
+```
+
+As you can see function composition expects a function of type `a -> b`, but `map` is of type `a -> b -> c`. To compose `concat` with `map` you need to use the `.:` operator instead:
+`(.:) :: (c -> d) -> (a -> b -> c) -> a -> b -> d`
+
+The `concat` function has a type signature of:
+```haskell
+concat :: [[a]] -> [a]
+          ^^^^^    ^^^
+            c       d
+```
+Hence `concat .: map` is of type:
+```haskell
+concat .: map :: (a -> [b]) -> [a] -> [b]
+                 ^^^^^^^^^^    ^^^    ^^^
+                      a         b       d
+```
+Which is the same as that of `concatMap`:
+`concatMap :: (a -> [b]) -> [a] -> [b]`
+
+* [ ] - the stack answer is very good, do check it out again because it includes also an interesting part where  if you `flip` the arguments of `concatMap` you get the `>>=` (bind) function of the list monad!
+
+* [ ] - on next coding session do an exploration of this part and redo the previous calculations again. How is monad connected to this?
