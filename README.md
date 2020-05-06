@@ -57,7 +57,9 @@ induce higher stress levels since one is always striving for correctness.
   * [Mappings](#mappings)
   * [Viewing Type Signatures](#viewing-type-signatures)
   * [Credit Card Digits](#credit-card-digits)
-
+    * [Exercise 2](#exercise-2)
+    * [Exercise 3](#exercise-2)
+    
 ## Books
 
   * [A type of programming](https://atypeofprogramming.com/)
@@ -1166,7 +1168,9 @@ oh wow now I see, this is cool, never seen this one before.
 * calculate the remainder when the sum is divided by 10. 
 `rem 18 10 => 8`
 
-**Exercise 1** We need to first find the digits of a number. Define the functions.
+### Exercise 1
+
+We need to first find the digits of a number. Define the functions.
 
 ```haskell
 toDigits    :: Integer -> [Integer]
@@ -1286,7 +1290,7 @@ End of **Exercise 1 and 2**
 
 (break) -- gotta do lunch..
 
-**Exercise 3**
+### Exercise 3
 
 The output of `doubleEveryOther` has a mix of one-digit and two-digit numbers. Define the function: `sumDigits :: [Integer] -> Integer`
 to calculate the sum of all digits. 
@@ -1352,3 +1356,97 @@ Which is the same as that of `concatMap`:
 * [ ] - the stack answer is very good, do check it out again because it includes also an interesting part where  if you `flip` the arguments of `concatMap` you get the `>>=` (bind) function of the list monad!
 
 * [ ] - on next coding session do an exploration of this part and redo the previous calculations again. How is monad connected to this?
+
+### Exercise 4
+define the function `validate :: Integer -> Bool` that indicates whether an `Integer` could be a valid credit card number. This will use all functions defined in the previous exercises. 
+*Example*: `validate 4012888888881881 = True`
+*Example*: `validate 4012888888881882 = False`
+
+> Note: now what bugs me is that I do not understand why is the first example True and the second example false? Immediatelly I thought about putting any number into the validate function that will extract the digits, reverse them and then concatenate and then.. but how does it actually know is some number is true if there is no action of comparing two credit card numbers? Confused :confused:
+
+Off to google lands.. and stack overflow fields..
+
+[codereview.stack on the same exercise](https://codereview.stackexchange.com/questions/176569/validating-credit-card-numbers-haskell)
+
+**Write functions in terms of other functions**
+
+You have written both `toDigits` as well as `toDigitsRev`. However, you only need one of them. THe other one is the `reverse`d variant:
+```haskell
+toDigits :: Integer -> [Integer]
+toDigits = reverse . toDigitsRev
+```
+> Note: Why did we define `teDigitsRev` in the first place?
+
+The exercise does say "double the value of every second digit beginning from the right. That is, the last digit is unchanged; the second-to-last digit is doubled; the third-to-last digit is unchanged; and so on." But why are we starting from the right in the first place? What difference does it make to begin reading the card number from the last digit since we actually read from left to right? Shouldn't these kind of statements be explained in some terms or is this going too much into details? So calleds details, since these kind of *obscurations* may just interfere with the cognitive process. I do not understand why are we beginning from left to right so now I must investigate further why is the exercise stated in these terms. Thus, I must *go away* from the code yet again, and explore. While stumbling through these exercises and code explanations online we see that many just go over these details, which may seem superficial of super obvious to some people, and yet there are some *idiots*? like me who do wonder why are we suddenly reading the numbers from left to right. Also, often just basic operations, or syntactic operations are explained as in "look, this is some forrest, you can do this and you can do that, now go into the forrest and find me this or that" while another maybe much subtler explanation would be to take the student into the forrest and just tag along offering advice on each step, since there are many rabbit holes in which one can fall into or explore. Sometimes experienced Haskellers just go over these seemingly obvious steps while the rest of us stumble and even though we might just follow through what happen after a while is that not enough *spaced repetition* in learning was done so these details will melt away. Maybe then, when we reach higher planes of abstraction we will not be equiped with enough functional *lingo*, enough explored rabbit holes, to fully undertand all the varieties of solving specific problems. Ok, only in this exercise I realized basic operation on lists, taking out single elements, like taking the `head` or the `tail`, or taking out the `init` or the `whats the other one..` can be compared with this extraction of the digits from a number. In this example there is abstraction and composing of small functions and at the same time, we can understand with a much richer context the operations on lists themselves which might seem *boring* if we are just told, "hey this is how you get the first and the rest of the list". This might seem like a newbie ranting, but what I am aiming at is at defining a much richer context in which simple abstractions contain a higher level view, or like the exercise itself contains two higher level contexts which might enable one to better understand what is happening and how it all connects. We can see in the stack answer on `concatMap` which is a wonderful example how a seemingly simple composing of `concat` and `map` can take us all the way to the `Monad` itself. 
+
+While learning Haskell I feel I have to explore each of these rabbit holes and then write about it too, just merely linking each Haskellers exploration but at the same time deepening my own exploration. Obviously this could be automated in the future where an AI could just in a wiki-like manner explore all *angles* of an exercise and tailor the deepening trajectory for each individual student depending on the progress. This could be modified in real time, so a student might progress on its own from a simple `concat` function to a monad. And no *book* would be the same since it would define itself by the student that interacts with it. Kinda like a *smartbook*.
+
+Notice the finishing touch on lexi-lambda's [post](https://lexi-lambda.github.io/learning-haskell/day-1.html) on this exercise:
+
+> Done. Well, that wasn't terribly interesting, though it was helpful to get used to working in the language again. I think I'll go through the next assignment, and if it doesn't get better, I might have to switch to something else. For now, though, I feel somewhat accomplished, despite having written an extremely trivial set of functions.
+
+I am grateful for lexi's post, it helped and motivated this pursuit and I haven't felt progressing in Haskell like this since I started, at least not in practical terms. Everything up to this point has been exploration and now this exploration has somehow interlinked into this one exercise. But the bitter taste remains because I wish other Haskell books would look like simple from super abstract exploration within a single space, a single assignment that can transform itself into a whole field of language.. well I can't really put this into words for now, but I feel nice about the progression :)
+
+To get back at our exercise, lexi wrote mysterious  `luhn` instead of `validate`. What is `luhn`? We are grateful for lexi's boon and we follow the `luhn` into the Haskell forrest of doom! :)
+
+`search google.com -> luhn gives us Luhn algorith`
+
+[Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm)
+
+The **Luhn algorithm** or **Luhn formula**, also known as the "modulus 10" or "mod 10" algorithm, named after its creator, IBM scientist Hans Peter Luhn, is a simple checksum formula used to validate a variety of identification numbers, such as credit card numbers, IMEI numbers, National Provider Identifier numbers in the United States, ... and some other.. notice: It is not inteded to be a cyptographically secure hash function; it was designed to protect against accidental errors, not malicious attacks.
+
+> Note: Here we come to the "Why do be begin reading our card numbers from the right" question from before.
+
+The formula verifies a number against its included check digit, which
+is usually appended to a partial account number to generate the full account number. This number must pass the following test:
+
+> Note: And here is the 'right to left' bit: This is similar to the exercise description. Would be cool if the exercise had this article linked too..
+
+1. From the rightmost digit(excluding the check digit) and moving left, double the value of every second digit. The check digit is neither doubled nor included in this calculation; the first digit doubled is the digit located immediately left of the check digit. 
+
+> Note: So we see that the digits not included in the calculation are called 'the check digit'. These are the digits we will not double.
+
+If the result of this doubling operation is greater than 9 (e.g., 8 x 2 = 16), then add the digits of the result (e.g., 16: 1 + 6 = 7, 18: 1 + 8 = 9) or, alternatively, the same final result can be found by subtracting 9 from that result (e.g., 16: 16 - 9 = 7, 18: 18 - 9 = 9).
+
+> Note: Ok so we see another way how to get digits from doubledigit numbers, this was not mentioned before.
+
+Take the sum of all the digits. If the total modulo 10 is equal to 0 (if the total ends in zero) then the nmuber is valid according to the Luhn formula; otherwise it is not valid.
+
+> Note: There are more complex algos such as 
+
+Verhoeff and Damm algorithma and Luhn mod N algorithm is an extension that supports non-numerical strings. 
+
+The algorithm appeared in a United States Patent for a hand-held, mechanical device for computing the checksum. Therefore, it was required to be rather simple. 
+
+> Note: I still need to wrap my head around this algo, it seems simple but the underlying logic is not super clear.. but we see that this exercise comes in Programming in Haskell from Graham Hutton. That's great!
+
+* Check [this stack overflow on implementing the luhn in Haskell](https://stackoverflow.com/questions/40832422/luhn-function-in-haskell)
+
+```haskell
+luhn :: Int -> Int -> Int -> Int -> Bool
+luhn w x y z = (luhnDouble w + x + luhnDouble y + z) `mod` 10 == 0
+```
+* Check [this stack overflow on luhn](https://stackoverflow.com/questions/42013519/luhn-algorithm-in-haskell)
+
+```haskell
+doubleAndSum :: [Int] -> Int
+doubleAndSum = fst . foldr (\i (acc, even) 
+               -> (acc + nextStep even i, not even)) (0,False)
+  where 
+    nextStep even i
+      | even = (uncurry (+) . (`divMod` 10) . (*2)) i
+      | otherwise = i
+
+myLuhn :: Int -> Bool
+myLuhn = (0 ==) . (`mod` 10) . doubleAndSum . (map (read . (: ""))) .show
+
+testCC :: [Bool]
+testCC = map myLuhn [.... , .... , .... , ...]
+-- => [True, False, False, True]
+```
+
+> Note: Well this version is too verbose for me, currently beyond 'alien speak'. I am aware of the names of these functions but do not really understand how they relate to each other. But writing Haskell code out like reading a difficult piece of music seems like a good practice too.
+
+There is also **Luhn** on Hackage, Haskell's repository of programs and libraries, the [source](https://hackage.haskell.org/package/luhn-0.2/docs/src/Luhn.html) is commented and seems nice to follow. Check it out, it is defined as a module and has test's as well. This one seems like the most comprehensible solution so far. 
+
+(break..) 
