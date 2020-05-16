@@ -78,8 +78,10 @@ induce higher stress levels since one is always striving for correctness.
 * [Discrete Mathematics using a computer](http://www.x.edu.uy/inet/Springer.pdf)
 * [Parallel and concurrent programming in Haskell](https://simonmar.github.io/pages/pcph.html)
 
+
 ## Online courses
 
+* [2018 Haskell School in the Networked Imagination Laboratory](https://www.youtube.com/playlist?list=PLyEzdf4cdMMHGqVnAzLV8eDXn6Ajj46JA)
 * [Bartosz Milewski Super Awesome Category Theory Lectures!](https://www.youtube.com/user/DrBartosz/playlists)
 * [Functional programming in Haskell: Supercharge your coding](https://www.futurelearn.com/courses/functional-programming-haskell)
 * [Bartosz Milewski - School of Haskell](https://www.schoolofhaskell.com/user/bartosz)
@@ -179,6 +181,22 @@ And when functions start lying about the things they return, you can no longer r
 * [The "What are Monads" Fallacy](https://two-wrongs.com/the-what-are-monads-fallacy.html)
 
 > The Haskell community has a monad problem. No, that's not quite right. Let me rephrase that.Haskell beginners have a monad problem, and the Haskell community is partly to blame. 
+
+* [Opaleye's sugar on top](https://ren.zone/articles/opaleye-sot)
+
+> People often talk of how solutions fall naturally into place when we program in Haskell and embrace its type system. This article walks us through that process, serving as a gentle introduction to some practical uses of advanced features of the Haskell type system within the context of Opaleye and SQL. I invite you to continue reading even if you are not particularly interested in Opaleye nor SQL, as the approach explained here can be used in other contexts too.
+
+* [Finite-state Machines, Part 1: Modeling with Haskell Dat Types](https://wickstrom.tech/finite-state-machines/2017/11/10/finite-state-machines-part-1-modeling-with-haskell.html)
+
+> Stateful programs often become complex beasts as they grow. Program state incohesively spread across a bunch of variables, spuriously guarded by even more variables, is what I refer to as implicit state. When working with such code, we have to reconstruct a model mentally, identifying possible states and transitions between them, to modify the program with confidence. Even if a test suite can help, the process is tedious and error-prone, and I insist we should have our tools do the heavy lifting instead.
+
+* [Basic Type Level Programming in Haskell](https://www.parsonsmatt.org/2017/04/26/basic_type_level_programming_in_haskell.html)
+
+> Dependently typed programming is becoming all the rage these days. Advocates are talking about all the neat stuff you can do by putting more and more information into the type system. It’s true! Type level programming gives you interesting new tools for designing software. You can guarantee safety properties, and in some cases, even gain performance optimizations through the use of these types.
+
+* [www.mathmeth.com resources](http://www.mathmeth.com/read.shtml)
+
+> Here is a collection of materials which we find particularly instructive and useful. Some materials are available online for free, while others have to be purchased.
 
 ## Code
 
