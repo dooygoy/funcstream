@@ -37,7 +37,7 @@ induce higher stress levels since one is always striving for correctness.
 > on it, and what is the most difficult of all is both to grasp what unites each of
 > them and to give a full exposition of what that is.
 
-### Table of contents
+## Table of contents
 
 * [Books](#books)
 * [Online Courses](#online-courses)
@@ -63,133 +63,168 @@ induce higher stress levels since one is always striving for correctness.
 
 ## Books
 
-  * [A type of programming](https://atypeofprogramming.com/)
-  * [Learn you a Haskell for Greater Good](http://learnyouahaskell.com/)
-  * [Wise Man's Haskell](https://andre.tips/wmh/)
-  * Richard Bird: Thinking Functionally with Haskell 
-  * Graham Hutton: Programming in Haskell
-  * Simon Thompson: Haskell - The Craft of Functional Programming
-  * Allen/Moronuki: Haskell From First Principles
-  * Will Kurt: Get Programming with Haskell
-  * [Hudak/Quick: The Haskell School of Music](https://www.cs.yale.edu/homes/hudak/Papers/HSoM.pdf)
-  * [David S. Touretzky: Common Lisp: A Gentle Introduction to Symbolic Computation](https://www.cs.cmu.edu/~dst/LispBook/book.pdf)
-  * Alejandro Serrano Mena: Practical Haskell - A Real World Guide to Programming
-  * [Phil Freeman: Purescript by example](https://leanpub.com/purescript)
-  * [Discrete Mathematics using a computer](http://www.x.edu.uy/inet/Springer.pdf)
-  * [Parallel and concurrent programming in Haskell](https://simonmar.github.io/pages/pcph.html)
+* [A type of programming](https://atypeofprogramming.com/)
+* [Learn you a Haskell for Greater Good](http://learnyouahaskell.com/)
+* [Wise Man's Haskell](https://andre.tips/wmh/)
+* Richard Bird: Thinking Functionally with Haskell 
+* Graham Hutton: Programming in Haskell
+* Simon Thompson: Haskell - The Craft of Functional Programming
+* Allen/Moronuki: Haskell From First Principles
+* Will Kurt: Get Programming with Haskell
+* [Hudak/Quick: The Haskell School of Music](https://www.cs.yale.edu/homes/hudak/Papers/HSoM.pdf)
+* [David S. Touretzky: Common Lisp: A Gentle Introduction to Symbolic Computation](https://www.cs.cmu.edu/~dst/LispBook/book.pdf)
+* Alejandro Serrano Mena: Practical Haskell - A Real World Guide to Programming
+* [Phil Freeman: Purescript by example](https://leanpub.com/purescript)
+* [Discrete Mathematics using a computer](http://www.x.edu.uy/inet/Springer.pdf)
+* [Parallel and concurrent programming in Haskell](https://simonmar.github.io/pages/pcph.html)
 
 ## Online courses
 
-  * [Bartosz Milewski Super Awesome Category Theory Lectures!](https://www.youtube.com/user/DrBartosz/playlists)
-  * [Functional programming in Haskell: Supercharge your coding](https://www.futurelearn.com/courses/functional-programming-haskell)
-  * [Bartosz Milewski - School of Haskell](https://www.schoolofhaskell.com/user/bartosz)
-  * [Functional programming in Haskell](https://www.youtube.com/playlist?list=PLJ5C_6qdAvBFJP1RiUrUUJI4GEhnJhgQw)
-  * [C9 Lectures: Dr. Erik Meijer - Functional Programming Fundamentals](https://youtu.be/UIUlFQH4Cvo)
-  * [Haskell Summer Course](https://www.youtube.com/playlist?list=PLaAHmR4OoQXcrQl7kgkraWQAgQ-8FpEmS)
-  * [Brent Yorgey - CSCI 360: Programming Languages (Fall 2016)](http://ozark.hendrix.edu/~yorgey/360/f16/)
-    > from: [My new programming languages course](https://byorgey.wordpress.com/2017/01/13/my-new-programming-languages-course/) I decided to use class time in an unconventional way: for each class meeting I created a “module”, consisting of a literate Haskell file with some example code, explanatory text, and lots of holes where students needed to write answers to exercises or fill in code. I split the students into groups, and they spent class time just working through the module. Instead of standing at the front lecturing, I just wandered around watching them work and answering questions. It took a bit of getting used to—for the first few classes I couldn’t shake the feeling that I wasn’t really doing my job—but it quickly became clear that the students were really learning and engaging with the material in a way that they would not have been able to if I had just lectured.
+* [Bartosz Milewski Super Awesome Category Theory Lectures!](https://www.youtube.com/user/DrBartosz/playlists)
+* [Functional programming in Haskell: Supercharge your coding](https://www.futurelearn.com/courses/functional-programming-haskell)
+* [Bartosz Milewski - School of Haskell](https://www.schoolofhaskell.com/user/bartosz)
+* [Functional programming in Haskell](https://www.youtube.com/playlist?list=PLJ5C_6qdAvBFJP1RiUrUUJI4GEhnJhgQw)
+* [C9 Lectures: Dr. Erik Meijer - Functional Programming Fundamentals](https://youtu.be/UIUlFQH4Cvo)
+* [Haskell Summer Course](https://www.youtube.com/playlist?list=PLaAHmR4OoQXcrQl7kgkraWQAgQ-8FpEmS)
+* [Brent Yorgey - CSCI 360: Programming Languages (Fall 2016)](http://ozark.hendrix.edu/~yorgey/360/f16/)
+  > from: [My new programming languages course](https://byorgey.wordpress.com/2017/01/13/my-new-programming-languages-course/) I decided to use class time in an unconventional way: for each class meeting I created a “module”, consisting of a literate Haskell file with some example code, explanatory text, and lots of holes where students needed to write answers to exercises or fill in code. I split the students into groups, and they spent class time just working through the module. Instead of standing at the front lecturing, I just wandered around watching them work and answering questions. It took a bit of getting used to—for the first few classes I couldn’t shake the feeling that I wasn’t really doing my job—but it quickly became clear that the students were really learning and engaging with the material in a way that they would not have been able to if I had just lectured.
 
     > A happy byproduct of this approach is that the modules are fairly self-contained and can now be used by anyone to learn the material. Reading through all the modules and working through the exercises should be a great option for anyone wishing to learn some basics of programming language design and implementation. For example, I know I will probably reuse it to get summer research students up to speed. Note that the course assumes no knowledge of Haskell (so those familiar with Haskell can safely skip the first few modules), but introduces just enough to get where I want to go.
 
 ## Talks
 
-  * [Why is Haskell so Hard to Learn and How to Deal With It](https://youtu.be/RvRVn8jXoNY)
-  * [Stop Treading Water: Learning to Learn](https://youtu.be/j0XmixCsWjs)
-  * [Why algebraic data types are important - Bartosz Milewski ](https://youtu.be/LkqTLJK2API)
-  * [PureScript: Tomorrow's JavaScript Today](https://youtu.be/5AtyWgQ3vv0)
-  * [LambdaConf 2015 - Learn Functional Programming with PureScript John A De Goes](https://youtu.be/LqYfdmb0eUU)
-  * [Adventures with Types - SPJ](https://youtu.be/6COvD8oynmI)
-  * [Conal Elliott - Denotational Design: From Meanings to Programs](https://youtu.be/bmKYiUOEo2A)
+* [Why is Haskell so Hard to Learn and How to Deal With It](https://youtu.be/RvRVn8jXoNY)
+* [Stop Treading Water: Learning to Learn](https://youtu.be/j0XmixCsWjs)
+* [Why algebraic data types are important - Bartosz Milewski](https://youtu.be/LkqTLJK2API)
+* [PureScript: Tomorrow's JavaScript Today](https://youtu.be/5AtyWgQ3vv0)
+* [LambdaConf 2015 - Learn Functional Programming with PureScript John A De Goes](https://youtu.be/LqYfdmb0eUU)
+* [Adventures with Types - SPJ](https://youtu.be/6COvD8oynmI)
+* [Conal Elliott - Denotational Design: From Meanings to Programs](https://youtu.be/bmKYiUOEo2A)
 
 ## Papers
 
- * [Ralf Hinze collection of papers](https://www.cs.ox.ac.uk/people/ralf.hinze/publications/index.html)
- * [Graham Hutton: Universality and expressiveness of fold](http://www.cs.nott.ac.uk/~pszgmh/fold.pdf)
- * [Eugenio Moggi: Notions of computation and monads](https://person.dibris.unige.it/moggi-eugenio/ftp/ic91.pdf)
- * [Raul Rojas: A Tutorial Introduction to the Lambda Calculus](https://arxiv.org/pdf/1503.09060.pdf)
- * [Why calculating is better than scheming](https://www.cs.kent.ac.uk/people/staff/dat/miranda/wadler87.pdf)
+* [Ralf Hinze collection of papers](https://www.cs.ox.ac.uk/people/ralf.hinze/publications/index.html)
+* [Graham Hutton: Universality and expressiveness of fold](http://www.cs.nott.ac.uk/~pszgmh/fold.pdf)
+* [Eugenio Moggi: Notions of computation and monads](https://person.dibris.unige.it/moggi-eugenio/ftp/ic91.pdf)
+* [Raul Rojas: A Tutorial Introduction to the Lambda Calculus](https://arxiv.org/pdf/1503.09060.pdf)
+* [Why calculating is better than scheming](https://www.cs.kent.ac.uk/people/staff/dat/miranda/wadler87.pdf)
 
-## Blogs:
+## Blogs
 
 * [Steve Yegge - Execution in The Kingdom of Nouns](http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html)
+
 > Hello, world! Today we're going to hear the story of Evil King Java and his quest for worldwide verb stamp-outage.
 Caution: This story does not have a happy ending. It is neither a story for the faint of heart nor for the critical of mouth. If you're easily offended, or prone to being a disagreeable knave in blog comments, please stop reading now.
+
 * [Letter to a Young Haskell Enthusiast](http://comonad.com/reader/2014/letter-to-a-young-haskell-enthusiast/)
+
 > The following letter is not about what "old hands" know and newcomers do not. Instead, it is about lessons that we all need to learn more than once, and remind ourselves of. It is about tendencies that are common, and understandable, and come with the flush of excitement of learning any new thing that we understand is important, and about the difficulty, always, in trying to decide how best to convey that excitement and sense of importance to others, in a way that they will listen. It is written more specifically, but only because I have found that if we don't talk specifics as well as generalities, the generalities make no sense. This holds for algebraic structures, and it holds for other, vaguer concepts no less. It is a letter full of things I want to remember, as well as of advice I want to share. I expect I will want to remind myself of it when I encounter somebody who is wrong on the internet, which, I understand, may occur on rare occasion.
+
 * [Monday Morning Haskell](https://mmhaskell.com/)
+
 > At Monday Morning Haskell, we have tutorials for all levels of programmers! If you're new to Haskell, take a look at our Beginners series. If you have some experience with the language already, we've got some more Advanced material so you can get started on real world projects! Either way, come back every Monday morning for some new material on the Blog!
+
 * [Why are partial functions (as in `head`, `tail`) bad?](https://www.reddit.com/r/haskell/comments/5n51u3/why_are_partial_functions_as_in_head_tail_bad/?utm_source=share&utm_medium=web2x)
+
 >The problem with partial functions is that they're liars. Consider head: its type is [a] -> a, which means "give me a list of as and I'll give you an a". So I give it [] - does it give me an a? No, it doesn't, it throws an exception instead.
 And when functions start lying about the things they return, you can no longer reason about them.
- * [Applied Haskell Syllabus](https://tech.fpcomplete.com/haskell/syllabus)
- > Applied Haskell is a commercial training program focusing on teaching intermediate Haskell. The goal is to help someone move from knowing Haskell basics to being able to write commercial software, with enough knowledge to pick up any new skills needed on demand.
- * [Haskell Learn - FPComplete](https://tech.fpcomplete.com/haskell/learn)
- * [An introduction to recursion schemes](https://blog.sumtypeofway.com/posts/introduction-to-recursion-schemes.html)
-> Because nested structures appear in almost every problem domain and programming environment, from databases to 3D graphics to filesystems, the act of iterating through these structures is common, so common that most programmers barely notice when they’re doing it. As such, generalizing the act of recursive traversals provides immediate real-world benefits: our new generalized traversal can replace a host of type-specific traversal functions. In addition, by decoupling how a function recurses over data from what the function actually does, we reduce cognitive overhead and can focus entirely on the core behavior of our recursive functions.
- * [The Road to Proficient Haskell](https://williamyaoh.com/posts/2020-01-11-road-to-proficient.html)
- * [Getting started with Haskell](https://stackoverflow.com/questions/1012573/getting-started-with-haskell/1016986#1016986)
- * [You Could Have Invented Monads](http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html)
- > In fact, I hope to get you to invent them now if you haven't already. It's then a small step to notice that all of these solutions are in fact the same solution in disguise. And after reading this, you might be in a better position to understand other documents on monads because you'll recognise everything you see as something you've already invented.
- * [How To Do Basic Error Handling Logging](https://williamyaoh.com/posts/2019-10-12-how-to-basic-error-handling-logging.html)
- * [Basic Haskell: An Examination of a Todo List](https://www.benlopatin.com/basic-haskell-todo/)
- * [Standardized ladder of functional programming](https://pbs.twimg.com/media/CydL5EYUsAAI-61.jpg:large)
- * [Sum Types](https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/sum-types)
- * [How Laziness works](https://two-wrongs.com/how-laziness-works)
- > What I'm about to describe is completely useless to learn how to write Haskell, but if you're like me and like poking at things under the hood, by all means join in.
- * [Space Leak Zoo](http://blog.ezyang.com/2011/05/space-leak-zoo/)
- > There are a few different types of space leak here, but they are quite different and a visitor would do well not to confuse them (the methods for handling them if encountered in the wild vary, and using the wrong technique could exacerbate the situation).
- * [Money in the type system where it belongs](https://ren.zone/articles/safe-money)
- > Notwithstanding the value civilization gives to a particular currency, the amount of said currency one owns can't spontaneously increase nor decrease in number. As programmers, we do play a crucial role in ensuring amounts of currency are never made up nor lost. In this article we will explore how we can leverage types, functional programming, and in particular the safe-money Haskell library to ensure that our software deals with monetary values and world currencies as carefully as civilization requires. Mostly, we will be exploring the type system and learning how to reason through types.
- * [Embedding Linear Lambda Calculus, Quickly and Easily](https://blog.functorial.com/posts/2017-08-05-Embedding-Linear-Lambda-Calculus.html)
-  > Suppose you want to create an embedded DSL based on the linear lambda calculus. Why might you want to do this? Well, you might want to control access to some resource, or perhaps you've heard that linear types can change the world and now you'd like to compile your EDSL to some target language and optimize things using mutable data structures.
- * [Imperative Haskell](https://vaibhavsagar.com/blog/2017/05/29/imperative-haskell/)
-  > I was working through Tim Roughgarden’s Algorithms 1 (which has now been replaced by two smaller courses) and attempting to do all the exercises in Haskell when I bumped up against an uncomfortable truth.
- * [An Opiniated Guide to Haskell in 2018](https://lexi-lambda.github.io/blog/2018/02/10/an-opinionated-guide-to-haskell-in-2018/)
- > In the meantime, in the interest of both sharing with others the small amount of wisdom I’ve gained and preserving it for my future self, I’ve decided to write a long, rather dry overview of a few select parts of the Haskell workflow I developed and the ecosystem I settled into.
- * [Functor-Oriented Programming](http://r6.ca/blog/20171010T001746Z.html)
- > My style of Haskell programming has been evolving over the 15 years that I have been working with it. It is turning into something that I would like to call “functor oriented programming”. The traditional use of typed functional programming focuses on data types. One defines data types to model the data structures that your program operates on, and one writes functions to transform between these structures. One of the primary goals in this traditional methodology is to create data structures that exclude erroneous states to the extent that is reasonably possible. As long as one ensures that pattern matching is complete, then the type system catches many errors that would otherwise lead to these erroneous states, which have been crafted to be unrepresentable. Functor oriented programming is a refinement of this traditional focus on data types.
- * [The "What are Monads" Fallacy](https://two-wrongs.com/the-what-are-monads-fallacy.html)
- > The Haskell community has a monad problem. No, that's not quite right. Let me rephrase that.Haskell beginners have a monad problem, and the Haskell community is partly to blame. 
- 
-## Code 
 
- * [Lambda launcher](https://github.com/balsoft/lambda-launcher)
- * [Input Output](https://github.com/input-output-hk)
- * [Input Output/Plutus](https://github.com/input-output-hk/plutus)
- * [Awesome Haskell List](https://github.com/krispo/awesome-haskell)
- * [Chris Done - a demo web browser engine](https://github.com/chrisdone/vado)
- > This is a demonstration program that is able to load a web page up and render it like in the early 90's. It supports laying out text, different font sizes for headings, inline and block elements, hyperlinks, bold and italics. It supports mousewheel scrolling, too. I wrote this in a couple evenings, because it seemed straight-forward to do so given the libraries available today. That's a good sign for Haskell. Also, there's an inarticulate gut feeling I have that tells me maybe it's worth celebrating these days in which the web is still viewable in its simplest, earliest form.
- * [Chris Done - subset of Haskell, aimed at aiding teachers teach Haskell](https://github.com/chrisdone/duet)
-  * 
-```
- $ duet run demo.hs
+* [Applied Haskell Syllabus](https://tech.fpcomplete.com/haskell/syllabus)
+
+ > Applied Haskell is a commercial training program focusing on teaching intermediate Haskell. The goal is to help someone move from knowing Haskell basics to being able to write commercial software, with enough knowledge to pick up any new skills needed on demand.
+
+* [Haskell Learn - FPComplete](https://tech.fpcomplete.com/haskell/learn)
+* [An introduction to recursion schemes](https://blog.sumtypeofway.com/posts/introduction-to-recursion-schemes.html)
+
+> Because nested structures appear in almost every problem domain and programming environment, from databases to 3D graphics to filesystems, the act of iterating through these structures is common, so common that most programmers barely notice when they’re doing it. As such, generalizing the act of recursive traversals provides immediate real-world benefits: our new generalized traversal can replace a host of type-specific traversal functions. In addition, by decoupling how a function recurses over data from what the function actually does, we reduce cognitive overhead and can focus entirely on the core behavior of our recursive functions.
+
+* [The Road to Proficient Haskell](https://williamyaoh.com/posts/2020-01-11-road-to-proficient.html)
+* [Getting started with Haskell](https://stackoverflow.com/questions/1012573/getting-started-with-haskell/1016986#1016986)
+* [You Could Have Invented Monads](http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html)
+
+> In fact, I hope to get you to invent them now if you haven't already. It's then a small step to notice that all of these solutions are in fact the same solution in disguise. And after reading this, you might be in a better position to understand other documents on monads because you'll recognise everything you see as something you've already invented.
+
+* [How To Do Basic Error Handling Logging](https://williamyaoh.com/posts/2019-10-12-how-to-basic-error-handling-logging.html)
+* [Basic Haskell: An Examination of a Todo List](https://www.benlopatin.com/basic-haskell-todo/)
+* [Standardized ladder of functional programming](https://pbs.twimg.com/media/CydL5EYUsAAI-61.jpg:large)
+* [Sum Types](https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/sum-types)
+* [How Laziness works](https://two-wrongs.com/how-laziness-works)
+
+> What I'm about to describe is completely useless to learn how to write Haskell, but if you're like me and like poking at things under the hood, by all means join in.
+
+* [Space Leak Zoo](http://blog.ezyang.com/2011/05/space-leak-zoo/)
+
+> There are a few different types of space leak here, but they are quite different and a visitor would do well not to confuse them (the methods for handling them if encountered in the wild vary, and using the wrong technique could exacerbate the situation).
+
+* [Money in the type system where it belongs](https://ren.zone/articles/safe-money)
+
+> Notwithstanding the value civilization gives to a particular currency, the amount of said currency one owns can't spontaneously increase nor decrease in number. As programmers, we do play a crucial role in ensuring amounts of currency are never made up nor lost. In this article we will explore how we can leverage types, functional programming, and in particular the safe-money Haskell library to ensure that our software deals with monetary values and world currencies as carefully as civilization requires. Mostly, we will be exploring the type system and learning how to reason through types.
+
+* [Embedding Linear Lambda Calculus, Quickly and Easily](https://blog.functorial.com/posts/2017-08-05-Embedding-Linear-Lambda-Calculus.html)
+
+> Suppose you want to create an embedded DSL based on the linear lambda calculus. Why might you want to do this? Well, you might want to control access to some resource, or perhaps you've heard that linear types can change the world and now you'd like to compile your EDSL to some target language and optimize things using mutable data structures.
+
+* [Imperative Haskell](https://vaibhavsagar.com/blog/2017/05/29/imperative-haskell/)
+
+> I was working through Tim Roughgarden’s Algorithms 1 (which has now been replaced by two smaller courses) and attempting to do all the exercises in Haskell when I bumped up against an uncomfortable truth.
+
+* [An Opiniated Guide to Haskell in 2018](https://lexi-lambda.github.io/blog/2018/02/10/an-opinionated-guide-to-haskell-in-2018/)
+
+> In the meantime, in the interest of both sharing with others the small amount of wisdom I’ve gained and preserving it for my future self, I’ve decided to write a long, rather dry overview of a few select parts of the Haskell workflow I developed and the ecosystem I settled into.
+
+* [Functor-Oriented Programming](http://r6.ca/blog/20171010T001746Z.html)
+
+> My style of Haskell programming has been evolving over the 15 years that I have been working with it. It is turning into something that I would like to call “functor oriented programming”. The traditional use of typed functional programming focuses on data types. One defines data types to model the data structures that your program operates on, and one writes functions to transform between these structures. One of the primary goals in this traditional methodology is to create data structures that exclude erroneous states to the extent that is reasonably possible. As long as one ensures that pattern matching is complete, then the type system catches many errors that would otherwise lead to these erroneous states, which have been crafted to be unrepresentable. Functor oriented programming is a refinement of this traditional focus on data types.
+
+* [The "What are Monads" Fallacy](https://two-wrongs.com/the-what-are-monads-fallacy.html)
+
+> The Haskell community has a monad problem. No, that's not quite right. Let me rephrase that.Haskell beginners have a monad problem, and the Haskell community is partly to blame. 
+
+## Code
+
+* [Lambda launcher](https://github.com/balsoft/lambda-launcher)
+* [Input Output](https://github.com/input-output-hk)
+* [Input Output/Plutus](https://github.com/input-output-hk/plutus)
+* [Awesome Haskell List](https://github.com/krispo/awesome-haskell)
+* [Chris Done - a demo web browser engine](https://github.com/chrisdone/vado)
+
+> This is a demonstration program that is able to load a web page up and render it like in the early 90's. It supports laying out text, different font sizes for headings, inline and block elements, hyperlinks, bold and italics. It supports mousewheel scrolling, too. I wrote this in a couple evenings, because it seemed straight-forward to do so given the libraries available today. That's a good sign for Haskell. Also, there's an inarticulate gut feeling I have that tells me maybe it's worth celebrating these days in which the web is still viewable in its simplest, earliest form.
+
+* [Chris Done - subset of Haskell, aimed at aiding teachers teach Haskell](https://github.com/chrisdone/duet)
+
+```haskell
+ -- $ duet run demo.hs
 (\x -> x + 5) (2 * 3)
 (2 * 3) + 5
 6 + 5
 11
 ```
- * [FER UNIZG Haskell programming assignments](https://www.fer.unizg.hr/_download/repository/puh-ha4[1].pdf)
- * [How to make a random guessing game in Haskell](https://aibhsec.home.blog/2020/01/22/how-to-make-a-random-number-guessing-game-in-haskell/)
- * [Simple Haskell - Random Number Game](https://loganbrown.dev/example%20problems/post-simp-hask-randnumgame/)
- * [Writing a Snake clone in Haskell part 1](https://joseph.weston.cloud/blog/haskell-snake/)
+
+* [FER UNIZG Haskell programming assignments](https://www.fer.unizg.hr/_download/repository/puh-ha4[1].pdf)
+* [How to make a random guessing game in Haskell](https://aibhsec.home.blog/2020/01/22/how-to-make-a-random-number-guessing-game-in-haskell/)
+* [Simple Haskell - Random Number Game](https://loganbrown.dev/example%20problems/post-simp-hask-randnumgame/)
+* [Writing a Snake clone in Haskell part 1](https://joseph.weston.cloud/blog/haskell-snake/)
+
 ## Inspirational
 
 * [Wallace Stevens - Thea idea of order at Key West](https://www.poetryfoundation.org/poems/43431/the-idea-of-order-at-key-west)
->  The sea was not a mask. No more was she.
+
+> The sea was not a mask. No more was she.
 The song and water were not medleyed sound
 Even if what she sang was what she heard,
 Since what she sang was uttered word by word.
 It may be that in all her phrases stirred
 The grinding water and the gasping wind;
 But it was she and not the sea we heard.
- * [Technical Writing: Learning from Kernigham](https://two-wrongs.com/technical-writing-learning-from-kernighan.html)
+
+* [Technical Writing: Learning from Kernigham](https://two-wrongs.com/technical-writing-learning-from-kernighan.html)
 
 ## Observations
 
-  * Explaining Haskell datatypes and constructors to a buddhist/yogi
+* Explaining Haskell datatypes and constructors to a buddhist/yogi
 by using the chakra system and seed sounds of each chakra analogy:
 
-```
+```haskell
 soundToChakra :: Sound -> Chakra
 soundToChakra = \x ->
   case x of
@@ -211,7 +246,8 @@ stringToSound = \x ->
     "aum" -> Just Aum
     _     -> Nothing
 ```
-  * What is interesting is that in Haskell you don't say, "well, maybe this or maybe
+
+* What is interesting is that in Haskell you don't say, "well, maybe this or maybe
 that" like I hear often people say in real life, and true, it does seem
 ambiguous to use maybe for more possibilities than one or nothing at all. You
 instead say "Well, maybe just this or nothing at all" and if you want to express
@@ -246,7 +282,7 @@ Yet people often use the word maybe for more than one thing. You could maybe do
 this, or you could maybe do that, or bla.. which does seem a bit *unprecise*.
 
 
-```
+```haskell
 fromEither :: Either Sound Chakra -> ThisOrThat
 fromEither = \x ->
   case x of
@@ -260,7 +296,7 @@ toEither = \x ->
     That c -> Right c
 ```
 
-```
+```haskell
 Right Chakra == toEither (fromEither (Right Chakra))
 That Chakra == fromEither (toEither (That Chakra))
 ```
@@ -276,7 +312,7 @@ two levels of Either to understand the whole structure, this needs to be done
 in order for us to prove they all relate, that they are all *isomorphic*
 to one another.
 
-```
+```haskell
                    This                             That
                   6 sounds                        6 chakras
                     \             fromEither          /
@@ -300,6 +336,7 @@ to one another.
                     Left Sound == toEither (fromEither (Left Sound))
                     This Sound == fromEither (toEither (This Sound))
 ```
+
 > `Either sound chakra` is making a statement saying that we have *one* of two possible values of types x *or* y in it. It turns out that `Either`, or *sum types* more generally, have a very reasonable and useful *dual* construction in which we have *both x and y*. In Haskell, we can convey thia idea as well. Let's call it `Pair`.
 
 `data Pair x y = MakePair x y`
@@ -336,6 +373,7 @@ When we want to first name the *things* we want to use in our action we use let
 in the sense, let there be light, let there be this, let there be that and then
 after we have declared all out *lets* we will begin an action like "ok now
 create this". We could understand it like this as well:
+
 ```haskell
 let there be a human called "Bob"
 let there be a human called "Alice"
@@ -399,6 +437,7 @@ add = x + y
   where x = 2
         y = 3
 ```
+
 ### More of where
 
 Let us use the where in a slightly developed example, this is a variation on
@@ -441,6 +480,7 @@ main = do
   where firstAndLast =
     concat [firstName, " ", lastName]
 ```
+
 We introduced `firstAndLast` function with a `where` which was not maybe
 necessary. We could have just linked together before declared firstName
 and lastName without the `where` by writing `putStrLn (concat [firstName, " ", lastName])`
@@ -456,6 +496,7 @@ it when ever we can. Here is a simple sum of squares example with where:
 sumOfSquares x y = square x + square y
   where square n = n * n
 ```
+
 Let us use lambda for our Sum of Squares
 
 ```haskell
@@ -465,12 +506,14 @@ sumOfSquares :: Integer -> Integer -> Integer
 sumOfSquares = \x y -> square x + square y
   where square = \n -> n * n
 ```
+
 Here also, we could have just used `sumOfsquares x y = x*x + y*y` instead. But
 there is something else too, there are too many squares, square this square that,
 though as a learning aid repetition is very good. Little children like to
 repeat things they learn, so do we.
 
----------------------------------------------------------------------------
+-------------------------------------------------------;
+
 ### Scope
 
 Note:
@@ -486,7 +529,8 @@ and a bit away from all expansive *global* notions.
 
 a top-level definition is basically like a tree and local definitions are like
 branches which have a life of their own within that same tree.
-```
+
+```haskell
          /-----
    + ===[ ------
    |     \-----
@@ -496,7 +540,9 @@ branches which have a life of their own within that same tree.
    + ==={------
          \_____
 ```
---------------------------------------------------------------------------------
+
+-----------------------------------------------------;
+
 Sometimes in real life conversations you will listen to two people talking,
 and one of them will ask a question to another but you will not really know what
 they mean by it. The second person might already answer it and you will still ponder
@@ -520,7 +566,7 @@ you to *know* what they really mean and that is that your hair is too long and t
 you should cut it. Unfortunately these situations sometimes happen in various
 shapes and sizes.
 
-------------------------------------------------------------------------------
+---------------------------------------------------;
 
 ### To String or not to String
 
@@ -546,6 +592,7 @@ True
 > " a " == "a"
 False
 ```
+
 Hmm.. what is actually happening here? Let us try appending two chars, `a` and `b` and
 at the same time check with `==` sign if our expression is true
 
@@ -563,10 +610,12 @@ True
 
 Looking at this we could say that a string is a *list* of characters, represented by square brackets `[ ]`
 while characters have only single quotes meaning double quotes are *like* single quotes embraced by a bracked.
+
 ```haskell
 > ['a'] == "a"
 True
 ```
+
 Ok, so back again to our "curry is awesome" and "!" example. Let's concatonate them and abstract these examples into a
 function that will concatenate any two strings.
 
@@ -585,6 +634,7 @@ True
 > concatenateTwoStrings "hello" " world"
 "hello world"
 ```
+
 ### Types
 
 Though usually first basic dataype that is introduced in Haskell books is the
@@ -599,6 +649,7 @@ data Bool = False | True
 
 data Season = Winter | Spring | Summer | Fall
 ```
+
 We too will define a `Human` datatype with its two data constructors `Male` or
 `Female`
 
@@ -652,6 +703,7 @@ Sad
 > changeMood Sad
 Happy
 ```
+
 ### Five Types of Buddhas
 
 Playing with *sum types* and five Buddha families
@@ -700,6 +752,7 @@ wisdomOfBuddhas = \x ->
     Ratnasambhava -> Equanimity
     Akshobhya -> Reflection
 ```
+
 This looks clear and yet we feel something missing. We would like to now define
 more complex constructors, and we will get back to this when we understand a bit
 more about `Either` and `Maybe` which will *enrich* our flow of types. I showed
@@ -708,7 +761,7 @@ intuitively the person understood the flow of types. There five families are als
 a nice way to put various groups of five together and think on various functions
 between them.
 
-------------------------------------------------------------------------------
+--------------------------------------------------;
 
 ### Addition Curry
 
@@ -735,6 +788,7 @@ addTwo = \x -> addOne (addOne x)
          -----------------  -----------------
 
 ```
+
 Our `addOne` can be also understood an an *incrementor* function because it
 *increases* or increments the number we give it to. So if we give a number 0 to the
 incrementor function it gives us back the number 1, then if we give it the number 1
@@ -793,6 +847,7 @@ decAny = \x n -> x - n
 > decAny 3 4
 -1
 ```
+
 > Addition is a function that maps two natural numbers to another one.
 
 Let's see different ways we could add two numbers using our incrementor and
@@ -823,6 +878,7 @@ addition 3 4
 > :type addition
 addition :: Integer -> Integer -> Integer
 ```
+
 Now let's expand our calculation with more steps.
 
 ```haskell
@@ -847,6 +903,7 @@ addition 3 4
   = 1 + 6
   = 7
 ```
+
 I still can't explain how but I find the second version so pretty,
 it remembers its steps, as in takes much more care when calculating, it
 just seems more intelligent way to add things, even though it requires more
@@ -881,25 +938,25 @@ movements that somehow *increment* your perception of music. These movements are
 so subtle they could be barely described as movements and still, if you are
 attentive you can hear them.
 
-------------------------------------------------------------------------------
+----------------------------------------------------;
 
 > In Mathematics, the **associative property** is a property of some binary
 operations. Within an expression containing two or more occurrences in a row of
 the same associative operator, the order in which the operations are performed
 does not matter as long as the sequence of the operands is not changed.
 
-> Associativity is not the same as commutativity, which addresses whether or not
-the order of two operands changes the result.
+> Associativity is not the same as commutativity, which addresses whether or not the order of two operands changes the result.
 
 Seems to me my whole previous rambling was describing *commutativity* and not
 *associativity*! But they do seem awfully similar:
 
-```
+```haskell
 x + (y + z) = (x + y) + z               x + (y + z) = (x + y) + z
 1 + (2 + 3) = (1 + 2) + 3               1 + (1 + 1) = (1 + 1) + 1
 1 + 5 = 3 + 3                           1 + 2 = 2 + 1
 6 = 6
 ```
+
 Still what seems clear from this is we can *shift* things around, we can commute
 them around and we get the same result while with associative property we can
 group things differently but the operations we apply to them will not change the
@@ -907,13 +964,7 @@ result. Why does this require so much pondering? There is this
 smell that associative properties and commutative properties can change and
 often seem intermixed depending on the operations we use with them.
 
-> All functions in Haskell take one argument and return one result. This is
-because functions in Haskell are nested like Matryoshka (Babushka) dolls in
-order to accept "multiple" arguments. The way the (->) type constructor for
-functions works means `a -> a -> a` represents successive function applications,
-each taking one argument and returning one result. The difference is that the
-function at the outermost layer is returning *another* function that accepts the
-next argument. This is called *currying*.
+> All functions in Haskell take one argument and return one result. This is because functions in Haskell are nested like Matryoshka (Babushka) dolls in order to accept "multiple" arguments. The way the (->) type constructor for functions works means `a -> a -> a` represents successive function applications, each taking one argument and returning one result. The difference is that the function at the outermost layer is returning *another* function that accepts the next argument. This is called *currying*.
 
 Our `addTwo` was defined for just two input numbers. What if we provide three
 numebrs to add?
@@ -929,6 +980,7 @@ numebrs to add?
 error:Non type-variable argument in the constraint..
 -- hmm..
 ```
+
 ```scheme
 ;; this is written in lisp, a functional language but here plus
 ;; is applied to every argument when written in prefix notation.
@@ -942,6 +994,7 @@ error:Non type-variable argument in the constraint..
 (+ 1 2 3 4 5)
 15
 ```
+
 Let's get back to Haskell. Though it is possible to put plus before the
 arguments similar to lisp it does not really work the same way, it still somehow
 takes only two arguments. Is this limited? Not really, what I understand now is
@@ -977,6 +1030,7 @@ map :: (a -> b) -> [a] -> [b]
 
 map :: (a -> b) -> ([a] -> [b])
 ```
+
 > The association here, or grouping into parentheses, is not to control precedence or order of evaluation; it only serves to group the parameters into argmuents and results, since there can only be one argmuent and one result per arrow...
 
 But this very technical desription of this action does not fully explain this behaviour except by mapping out every movement into words. What I do realize from previous pondering is that as with our plus sign visually it is supposed to be right associative merely because the result is the last thing we are going to get if the function completes so the result is *embraced* with the last argument meaning the last function is going to take the numbers given to it by all the previous functions and give us the result. At least this idea helped me to deepen the understanding of this movement. Notice also the explanation says that
@@ -1037,6 +1091,7 @@ How is this mappping `mapcar` defined in emacs lisp?
 (mapcar 'cons '(a b c) '(1 2 3 4))
      => ((a . 1) (b . 2) (c . 3))
 ```
+
 Compare the elisp mapcar with the Haskell definition of `map`
 
 ```haskell
@@ -1066,6 +1121,7 @@ map (+3) [1, 2, 3, 4, 5]
 [(1 + 3), 5, 6, 7, 8]
 [4, 5, 6, 7, 8]
 ```
+
 Let's see how map is defined in another functional lisp dialect, Clojure
 
 > Returns a lazy sequence constisting of the result of applying f to the set of first items of each coll, followed by applying f to the set of second items of each coll, until any one of the colls is exhausted. Any remaining items in other colls are ignored. Function f should accept number-of-colls arguments. Returns a transducer when no collection is provided.
@@ -1089,7 +1145,7 @@ Seems to me Hegel would be a wonderful Haskeller, this short description somehow
 
 > For Hegel, only the whole is true. every stage or phase or moment is partial, and therefore partially untrue. Hegel's grand idea is "**totality**" which preserves within it each of the ideas or stages that it has overcome or subsumed. Overcoming or subsuming is a developmental **process** made up of "moments" (stages or phases). The **totality** is the **product** of that process which preserves all of its "moments" as elements in a structure, rather than as stages or phases.
 >
---------------------------------------------------------------
+-------------------------------------------;
 
 ### Viewing type signatures
 
@@ -1119,6 +1175,7 @@ myMult :: Fractional a => a -> a
 And here we witness that the `myMult` has a signature which seems to be an *instance* of the more general `Num a` typeclass. Again we see the conversion of the view, in the first type signature the `(*)` is being seen as an operator that interlinks from one to the second which gives the third while our `myMult` function is some fractional instance or a result that is being interlinked from two variables `a` and `a`. We can intuitively understand that a fractional number is an instance of a larger family of numbers. After all we do say a fractional *number* and Haskell's type system works in the same way, *type classes* are like large families of instances of minor type families which are often automatically inferred by Haskell, inferred meaning Haskell can sign our functions with appropriate types. But it cannot do that for all. If we use our Buddha example from before Haskell would not know anything about the Buddha typeclass and all the instances of deities, buddhas, sages, etc that belong to the Buddha typeclass.
 
 In the next example we can see this *changing* view even better.
+
 ```haskell
 (>) :: Ord a => a - > a -> Bool
 
@@ -1132,10 +1189,9 @@ Here it seems that the `myCom` signature is telling us just the beginning and th
 
 ### Credit Card Digits
 
-# CIS 194: Homework 1
+* CIS 194: Homework 1
 
 When solving the homework, strive to create not just code that works, but code that is stylish and concise. Try to write small functions which perform just a single task, and then combine those smaller pieces to create more complex functions. Don't repeat yourself: write one function for each logical task, and reuse functions as necessary.
-
 
 ## Validating Credit Card Numbers
 
@@ -1172,10 +1228,9 @@ A **numerical digit** is a single symbol (such as "2" or "5") used alone, or in 
 so `[2,3,16,6]` = `2 + 3 + 1 + 6 + 6 = 18`
 and `[1,3,8,6]` = `1 + 3 + 8 + 6 = 18`
 
-oh wow now I see, this is cool, never seen this one before. 
+oh wow now I see, this is cool, never seen this one before.
 
-* calculate the remainder when the sum is divided by 10. 
-`rem 18 10 => 8`
+* calculate the remainder when the sum is divided by 10. `rem 18 10 => 8`
 
 ### Exercise 1
 
@@ -1189,6 +1244,7 @@ toDigitsRev :: Integer -> [Integer]
 -- for 0 or negative inputs, toDigits should return the empty list.
 -- toDigitsRev should do the same, but with the digits reversed.
 ```
+
 > Note: So it is about the positional system, we somehow need to decompose a decimal number into its digits, aka it's tenths, hundreds?, thousands,.. example: a number 12345 into 5, 45, 345, 2345.. at least that is the first idea. Later we have to somehow add single digits, for now be begin to extract the last digit.
 
 ```haskell
@@ -1224,7 +1280,6 @@ dropLastDigit 1234
 So our dropLastDigit and lastDigit are like basic operators on lists!
 Usual haskell tutorials mention these but too bad there are no examples like the credit card because here we have extraction of digits from a single number which at first seems like a difficult problem. What are our list operators? `init` and..`last`
 
-
 -- have to put tea :)
 -- gosh, still have to learn vim..
 
@@ -1241,6 +1296,7 @@ last [1,2,3,4]
 init [1,2,3,4]
 [1,2,3]
 ```
+
 Next we have to write a function that splits a number into its digits in reverse order called, `toDigitsRev`
 
 ```haskell
@@ -1254,8 +1310,10 @@ toDigitsRev n
 
 [stack overflow question](https://stackoverflow.com/questions/3963269/split-a-number-into-its-digits-with-haskell)
 
-`135 `div` 10 = 13`
-`135 `mod` 10 = 5`
+```haskell
+135 `div` 10 = 13
+135 `mod` 10 = 5
+```
 
 generalize into a function:
 
@@ -1270,6 +1328,7 @@ toRevDigits :: Integral n => n -> [n]
 toRevDigits 0 = []
 toRevDigits n = n `mod` 10 : toRevDigits (n `div` 10)
 ```
+
 * [ ] - Check more interesting answers on stack on this question.
 
 > Note: Notice lexi-lambdas solution is more elegant since the functions are already abstracted. Before beginning to just solve the function provided here we see two smaller functions composed into one. 
@@ -1317,19 +1376,24 @@ sumDigits = sum . concatMap toRevDigits
 Yes, the `concatMap` function is just `concat` and `map` put together. Hence the name. Putting functions together simply means composing them:
 `(.) :: (b -> c) -> (a -> b) -> a -> c`
 However `concat` and `map` cannot be put together by simply using function composition because of the type signature of `map`:
+
 ```haskell
 map :: (a -> b) -> [a] -> [b]
         ^^^^^^     ^^^    ^^^ 
            a        b      c
 ```
+
 * [ ] - why is this understood as *a, b, c*, I do not really understand since this now seems to merely put visual blocks between arrows into another layer of variable letters?
 
 Let's see concat, map, and concatMap in action!
+
 ```haskell
 map (+1) [1,2,3,4]
 > [2,3,4,5]
 ```
+
 Will this work on strings too? Compare how `map` still keeps the list while `concatMap` somehow has a list without the commas in between, without the elements separated. What is the length of `"some string"`?
+
 ```haskell
 map (++"!") ["one", "two", "three"]
 > ["one!", "two!", "three!"]
@@ -1348,17 +1412,21 @@ As you can see function composition expects a function of type `a -> b`, but `ma
 `(.:) :: (c -> d) -> (a -> b -> c) -> a -> b -> d`
 
 The `concat` function has a type signature of:
+
 ```haskell
 concat :: [[a]] -> [a]
           ^^^^^    ^^^
             c       d
 ```
+
 Hence `concat .: map` is of type:
+
 ```haskell
 concat .: map :: (a -> [b]) -> [a] -> [b]
                  ^^^^^^^^^^    ^^^    ^^^
                       a         b       d
 ```
+
 Which is the same as that of `concatMap`:
 `concatMap :: (a -> [b]) -> [a] -> [b]`
 
@@ -1367,6 +1435,7 @@ Which is the same as that of `concatMap`:
 * [ ] - on next coding session do an exploration of this part and redo the previous calculations again. How is monad connected to this?
 
 ### Exercise 4
+
 define the function `validate :: Integer -> Bool` that indicates whether an `Integer` could be a valid credit card number. This will use all functions defined in the previous exercises. 
 *Example*: `validate 4012888888881881 = True`
 *Example*: `validate 4012888888881882 = False`
@@ -1377,13 +1446,15 @@ Off to google lands.. and stack overflow fields..
 
 [codereview.stack on the same exercise](https://codereview.stackexchange.com/questions/176569/validating-credit-card-numbers-haskell)
 
-**Write functions in terms of other functions**
+Write functions in terms of other functions
 
 You have written both `toDigits` as well as `toDigitsRev`. However, you only need one of them. THe other one is the `reverse`d variant:
+
 ```haskell
 toDigits :: Integer -> [Integer]
 toDigits = reverse . toDigitsRev
 ```
+
 > Note: Why did we define `teDigitsRev` in the first place?
 
 The exercise does say "double the value of every second digit beginning from the right. That is, the last digit is unchanged; the second-to-last digit is doubled; the third-to-last digit is unchanged; and so on." But why are we starting from the right in the first place? What difference does it make to begin reading the card number from the last digit since we actually read from left to right? Shouldn't these kind of statements be explained in some terms or is this going too much into details? So calleds details, since these kind of *obscurations* may just interfere with the cognitive process. I do not understand why are we beginning from left to right so now I must investigate further why is the exercise stated in these terms. Thus, I must *go away* from the code yet again, and explore. While stumbling through these exercises and code explanations online we see that many just go over these details, which may seem superficial of super obvious to some people, and yet there are some *idiots*? like me who do wonder why are we suddenly reading the numbers from left to right. Also, often just basic operations, or syntactic operations are explained as in "look, this is some forrest, you can do this and you can do that, now go into the forrest and find me this or that" while another maybe much subtler explanation would be to take the student into the forrest and just tag along offering advice on each step, since there are many rabbit holes in which one can fall into or explore. Sometimes experienced Haskellers just go over these seemingly obvious steps while the rest of us stumble and even though we might just follow through what happen after a while is that not enough *spaced repetition* in learning was done so these details will melt away. Maybe then, when we reach higher planes of abstraction we will not be equiped with enough functional *lingo*, enough explored rabbit holes, to fully undertand all the varieties of solving specific problems. Ok, only in this exercise I realized basic operation on lists, taking out single elements, like taking the `head` or the `tail`, or taking out the `init` or the `whats the other one..` can be compared with this extraction of the digits from a number. In this example there is abstraction and composing of small functions and at the same time, we can understand with a much richer context the operations on lists themselves which might seem *boring* if we are just told, "hey this is how you get the first and the rest of the list". This might seem like a newbie ranting, but what I am aiming at is at defining a much richer context in which simple abstractions contain a higher level view, or like the exercise itself contains two higher level contexts which might enable one to better understand what is happening and how it all connects. We can see in the stack answer on `concatMap` which is a wonderful example how a seemingly simple composing of `concat` and `map` can take us all the way to the `Monad` itself. 
@@ -1425,7 +1496,7 @@ Take the sum of all the digits. If the total modulo 10 is equal to 0 (if the tot
 
 Verhoeff and Damm algorithma and Luhn mod N algorithm is an extension that supports non-numerical strings. 
 
-The algorithm appeared in a United States Patent for a hand-held, mechanical device for computing the checksum. Therefore, it was required to be rather simple. 
+The algorithm appeared in a United States Patent for a hand-held, mechanical device for computing the checksum. Therefore, it was required to be rather simple.
 
 > Note: I still need to wrap my head around this algo, it seems simple but the underlying logic is not super clear.. but we see that this exercise comes in Programming in Haskell from Graham Hutton. That's great!
 
@@ -1435,6 +1506,7 @@ The algorithm appeared in a United States Patent for a hand-held, mechanical dev
 luhn :: Int -> Int -> Int -> Int -> Bool
 luhn w x y z = (luhnDouble w + x + luhnDouble y + z) `mod` 10 == 0
 ```
+
 * Check [this stack overflow on luhn](https://stackoverflow.com/questions/42013519/luhn-algorithm-in-haskell)
 
 ```haskell
@@ -1458,4 +1530,4 @@ testCC = map myLuhn [.... , .... , .... , ...]
 
 There is also **Luhn** on Hackage, Haskell's repository of programs and libraries, the [source](https://hackage.haskell.org/package/luhn-0.2/docs/src/Luhn.html) is commented and seems nice to follow. Check it out, it is defined as a module and has test's as well. This one seems like the most comprehensible solution so far. 
 
-(break..) 
+(break..)
