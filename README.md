@@ -78,7 +78,6 @@ induce higher stress levels since one is always striving for correctness.
 * [Discrete Mathematics using a computer](http://www.x.edu.uy/inet/Springer.pdf)
 * [Parallel and concurrent programming in Haskell](https://simonmar.github.io/pages/pcph.html)
 
-
 ## Online courses
 
 * [2018 Haskell School in the Networked Imagination Laboratory](https://www.youtube.com/playlist?list=PLyEzdf4cdMMHGqVnAzLV8eDXn6Ajj46JA)
@@ -197,6 +196,10 @@ And when functions start lying about the things they return, you can no longer r
 * [www.mathmeth.com resources](http://www.mathmeth.com/read.shtml)
 
 > Here is a collection of materials which we find particularly instructive and useful. Some materials are available online for free, while others have to be purchased.
+
+* [Builtins](https://github.com/input-output-hk/plutus/blob/master/language-plutus-core/docs/Builtins.md)
+
+> I've recently written a document elaborating on the design of FFI for a functional language implemented in Haskell. Type safety of FFI is ensured via type-level programming (GADTs, type families, etc).
 
 ## Code
 
