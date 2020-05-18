@@ -238,6 +238,10 @@ It may be that in all her phrases stirred
 The grinding water and the gasping wind;
 But it was she and not the sea we heard.
 
+* Gilles Deleuze - The Logic of Sense
+
+> Alice and through the Looking-Glass involve a category of very special things: events, pure events. When I say "Alice becomes larger," I mean that she becomes larger that she was. By the same token, however, she becomes smaller than she is now. Certainly, she is not bigger and smaller at the same time. She is larger now; she was smaller before. But it is at the same moment that one becomes larger than one was and smaller than one becomes. This is the simultaneity of a becoming whose characteristic is to elude the present. Insofar as it eludes the present, becoming does not tolerate the separation of the distinction of before and after, or of past and future. It pertains to the essence of becoming to move and to pull in both directions at once: Alice does not grow without shrinking, and vice versa. Good sense affirms that in all things there is a determinable sense or direction (*sense*); but paradox is the affirmation of both senses or directions at the same time.
+
 * [Technical Writing: Learning from Kernigham](https://two-wrongs.com/technical-writing-learning-from-kernighan.html)
 
 ## Observations
