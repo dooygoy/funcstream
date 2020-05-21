@@ -1,0 +1,1828 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.1.7">
+    
+    
+      
+        <title>Observations - Haskell funcstream</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4c7052ca.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#observations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Haskell funcstream" class="md-header-nav__button md-logo" aria-label="Haskell funcstream">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Haskell funcstream
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Observations
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Haskell funcstream" class="md-nav__button md-logo" aria-label="Haskell funcstream">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Haskell funcstream
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../books/" title="Books" class="md-nav__link">
+      Books
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../talks/" title="Talks" class="md-nav__link">
+      Talks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../online-lectures/" title="Online-lectures" class="md-nav__link">
+      Online-lectures
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../blogs/" title="Blogs" class="md-nav__link">
+      Blogs
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../papers/" title="Papers" class="md-nav__link">
+      Papers
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../code/" title="Code" class="md-nav__link">
+      Code
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../categories/" title="Categories" class="md-nav__link">
+      Categories
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Observations
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Observations" class="md-nav__link md-nav__link--active">
+      Observations
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#observations" class="md-nav__link">
+    Observations
+  </a>
+  
+    <nav class="md-nav" aria-label="Observations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#let-vs-where" class="md-nav__link">
+    Let vs Where
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-of-where" class="md-nav__link">
+    More of where
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
+    Scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to-string-or-not-to-string" class="md-nav__link">
+    To String or not to String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#five-types-of-buddhas" class="md-nav__link">
+    Five Types of Buddhas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addition-curry" class="md-nav__link">
+    Addition Curry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mappings" class="md-nav__link">
+    Mappings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-type-signatures" class="md-nav__link">
+    Viewing type signatures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credit-card-digits" class="md-nav__link">
+    Credit Card Digits
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validating-credit-card-numbers" class="md-nav__link">
+    Validating Credit Card Numbers
+  </a>
+  
+    <nav class="md-nav" aria-label="Validating Credit Card Numbers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1" class="md-nav__link">
+    Exercise 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-3" class="md-nav__link">
+    Exercise 3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-4" class="md-nav__link">
+    Exercise 4
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#observations" class="md-nav__link">
+    Observations
+  </a>
+  
+    <nav class="md-nav" aria-label="Observations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#let-vs-where" class="md-nav__link">
+    Let vs Where
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-of-where" class="md-nav__link">
+    More of where
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
+    Scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to-string-or-not-to-string" class="md-nav__link">
+    To String or not to String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#five-types-of-buddhas" class="md-nav__link">
+    Five Types of Buddhas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addition-curry" class="md-nav__link">
+    Addition Curry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mappings" class="md-nav__link">
+    Mappings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-type-signatures" class="md-nav__link">
+    Viewing type signatures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credit-card-digits" class="md-nav__link">
+    Credit Card Digits
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validating-credit-card-numbers" class="md-nav__link">
+    Validating Credit Card Numbers
+  </a>
+  
+    <nav class="md-nav" aria-label="Validating Credit Card Numbers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1" class="md-nav__link">
+    Exercise 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-3" class="md-nav__link">
+    Exercise 3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-4" class="md-nav__link">
+    Exercise 4
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>Observations</h1>
+                
+                <h2 id="observations">Observations</h2>
+<ul>
+<li>Explaining Haskell datatypes and constructors to a buddhist/yogi
+by using the chakra system and seed sounds of each chakra analogy:</li>
+</ul>
+<pre><code class="haskell">soundToChakra :: Sound -&gt; Chakra
+soundToChakra = \x -&gt;
+  case x of
+    Lam -&gt; Muladhara
+    Vam -&gt; Svadishtana
+    Ram -&gt; Manipura
+    Yam -&gt; Anahata
+    Ham -&gt; Vishuddha
+    Aum -&gt; Ajna
+
+stringToSound :: String -&gt; Maybe Sound
+stringToSound = \x -&gt;
+  case x of
+    &quot;lam&quot; -&gt; Just Lam
+    &quot;vam&quot; -&gt; Just Vam
+    &quot;ram&quot; -&gt; Just Ram
+    &quot;yam&quot; -&gt; Just Yam
+    &quot;ham&quot; -&gt; Just Ham
+    &quot;aum&quot; -&gt; Just Aum
+    _     -&gt; Nothing
+</code></pre>
+
+<ul>
+<li>What is interesting is that in Haskell you don't say, "well, maybe this or maybe
+that" like I hear often people say in real life, and true, it does seem
+ambiguous to use maybe for more possibilities than one or nothing at all. You
+instead say "Well, maybe just this or nothing at all" and if you want to express
+more outputs, or results that involve something more than just nothing you use
+"Well, either this or that". But even more, the <code>Maybe</code> is actually made of
+"Just this or nothing at all" so there is always this layered approach to
+composition of functions, of expressions. The <code>Maybe</code> itself is defined by
+<code>Just</code> this or <code>Nothing</code> at all. Why? Well, It seems it is because we can call
+it <code>Maybe</code> precisely because it somehow produces an <em>action</em> and a terminating
+<em>non-action</em>; we can also visualise it as a parent node whose name is Maybe with
+two children, named Just and Nothing. This intuitive tricky part is that Nothing
+is not like Just, Just will eventually pass something while Nothing will just
+say no to what ever is being passed on, simply declaring Nothing if or Maybe
+gets something which it doesn't need, which is not defined explicitly. In
+Haskell it seems each expression can have a name itself, so that it is possible
+to connect it to anything else, while at the same time it is defined <em>totally</em>
+or at least that is what we strive to do. In real life we sometimes use a name
+for an expression and then offer an explanation of what we really mean. We even
+might get irritated if we are asked to explain our <em>Maybe's</em>.</li>
+</ul>
+<blockquote>
+<p>Alice: "Are you gonna do it?"
+Bob: "Maybe"
+Alice: "What do you mean maybe?"
+Bob: "Well I mean that I am going to just do it or I am going to <code>Just</code> sit back
+and do <code>Nothing</code>.
+Alice: "But Bob please if you can't do it then do the other thing please, you
+can't <code>Just</code> sit back and do <code>Nothing</code>.
+Bob: "Ok then, I am going to do <code>Either</code> this thing or that thing if you need it
+so much, is that ok? <em>Just</em> give me some time.</p>
+</blockquote>
+<p>Yet people often use the word maybe for more than one thing. You could maybe do
+this, or you could maybe do that, or bla.. which does seem a bit <em>unprecise</em>.</p>
+<pre><code class="haskell">fromEither :: Either Sound Chakra -&gt; ThisOrThat
+fromEither = \x -&gt;
+  case x of
+    Left s -&gt; This s
+    Right c -&gt; That c
+
+toEither :: ThisOrThat -&gt; Either Sound Chakra
+toEither = \x -&gt;
+  case x of
+    This s -&gt; Left s
+    That c -&gt; Right c
+</code></pre>
+
+<pre><code class="haskell">Right Chakra == toEither (fromEither (Right Chakra))
+That Chakra == fromEither (toEither (That Chakra))
+</code></pre>
+
+<p>So <code>That</code> is on our <code>Right</code> and <code>This</code> is on our <code>Left</code>. <code>That</code> contains
+all the 6 chakras we have in our body and <code>This</code> contains all the sounds we
+utter that work on each chakra. The intuitive distinction that might seem
+hard to grasp is that we seem to have another layer when we visualise
+the either containers, or better to say when we visualise the path from
+chakra container to sound container. We cannot just visualise sound and chakra
+flowing between but instead we must so to say go up the tree root using
+two levels of Either to understand the whole structure, this needs to be done
+in order for us to prove they all relate, that they are all <em>isomorphic</em>
+to one another.</p>
+<pre><code class="haskell">                   This                             That
+                  6 sounds                        6 chakras
+                    \             fromEither          /
+                     \          /    |       \       /
+                      \        /     |        \     /
+                       \      /      |         \   /
+                       Left          +           Right
+                         \                       /
+                          \                     /
+                           \                   /
+
+                                     *
+                                     |
+                                     |
+                                     |
+                                  toEither
+
+                    Right Chakra == toEither (fromEither (Right Chakra))
+                    That Chakra == fromEither(toEither (That Chakra))
+
+                    Left Sound == toEither (fromEither (Left Sound))
+                    This Sound == fromEither (toEither (This Sound))
+</code></pre>
+
+<blockquote>
+<p><code>Either sound chakra</code> is making a statement saying that we have <em>one</em> of two possible values of types x <em>or</em> y in it. It turns out that <code>Either</code>, or <em>sum types</em> more generally, have a very reasonable and useful <em>dual</em> construction in which we have <em>both x and y</em>. In Haskell, we can convey thia idea as well. Let's call it <code>Pair</code>.</p>
+</blockquote>
+<p><code>data Pair x y = MakePair x y</code></p>
+<p>That is, a pair of a Chakra and a Sound will have type <code>Pair Chakra Sound</code>.
+So while with <code>Maybe</code> we had to just pick one or nothing at all, and in <code>Either</code> we could pick this or that, which were some real alternatives, in a <code>Pair</code> we have this notion of carrying both alternatives with us, they are together and we are not making a choice by choosing either this or that.
+It does seem like <code>Maybe</code> relates somehow to the notion of <code>Identity</code> since it is just giving us the thing we ask while the Either resembles to a Boolean choice or either this or that, either though we could say <code>Maybe</code> as well resembles a boolean choice since Just could be understood as <code>true</code> and Nothing as <code>false</code>. It is interesting to find relations with basic mathematical functions. In that case <code>Either</code> could be understood as showing two truth values and yet we are only supposed to pick one, now that really resembles to <code>OR</code>! But bool values always pick just one so even though this thought process <em>smells</em> wrong it does bring benefit when learning Haskell to compare it with previous concepts.</p>
+<blockquote>
+<p>Quote from atop:
+We say <code>Either</code> and <code>Pair</code> are fundamental because once we can group or tell
+apart two things, we can group or tell apart as many things as we want.</p>
+</blockquote>
+<p>Once we begin to extend our space of pairs we realize pairs are just like
+containers of two. Can we imagine triples? Or quads? If we jump to a musical
+analogy, a pair is a musical interval, a pair of two tones in any scale makes an
+interval. Once we hear a tone it is like hearing a point in space, though it can
+sound pretty we know very little about it since the whole sound is coming from
+one source (aha but what when both sources sing the same tone? Where is the
+source then?). To get back a pair of two tones is like a line, and a triplet of
+three tones can be understood as a triangle, a musical chord, defining a space between three
+tones. Technically speaking a musical chord is a cluster of three or more tones.
+Let us add three tones, c, e, and g that will make a C chord</p>
+<pre><code class="haskell">add3tones :: (Tone, Tone, Tone) -&gt; Tone
+add3tones = \(c, e, g) -&gt; c + e + g
+</code></pre>
+
+<hr />
+<h3 id="let-vs-where">Let vs Where</h3>
+<p>It seems the difference between let and where lies in the order of declaration.
+When we want to first name the <em>things</em> we want to use in our action we use let
+in the sense, let there be light, let there be this, let there be that and then
+after we have declared all out <em>lets</em> we will begin an action like "ok now
+create this". We could understand it like this as well:</p>
+<pre><code class="haskell">let there be a human called &quot;Bob&quot;
+let there be a human called &quot;Alice&quot;
+in &quot;Alice&quot; loves &quot;Bob&quot;
+
+-- further
+
+let human = &quot;Bob&quot;
+let human = &quot;Alice&quot;
+&quot;Bob&quot; loves &quot;Alice&quot;
+
+-- further we ommit using let twice
+
+let firstHuman = &quot;Bob&quot;
+    secondHuman = &quot;Alice&quot;
+in &quot;Bob&quot; loves &quot;Alice&quot;
+
+{-
+This was not valid Haskell code, but it is written like this in order to
+increase conceptual understanding of let vs where expressions
+-}
+
+-- valid Haskell
+
+let x = 2
+    y = 3
+in x + y
+</code></pre>
+
+<p>Now, when we use <code>where</code> we like to first define our action or an event happening
+and then tell something about our actors who define the event itself. Something
+like "where some event is happening, its components are this and that, or where
+Alice loves Bob, Bob is human and Alice is human too." If we miss describing a
+single component of our event the event will not compile, Haskell will not
+accept our declaration. Notice we could define a component and not use it in our
+action, but it will still go through, and the event will not fail, same as declaring "Alice",
+"Bob" and "Hayka" and then telling "Alice" loves "Hayka", the program would run
+even though "Bob" was left all by himself.</p>
+<p>The above let expression can be written with where like:</p>
+<pre><code class="haskell">love = human1 + human3
+  where human1 = &quot;Bob&quot;
+        human2 = &quot;Alice&quot;
+        human3 = &quot;Hayka&quot;
+</code></pre>
+
+<p>Let's use correct Haskell code for our love program. We will use '++' instead
+of just '+' since '++' is used to add or <em>concatenate</em> words, aka strings
+(of characters).</p>
+<pre><code class="haskell">love = human2 ++ &quot; loves  &quot; ++  human3
+  where human1 = &quot;Bob&quot;
+        human2 = &quot;Alice&quot;
+        human3 = &quot;Hayka&quot;
+
+-- and our previous number example with let
+
+add = x + y
+  where x = 2
+        y = 3
+</code></pre>
+
+<h3 id="more-of-where">More of where</h3>
+<p>Let us use the where in a slightly developed example, this is a variation on
+"Haskell from first principles" chapter 3 exercise, but we will use first and last
+name instead of hello world. The difference is in two examples is that we will
+abstract our name into first and last while in the book "hello" and "world" is
+used for expression and for the function name as well.</p>
+<pre><code class="haskell">module MyName where
+
+{- before we define our name, I am just using my own here,
+   we say that myName is a type of a string, as in a string of characters,
+   then we define myName by concatenating the first and the last name. We are not
+   explicitly mentioning first and last name, but instead just providing the value
+   of the first and last name, which is &quot;domagoj&quot; and &quot;miskovic&quot;
+-}
+
+myName :: String
+myName = &quot;domagoj&quot; ++ &quot; miskovic&quot;
+
+-- but now we will declare the firstName is &quot;domagoj&quot;
+firstName :: String
+firstName = &quot;domagoj&quot;
+
+-- and last name as &quot;miskovic&quot;
+lastName :: String
+lastName = &quot;miskovic&quot;
+
+{- and now we will print out the myName and then we will link together
+   our firstName and lastName into one expression by calling our firstName and
+   lastName and Haskell should print out the values we provided before when we
+   run the program.
+-}
+
+main :: IO ()
+main = do
+  putStrLn myName
+  putStrLn firstAndLast
+  where firstAndLast =
+    concat [firstName, &quot; &quot;, lastName]
+</code></pre>
+
+<p>We introduced <code>firstAndLast</code> function with a <code>where</code> which was not maybe
+necessary. We could have just linked together before declared firstName
+and lastName without the <code>where</code> by writing <code>putStrLn (concat [firstName, " ", lastName])</code>
+but in Haskell, even from simplest examples, one is <em>practicing</em> composability,
+abstracting from the tiniest to the grossest. Since we learned <code>where</code> which
+is like a basic tool for abstracting, describing our processes, like separating
+the what and the who, we should use it in our exploratory learning and try to apply
+it when ever we can. Here is a simple sum of squares example with where:</p>
+<pre><code class="haskell">-- sumOfSquares.hs
+
+sumOfSquares x y = square x + square y
+  where square n = n * n
+</code></pre>
+
+<p>Let us use lambda for our Sum of Squares</p>
+<pre><code class="haskell">module SOS where
+
+sumOfSquares :: Integer -&gt; Integer -&gt; Integer
+sumOfSquares = \x y -&gt; square x + square y
+  where square = \n -&gt; n * n
+</code></pre>
+
+<p>Here also, we could have just used <code>sumOfsquares x y = x*x + y*y</code> instead. But
+there is something else too, there are too many squares, square this square that,
+though as a learning aid repetition is very good. Little children like to
+repeat things they learn, so do we.</p>
+<p>-------------------------------------------------------;</p>
+<h3 id="scope">Scope</h3>
+<p>Note:
+Haskell from first principles builds intuition by first going through various
+syntax examples and then plays with local and top level definitions by using
+<code>let</code> and <code>where</code> as basic tools for abstraction. What we notice is the importance
+of <em>spacing</em> in Haskell code, from <em>whitespace</em> that has a silent like mysterious
+<em>apply</em> function because a simple <code>f x</code> meaning <code>f</code> is <em>applied</em> to <code>x</code>, to the
+silent matrix like grid system or invisible columns and rows define the
+play between local and <em>global</em> or <em>top-level</em> definitions. Global might be a
+<em>wrong</em> word so we use top-level which brings us somewhat closer to the code at hand,
+and a bit away from all expansive <em>global</em> notions.</p>
+<p>a top-level definition is basically like a tree and local definitions are like
+branches which have a life of their own within that same tree.</p>
+<pre><code class="haskell">         /-----
+   + ===[ ------
+   |     \-----
+   |
+   |
+   |     /-----
+   + ==={------
+         \_____
+</code></pre>
+
+<p>-----------------------------------------------------;</p>
+<p>Sometimes in real life conversations you will listen to two people talking,
+and one of them will ask a question to another but you will not really know what
+they mean by it. The second person might already answer it and you will still ponder
+what the first person really meant. Then later when the second person leaves you
+ask the person who was answering: "Hey what did she mean with that question? I
+did not understand it." "Oh, you know sometimes she talks like this, she knows
+I know what she really means so she just cuts out the whole question and asks me
+implicitly."</p>
+<p>What basically happened is that I was <em>left out</em> of the <em>scope</em> of the
+conversation so I could not put together what they meant by it. They were talking
+about local definitions without providing explicit values to those definitions
+so I was left out wondering what those values were. Unfortunately sometimes
+people get angry too when you do not ask them explicitly something but <em>force</em>
+you to provide explicit local definitions, remebering something they wish to tell
+. People use these aggresive tactics sometimes. Somebody might tell you:
+"Hey, when are you going to cut your hair!?" What they mean by it it that your
+hair is too long but they do not explicitly say it out loud. You might play naive
+and ask them, well I do not know, why do you ask? Then the other person expects
+you to <em>know</em> what they really mean and that is that your hair is too long and that
+you should cut it. Unfortunately these situations sometimes happen in various
+shapes and sizes.</p>
+<p>---------------------------------------------------;</p>
+<h3 id="to-string-or-not-to-string">To String or not to String</h3>
+<p>Let's go through some of the exercises from chapter 3 in HaskellBook and try
+out basic abstractions. We would like to append or concatenate two separate strings into one string.
+Our first string will be "Curry is awesome" and our second string will be an exclamation mark '!'.
+Our '!' exclamation mark is actually a character, and characters are embraced by single quotes <code>' '</code> while actual strings
+which are a collection of characters are embraced by double quotes <code>" "</code> so a letter a is written as <code>'a'</code> while a
+string abcd is written as <code>"abcd"</code>. Now, can we write a character a as a string by putting double quotes around it, as in
+<code>"a"</code>. Yes we can. But how is that possible?</p>
+<pre><code class="haskell">&gt; &quot;a&quot; == 'a'
+..error:
+    Couldn't match expected type '[Char]' with actual type 'Char'
+
+&gt; &quot;a&quot; == ['a']
+True
+
+&gt; [' ', 'a', ' ']
+&quot; a &quot;
+
+&gt; &quot; a &quot; == &quot;a&quot;
+False
+</code></pre>
+
+<p>Hmm.. what is actually happening here? Let us try appending two chars, <code>a</code> and <code>b</code> and
+at the same time check with <code>==</code> sign if our expression is true</p>
+<pre><code class="haskell">&gt; appendTwoChars = &quot;a&quot; ++ &quot;b&quot; == &quot;ab&quot;
+&gt; appendTwoChars
+True
+
+-- by trial and error we see that
+
+&gt; appendTwoChars = 'a' : 'b' : [] == &quot;ab&quot;
+&gt; appendTwoChars
+True
+</code></pre>
+
+<p>Looking at this we could say that a string is a <em>list</em> of characters, represented by square brackets <code>[ ]</code>
+while characters have only single quotes meaning double quotes are <em>like</em> single quotes embraced by a bracked.</p>
+<pre><code class="haskell">&gt; ['a'] == &quot;a&quot;
+True
+</code></pre>
+
+<p>Ok, so back again to our "curry is awesome" and "!" example. Let's concatonate them and abstract these examples into a
+function that will concatenate any two strings.</p>
+<pre><code class="haskell">&gt; concatenateTwoStrings = (&quot;Curry is awesome&quot; ++ &quot;!&quot;) == &quot;Curry is awesome!&quot;
+&gt; concatenateTwoStrings
+True
+
+&gt; concatenateTwoStrings firstString secondString = firstString ++ secondString
+&gt; concatenateTwoStrings &quot;first&quot; &quot; second&quot;
+&quot;first second&quot;
+
+-- using beloved lambda
+
+&gt; concatenateTwoStrings = \firstString secondString -&gt; firstString ++ secondString
+&gt; concatenateTwoStrings &quot;hello&quot; &quot; world&quot;
+&quot;hello world&quot;
+</code></pre>
+
+<h3 id="types">Types</h3>
+<p>Though usually first basic dataype that is introduced in Haskell books is the
+<code>Bool</code> datatype we will start with something different, which might bring our
+intuition <em>closer</em> to Bool. It is important to note that while HaskellBook begins
+the whole <em>type</em> story with introducing <code>data Bool = False | True</code>, same as
+Graham Hutton's <em>Programming Haskell</em>, <em>A Type of Programming</em> introduces types
+as four seasons of the year.</p>
+<pre><code class="haskell">data Bool = False | True
+
+data Season = Winter | Spring | Summer | Fall
+</code></pre>
+
+<p>We too will define a <code>Human</code> datatype with its two data constructors <code>Male</code> or
+<code>Female</code></p>
+<pre><code class="haskell">data Human = Male | Female
+
+-- let's change some genders, for now just keeping it as a binary choice for
+-- making things simple
+
+changeGender :: Human -&gt; Human
+changeGender Male = Female
+changeGender _    = Male
+
+&gt; changeGender Male
+Female
+&gt; changeGender Female
+Male
+</code></pre>
+
+<p>We are using <em>or</em> instead of <em>and</em> because the <code>|</code> symbol,
+the so called Pipe, indicating logical disjunction "or", indicates that
+this is a <em>sum type</em>. So a human can be a female or a male but not
+both at the same time. But is this the only way we can write data declarations?
+How about using <em>and</em> and various <em>what if</em> this and that happens relations. Types
+are never so pure in real life, and we often need to ponder before we implement
+a solution. Seems to me a Haskeller can spend an eternity just pondering basic
+questions. "A type!" a haskeller says, "What the hell is a type?"
+It is important not to over think the type relations but somehow mix and match
+while progressing in our composition. The good part is that type driven design can eliminate many failures that can
+happen along the way, and in turn enable us to deal with future turns with much
+greater success. HaskellBook tells this in a very clear way by describing the
+basic flow of a data type declaration.</p>
+<blockquote>
+<p>The whole thing is called a data declaration. Data declaration do not always
+follow precisely the same pattern - there are datatypes that use logical
+conjuction (<em>and</em>) instead of disjunction, and some type constructors and
+data constructors may have arguments. The thing they have in common is the keyword
+<code>data</code> followed by the type constructor (or name of the type that will appear in
+type signatures), the equals sign to denote a definition, and then data constructors
+(or names of values that inhabit your term-level code).</p>
+</blockquote>
+<pre><code class="haskell">data Mood = Happy | Sad
+
+changeMood :: Mood -&gt; Mood
+changeMood Happy = Sad
+changeMood _     = Happy
+
+&gt; changeMood Happy
+Sad
+&gt; changeMood Sad
+Happy
+</code></pre>
+
+<h3 id="five-types-of-buddhas">Five Types of Buddhas</h3>
+<p>Playing with <em>sum types</em> and five Buddha families</p>
+<pre><code class="haskell">
+data Buddha = Vairocana
+        | Amoghasiddhi
+        | Amitabha
+        | Ratnasambhava
+        | Akshobhya
+
+data Color = White | Green | Red | Gold | Blue
+data Element = Space | Air | Fire | Earth | Water
+data Cardinality = Center | North | West | South | East
+data Stress = Ignorance | Jealousy | Selfishness | Pride | Aggresion
+data Season = None | Summer | Spring | Autumn | Winter
+data Wisdom = Meditation | Perfection | Observation | Equanimity | Reflection
+data Symbol = Wheel | Vajra | Lotus | Jewel | Sceptre
+data Means = Turn | Protect | Magnetize | Enrich | Pacify
+
+colorOfBuddhas :: Buddha -&gt; Color
+colorOfBuddhas = \x -&gt;
+  case x of
+    Vairocana -&gt; White
+    Amoghasiddhi -&gt; Green
+    Amitabha -&gt; Red
+    Ratnasambhava -&gt; Gold
+    Akshobhya -&gt; Blue
+
+seasonOfBuddhas :: Buddha -&gt; Season
+seasonOfBuddhas = \x -&gt;
+  case x of
+    Vairocana -&gt; None
+    Amoghasiddhi -&gt; Summer
+    Amitabha -&gt; Spring
+    Ratnasambhava -&gt; Autumn
+    Akshobhya -&gt; Winter
+
+wisdomOfBuddhas :: Buddha -&gt; Wisdom
+wisdomOfBuddhas = \x -&gt;
+  case x of
+    Vairocana -&gt; Meditation
+    Amoghasiddhi -&gt; Perfection
+    Amitabha -&gt; Observation
+    Ratnasambhava -&gt; Equanimity
+    Akshobhya -&gt; Reflection
+</code></pre>
+
+<p>This looks clear and yet we feel something missing. We would like to now define
+more complex constructors, and we will get back to this when we understand a bit
+more about <code>Either</code> and <code>Maybe</code> which will <em>enrich</em> our flow of types. I showed
+this chart to a person who knows something about these Buddhas and yoga and
+intuitively the person understood the flow of types. There five families are also
+a nice way to put various groups of five together and think on various functions
+between them.</p>
+<p>--------------------------------------------------;</p>
+<h3 id="addition-curry">Addition Curry</h3>
+<pre><code class="haskell">addOne :: Natural -&gt; Natural
+addOne = \x -&gt; x + 1
+
+addTwo :: Natural -&gt; Natural -&gt; Natural
+addTwo = \x -&gt; addOne (addOne x)
+
+
+                         addTwo
+             -----------------------------------
+           /                /                  /\
+          /                /                  /  \
+         /    addOne      /       addOne     /
+         -----------------  -----------------
+        | \x    ------    || \x     ------   |
+        |      |      |   ||       |      |  |
+ x -----------&gt;|  +   |-----------&gt;|  +   |-----------&gt;
+        | 1---&gt;|      |   ||  1---&gt;|      |  |
+        |       ------    ||        ------   |
+        |                 ||                 |
+         -----------------  -----------------
+
+</code></pre>
+
+<p>Our <code>addOne</code> can be also understood an an <em>incrementor</em> function because it
+<em>increases</em> or increments the number we give it to. So if we give a number 0 to the
+incrementor function it gives us back the number 1, then if we give it the number 1
+it gives us back the number 2; we can give it any number and it will always give back <em>one</em>
+number back. You could also say it <em>sends</em> the number it recieves to the next one.
+It is a very simple function. What does <em>simple</em> mean? Maybe better to use the
+word <em>primitive</em> or <em>small</em> in the sense that it is easy to understand conceptually.
+Simple is a <em>complex</em> word because people have different notions on what
+is simple and what is complex.</p>
+<p>The opposite of our increment function would be a function that would send the
+number we provide to the previous number, so if we gave it a number 3 it would give
+us the number 2. It decreases the number we give it to, so we will call it the
+decrement function. So within our natural number realm our increment function
+behaves the same as our <code>addOne</code> function because it <em>adds</em> a number 1, and our
+decrement function behaves the same as the function <code>subtractOne</code> which
+<em>subtracts</em> a number 1 from the one we give it to.</p>
+<pre><code class="haskell">addOne :: Natural -&gt; Natural
+addOne = \x -&gt; x + 1
+
+subtractOne :: Natural -&gt; Natural
+subtractOne = \x -&gt; x - 1
+
+-- rewritten as increment and decrement would be
+
+incr :: Natural -&gt; Natural
+increment = \x -&gt; x + 1
+
+decr :: Natural -&gt; Natural
+decrement = \x -&gt; x - 1
+
+-- hmm can we make these functions  to add any number we want?
+
+incAny n = \x -&gt; x + n
+decAny n = \x -&gt; x - n
+
+-- Maybe you haven't applied a function to enough arguments?
+
+incAny x n = \x -&gt; x + n
+decAny x n = \x -&gt; x - n
+
+-- Maybe you haven't applied a function to enough arguments?
+
+incAny x n = \x n -&gt; x + n
+decAny x n = \x n -&gt; x - n
+
+--  Maybe you haven't applied a function to enough arguments?
+
+incAny = \x n -&gt; x + n
+decAny = \x n -&gt; x - n
+
+&gt; incAny 3 4
+7
+&gt; decAny 3 4
+-1
+</code></pre>
+
+<blockquote>
+<p>Addition is a function that maps two natural numbers to another one.</p>
+</blockquote>
+<p>Let's see different ways we could add two numbers using our incrementor and
+decrementor function</p>
+<pre><code class="haskell">addition = \x y -&gt; (increment x) + (decrement y)
+
+&gt; addition 3 4
+&gt; (increment 3) + (decrement 4)
+&gt; ((\x -&gt; x + 1) 3) + ((\x -&gt; x - 1) 4)
+&gt; ([x=3] 3 + 1) + ([x=4] 4 - 1)
+&gt; (3 + 1) + (4 - 1)
+&gt; 4 + 3
+&gt; 7
+
+addition = \x y -&gt; 1 + ((decrement x) + y)
+
+addition 3 4
+1 + ((decrement 3) + 4
+1 + ((\x -&gt; x - 1) 3) + 4
+1 + ([x=3] 3 - 1) + 4
+1 + (3 - 1) + 4
+1 + 2 + 4
+1 + 6
+7
+
+&gt; :type addition
+addition :: Integer -&gt; Integer -&gt; Integer
+</code></pre>
+
+<p>Now let's expand our calculation with more steps.</p>
+<pre><code class="haskell">addition = \x y -&gt; (increment x) + (decrement y)
+addition 3 4
+  = (\x y -&gt; (increment x) + (decrement y)) 3 4
+  = (increment 4) + (decrement 3)
+  = (increment 5) + (decrement 2)
+  = (increment 6) + (decrement 1)
+  = 7 + 0
+  = 7
+
+addition = \x y -&gt; 1 + ((decrement x) + y)
+addition 3 4
+  = (\x y -&gt; 1 + ((decrement x) + y)) 3 4
+  = 1 + ((decrement 3) + 4)
+  = 1 + (1 + (decrement 2) + 4)
+  = 1 + (1 + (1 + (decrement 1) + 4))
+  = 1 + (1 + (1 + 0 + 4))
+  = 1 + (1 + (1 + 4))
+  = 1 + (1 + 5)
+  = 1 + 6
+  = 7
+</code></pre>
+
+<p>I still can't explain how but I find the second version so pretty,
+it remembers its steps, as in takes much more care when calculating, it
+just seems more intelligent way to add things, even though it requires more
+steps. I always would find it strange when people talk about something taking less time as being better. I could see my mind stopping and pondering why would that be true, why would optimizing have this guideline which seems so narrow. Yes, there are valid explanations and reasons for this but still, the notion of embedding more information within each level
+of your computation somehow seems much more intelligent approach in the long run. Who knows maybe artificial intelligence is precisely one long extensive computation where each step is carrying a billion other steps all in sync so why not explore that direction instead. Well, for more
+input on these increment and decrement function check the amazing SICP lectures by Abelson and Sussman. These are just pure awesomeness, I have yet to write about them and how they helped in motivating this functional pursuit into haskell. Who knows, maybe Lisp lurks somewhere in Haskell heart too.</p>
+<p>Addition is associative <code>((x + y) + z = x + (y + z)</code> meaning if three people
+x y and z want to go out of the house, no matter who comes out first by the time
+all three come out of the house there will be three of them out of the house.
+Also notice if you haven't actually witnessed these people coming out of the
+house how can you tell who came out first and what actual difference does it
+make? If we the three of us are going to a party and all three of us come out of
+the house to take the bus, there is no difference who comes out first or who
+goes in the bus first since all three of us are going to the party anyway. Well
+maybe it does matter for some mysterious spooky action at a distance reason, but
+our coming out of the house is an associative operation. Also when we have to
+pay for the ticket 10 dollars, it makes no difference if we give the driver
+first a 5 dollar note and then a 2 dollar notes and then a 1 dollar note or if
+we give the driver the money in some other order. We still have to pay 10
+dollars. But these are <em>simple</em> examples. I'm thinking on what would be an
+associative operation in music, as in if I have a chord of three notes does the
+order matter when I play them? The similar idea to our three little friends
+would be if I had to play the three notes at the same time, then there would be
+no difference, but still, then I cannot see the whole process of two separate
+groupings of three notes. Still, you could visualise <em>giving</em> more awareness to
+some two notes within a three note chord and they will then sound a bit
+different even though you will play them at the same time. <em>This</em> is one of the
+key features of great musicians that even when they play three notes at the same
+time, they never really play them in the same way, they often do subtle
+movements that somehow <em>increment</em> your perception of music. These movements are
+so subtle they could be barely described as movements and still, if you are
+attentive you can hear them.</p>
+<p>----------------------------------------------------;</p>
+<blockquote>
+<p>In Mathematics, the <strong>associative property</strong> is a property of some binary
+operations. Within an expression containing two or more occurrences in a row of
+the same associative operator, the order in which the operations are performed
+does not matter as long as the sequence of the operands is not changed.</p>
+<p>Associativity is not the same as commutativity, which addresses whether or not the order of two operands changes the result.</p>
+</blockquote>
+<p>Seems to me my whole previous rambling was describing <em>commutativity</em> and not
+<em>associativity</em>! But they do seem awfully similar:</p>
+<pre><code class="haskell">x + (y + z) = (x + y) + z               x + (y + z) = (x + y) + z
+1 + (2 + 3) = (1 + 2) + 3               1 + (1 + 1) = (1 + 1) + 1
+1 + 5 = 3 + 3                           1 + 2 = 2 + 1
+6 = 6
+</code></pre>
+
+<p>Still what seems clear from this is we can <em>shift</em> things around, we can commute
+them around and we get the same result while with associative property we can
+group things differently but the operations we apply to them will not change the
+result. Why does this require so much pondering? There is this
+smell that associative properties and commutative properties can change and
+often seem intermixed depending on the operations we use with them.</p>
+<blockquote>
+<p>All functions in Haskell take one argument and return one result. This is because functions in Haskell are nested like Matryoshka (Babushka) dolls in order to accept "multiple" arguments. The way the (-&gt;) type constructor for functions works means <code>a -&gt; a -&gt; a</code> represents successive function applications, each taking one argument and returning one result. The difference is that the function at the outermost layer is returning <em>another</em> function that accepts the next argument. This is called <em>currying</em>.</p>
+</blockquote>
+<p>Our <code>addTwo</code> was defined for just two input numbers. What if we provide three
+numebrs to add?</p>
+<pre><code class="haskell">&gt; 1 + 2
+3
+&gt; 1 + 2 + 3
+6
+&gt; (+) 1 2
+3
+&gt; (+) 1 2 3
+error:Non type-variable argument in the constraint..
+-- hmm..
+</code></pre>
+
+<pre><code class="scheme">;; this is written in lisp, a functional language but here plus
+;; is applied to every argument when written in prefix notation.
+
+&gt; (+ 1 2)
+3
+
+(+ 1 2 3)
+6
+
+(+ 1 2 3 4 5)
+15
+</code></pre>
+
+<p>Let's get back to Haskell. Though it is possible to put plus before the
+arguments similar to lisp it does not really work the same way, it still somehow
+takes only two arguments. Is this limited? Not really, what I understand now is
+that the plus function itself is defined minimally in Haskell, like the very
+essence of plus is defined as something that adds <em>at least</em> two things, but
+to go even further in Haskell, only two things! If you need to add three things
+then use two pluses, use two functions to add three things. If we
+wanted to apply plus to more than two arguments without defining how many, it
+seems we would need a function that would <em>map</em> somehow this plus to any number of
+numbers we want. This seems like we actually need two functions to get a similar
+behaviour like in lisp example. This does seem super cool, meaning functions in
+Haskell are interlinked somehow each having one input and one output. Even our
+imaginary <em>mapping</em> function would not really add a million numbers but would tell
+plus to add a million numbers, orchestrating the event coordinating many little
+pluses to do the addition, collapsing the numbers like dominoes.
+So how is lisp then just adding many numbers by having a plus function at
+the beginning of the expression? Ponder the pond..</p>
+<blockquote>
+<p>The way the type constructor for functions, (-&gt;), is defined makes currying the default in Haskell. This is because it is an infix operator and right associative. Because it associates to the right, types are implicitly parenthesized like so:</p>
+</blockquote>
+<pre><code class="haskell">f :: a -&gt; a -&gt; a
+
+-- associates to
+
+f :: a -&gt; (a -&gt; a)
+
+-- and
+
+map :: (a -&gt; b) -&gt; [a] -&gt; [b]
+
+-- associates into
+
+map :: (a -&gt; b) -&gt; ([a] -&gt; [b])
+</code></pre>
+
+<blockquote>
+<p>The association here, or grouping into parentheses, is not to control precedence or order of evaluation; it only serves to group the parameters into argmuents and results, since there can only be one argmuent and one result per arrow...</p>
+</blockquote>
+<p>But this very technical desription of this action does not fully explain this behaviour except by mapping out every movement into words. What I do realize from previous pondering is that as with our plus sign visually it is supposed to be right associative merely because the result is the last thing we are going to get if the function completes so the result is <em>embraced</em> with the last argument meaning the last function is going to take the numbers given to it by all the previous functions and give us the result. At least this idea helped me to deepen the understanding of this movement. Notice also the explanation says that</p>
+<blockquote>
+<p>This is because it is an infix operator and right associative..</p>
+</blockquote>
+<p>Now the expression is saying that something happens because something is like this or that. Such definitions only provoke further questions but why is is like that then? Next it continues with again just repeating the previous expression with</p>
+<blockquote>
+<p>Because it associates to the right..</p>
+</blockquote>
+<p>And again I know and see it associates to the right but why is the word <em>because</em> used to explain something by just repeating what was already said? And that is why it is parenthesized like that. But I already see that myself, what idea is actually expressed here? I am sure many might stop and ponder what this really means. By thinking on functions that only pass on what was given and at the same time do just a small calculation that in whole creates the final result we can see that it might be obvious that it will be parenthesized to the right. Again it is difficult to put this thinking flow into words since words are so vague and well, code is really explicit. Maybe that is why I am pondering so much on this plus sign, associativity and commutativity.</p>
+<pre><code class="haskell">&gt; map (+) [1,2,3,4]
+error
+
+&gt; map (1+) [1,2,3,4,5]
+[2,3,4,5,6]
+
+-- hmm
+</code></pre>
+
+<h3 id="mappings">Mappings</h3>
+<blockquote>
+<p>Consider the expression <code>7 - 4 + 2</code>. The result could be either <code>(7 - 4) + 2 = 5</code> or <code>7 - (4 + 2) = 1</code>. The former result corresponds to the case when <code>+</code> and <code>-</code> are left-associative, the latter to when <code>+</code> and <code>-</code> are right-associative.</p>
+</blockquote>
+<p>When I type this expression into ghci or an android calculator I get 5 as the result.</p>
+<blockquote>
+<p>A mapping function applies a given function to each element of a list or other collemtion.</p>
+</blockquote>
+<pre><code class="elisp">(mapcar 'car '((a 1) (b 2) (c 3)))
+    =&gt; (a b c)
+
+(mapcar 'cdr '((a 1) (b 2) (c 3)))
+    =&gt; (1 2 3)
+
+(mapcar 'string &quot;abc&quot;)
+    =&gt; (&quot;a&quot; &quot;b&quot; &quot;c&quot;)
+</code></pre>
+
+<p>How is this mappping <code>mapcar</code> defined in emacs lisp?</p>
+<pre><code class="elisp">(defun mapcar (function &amp;rest args)
+  &quot;Apply FUNCTION to successive cars(heads) of all ARGS.
+   Return the list of results.&quot;
+
+  ;; If no list is exhausted,
+  (if (not (memq nil args))
+
+       ;; apply function to cars.
+       (cons (apply function (mapcar 'car args))
+             (apply 'mapcar function
+
+                     ;; recurse for rest of elements
+                     (mapcar 'cdr args)))))
+
+(mapcar 'cons '(a b c) '(1 2 3 4))
+     =&gt; ((a . 1) (b . 2) (c . 3))
+</code></pre>
+
+<p>Compare the elisp mapcar with the Haskell definition of <code>map</code></p>
+<pre><code class="haskell">map :: (a -&gt; b) -&gt; [a] -&gt; [b]
+map _ [] = []
+map f (x:xs) = f x : map f xs
+</code></pre>
+
+<p>We notice that from line <code>f x : map f x</code> the <code>f x</code> looks like <code>(mapcar 'car args))</code> and <code>f xs</code> looks like (mapcar 'cdr args). <code>car</code> in lisp lingo is actually same as haskell's <code>first</code> and <code>cdr</code> is same as <code>rest</code>, meaning <code>x</code> and <code>xs</code> are written in the same style, like saying after the <code>first beginning</code> come many more <code>beginningS</code>. Actually after the first comes always the rest, no matter how many or in which way they appear. There wouldn't be any firsts if there were no rests, right?</p>
+<p>In Haskell they like to use variable names like <code>n</code> and <code>ns</code> for <code>number</code> and <code>numbers</code> and some more polymorphic like variables for <code>x</code> and <code>xs</code></p>
+<p>Notice also that <code>cons</code> from elisp definition is the cons operator which is represented in haskell as <em>infix</em> operator <code>:</code> stuck between <code>f x</code> and <code>map f xs</code>. Also elisp mapcar definition first says <code>(if (not (memq nix args))</code> which relates to haskell's <code>map _ [] = []</code>. Haskell seems to be just saying if anything, meaning <code>_</code> as an empty placeholder which is used in pattern matching, is provided to an empty <code>map _ []</code> then return an empty list <code>[]</code> Why? Because we have nothing to do with an empty list. We could define an amazing function but if we do not provide any arguments to it nothing will happen, because an empty list has no members, it is just empty. And out of an empty list input how would we create a <em>filled</em> list of an output? This imaginary function would have to be some sort of an artist that would create something out of nothing, worth pondering about..</p>
+<pre><code class="haskell">map f (x:xs) = f x : map f xs
+
+map (+3) [1, 2, 3, 4, 5]
+
+[(1 + 3), map (+3) [2, 3, 4, 5]]
+[(1 + 3), (2 + 3), map (+3) [3, 4, 5]]
+[(1 + 3), (2 + 3), (3 + 3), map (+3) [4, 5]]
+[(1 + 3), (2 + 3), (3 + 3), (4 + 3), map (+3) 5]
+[(1 + 3), (2 + 3), (3 + 3), (4 + 3), (5 + 3)]
+[(1 + 3), (2 + 3), (3 + 3), (4 + 3), 8]
+[(1 + 3), (2 + 3), (3 + 3), 7, 8]
+[(1 + 3), (2 + 3), 6, 7, 8]
+[(1 + 3), 5, 6, 7, 8]
+[4, 5, 6, 7, 8]
+</code></pre>
+
+<p>Let's see how map is defined in another functional lisp dialect, Clojure</p>
+<blockquote>
+<p>Returns a lazy sequence constisting of the result of applying f to the set of first items of each coll, followed by applying f to the set of second items of each coll, until any one of the colls is exhausted. Any remaining items in other colls are ignored. Function f should accept number-of-colls arguments. Returns a transducer when no collection is provided.</p>
+</blockquote>
+<pre><code class="clojure">(map inc [1 2 3 4 5])
+;;=&gt; (2 3 4 5 6)
+
+(map + [1 2 3] [4 5 6])
+;;=&gt; (5 6 7)
+</code></pre>
+
+<p>From <a href="https://www.braveclojure.com/core-functions-in-depth/">Brave Clojure</a></p>
+<blockquote>
+<p>I think of abstractions as named collections of operations. If you can perform all of an abstraction's operation on an object, then that object is an instance of the abstraction. I think this way even outside of programming.</p>
+</blockquote>
+<p>This seems like a nice thinking process for building <em>something like</em> abstractions but I feel this notion of an abstraction being a named collection of operations should also have a unique property, the result which transformed the collection itself. This abstraction principle does not have to go both ways just by unfolding the operation which was applied to the collection. In some sense, you could abstract the mapping of pluses to a completely different operation that would in turn do the addition as a side effect while just mapping pluses to an arbitrary number of operands does seem like a trivial form of abstraction principle.</p>
+<blockquote>
+<p>The prejudice and respect for abstract thinking are so great that sensitive nostrils will begin to smell some satire or irony at this point</p>
+</blockquote>
+<p>Seems to me Hegel would be a wonderful Haskeller, this short description somehow relates in a nice way to our mapping definitions, just think of the difference between a total and a partial function:</p>
+<blockquote>
+<p>For Hegel, only the whole is true. every stage or phase or moment is partial, and therefore partially untrue. Hegel's grand idea is "<strong>totality</strong>" which preserves within it each of the ideas or stages that it has overcome or subsumed. Overcoming or subsuming is a developmental <strong>process</strong> made up of "moments" (stages or phases). The <strong>totality</strong> is the <strong>product</strong> of that process which preserves all of its "moments" as elements in a structure, rather than as stages or phases.</p>
+<p>-------------------------------------------;</p>
+</blockquote>
+<h3 id="viewing-type-signatures">Viewing type signatures</h3>
+<p>In chapter five exercises page 221 of HaskellBook
+it is asked to figure out how the type would change and why, and make a note of what we think of the new inferred type would be.</p>
+<pre><code class="haskell">-- Type signature of general function
+
+(++) :: [a] -&gt; [a] -&gt; [a]
+
+-- How might that change when we apply
+-- it to the following value?
+
+myConcat x = x ++ &quot; yo&quot;
+</code></pre>
+
+<p>We will get <code>myCOncat :: [Char] -&gt; [Char]</code> but what is interesting that somehow the type did not seem to change but only the frame of reference from which the signature is being observed, as in first we saw the type signature by unfolding the <code>(++)</code> which said that it concatenates two <em>things</em> to get another <em>thing</em>, and then we see the <code>myConcat</code> function which is made out of concatenating a thing with some other thing called " yo". The first frame is seeing just the <code>(++)</code> and how it <em>interlinks</em> <code>[a]</code> with <code>[a]</code> into an <code>[a]</code> while the second frame is seeing the same <code>(++)</code> but this time we are witnessing a type of a function which is using the <code>(++)</code> to interlink two <code>[Char]</code>s. That's why we have only two <code>[Char]</code> and not three <code>[a]</code>s like in the pure <code>(++)</code> signature. Did the type really change as the exercise says it does? I find this actually confusing because the viewpoint seems to change while the signature stays the same. Let's try with the next one.</p>
+<pre><code class="haskell">(*) :: Num a =&gt; a -&gt; a -&gt; a
+
+myMult x = (x / 3) * 5
+
+:t myMult
+myMult :: Fractional a =&gt; a -&gt; a
+</code></pre>
+
+<p>And here we witness that the <code>myMult</code> has a signature which seems to be an <em>instance</em> of the more general <code>Num a</code> typeclass. Again we see the conversion of the view, in the first type signature the <code>(*)</code> is being seen as an operator that interlinks from one to the second which gives the third while our <code>myMult</code> function is some fractional instance or a result that is being interlinked from two variables <code>a</code> and <code>a</code>. We can intuitively understand that a fractional number is an instance of a larger family of numbers. After all we do say a fractional <em>number</em> and Haskell's type system works in the same way, <em>type classes</em> are like large families of instances of minor type families which are often automatically inferred by Haskell, inferred meaning Haskell can sign our functions with appropriate types. But it cannot do that for all. If we use our Buddha example from before Haskell would not know anything about the Buddha typeclass and all the instances of deities, buddhas, sages, etc that belong to the Buddha typeclass.</p>
+<p>In the next example we can see this <em>changing</em> view even better.</p>
+<pre><code class="haskell">(&gt;) :: Ord a =&gt; a - &gt; a -&gt; Bool
+
+myCom x = x &gt; (length [1..10])
+
+:t myCom
+myCom :: Int -&gt; Bool
+</code></pre>
+
+<p>Here it seems that the <code>myCom</code> signature is telling us just the beginning and the end of our function which is defined as some operation that takes an <code>Int</code> and produces a <code>Bool</code> while the <code>(&gt;)</code> signature has nothing at all to do with this function because it is defined just by itself, how it an instance of some Order typeclass apparently having something to do with ordering things and that it will take something and compare it with something else, finally producing a <code>Bool</code> which will tell us <code>True</code> or <code>False</code>, meaning if the first thing we provide it is trully greater than the second thing. <code>myCom</code> on the other hand is just saying: "Hey I'm some function that is going to tell you if your number is true or not". Seems to me we cannot really see what is happening from this type signature <code>myCom :: Int -&gt; Bool</code>, what is this type actually doing?</p>
+<h3 id="credit-card-digits">Credit Card Digits</h3>
+<ul>
+<li>CIS 194: Homework 1</li>
+</ul>
+<p>When solving the homework, strive to create not just code that works, but code that is stylish and concise. Try to write small functions which perform just a single task, and then combine those smaller pieces to create more complex functions. Don't repeat yourself: write one function for each logical task, and reuse functions as necessary.</p>
+<h2 id="validating-credit-card-numbers">Validating Credit Card Numbers</h2>
+<p>How do websites validate your credit card number when you shop online? They don't check a massive database of numbers, and they don't use magic. In fact, most credit providers rely on a checksum formula for distinguishing valid numbers from random collections of digits.</p>
+<blockquote>
+<p>What is a checksum?</p>
+</blockquote>
+<p>Wiki: <a href="https://en.wikipedia.org/wiki/Checksum">Checksum</a></p>
+<p>A <strong>checksum</strong> is a small-sized datum derived from a block of digital data for the purpose of detecting errors that may have been introduced during its transmission or storage. By themselves, checksums are often used to verify data integrity but are not relied upon to verify data authenticity. The procedure which generates this checksum is called a <strong>checksum function</strong> or checksum algorithm. Depending on its design goals, a good checksum algorithm will usually output a significantly different value, even for small changes made to the input. </p>
+<p>In this section, you will implement the validation algorithm for credit cards. It follows these steps:</p>
+<ul>
+<li>
+<p>Double the value of every second digit beginning from the right.
+That is, the last digit is unchanged; the second-to-last digit is doubled; the third-to-last digit is unchanged; and so on. For example,
+<code>[1,3,8,6]</code> becomes [2,3,16,6] </p>
+</li>
+<li>
+<p>Add the digits of the doubled values and the undoubled digits from the original number. For example, <code>[2,3,16,6]</code> becomes <code>2+3+1+6+6 = 18</code></p>
+</li>
+</ul>
+<p>:confused:</p>
+<blockquote>
+<p>Note: I do not understand how is this calculation done.</p>
+</blockquote>
+<p>How am I supposed to add <code>[2,3,16,6]</code> and <code>[1,3,8,6]</code></p>
+<blockquote>
+<p>Note: So 16 is not a digit?</p>
+</blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Numerical_digit">Numerical digit</a></p>
+<p>A <strong>numerical digit</strong> is a single symbol (such as "2" or "5") used alone, or in combinations (such as "25"), to represent numbers (such as the number 25) according to some positional numeral systems. The single digits (as one-digit-numerals) and their combinations (such as "25") are the numerals of the numeral system they belong to. For example,the decimal system (base 10) requires ten digits (0 through to 9), whereas the binary system (base2) has two digits (e.g.: 0 and 1)</p>
+<blockquote>
+<p>Note: add the digits of the doubled values and the undoubled digits from the original number.</p>
+</blockquote>
+<p>so <code>[2,3,16,6]</code> = <code>2 + 3 + 1 + 6 + 6 = 18</code>
+and <code>[1,3,8,6]</code> = <code>1 + 3 + 8 + 6 = 18</code></p>
+<p>oh wow now I see, this is cool, never seen this one before.</p>
+<ul>
+<li>calculate the remainder when the sum is divided by 10. <code>rem 18 10 =&gt; 8</code></li>
+</ul>
+<h3 id="exercise-1">Exercise 1</h3>
+<p>We need to first find the digits of a number. Define the functions.</p>
+<pre><code class="haskell">toDigits    :: Integer -&gt; [Integer]
+toDigitsRev :: Integer -&gt; [Integer]
+
+-- toDigits should convert positive Integers to a list of digits.
+-- for 0 or negative inputs, toDigits should return the empty list.
+-- toDigitsRev should do the same, but with the digits reversed.
+</code></pre>
+
+<blockquote>
+<p>Note: So it is about the positional system, we somehow need to decompose a decimal number into its digits, aka it's tenths, hundreds?, thousands,.. example: a number 12345 into 5, 45, 345, 2345.. at least that is the first idea. Later we have to somehow add single digits, for now be begin to extract the last digit.</p>
+</blockquote>
+<pre><code class="haskell">lastDigit :: Integer -&gt; Integer
+lastDigit = (`mod` 10)
+-- this will give us the last digit, or the 10th column
+-- for example to get 100ths or 1000ths we would done
+lastDigit 1234 
+4
+
+lastTwoDigits = (`mod` 100)
+lastTwoDigits 1234
+34
+
+-- or 
+lastThreeDigits = (`mod` 1000)
+lastThreeDigits 1234
+234 
+
+-- also
+divMod 1234 10
+(123,4)
+
+-- now check this magic
+
+dropLastDigit :: Integer -&gt; Integer
+dropLastDigit = (`div` 10)
+
+dropLastDigit 1234
+123
+</code></pre>
+
+<p>So our dropLastDigit and lastDigit are like basic operators on lists!
+Usual haskell tutorials mention these but too bad there are no examples like the credit card because here we have extraction of digits from a single number which at first seems like a difficult problem. What are our list operators? <code>init</code> and..<code>last</code></p>
+<p>-- have to put tea :)
+-- gosh, still have to learn vim..</p>
+<pre><code class="haskell">head [1,2,3,4]
+5
+
+tail [1,2,3,4]
+[2,3,4]
+
+last [1,2,3,4]
+4
+
+init [1,2,3,4]
+[1,2,3]
+</code></pre>
+
+<p>Next we have to write a function that splits a number into its digits in reverse order called, <code>toDigitsRev</code></p>
+<pre><code class="haskell">toDigitsRev :: Integer -&gt; [Integer]
+toDigitsRev n
+  | n &lt;= 0    = []
+  | otherwise = lastDigit n : toDigitsRev (dropLastDigit n)
+</code></pre>
+
+<blockquote>
+<p>But how to just get digits of some number in Haskell?</p>
+</blockquote>
+<p><a href="https://stackoverflow.com/questions/3963269/split-a-number-into-its-digits-with-haskell">stack overflow question</a></p>
+<pre><code class="haskell">135 `div` 10 = 13
+135 `mod` 10 = 5
+</code></pre>
+
+<p>generalize into a function:</p>
+<pre><code class="haskell">digits :: Integral x =&gt; x -&gt; [x]
+digits 0 = []
+digits x = digits (x `div` 10) ++ [x `mod` 10]
+
+-- and reverse
+
+toRevDigits :: Integral n =&gt; n -&gt; [n]
+toRevDigits 0 = []
+toRevDigits n = n `mod` 10 : toRevDigits (n `div` 10)
+</code></pre>
+
+<ul>
+<li>[ ] - Check more interesting answers on stack on this question.</li>
+</ul>
+<blockquote>
+<p>Note: Notice lexi-lambdas solution is more elegant since the functions are already abstracted. Before beginning to just solve the function provided here we see two smaller functions composed into one. </p>
+</blockquote>
+<p>Next lexi-lambda observes:</p>
+<blockquote>
+<p>Sure enough, that fixed things. Still, something about me doesn't like the asymmetry between the two expressions on either side of the cons (is it still called that in Haskell?). I remember something about <code>where</code> clauses; let's try that.</p>
+</blockquote>
+<pre><code class="haskell">toDigitsRev :: Integer -&gt; [Integer]
+toDigitsRev n
+  | n &lt;= 0    = []
+  | otherwise = d : toRevDigits ds
+     where d  = lastDigit n
+           ds = dropLastDigit n
+</code></pre>
+
+<blockquote>
+<p>Well, that seemed to work, but is it nicer...? I don't know. Now it just seems more verbose, honestly. I can't really decide..</p>
+</blockquote>
+<p>(break) -- gotta do lunch..</p>
+<p>:gem:
+We see that easily we can decompose our thinking process into smaller and smaller functions, or maybe better to say our flow of thinking includes creating small functions chained together, each chain creating in turn a higher function, and so it continues. Sometimes, as in the first lexi-lambda example where we see only a partial application of <code>div</code> and <code>mod</code> abstracted into a unique function while in stack overflow answers these calculations are not abstracted but included in the final <code>toDigitsRev</code> function. What seems better? Am I to abstract partial applications as well? As a learning method this seems good. Chaining smallest possible entities into larger ones. How flexible is that actually? Is there some cognitive upper bound since there are many abstracted functions. This also brings to the point the qestion on naming functions. Our names should reflect the intention of the function. Also seems to me that abstracted functions are <em>easier</em> to read since there are visually <em>fewer</em> calculations. Hm.. </p>
+<p>End of <strong>Exercise 1 and 2</strong></p>
+<p>(break) -- gotta do lunch..</p>
+<h3 id="exercise-3">Exercise 3</h3>
+<p>The output of <code>doubleEveryOther</code> has a mix of one-digit and two-digit numbers. Define the function: <code>sumDigits :: [Integer] -&gt; Integer</code>
+to calculate the sum of all digits. 
+<em>Example</em>: <code>sumDigits [16,7,12,5] = 1+6+7+1+2+5=22</code></p>
+<p>So here as well we need to reuse the function <code>toRevDigits</code> to split the number into a digit seems to me.</p>
+<pre><code class="haskell">sumDigits :: [Integer] -&gt; Integer
+sumDigits = sum . concatMap toRevDigits
+</code></pre>
+
+<p><a href="https://stackoverflow.com/questions/5225396/what-does-concatmap-do">stack answer on concatMap</a></p>
+<p>Yes, the <code>concatMap</code> function is just <code>concat</code> and <code>map</code> put together. Hence the name. Putting functions together simply means composing them:
+<code>(.) :: (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c</code>
+However <code>concat</code> and <code>map</code> cannot be put together by simply using function composition because of the type signature of <code>map</code>:</p>
+<pre><code class="haskell">map :: (a -&gt; b) -&gt; [a] -&gt; [b]
+        ^^^^^^     ^^^    ^^^ 
+           a        b      c
+</code></pre>
+
+<ul>
+<li>[ ] - why is this understood as <em>a, b, c</em>, I do not really understand since this now seems to merely put visual blocks between arrows into another layer of variable letters?</li>
+</ul>
+<p>Let's see concat, map, and concatMap in action!</p>
+<pre><code class="haskell">map (+1) [1,2,3,4]
+&gt; [2,3,4,5]
+</code></pre>
+
+<p>Will this work on strings too? Compare how <code>map</code> still keeps the list while <code>concatMap</code> somehow has a list without the commas in between, without the elements separated. What is the length of <code>"some string"</code>?</p>
+<pre><code class="haskell">map (++&quot;!&quot;) [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;]
+&gt; [&quot;one!&quot;, &quot;two!&quot;, &quot;three!&quot;]
+
+concatMap (++&quot;! &quot;) [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;]
+&gt; &quot;one! two! three!&quot;
+
+length [&quot;one!&quot;, &quot;two!&quot;, &quot;three!&quot;]
+&gt; 3
+
+length &quot;one! two! three!&quot;
+&gt; 16
+</code></pre>
+
+<p>As you can see function composition expects a function of type <code>a -&gt; b</code>, but <code>map</code> is of type <code>a -&gt; b -&gt; c</code>. To compose <code>concat</code> with <code>map</code> you need to use the <code>.:</code> operator instead:
+<code>(.:) :: (c -&gt; d) -&gt; (a -&gt; b -&gt; c) -&gt; a -&gt; b -&gt; d</code></p>
+<p>The <code>concat</code> function has a type signature of:</p>
+<pre><code class="haskell">concat :: [[a]] -&gt; [a]
+          ^^^^^    ^^^
+            c       d
+</code></pre>
+
+<p>Hence <code>concat .: map</code> is of type:</p>
+<pre><code class="haskell">concat .: map :: (a -&gt; [b]) -&gt; [a] -&gt; [b]
+                 ^^^^^^^^^^    ^^^    ^^^
+                      a         b       d
+</code></pre>
+
+<p>Which is the same as that of <code>concatMap</code>:
+<code>concatMap :: (a -&gt; [b]) -&gt; [a] -&gt; [b]</code></p>
+<ul>
+<li>
+<p>[ ] - the stack answer is very good, do check it out again because it includes also an interesting part where  if you <code>flip</code> the arguments of <code>concatMap</code> you get the <code>&gt;&gt;=</code> (bind) function of the list monad!</p>
+</li>
+<li>
+<p>[ ] - on next coding session do an exploration of this part and redo the previous calculations again. How is monad connected to this?</p>
+</li>
+</ul>
+<h3 id="exercise-4">Exercise 4</h3>
+<p>define the function <code>validate :: Integer -&gt; Bool</code> that indicates whether an <code>Integer</code> could be a valid credit card number. This will use all functions defined in the previous exercises. 
+<em>Example</em>: <code>validate 4012888888881881 = True</code>
+<em>Example</em>: <code>validate 4012888888881882 = False</code></p>
+<blockquote>
+<p>Note: now what bugs me is that I do not understand why is the first example True and the second example false? Immediatelly I thought about putting any number into the validate function that will extract the digits, reverse them and then concatenate and then.. but how does it actually know is some number is true if there is no action of comparing two credit card numbers? Confused :confused:</p>
+</blockquote>
+<p>Off to google lands.. and stack overflow fields..</p>
+<p><a href="https://codereview.stackexchange.com/questions/176569/validating-credit-card-numbers-haskell">codereview.stack on the same exercise</a></p>
+<p>Write functions in terms of other functions</p>
+<p>You have written both <code>toDigits</code> as well as <code>toDigitsRev</code>. However, you only need one of them. THe other one is the <code>reverse</code>d variant:</p>
+<pre><code class="haskell">toDigits :: Integer -&gt; [Integer]
+toDigits = reverse . toDigitsRev
+</code></pre>
+
+<blockquote>
+<p>Note: Why did we define <code>teDigitsRev</code> in the first place?</p>
+</blockquote>
+<p>The exercise does say "double the value of every second digit beginning from the right. That is, the last digit is unchanged; the second-to-last digit is doubled; the third-to-last digit is unchanged; and so on." But why are we starting from the right in the first place? What difference does it make to begin reading the card number from the last digit since we actually read from left to right? Shouldn't these kind of statements be explained in some terms or is this going too much into details? So calleds details, since these kind of <em>obscurations</em> may just interfere with the cognitive process. I do not understand why are we beginning from left to right so now I must investigate further why is the exercise stated in these terms. Thus, I must <em>go away</em> from the code yet again, and explore. While stumbling through these exercises and code explanations online we see that many just go over these details, which may seem superficial of super obvious to some people, and yet there are some <em>idiots</em>? like me who do wonder why are we suddenly reading the numbers from left to right. Also, often just basic operations, or syntactic operations are explained as in "look, this is some forrest, you can do this and you can do that, now go into the forrest and find me this or that" while another maybe much subtler explanation would be to take the student into the forrest and just tag along offering advice on each step, since there are many rabbit holes in which one can fall into or explore. Sometimes experienced Haskellers just go over these seemingly obvious steps while the rest of us stumble and even though we might just follow through what happen after a while is that not enough <em>spaced repetition</em> in learning was done so these details will melt away. Maybe then, when we reach higher planes of abstraction we will not be equiped with enough functional <em>lingo</em>, enough explored rabbit holes, to fully undertand all the varieties of solving specific problems. Ok, only in this exercise I realized basic operation on lists, taking out single elements, like taking the <code>head</code> or the <code>tail</code>, or taking out the <code>init</code> or the <code>whats the other one..</code> can be compared with this extraction of the digits from a number. In this example there is abstraction and composing of small functions and at the same time, we can understand with a much richer context the operations on lists themselves which might seem <em>boring</em> if we are just told, "hey this is how you get the first and the rest of the list". This might seem like a newbie ranting, but what I am aiming at is at defining a much richer context in which simple abstractions contain a higher level view, or like the exercise itself contains two higher level contexts which might enable one to better understand what is happening and how it all connects. We can see in the stack answer on <code>concatMap</code> which is a wonderful example how a seemingly simple composing of <code>concat</code> and <code>map</code> can take us all the way to the <code>Monad</code> itself. </p>
+<p>While learning Haskell I feel I have to explore each of these rabbit holes and then write about it too, just merely linking each Haskellers exploration but at the same time deepening my own exploration. Obviously this could be automated in the future where an AI could just in a wiki-like manner explore all <em>angles</em> of an exercise and tailor the deepening trajectory for each individual student depending on the progress. This could be modified in real time, so a student might progress on its own from a simple <code>concat</code> function to a monad. And no <em>book</em> would be the same since it would define itself by the student that interacts with it. Kinda like a <em>smartbook</em>.</p>
+<p>Notice the finishing touch on lexi-lambda's <a href="https://lexi-lambda.github.io/learning-haskell/day-1.html">post</a> on this exercise:</p>
+<blockquote>
+<p>Done. Well, that wasn't terribly interesting, though it was helpful to get used to working in the language again. I think I'll go through the next assignment, and if it doesn't get better, I might have to switch to something else. For now, though, I feel somewhat accomplished, despite having written an extremely trivial set of functions.</p>
+</blockquote>
+<p>I am grateful for lexi's post, it helped and motivated this pursuit and I haven't felt progressing in Haskell like this since I started, at least not in practical terms. Everything up to this point has been exploration and now this exploration has somehow interlinked into this one exercise. But the bitter taste remains because I wish other Haskell books would look like simple from super abstract exploration within a single space, a single assignment that can transform itself into a whole field of language.. well I can't really put this into words for now, but I feel nice about the progression :)</p>
+<p>To get back at our exercise, lexi wrote mysterious  <code>luhn</code> instead of <code>validate</code>. What is <code>luhn</code>? We are grateful for lexi's boon and we follow the <code>luhn</code> into the Haskell forrest of doom! :)</p>
+<p><code>search google.com -&gt; luhn gives us Luhn algorith</code></p>
+<p><a href="https://en.wikipedia.org/wiki/Luhn_algorithm">Luhn algorithm</a></p>
+<p>The <strong>Luhn algorithm</strong> or <strong>Luhn formula</strong>, also known as the "modulus 10" or "mod 10" algorithm, named after its creator, IBM scientist Hans Peter Luhn, is a simple checksum formula used to validate a variety of identification numbers, such as credit card numbers, IMEI numbers, National Provider Identifier numbers in the United States, ... and some other.. notice: It is not inteded to be a cyptographically secure hash function; it was designed to protect against accidental errors, not malicious attacks.</p>
+<blockquote>
+<p>Note: Here we come to the "Why do be begin reading our card numbers from the right" question from before.</p>
+</blockquote>
+<p>The formula verifies a number against its included check digit, which
+is usually appended to a partial account number to generate the full account number. This number must pass the following test:</p>
+<blockquote>
+<p>Note: And here is the 'right to left' bit: This is similar to the exercise description. Would be cool if the exercise had this article linked too..</p>
+</blockquote>
+<ol>
+<li>From the rightmost digit(excluding the check digit) and moving left, double the value of every second digit. The check digit is neither doubled nor included in this calculation; the first digit doubled is the digit located immediately left of the check digit. </li>
+</ol>
+<blockquote>
+<p>Note: So we see that the digits not included in the calculation are called 'the check digit'. These are the digits we will not double.</p>
+</blockquote>
+<p>If the result of this doubling operation is greater than 9 (e.g., 8 x 2 = 16), then add the digits of the result (e.g., 16: 1 + 6 = 7, 18: 1 + 8 = 9) or, alternatively, the same final result can be found by subtracting 9 from that result (e.g., 16: 16 - 9 = 7, 18: 18 - 9 = 9).</p>
+<blockquote>
+<p>Note: Ok so we see another way how to get digits from doubledigit numbers, this was not mentioned before.</p>
+</blockquote>
+<p>Take the sum of all the digits. If the total modulo 10 is equal to 0 (if the total ends in zero) then the nmuber is valid according to the Luhn formula; otherwise it is not valid.</p>
+<blockquote>
+<p>Note: There are more complex algos such as </p>
+</blockquote>
+<p>Verhoeff and Damm algorithma and Luhn mod N algorithm is an extension that supports non-numerical strings. </p>
+<p>The algorithm appeared in a United States Patent for a hand-held, mechanical device for computing the checksum. Therefore, it was required to be rather simple.</p>
+<blockquote>
+<p>Note: I still need to wrap my head around this algo, it seems simple but the underlying logic is not super clear.. but we see that this exercise comes in Programming in Haskell from Graham Hutton. That's great!</p>
+</blockquote>
+<ul>
+<li>Check <a href="https://stackoverflow.com/questions/40832422/luhn-function-in-haskell">this stack overflow on implementing the luhn in Haskell</a></li>
+</ul>
+<pre><code class="haskell">luhn :: Int -&gt; Int -&gt; Int -&gt; Int -&gt; Bool
+luhn w x y z = (luhnDouble w + x + luhnDouble y + z) `mod` 10 == 0
+</code></pre>
+
+<ul>
+<li>Check <a href="https://stackoverflow.com/questions/42013519/luhn-algorithm-in-haskell">this stack overflow on luhn</a></li>
+</ul>
+<pre><code class="haskell">doubleAndSum :: [Int] -&gt; Int
+doubleAndSum = fst . foldr (\i (acc, even) 
+               -&gt; (acc + nextStep even i, not even)) (0,False)
+  where 
+    nextStep even i
+      | even = (uncurry (+) . (`divMod` 10) . (*2)) i
+      | otherwise = i
+
+myLuhn :: Int -&gt; Bool
+myLuhn = (0 ==) . (`mod` 10) . doubleAndSum . (map (read . (: &quot;&quot;))) .show
+
+testCC :: [Bool]
+testCC = map myLuhn [.... , .... , .... , ...]
+-- =&gt; [True, False, False, True]
+</code></pre>
+
+<blockquote>
+<p>Note: Well this version is too verbose for me, currently beyond 'alien speak'. I am aware of the names of these functions but do not really understand how they relate to each other. But writing Haskell code out like reading a difficult piece of music seems like a good practice too.</p>
+</blockquote>
+<p>There is also <strong>Luhn</strong> on Hackage, Haskell's repository of programs and libraries, the <a href="https://hackage.haskell.org/package/luhn-0.2/docs/src/Luhn.html">source</a> is commented and seems nice to follow. Check it out, it is defined as a module and has test's as well. This one seems like the most comprehensible solution so far. </p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../categories/" title="Categories" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Categories
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.22b62ea4.min.js"></script>
+      <script src="../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.f6ebf1dc.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
