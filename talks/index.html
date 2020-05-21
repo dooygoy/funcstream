@@ -270,8 +270,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#specifying-image-operations" class="md-nav__link">
+    Specifying Image operations
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brian-beckman-dont-fear-the-monad" class="md-nav__link">
+    Brian Beckman: Don't fear the Monad
+  </a>
   
 </li>
       
@@ -429,8 +443,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#specifying-image-operations" class="md-nav__link">
+    Specifying Image operations
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brian-beckman-dont-fear-the-monad" class="md-nav__link">
+    Brian Beckman: Don't fear the Monad
+  </a>
   
 </li>
       
@@ -645,7 +673,25 @@ toBitmap   :: Image -&gt; Bitmap
 <pre><code class="haskell">mu :: Region -&gt; (Loc -&gt; Bool)
 </code></pre>
 
-<p>So this is my choice, this is one of them, which is it's a function from locations to booleans, if you known this. Function to boolean is isomorphic to another mathematical notion that we use a lot, I hope you know this, which is sets. So function from location to boolean is the same as set of locations, something called characteristic function if you took math a while ago like I did. So another model is to say a region, the meaning of a region is a set of locations, that's very similar to the suggestion of a list of locations. So we could also say it's a set of polygons but a set of polygons is a more complex, it's maybe more efficient, but uh wait a minute, we're not talking about efficiency, that's a non issue yet, we may want to represent out set by a collection of polygons for instance... OK, let try to get what you're saying</p>
+<p>So this is my choice, this is one of them, which is it's a function from locations to booleans, if you known this. Function to boolean is isomorphic to another mathematical notion that we use a lot, I hope you know this, which is sets. So function from location to boolean is the same as set of locations, something called characteristic function if you took math a while ago like I did. So another model is to say a region, the meaning of a region is a set of locations, that's very similar to the suggestion of a list of locations. So we could also say it's a set of polygons but a set of polygons is a more complex, it's maybe more efficient, but uh wait a minute, we're not talking about efficiency, that's a non issue yet, we may want to represent out set by a collection of polygons for instance... OK, let try to get what you're saying, so one was an idea and the other was a kind of motivation for it I think. OK, so I might say that a region is a function from, it's something that takes an image and a point and, an image and a location and says, it either says there's nothing here, or there is something here and this is what color there is. OK, so that would be some kind of relationship between like a region and an image right? I would hope that something like that because it involves both could be describable in terms of simpler pieces, let's see if that's the case... Oh, I see.. So let me try and tie this idea. Suppose we had a notion of a region which is a set of locations, in other words, a function from locations to bool, I mean, maybe that's not obvious to everybody. So the equivelancy or those two notions is, if I have a function from locations to bools I can think of it as a set, a set is just a question of are you in or are you out, and that's what the question that location and bool answers. So if I have a set I can form a function, just by saying are in the set or not. If I have the set I can form the function, but by asking the question given any location, are you in it, and if so yes, if not no. So given this simpler notion of regions, yeah, we can I think take that region, aha.. interesting, OK. So we can ask questions like, what is the set of all points in space that have some color, or what's the set of all points that have a particular color, I'm not sure we get to the expressiveness of what you're suggesting, that's interesting, we might come back to it.</p>
+<p>Ok, so here are a couple of models and this is the style that I mean of giving a meaning to image. Once we have, once we choose some, now we can go back to the operations and say what do they mean <em>on the meanings</em>. How do the operations work as if they were on meanings of images rather than on images themselves. So an image is going to be some datatype, it's going to have some representation, some runtime existance, the meaning is going to be a mathematical model, and have no runtime representation, no runtime existance, but it'll tell us what it means, what these operations mean, it'll give us a specifications I hope we'll see.</p>
+<h3 id="specifying-image-operations">Specifying <em>Image</em> operations</h3>
+<pre><code class="haskell">mu (over top bot)    == ...
+mu (crop reg im)     == ...
+mu (monochorme c)    == ...
+mu (transform tr im) == ...
+</code></pre>
+
+<p>Aaa, thank you, why didn't I just not use set? Hmm.. I haven't thought about that question in a while, and absolutely I find myself explaining this idea of region as a characteristic function in terms of the set, so I think that tells you and me, now that I think about it, that a set definitions, it feels a little more natural, a region is a set of points, that's it. So, let me change my mind, and say a region is going to be a set of points. Then I'll change my mind and get back to this one. OK? That does seem more natural, let's do that instead. So I don't mean something of type <em>set</em> in Haskell, for instance, which is finite, I don't even mean countable sets, because I want to say like, a disc is a region and it has uncountable, well, I'm getting ahead of myself, it's got a lot in it, so yeah, I mean set in the mathematical sense. So now given this model... yeah absolutely... OK, so there is awful a lot of sets, :smiley:, an awful lot of sets, maybe more sets than I really am interested in using, there's definitely more sets than I can possibly express in any language, right? That's one of the things, a corollary of Cantor's work in the 1800s. Yeah, sets seem maybe awfully ambitious, or awfully sloppy when you think about it. I really may want a much smaller, yeah, so am I tracking? Yeah, so one of the tradeoffs I make is I might make the denotation less precise, in another words have room for a lot more than I can express in order to make them simpler. And we might come back to that if there's interest and talk about that tradeoff... Interesting, so will we need some properties of sets which is going to restrict the kind of sets we can talk about, for instance, measurability, and measurability might be quite relevant to our ability to render something because we're going to render in pixels, and pixels cover entire areas, yeah, and if we want something like the integral of a function over the area, or something like that, then measurability is going to come into play, some form of measurability. So I don't know, we'll see, great question. (56.56)</p>
+<h2 id="brian-beckman-dont-fear-the-monad">Brian Beckman: Don't fear the Monad</h2>
+<p>What I want to do is take the mystery out of monads. Monads without mystery or maybe monads without <em>misery</em>. Because if you've looked at link(?), or you've looked at F-sharp, or a much smaller number have looked at Haskell, you've encountered monads and they're scary the first time you encounter them. The main reason they're scary is you read the papers and they tell you oh, well, you need to know category theory before you can understand this, and while that's strictly speaking is true, it is not true that you need to know category theory to understand <em>how</em> monads work, what they're good for and even better yet, how to <em>creatively</em> use them yourself. Let me talk about foreign languages for a second, if you learn french or something, there are sort of three phases that you go through, the first is you hear french and you say, oh my goodness I'm scared to death of this, the second is, you learn a little bit of french, and you can recognize french words and you can read a little bit with a dictionary, and then the third and final phase is you can use it creatively in your own work, just speak freely. Those are the stages of learning any kind of new foreign concept. Monads are the same way. Everybody goes through this the first... The first encounter is horrifying, there is this strange concept and are you telling me I need to understand this strange bizzare concept in order to do anything with functional programming. Well, yeah the answer is yes, but what I want to take out of it is the strange and horrible part. It isn't strange and horrible, I'm going to explain it in terms of things you already know, I promise.</p>
+<p>Question: What the hell is functional programming? In three minutes or less, just quickly so that people can get to speed as to, they can then put the pieces together why monads would make sense in the context of functional programming?</p>
+<p>Not only do they make sense, they are a natural outgrowth of functional programming, you would invent them yourself if you've worked at it long enough, you would know the category theory, you would know the column monads, you would just call them <em>better</em> functions, that's what I am going to show you, but functional programming in a nutshell, is programming with functions. Yeah, right on... </p>
+<p>But normally, let me start scribbling on the board. Normally we are used to doing things like this in say, in C#:</p>
+<p>```c-sharp
+int x:</p>
+<p>static</p>
+<p>(3:25)</p>
                 
               
               
