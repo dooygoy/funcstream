@@ -1,0 +1,1622 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.1.7">
+    
+    
+      
+        <title>Categories - Haskell funcstream</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4c7052ca.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#category-theory" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Haskell funcstream" class="md-header-nav__button md-logo" aria-label="Haskell funcstream">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Haskell funcstream
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Categories
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Haskell funcstream" class="md-nav__button md-logo" aria-label="Haskell funcstream">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Haskell funcstream
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../books/" title="Books" class="md-nav__link">
+      Books
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../talks/" title="Talks" class="md-nav__link">
+      Talks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../online-lectures/" title="Online-lectures" class="md-nav__link">
+      Online-lectures
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../blogs/" title="Blogs" class="md-nav__link">
+      Blogs
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../papers/" title="Papers" class="md-nav__link">
+      Papers
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../code/" title="Code" class="md-nav__link">
+      Code
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Categories
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Categories" class="md-nav__link md-nav__link--active">
+      Categories
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#12-what-is-a-category" class="md-nav__link">
+    1.2 What is a category
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-functions-epimorphisms" class="md-nav__link">
+    2.1 Functions, epimorphisms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-monomorphisms-simple-types" class="md-nav__link">
+    2.2 Monomorphisms, simple types
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Monomorphisms, simple types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-examples-of-categories-orders-monoids" class="md-nav__link">
+    3.1 Examples of categories, orders, monoids
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-kleisl-category" class="md-nav__link">
+    3.2 Kleisl category
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41-terminal-and-initial-objects" class="md-nav__link">
+    4.1 Terminal and Initial Objects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-products" class="md-nav__link">
+    4.2 Products
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#51-coproducts-sum-types" class="md-nav__link">
+    5.1 Coproducts, sum types
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../observations/" title="Observations" class="md-nav__link">
+      Observations
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#12-what-is-a-category" class="md-nav__link">
+    1.2 What is a category
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-functions-epimorphisms" class="md-nav__link">
+    2.1 Functions, epimorphisms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-monomorphisms-simple-types" class="md-nav__link">
+    2.2 Monomorphisms, simple types
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Monomorphisms, simple types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-examples-of-categories-orders-monoids" class="md-nav__link">
+    3.1 Examples of categories, orders, monoids
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-kleisl-category" class="md-nav__link">
+    3.2 Kleisl category
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41-terminal-and-initial-objects" class="md-nav__link">
+    4.1 Terminal and Initial Objects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-products" class="md-nav__link">
+    4.2 Products
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#51-coproducts-sum-types" class="md-nav__link">
+    5.1 Coproducts, sum types
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="category-theory">Category Theory</h1>
+<h2 id="12-what-is-a-category">1.2 What is a category</h2>
+<ul>
+<li>Abstraction</li>
+<li>Composition</li>
+<li>Identity</li>
+</ul>
+<p><em>Homotopy type</em> theory. What is equal? What it identity? Composition and Identity is what defines category theory.</p>
+<p>We are now ready for first definition!</p>
+<p>A category is a <em>bunch</em> of objects. What can be bigger than a set? Sets are defined by membership. Elements of sets can also be sets. They have a set hammer and everything is a set nail.. What is a good example of a set that is a member of itself? A bunch of dogs is not a dog. <em>Barbers paradox</em> Who shaves the barber?</p>
+<p>A Category consists of objects, and arrows. These arrows are also called morphisms. So a morphism is an arrow that goes from a to b <code>a ---(f)---&gt; b</code>.
+What is an object? It has no properties. What is an arrow, morphism? It is just a name for an arrow. We percieve the universe through these notions described by hunter gatherers, with spatial relationships. Categorists put things in space, higher or lower level abstractions.. Hunter gatherers understand movement too. Realize what language you are using and how it constrains you.</p>
+<p>So what kind of things can happen? You can have zero or more arrows for each pair of objects.Some objects are not connected, some are, some are connected with infinite number of arrows. So if you have an idea that category is a graph except you have to be open minded what is a graph.</p>
+<p>You can have arrow going from <code>a</code> to <code>b</code>, from <code>b</code> to <code>a</code> and arrows going from <code>a</code> to <code>a</code> and from <code>b</code> to <code>b</code>.. It's OK, just give them different names.</p>
+<p>Composition is a very simple property that if you have an arrow going from <code>a</code> to <code>b</code> and an arrow from <code>b</code> to <code>c</code> you have an arrow going from <code>a</code> to <code>c</code>.</p>
+<pre><code class="text">A --- f ---&gt; B --- g ---&gt; C
+           g . f
+    -------------------&gt;
+</code></pre>
+
+<p>So this is called composition. The category is defined by saying what the objects are and arrow and then defining the composition, like multiplication table for arrows. Different composition tables will give you different categories.</p>
+<p>Identity for every object, there is this arrow that we call identity, one per object. Why am I calling it identity? Because of composition. If I compose <code>f</code> with identity <code>b</code> I get <code>f</code> again. So:</p>
+<pre><code class="text">(id a ---&gt; a) a --- f ---&gt; b (id b ---&gt; b)
+idb after f = f
+</code></pre>
+
+<p>So if you think of it as a graph it has to have some properties, it has to have an identity arrow on each node. So that is left and right identity. The third law is the law of associativity.</p>
+<pre><code class="text">f ----&gt; g ----&gt; h
+</code></pre>
+
+<p><code>g</code> after <code>f</code> and then I compose this with <code>h</code>. So I have:</p>
+<pre><code class="haskell">h . (g . f) == (h . g) . f
+</code></pre>
+
+<p>That is extremely important to make is manageable for us humans. Is it possible to have no associativity? There are mathematicians that work on making associativity weak..</p>
+<p>If objects form a set it's called a <em>small</em> category, if not it's called a <em>large</em> category.</p>
+<p>In programming, objects are types and arrows are functions. A function is an arrow or a morphism between two types. In Haskell is a little more complicated because of laziness, so the trick is that every type contains the bottom value, because categories don't really take into account <em>time</em>. Time is hard to describe in mathematics but in programming is important. When does the calculation terminates? If the function never ends what is its type? So in Haskell it return an Int type, the bottom type, which means it never terminates.</p>
+<p><strong>You might ask what are types?</strong></p>
+<p>Sets of values? There is a simplistic model, they are just sets of values so we can model programming as in a category of sets, sets of values and functions are just functions between sets. And that's a good model too. So a mathematical function is between sets.</p>
+<blockquote>
+<p>NOTE: Interesting when drawing arrows between sets the arrows as functions are not morphism. They seem to just map objects but do not morph them. It is like a different view. Seeing morphisms blindly like seeing on which objects they work but without seeing the work, the type of work itself.</p>
+</blockquote>
+<p><em>When I put my categories glasses I see no structures like in sets.</em></p>
+<p>We are studying the sets and we find out there are many functions going from set to itself, we find the identity function and this is the identity morphism in my big multiplication table.. I'm abstracting, forgeting what's inside the objects, what the functions do and I end up with a category sets. I have these arrow I forget where they came from.. but I have the multiplication table which fulfills my laws. I can forget where it came from. I don't care about the structure of my functions or objects, I forget what these are.. What can I say about these objects if I just <em>look</em> at the morphism? Oh this set is <em>empty</em> How do you know it? Well, it turnes out the empty set has this property that can be expressed just in terms of morphisms.. it's not easy but it's possible.. You can identify a lot of properties about sets just by looking at the multiplication table without looking at the sets.. If you just look at the sets you are like doing assembly language.. instead you use a higher language of categories looking at the relations.. You look at the <em>interface</em> not the objects. Think <em>data hidding</em> and <em>abstraction</em>. This is the end of road for abstraction. The most abstract language you can think of. We can stop now. (Clap)</p>
+<pre><code class="haskell">(.) :: (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+f . g = \x -&gt; f (g x)
+</code></pre>
+
+<h2 id="21-functions-epimorphisms">2.1 Functions, epimorphisms</h2>
+<p>recap: Category of types and category of functions, identity and composability</p>
+<p>Operational vs denotational semantics, sometimes I use semantics of sets and sometimes semantics of types.
+A mathematical functions are total functions while in imperative programming we use partial functions which explode for some conditions.</p>
+<p><em>How can you tall if a functions is pure?</em>
+A function is pure if you can memoize it, if you can turn it into a lookup table. Like functions on characters are easy to tabulate, while functions of strings or integers are not easy to tabulate, though that is a problem of resources.</p>
+<p>What is the lowest, or the highest level of abstraction? The simplest building blocks with which we can build complex stuff? We want to get to the bottom so that we can recompose stuff. So now we have this category of types and functions</p>
+<p><em>How can we use functions as category of morphisms on sets?</em></p>
+<p>So functions are defined as special kind of relations. So we have two sets, and we look at elements. A relation is a subset of pairs of elements. So.. it's just pairing. This element is in a relation with this element.</p>
+<p><em>What is a set of pairs?</em></p>
+<p>A Cartesian Product. The set of all pairs forms a cartesian product. Now we take a subset of these pairs and any subset is a relation, by definition. There are no other requirements. So in this sense, a relation has no directionality while functions have these arrows. Functions have some kind of directionality. What kind of condition do we have to impose on a relation to be a function.</p>
+<p>So many elements from set 1 can be in relation with one element with set 2 but one element cannot be mapped with bunch of things. It's still OK for many to be mapped to one value. And all elements have to be mapped into something in the other set. However not all elements of the second set have to be mapped to the first set.</p>
+<pre><code class="text">Domain ----- f -----&gt;  Codomain
+</code></pre>
+
+<p>The mapped part(subset) is called the <em>image</em> of the function
+This directionality is very important, this intuition of functions.</p>
+<p>Ask yourself, is the function invertible? Usually it's not, there isn't always a function that goes other way arount, an <em>inverse</em> function.</p>
+<p><code>f :: a -&gt; b</code></p>
+<p>The function is invertible if there is a function that goes from <code>b</code> to <code>a</code></p>
+<pre><code class="haskell">g :: b -&gt; a
+g . f = id
+f . g = id
+</code></pre>
+
+<p>A function that is invertible, symmetric, is called <em>isomorphism</em>.</p>
+<pre><code class="haskell">                     f
+  (id a) &lt;-  a &lt; ========= &gt; b -&gt; (id b)
+                     g
+</code></pre>
+
+<p>One reason for a function not to be isomorphic is to collapse. All even numbers map to <code>True</code>, all odd numbers map to <code>False</code>. That's one reason not to be invertible.</p>
+<p>Other reason is that it's whole image does not fill the whole codomain. So if you had to invert this whole image what to do with elements beyond the image in the second set? So instead inverting you could also say the counterimage, fiber.. you could build a set of fibers so on a set of fibers this thing is invertible.. fibration is interesting in categories too!</p>
+<p>So there are these two reasons for invertibility. So a function takes place in time. A function that is not invertible is something that increases <em>entropy</em>. You cannot unboil an egg. These two phenomena correspond to very interesting thought process, abstraction. Like I am throwing some information and I am left with one piece of information. Like abstracting numbers to even or odd.</p>
+<p>Like embedding a shadow on a wall of a cave..</p>
+<p>If a function does not collapse things than it's called injection. An injective function does not collapse things. No shrinking, no abstraction, it just injects..</p>
+<pre><code class="haskell">x1 -&gt; f x2
+y1 -&gt; f y2
+</code></pre>
+
+<p>If the function covers the whole codomain, if the image covers the whole codomain it's called surjective. If its surjective and injective it is called isomorphism.</p>
+<p>For all <code>ys</code> there exists an <code>x</code> that <code>y = f x</code>.</p>
+<p><em>So I have defined something in terms of elements</em> How can I talk about category theory now if I cannot look at the elements?</p>
+<p>I have to express this stuff only in terms in morphisms. It is a very holistic approach. </p>
+<p>/If my microscopes don't work maybe my telescopes work?/</p>
+<p>Note: In category theory we don't like latin we like greek.</p>
+<p>When something is surjective is called <em>epic</em>, when something is injective is called <em>monic</em>. (when you consider set theory)</p>
+<p><em>Epimorphism</em> and <em>Monomorphism</em></p>
+<p>Let us say that we have guys that are in terra incognita, outside of the image in set <code>b</code> so I make a set <code>c</code> and map a function <code>g</code> to <code>c</code>.</p>
+<p>So <code>g</code> after <code>f</code> will actually not probe this terra incognita even though <code>g</code> maps everything, inside composition it will actually only act on this inside a composition. Ok if I have two of these functions <code>g1</code> and <code>g2</code> mapping the same point, but if they are outside of <code>f</code> function halo then the composition is the same. So the converse of this is if <code>g1</code> after <code>f</code> is equal to <code>g2</code> after <code>f</code> then <code>g1 = g2</code>, so the function is <em>surjective</em>. Now I have expressed this purely in categorical terms. This is an <em>epimorphism</em>. If I have <code>g1 . f = g2 . f</code> then I can cancel <code>f</code> meaning <code>g1 = g2</code>.</p>
+<h2 id="22-monomorphisms-simple-types">2.2 Monomorphisms, simple types</h2>
+<p>Recap:</p>
+<p><code>f :: a -&gt; b</code></p>
+<p><code>f</code> is an epimorphism from <code>a</code> to <code>b</code> if for every other object <code>c</code> and for every pair of morphisms that goes from <code>b</code> to <code>c</code>, if the composition <code>g1</code> after <code>f</code> is the same as <code>g2</code> after <code>f</code> follows then <code>g1 = g2</code>, then this is an epimorphism. In another words if have a composition <code>g1.f</code> equals to <code>g2.f</code> we can cancel the <code>f</code> on the right.</p>
+<p>[[https://en.wikipedia.org/wiki/Epimorphism][Epimorphism]]</p>
+<p>Note: wikipedia</p>
+<p>In category theory, an <em>epimorphism</em> (also called <em>epic morphism</em> or, an <em>epi</em>) is a morphism <code>f : X -&gt; Y</code> that is right-cancellative in the sense that, for all objects <code>Z</code> and all morphisms <code>g1, g2: Y -&gt; Z</code>,</p>
+<p><code>g1 . f = g2 . f =&gt; g1 = g2</code></p>
+<p>Epimorphisms are categorical analogues of surjective functions (and in the category of sets the concept corresponds exactly to the surjective functions), but it may not exactly coincide in all contexts</p>
+<p>A function <code>f</code> from a set <code>X</code> to a set <code>Y</code> is surjective (also known as <em>onto</em>, or a <em>surjection</em>), if for every element <code>y</code> in the codomain <code>Y</code> of <code>f</code>, there is at least one element <code>x</code> in the domain <code>X</code> of <code>f</code> such that <code>f(x) = y</code>. It is not required that <code>x</code> be unique; the function <code>f</code> may map one or more elements of <code>X</code> to the same element of <code>Y</code>. A function would not be surjective if the image does not fill the whole codomain.</p>
+<p>Identity function <code>idx</code> on <code>X</code> is surjective.</p>
+<p>The function <code>f : Z -&gt; {0,1}</code> defined by <code>f(n) = n mod 2</code>, (that is, even integers are mapped to 0 and odd integers to 1) is surjective.</p>
+<p>So let's start with something that's not a monomorphism. A non-injective function will just map two different elements on one set to the sem element of set <code>B</code>, like <code>x1</code> and <code>x2</code> are mapped to the same <code>y</code>.</p>
+<pre><code class="text"> --g1---&gt;   x1 \
+z               ---f---&gt; y
+ --g2---&gt;   x2 /
+</code></pre>
+
+<p>If you compose <code>g1</code> with <code>f</code> and <code>g2</code> with <code>f</code> you get the same result. They only differ in the way they map <code>z</code> but you get the same result. <code>f</code> after <code>g1</code> will be equal to <code>f</code> after <code>g2</code>. This is similar to epimorphism, we use precomposition rather than postcomposition.</p>
+<p>For every object <code>C</code> and every pair of <code>g1</code> and <code>g2</code>, this time they go from <code>c -&gt; a</code> if <code>f after g1 = f</code> after <code>g2</code> leads to <code>g1</code> equal <code>g2</code> always then we say it is a <em>monomorphism</em>. Notice <code>f</code> is not monomorphism by itself. I have to use the whole universe to define this product, a universal property.
+I hope you get some better feel what functions do.</p>
+<p>Let's talk about sets a little bit. Sets are models for types. Let's think of simplest possible types/sets. Empty set! Doesn't empty set correspond to a type in programming? You find it in Haskell. An empty set corresponds to a type (forget for a moment for functions that do not terminate) <em>Void</em>. There is no way to construct a <em>Void</em> type. Can we define functions that take Void as argument?</p>
+<p><code>f :: Void -&gt; Int ?</code></p>
+<p>Mathematically speaking yes. I have a function of type Void, I challenge you :)</p>
+<p><code>id void :: Void -&gt; Void</code></p>
+<p>This is a good function, you can never call it though, it exists in vacuum when you cannot provide an argument.</p>
+<p>In Haskell it has a name: <code>absurd :: Void -&gt; Int</code></p>
+<p>In logic Void corresponds to false, because you cannot construct falsity from something, you cannot prove something is false, it has no proof. Proof is a function, in this case since you cannot create void there is no proof of falsity, but on the other hand if you assume false, you can derive anything. So it's a polymorphic function: <code>absurd :: Void -&gt; a</code></p>
+<p>Next is a singleton set, in Haskell is called a Unit <code>()</code> it has only one element.
+<code>() :: ()</code> corresponds to <code>True</code>.</p>
+<p><code>Unit :: a -&gt; ()</code>. What about a function that takes a Unit and returns an <code>Int ~() -&gt; Int</code>? This function must be constant, has to return the same integer. There are many functions like this. <code>one :: () -&gt; Int</code>, boolean...</p>
+<p>What about a type that has two elements? It's just boolean. Boolean has <code>True</code> and <code>False</code>, whatever you call it. Boolean is not an atomic construction in sets or categories, it can actually be defined as a sum of two units.</p>
+<p>We can talk about functions from bool to bool. A function that returns a boolean is called a predicate.</p>
+<h3 id="31-examples-of-categories-orders-monoids">3.1 Examples of categories, orders, monoids</h3>
+<p>Last time we talked about sets, sets as sets of elements. That's not a very categorical view, I was trying to reformulate some of the properties of sets in terms of morphisms or functions. It makes sense to reformulate them between sets, then we can ask how does this generalize to an arbitrary category.. but we don't know many categories? Let's broaden our horizons!</p>
+<p>Let's start with simplest possible category! Very few objects. Zero! But a category is defined with objects and arrows, so there are <em>no objects</em> then there are <em>no arrows</em>. Are the conditions then fulfilled. Well the answer is yes, if there aren't any then it's automatically satisfied, so is there an identity arrow? We can say anything about it then since there are no objects. It sort of sounds like a joke. What's the use of this category? It's useless, however the value is in context. Just like zero by itself is useless. What is the context. The context is a <em>category of all categories</em>. In that context, it's an <em>initial object</em>.</p>
+<p>The next category has one object. There has to be an identity arrow <code>id</code>. That will be a <em>terminal object</em></p>
+<p>Next is two objects. Two objects with two identity arrows, two arrows from <code>a</code> to <code>b</code> and <code>b</code> to <code>a</code> and so on... In general we can always start with a <em>graph</em>. But not every graph is a category. It turns out if we start with a graph we can keep adding additional arrows to get a category. The first thing we need are identity arrows, for every node in the graph. Then we come up with composition. For every pair or composable arrows <code>f</code> and <code>g</code> we have a third arrow <code>g(f)</code>, <code>g</code> after <code>f</code>. We need to satisfy <em>associativity</em>. These compositions produce the same arrows, then some can be identified. This kind of construction is called <em>free construction</em> since we are not imposing any constraints other than constraints of category theory.</p>
+<p><em>Order</em> categories - in orders arrows are not functions, arrows represent relations. An interesting relation is less than equal <code>=&lt;</code>.</p>
+<pre><code class="text">    =&lt;
+a ------&gt; b
+</code></pre>
+
+<p>So this arrow doesn't have any meaning other than <code>a</code> is less than of equal to <code>b</code>. It's a relation. Or we can say <code>a</code> <em>comes before</em> <code>b</code> in some order. There are different types of orded. There is <em>preorder</em>, <em>partial</em> order, <em>total</em> order.</p>
+<p>A <em>preorder</em> satisfies just the minimum of conditions, it has to be composable, so if <code>a</code> is less than <code>b</code> and <code>b</code> is less than <code>c</code> we want a to be less than <code>c</code>.</p>
+<pre><code class="text">   =&lt;       =&lt;
+a ----&gt; b -----&gt; c
+  ------------&gt;
+       =&lt;
+</code></pre>
+
+<p>We recognize this as composition from category theory. Is it <em>associative</em>? It is! Why? It's because two objects are either in a relation or not. If there are no relation than there is no arrows, it's a binary choice. Now in <em>total arrow</em> you can say between any two objects there is an arrow. But in <em>preorder</em> that is not true.</p>
+<p>2nd condition (identity)! So is it true that for every object this object is less than or equal to itself? That's called <em>reflexivity</em>.</p>
+<p>Here we have only one arrow going from <code>a</code> to <code>b</code> and another arrow from <code>b</code> to <code>a</code>, but we cannot have multiple arrows. A category like this is called a <em>thin category</em>.</p>
+<p>The set of arrows between any two objects has a name also, it is called a <code>hom-set :: C (a,b)~ or ~C(a,a)</code></p>
+<p>A <em>thin category</em> is one in which a every hom-set is either an empty set or a singleton set. That's the definition in terms of <em>hom-sets</em>.</p>
+<p>We can now impose additional conditions and the next thing we get is <em>partial order</em>. We don't like preorder, we don't like loops. So partial order has no loops because if there is an arrow from <code>a</code> to <code>b</code> then you cannot have an arrow from <code>b</code> to <code>a</code>. If you look at a graph it corresponds to a <em>DAG</em>, <em>directed acyclic graph</em> and further if you say OK, a <em>total order</em> is an order in which there is an arrow between <em>any two</em> objects.</p>
+<p>And now with this <em>preorder</em> category I can show you epi and mono. Something whats both epi and mono does not have to be invertible. In sets it corresponded to injective and surjective and if it was both it was reversible, called <em>bijection</em> but that is <em>not true</em> in every category. You can have an epi and mono that is not inversible.</p>
+<pre><code class="text">
+      mono                          epi
+z === h1,h2 ===&gt; a --- f ---&gt; b === g1,g2 ===&gt; c
+
+
+</code></pre>
+
+<p>Every arrow in preorder is a monomorphism and every arrow in preorder is a epimorphism, but it's not invertible, especially in partial order than it's definetly not invertible because there are no arrow going back. So that't a counter example.</p>
+<p>You can think of the most general category as being like a preorder that is <em>thick</em>. It gives you a different intuition. Here when you have order you think of it as a relation and this means it is true or false. So it's a <em>black and white</em> world. Now in a <em>thick</em> category you might say, if I have a number of arrows, and each of these arrows sort of represent a <em>proof</em> of this relation. Here is one proof called <code>g</code>, here is another called <code>f</code>.. so you might think of a category like a proof relevant <em>preorder</em>. A thin category defines a relation and a thick category defines a proof relevant definition. That's a different way of looking. It's not only enough to show that something is related to something, <em>Homotopy type theory</em> studies relations in that sense.</p>
+<p>In one object category we can have many arrows. We can have many more loops.</p>
+<pre><code class="text">-- Monoid
+
+  /  &lt;===&gt;
+m -- &lt;===&gt; id
+  \  &lt;===&gt;
+
+</code></pre>
+
+<p>So any category with a single object and many arrows is called a Monoid, sort of a pre-group. Monoid is usually defined as a set of elements with some operation defined on them, let us say multiplication. So it's a binary operator. And this binary operator, we can impose certain conditions. We want one of these elements to be the <code>unit</code> (<em>identity</em>), sort of like multiplication by <code>1</code>, you always get the same result. And the other condition that can be imposed is <em>associativity</em>.</p>
+<p>~(a * b) * c = a * (b * c)~
+~e * a = a * e~</p>
+<p>String concatenation, that's an interesting monoid, does it have a unit? Yes, an empty string, you append or preappend an empty string don't change anything. It's associative. It is a good example because it's not symmetric. Multiplication and addition is symmetric, you can change the order, with strings you can't, you append two strings, the result will be different if you append them in the opposite order, so this is a very nice example of a monoid. And lists, appending lists forms a monoid. In Haskell, strings are lists of characters and they form a monoid. So thi is <em>one view</em> of a monoid from set theory.</p>
+<p>Let's call this Monoid M. There is only one hom-set from <code>M(m,m)</code> since there is only one object. This hom-set is a set, right? This category defines a set, and guess what, there is a third element that corresponds to the composition to these two arrows. Well, let's say this is our multiplication. So the third element is the product of two elements. If you pick any two arrows in hom-set, the end of one is the beginning of the next, so there is a third one, <code>f</code>, <code>g</code>, <code>g</code> after <code>f</code>, so <code>g</code> after <code>f</code> is also an element. And then <code>id</code> is here also. All these arrows are members of this set. Example, arrows would correspond to adding a number in some category. So the binary operator in a monoid has to be defined for all elements of the set, has to be a total function of two arguments.</p>
+<p>So a category of types corresponds to a strongly typed system. You cannot compose any two functions. The result of one function has to have a type that is the same as the argument of the next function. That's <strong>strong typing</strong>. Not any two functions are composable. The types have to match. A monoid is a very special category in which every two functions are composable, that corresponds to your languages, that have weak typing, any two functions are composable.</p>
+<h3 id="32-kleisl-category">3.2 Kleisl category</h3>
+<p>Let's define a relation on sets, this is a relation of <em>inclusion</em>, what it means to be a subset of another set. It is a relation, the question is what kind of relation is this? Is this an order, preorder? What should we check? Identity in terms of order is <em>reflexivity</em>.</p>
+<p>If a is a subset of b and b is a subset of c we have composition. Is it associative? Yes.
+So it is definetly a preorder, is it a partial order? We have no loops. If <code>a =&lt; b</code> and <code>b =&lt; a</code> then <code>a = b</code> so it is a partial order, is it a total order? No. Is it possible to have like a diamond relation? They form a <em>dag</em>.</p>
+<pre><code class="text">      a
+    /   \
+   b /=  c
+    \   /
+      d
+</code></pre>
+
+<p>I want to introduce a category close to us programmers, not based on types and function, we get to it by solving a real programming problem. The problem is this:</p>
+<p><em>We have a library of functions. One day the manager says there is a new requirements, that every function has to have a audit trail, every function has to create a little log that says the name or something, has to be appended to a log. Now go and rewrite our library so that every function leaves a trail.</em></p>
+<p>The simplest imperative solution would be: have a global log. A simple solution introducing many dependencies. But logs don't compose, deadlocks...</p>
+<pre><code class="haskell">pair &lt;bool, string&gt;
+negate (bool x, string log) {
+  return makePair (!x, log + &quot;Not!&quot;);
+}
+</code></pre>
+
+<p>The subtle problem is this use of plus, why does a function called <em>negate</em> knows about appending strings? This one function is more local but still it has this element knowing stuff it does not belong. So this is a good solution but not quite.</p>
+<pre><code class="haskell">par &lt;bool,string&gt;
+negate (bool x) {
+  return make_pair (!x, &quot;not!&quot;);
+}
+</code></pre>
+
+<p>Who does appending of this logs? Somebody has to concatenate these logs. So the answer is.. what do we do with these functions? We compose them. What if we modify how we compose functions? Let us define a new way of composing functions.</p>
+<p><em>Appending strings</em> is in essence composing of functions.</p>
+<p>[[https://blog.softwaremill.com/kleisli-category-from-theory-to-cats-fbd140bf396e][Kleisli-category-rom-theory-to-cats]]</p>
+<blockquote>
+<p>Note: I didn't get this at all :( but will keep watching the lectures :). I also do not understand the examples in scala above. What I do understand that the composition between <code>a</code> and <code>b</code> resultet in an embellished function where <code>a</code> defines a <code>b</code> and a string, so it is not just <code>a</code> to <code>b</code> but <code>a</code> to <code>b</code> which results in pairing the result with another string. So this makes a monad, a way of composing special functions.</p>
+</blockquote>
+<h3 id="41-terminal-and-initial-objects">4.1 Terminal and Initial Objects</h3>
+<p>Recap of Kleisl categories, important to understand Monads. It seems challenging because you have to hold two categories in your head. So you start with one category in which you have objects and arrows. Now based on this category you are trying to build another category, the Kleisli category, and you are building it this way - you're saying <em>the objects in this category are exactly the same as in the starting category</em>, however the arrows in this category are not the same arrows as here so if I have an arrow from <code>a</code> to <code>b</code> is not the same arrow as the one in category <code>C</code> from <code>a</code> to <code>b</code>.</p>
+<p><em>Actually I have something that for every object here in C gives me some other object.</em></p>
+<p>Now, we talked about a particular case in which for every type, if I had a type <code>a</code>, I assign to it a new type that's a pair of <code>a</code> and <code>String</code>. A <em>pair</em> of <code>a</code> and <code>String</code> is a different type than <code>a</code>, but it's a mapping of types, so for every type <code>a</code> I have this type. Let me call this <code>f a</code>, but maybe not, it's not a function. So let me call it <code>m</code>.
+Now, <em>m</em> is a mapping that mapps objects to objects or types to types. Later we will learn that this kind of mapping is called a functor.</p>
+<p>For type <code>b</code> I will have a type <code>m b</code> (the pair of <code>b</code> and <code>String</code>) so if there is an arrow from <code>a -&gt; m b</code> this will be my arrow from <code>a -&gt; b</code> in my Kleisli category, so this is equal to this.  </p>
+<pre><code class="text">*C*                    *Kleisli*
+a ----&gt; ma              a &lt;====&gt; id
+|\     (a, String)      |
+| \ ------------------&gt; | 
+|  \                    |
+b   m b                 b
+|\  (b,String)          |
+| \                     |
+|  \                    |
+c   m c                 c
+     (c,String)
+</code></pre>
+
+<p>So it's like im implementing a new category(Kleisli) in terms of this(C) category, I'm implementing the arrow in this category as an arrow in this category, this is an arrow (Kleisli), this is how it's implemented (C).</p>
+<p><em>How do I know it's a category?</em></p>
+<p>So what's an arrow from <code>b</code> to <code>c</code> (In Kleisli)? It's not an arrow from <code>b</code> to <code>c</code> (In C). It's implemented as an arrow as <code>b</code> to <code>(c, String)</code>, or in general some <code>mc</code>, right? So in this (C) categry they do not compose because the end of this one, (mb) is not the same as the beginning of this one(b).</p>
+<p>How do I compose these (Kleisli) guys? In principle I don't know.</p>
+<p>Now I showed you that in this case when is (b, String) and (c, String), let me call this function first <code>a -&gt; mb</code> and I'll get this pair <code>b, String</code> and I will split this pair into <em>b and String</em> and then I will pass this <em>b</em> (<code>b,String</code>) here (points to <em>b</em> <code>a -&gt; b</code>) and I will get this <code>c, String</code>, I will get <code>c</code> and <code>String</code>, right? And then I can combine these things, I can concatenate these two strings, and return a pair <em>(c, s1 ++ s2)</em> so I have now a way of composing these arrows.</p>
+<p>Now in general for any kind of mapping it's not true, I was just lucky. There was a composition, I could define a clever way of composing these things! If I find the way of cleverly composing the implementation here (C) then I can say this is how I compose these arrows in this Kleisli category, and for this to be a category I have to have an identity. How is identity implemented?</p>
+<p>It has to go from <em>a</em> to this <em>m a</em> or in another words <em>(a, String)</em> and it has to be a Unit with respect to my new special kind of composition. I have to pick a string thats an empty string so that the concatenation with an empty string will give back the original string.  </p>
+<p>Once I do that than I can say this is a category and if this is a Kleisli category, then this mapping from <code>a</code> to a <code>string</code> or in general from <code>a -&gt; ma</code> is called a Monad! So this is one of many definitions of a monad. This is a very categorical construction.</p>
+<p>And now for something completely different. So we talked about sets and there is this category set and there is also set theory, and there are these two views, that very useful. One view is sets are things that have elements and we can define things like function, mapping elements to elements, so a lot of these things can be defined in terms of elements. And then we have this category set and in this category we suddenly got amnesia and we are forbidden to talk about elements, only about arrows. We started from arrows, and we know functions between sets so every time we have a function between two sets there will be an arrow in category of sets. And we know how to compose functions.</p>
+<p>What is an empty set? How do I define an empty set if I don't know anything about elements, a singleton? A cartesian product (set of pairs)? So all this stuff have to be completely rediscovered. Just in terms of arrows and compositions. There is this method of defining things. It's called <em>Universal construction</em>
+We use this in category theory to pick a particular kind of pattern. Since we cannot go inside of the object we define the properties of the object in terms of the relation to other objects. So we have to define everything in terms of arrows coming and going to this object. We have to think about the whole universe, and we talked about it with epi and mono.</p>
+<p>So it's like googling. Think of a simple pattern, OK google in this category, show me all hits, so everything that matches this pattern, and usually you have lots of hits. The next thing you do is you have to <em>rank</em> these hits. If you have two hits, see which one is better. The best match defines the object that you are looking for.</p>
+<p>We will try to define a singleton set. How does this set relate to other set? Think arrows!
+There is one property of singleton set that's interesting. It has an arrow coming from every other set. There is an arrow from any other set to singleton set. In programming we call it <em>Unit type</em>, an empty tuple <em>()</em> so from any type or any set there is a function to Unit and this function is called Unit, it's a polymorphic function, it just ignores it's argument and creates a unit and returns it <code>a --- Unit ---&gt; ()</code>, or <code>Void --- Unit void --&gt; ()</code>.</p>
+<p>Does it really single out singleton object? Is there any other type that have the same property? Well unfortunately yes because set is a category that is extremely rich in arrows!</p>
+<p>Only, if you have an non empty set and empty set there is no function there! You can only say they all map to the same element, <em>and I'm fucked!</em></p>
+<p>So for instance, OK, Bool, the type bool of two element set, is there an arrow from every other set to it? You bet, right? In fact there are two arrows from any other set. One is called <code>True</code> and <code>False</code>. They just ignore the argument and return true or false.</p>
+<p>The singleton type or unit type there is always a <em>unique</em> arrow from any other object, so this way we can define using pure arrows we can define what we mean by singleton set, without talking about elements.</p>
+<p>Let's forget about sets! What would we call this object? We will call it <em>terminal object</em>, for all arows, all arrows will converge on this object. Not every category has a terminal object. We can try, we'll say a terminal object in a category is an object that has a unique arrow coming from any other object. Understand, these are two separate conditions. For all objects/type a there exist an <code>f</code> that goes from <code>a -&gt; ()</code>. So this is one condition.</p>
+<p>And for every two functions from <code>a -&gt; ()</code> they have to be equal. That's how you define uniqueness.</p>
+<pre><code class="haskell">(for all) a (there exist) f :: a -&gt; ()
+(for all) f :: a -&gt; (), g :a -&gt; () =&gt; f = g
+</code></pre>
+
+<p>An empty set can be defined by outgoing arrows (singleton set by incoming arrows) <code>Void --- absurd ---&gt; a</code>
+So I have just reversed the definition I used for terminal object. By the same token I want this arrow to be unique. This object will be called <em>initial object</em>, the opposite from <em>terminal</em>, it has a <em>unique</em> outgoing arrow to every other object. This corresponds to empty set, or in programming to <em>Void</em>.</p>
+<p>The property of the <em>terminal</em> object, no matter what path you take to the terminal object you can always shrink it to one arrow and it's always the same arrow, this is where uniqueness comes. With boolean for example  there would be two ways of shrinking, some path would become true paths some false, see there are more ways of shrinking these paths. When this object is terminal there is only one true path, leading you to the terminal object.</p>
+<p>Ok, the next question we might ask, how many of these objects are there? How many empty sets are there? Just one, seems natural to think that, what about terminal object, how many singleton sets are there? Tougher question.. is it the same, the set that contains one apple is it the same as the set containing one orange? I don't know.. from perspective category theory, what does it mean for two objects to be equal? I don't know, <em>there is no equality of objects.</em> There is an equality of arrows, if they have the same ends and beginnings, right? So we can compare arrows for equality but cannot compare objects for equality, instead we can ask if they are <em>isomorphic</em>. Isomorphism is this fact that you have two arrows, one being inverse of the other. <strong>Terminal object is unique up to an isomorphism.</strong></p>
+<p>And even stronger condition is that there is an unique isomorphism between them. Like if you have two element sets, (true and false) and (black and white), true is black, false is white, these are two morphisms, both invertible.</p>
+<p>Suppose we have two terminal objects <code>a</code> and <code>b</code>, so there will be an arrow from <code>b</code> to <code>a</code>, and it is a unique arrow because <code>a</code> is terminal object, but <code>b</code> is a terminal object so there is unique arrow coming from <code>a</code> to <code>b</code>. What's the composition? It's a loopy thing.</p>
+<pre><code class="text">          &lt;------g----
+(id a)  a              b (id b)
+          ------f-----&gt; 
+
+-- Unique isomorphism:
+g . f = id a
+f . g = id b
+</code></pre>
+
+<p>How does the pattern and ranking relate to this? So my pattern is an object, a simple pattern, now show me all example of this pattern in your category, what will you show me? You will show me all your objects, because I didn't specify anything about it, that's a very imprecise query, it gives you huge recall, but we have the ranking. So if I have two matches I will say a is better than b if there is a unique arrow from b to a. OK, maybe there is no unique arrows.. ok fine well then you don't compare these objects. I didn't say its a total order, its a partial order. What is like the best fit? One that is better than all else, so terminal object is better than any other object. The difference between initial and terminal object is just in the ranking.</p>
+<h3 id="42-products">4.2 Products</h3>
+<p>There was a question about terminal objects. There is nothing I said about outgoing arrows from the terminal object. I talked about incoming arrows to the terminal object, they have to be unique from every object. It doesn't mean there are no outgoing arrows and in fact there are usually outgoing arrows from the terminal object and these are the arrows that helps us define generalized elements in other objects, every arrow from the terminal object to another object is a definition of a generalized element in this other object. This is what happens in set, when you map a singleton set into some other set, thats equivalent of picking one element and say, this element of singleton set is mapped to this particular element of the other set, so its picking another one, there are many morphisms, each of them picks a different element.</p>
+<p><em>Now let's talk...</em></p>
+<p>We have now two examples of universal construction, the terminal object and initial object. I talked about reversing the arrows. It turns out this has a much deeper meaning. Every construction in category theory has its opposite construction that is done by reversing arrows. If you define the terminal object you get for free the definition of the initial object. You can allways create a new category which is identital to another category but with arrows reversed.</p>
+<pre><code class="text">C (a -- f --&gt; b)    C op (b -- fop --&gt; a)
+f . g               (g . f) op
+
+(g . f) op = f op . g op
+</code></pre>
+
+<p><em>Cartesian product</em> (the set of pairs), for instance a plane is a cartesian product of two axis, and cartesian product corresponds to a point.</p>
+<p>For every cartesian project there are these functions, called projections. In Haskell we call then <code>fst</code> and <code>snd</code>. Of <code>a x b</code> there are these two arrows called first and second. First maps to <code>a</code> second maps to <code>b</code>. That's a pattern. I'll call <code>a x b</code> a <code>C</code>, maybe I'll call these two arrows <code>p(fst)</code> and <code>q(snd</code>. There could be many such things, it could be anything. Now one of that is my cartesian product, but which one?</p>
+<p>Universal construction to the rescue! I have to be able to rank them, that some cartesian product is better than another one. So let us say we have <code>c</code> and <code>c'</code>. We say <code>c</code> is better than <code>c'</code> if there is a morphism, let's call it <code>m</code>.</p>
+<pre><code class="text">                    C'
+                  / | \
+               p'/  |  \ q'
+                /   m   \
+               /  p | q  \
+            a &lt;---- C ----&gt; b       
+
+p . m = p'
+q . m = q'
+
+Later: 
+a = Int
+b = Bool
+p = fst
+q = snd
+</code></pre>
+
+<p>Is this enough to pick? No it's still not enough. So to summarize, <code>c</code> is better than <code>c'</code> if there is a unique morphism <code>m</code> from <code>c'</code> to <code>c</code> such that, this is true <code>(p.m=p', q.m=q')</code>. How do we read this?</p>
+<p>If this were multiplication then you would say <code>p'</code> factorizes into <code>p</code> times <code>m</code> and <code>q'</code> factorizes into <code>q</code> times <code>m</code>. So they have a common factor <em>m</em>. So I can like extract a common factor. So this morphism is special, it factorizes these two projections. It takes the <em>worst</em> out of these two projections, condenses them. Why the worst? If you look at different candidates, like the <a href="https://en.wikipedia.org/wiki/Goldilocks_principle">Goldilocks principle</a>, some candidates are too small some too big, they don't fit. Morphism can loose information, it can squeeze, may not cover, so like all this non injectivity is concentrated in this <em>m</em>. This is a bad guy, it does all this non injective non surjective stuff, they are concentrated in there. Like <code>p</code> is this nice clean projection but if you add this uglines you get this <code>p'</code> projection.</p>
+<p>So the real product of <code>a</code> and <code>b</code> is a pair <code>(a,b)</code>. That's the type.</p>
+<pre><code class="haskell">fst (a,_) = a
+snd (_,b) = b
+
+a = Int
+b = Bool
+(Int, Bool)
+
+Int candidate
+
+p :: Int -&gt; Int
+p = identity
+
+q :: Int -&gt; Bool
+q = True
+</code></pre>
+
+<p>I have to show there is an mapping <code>m</code>.</p>
+<pre><code class="haskell">m :: Int -&gt; (Int, Bool)
+m x = (x, True)  -- non-injective badness
+</code></pre>
+
+<p><em>Correction: I mean non-surjective, It misses pairs of the form (x, False)</em> Let's try a different candidate. We want a richer candidate. Let's have a triple. <code>(Int, Int, Bool)</code>
+Now I can define a projection.</p>
+<pre><code class="haskell">p' :: (Int, Int, Bool) -&gt; Int
+p' (x,_,_) = x
+q' :: (Int, Int, Bool) -&gt; Bool
+q' (_,_,b) = b
+</code></pre>
+
+<p>But this guy (p') is too big, like 3D cube and my product is just a square, so I'm shrinking stuff. What is the <code>m</code> in this case. <code>m</code> would have to be a mapping from the bad candidate which is <code>(Int,Int,Bool) -&gt; (Int,Bool)</code>. <code>m (x,y,b) = (x,b)</code> so it's <em>non-injective</em>.</p>
+<p>How do we define a product? So a categorical product of two objects <code>a</code> and <code>b</code> is a third object <code>c</code> with two projections <code>p</code> and <code>q</code>.</p>
+<pre><code class="text">C   p : c -&gt; a
+    q : c -&gt; b
+</code></pre>
+
+<p>For any other <code>C'</code> that has some <code>p'</code> from <code>c'</code> to <code>a</code>, and <code>q'</code> from <code>c'</code> to <code>b</code>, for any other pretender there is a unique morphism <code>m</code> that goes from <code>C'</code> to <code>C</code> which factorizes the two projections. <code>p' = p . m</code> and <code>q'= q . m</code>. <em>You remember the picture, the commuting diagram. Two paths through a diagram give you a same result. C is called the product of a and b</em></p>
+<h3 id="51-coproducts-sum-types">5.1 Coproducts, sum types</h3>
+<p>Today I show you the dual of the product, the same thing but in the opposite category, I will take the product and reverse the arrows and show you whats produced and the thing constructed is called coproduct. Co- is usually called when you reverse something, Monad, Comonad..</p>
+<p>So a product is this object with two morphism <em>p</em> and <em>q</em> into /a/ and /b/. So it's a product of a and b and a product <em>C</em>, but there are lots of things that have two projections, so product is the best, the ultimate!</p>
+<p>But what about this <em>C'</em> prime, it also has projections p' and q' why this is not a product? There is a unique mapping ~m~ that makes these two triangles commute. This <em>C</em> is the best candidate if for any other candidate we can do this direct mapping, we can reduce it to this one <em>C</em> and these two projections (p,q) which in sets were just (a,b) so now if we /reverse/ the arrows, we will try to draw this upside down, we want the diagram flow from top to bottom.</p>
+<h1 id="begin_src">+BEGIN_SRC</h1>
+<pre><code>             a             b
+                \       /
+                 \     /
+            \   i \   / j   /
+             \    \\ //    /
+              i'    C     j'
+               \    |    /
+                    |
+                    |
+                    C'
+</code></pre>
+<h1 id="end_src">+END_SRC</h1>
+<p>So a <em>coproduct</em> will match this pattern, It's an object with two arrows coming to it from a and b, and these two arrows are called injections. We just reverse the arrows. 
+So instead of mapping the fake candidate into the real thing using a unique morphism we are mapping the real thing using a unique morphism into the fake candidate. </p>
+<h1 id="begin_src_1">+BEGIN_SRC</h1>
+<p>i' = m . i
+j' = m . j</p>
+<h1 id="end_src_1">+END_SRC</h1>
+<p>In programming cartesian product gives us a tuple, a pair of two things. ~(a,b)~ and this is well known thing. However a coproduct? What is it in set theory? So the fact that we have this injection means we are embedding the set a into C and be are embeddin a set b into set C, I'm thinking function, because we want to figure out what this gives us. This is like the best fit for this pattern so we want this to inject the whole set without collapsing, so what happens is that like the best fit would be a set which contains both a and b so it's like s /union/ of these two sets. Injected /faithfully/, means that the whole set a is mapped into this and the whole set b is mapped into this and there is no bloating, no unmapped things, just a and just b and nothing else and this defines absolute best possible fit and this is true of every universal construction, picking the ideal thing. Two objects, two injections, a coproduct. Here we can say that a product is something that every other candidate can be shrunk into this product that we can recognize, map this candidate into the product while here, in <em>coproduct</em> we can recognize a and b inside of C and this unique morphism tells us which parts of C' belong where, what we can find in C'. This does not completely define this thing. In set theory you have this union of two sets. What happens when they overlap? What's a union of set with itself? Just the same set, but you can tag these elements, it's actually duplicated, because it has a tag. I came from the left one, I came from the right one, so this is called a /discriminated union/. It turnse out that it is a <em>discriminated union</em>. There is a mapping from discriminated union to union. a left and a right. So we have twice as many elements, which can be mapped to a single a, a /non-injective/ mapping and it's a unique mapping of this discriminated union into a regular union. The other way around we couldn't. There is no way of mapping of mapping an a from union to a discriminated union because a function cannot split.</p>
+<p>What is it then in terms of types?
+In terms of types discriminated union is called a /tagged union/ or a /variant/. It means you have a /data type/ like which if you take a union of Integer and Boolean, this is something that either contains an Int or a Bool, not both of them, a pair is something that contains both, you need both to construct it, in order to construct a /discriminated union/ you either give me a integer and I give you this union, and I tag it, I'm an integer if you look inside me you find an integer, or if you give me a boolen we will have a tag that says it's a bool. </p>
+<p>The simplest example of this is an /enumeration/. It is an union of things, it can be either this or that.</p>
+<p>A sum type is not built in and the canonical example is called Either</p>
+<h1 id="begin_src-haskell">+BEGIN_SRC haskell</h1>
+<p>data Either a b = Left a | Right b</p>
+<h1 id="end_src_2">+END_SRC</h1>
+<p>You read it either left a or right b. It means you can construct an element of this type, either by calling this constructor and it contains an a or by calling this constructor and it contains b, so these two constructors correspond to this ~i~ and ~j~, one of them injects a and other one injects b whereas in a pair I had two, lets say /distructors/, they destroyed the pair by picking it a part (fst, snd) se here I have two /projections/ here I have two /injections/.</p>
+<p>Because this is a dual picture, how do we extract stuff? 
+Somebody gave me something ~x :: Either Int Bool~ I cannot just say give me an integer from this x, I can't do that because maybe it is a boolean, I do not know how is constructed. I have to take into account both possibilities, to write code that will work in either case, and that's called /pattern matching/, code that will match left pattern and right pattern. </p>
+<h1 id="begin_src-haskell_1">+BEGIN_SRC haskell</h1>
+<p>f :: Either Int Bool -&gt; Bool
+f (Left i) = i &gt; 0
+f (Right j) = b
+-- they will only match when f is called with left element
+-- and will make this i equal to the integer sitting
+-- inside</p>
+<h1 id="end_src_3">+END_SRC</h1>
+<p>Now we pretty much have the foundation of the type system. In every programming language product types are all over the place. </p>
+<h1 id="begin_src-haskell_2">+BEGIN_SRC haskell</h1>
+<p>data Point = P Float Float
+    -- record syntax
+           = { x :: Float
+             , y :: Float
+             }</p>
+<h1 id="end_src_4">+END_SRC</h1>
+<p>Most of programming is done with products.
+Standard union in C++ is not tagged. Why is is called a product and a sum? Well sort of like a union, maybe.. so this is sort of like multiplication, like a /plus/</p>
+<p>(take a break) and we come back to /algebraic data types/.</p>
+<ul>
+<li>5.2 Algebraic Data Types</li>
+</ul>
+<p>So we have products and we have sums, just like in algebra. Product, sort of like multiplication, what does it mean, it means we have a monoid, at least, right? 
+So a monoid would be something that has multiplication, associative and that has a unit. But now we are talking about types. Is there something like an alebgra of types? Is the product in algebra of types actually behaving like multiplication? Let's check a few things in haskall.</p>
+<p>The product of numbers, it's not true of every monoid, but a product of numbers is symmetric, let's see if a product of two types is symetric.</p>
+<p>~(a, b)~ is it the same as ~(b, a)~? No it's not. If you have a function that takes a pair of Int and Bool it will not accept a pair of Bool and Int. So these two types are not the same, however they contain exactly the same information, they encode it slightly differently, which means that actually they are /isomorphic/. And this isomorphism is called /swap/. </p>
+<h1 id="begin_src-haskell_3">+BEGIN_SRC haskell</h1>
+<p>swap :: (a, b) -&gt; (b, a)
+swap p = (snd p, fst p)</p>
+<h1 id="end_src_5">+END_SRC</h1>
+<p>It is symmetric up to isomorphism.</p>
+<p>The monoid product is associative. What does that mean?
+~((a, b) c)~ is it the same as ~(a, (b, c))~. This won't typecheck. But again they contain the same information.</p>
+<h1 id="begin_src-haskell_4">+BEGIN_SRC haskell</h1>
+<p>assoc ((a, b) c) = (a (b, c))</p>
+<h1 id="end_src_6">+END_SRC</h1>
+<p>swap is isomorphic because if you swap two times you get the same thing. </p>
+<p>Does it have a unit of multiplication? What would be the type if you pair it with any other type, you will just get back the same type? Well it has to be a type that has only one element. So the type that has one element is called a unit. ~(a, ()) /= a~</p>
+<h1 id="begin_src-haskell_5">+BEGIN_SRC haskell</h1>
+<p>munit (x, ()) = x
+munit_inv x   = (x, ())</p>
+<p>munit       = fst
+munit_inv x = (x, ())</p>
+<h1 id="end_src_7">+END_SRC</h1>
+<p>This follows from sum being associative up to isomorphism.</p>
+<h1 id="begin_src-haskell_6">+BEGIN_SRC haskell</h1>
+<p>Either a b ~ Either b a</p>
+<p>data Triple a b c = Left a
+                  | Right c
+                  | Middle b</p>
+<h1 id="end_src_8">+END_SRC</h1>
+<p>What's the unit of sum? /Void/.</p>
+<h1 id="begin_src-haskell_7">+BEGIN_SRC haskell</h1>
+<p>Either a Void ~ a
+       a + 0 = a</p>
+<h1 id="end_src_9">+END_SRC</h1>
+<p>So we have two monoids but that's not all!</p>
+<p>We would like to combine these two monoids into a bigger thing. What would be that?</p>
+<p>From algebra we know that we can multiply to 0, we have this ~a * 0 = 0~ so a pair of (a, Void) ~ Void
+So I can never construct a pair of a and Void which is the same as Void. So a times zero is zero.</p>
+<p>There is /distributive law/. 
+~a * (b + c) = a * b + a * c~</p>
+<h1 id="begin_src-haskell_8">+BEGIN_SRC haskell</h1>
+<p>(a, Either b c) ~ Either (a, b) (a, c)</p>
+<h1 id="end_src_10">+END_SRC</h1>
+<p>What is this structure called when you have multiplication and addition in the same thing. It is called /a ring/. Except a ring has an inverse of addition. And here we don't have inverses. We don't know how to /subtract/ something. What's the inverse of integer of a type, it's nothing.. </p>
+<p>A ring that has no inverse is called a /Rig/ or /Semiring/</p>
+<p>What is the correspondence of 2 = 1 + 1? So 1 is a unit type, we can call left unit true and right ne false, so 2 is a bool.</p>
+<p>What else? 1 + a is our friend ~Maybe~
+~data Maybe a = Nothing | Just a~ (So Nothing is equivalent to (left) unit ~()~, and right Just a is ~a~.</p>
+<p>But there is more one interesting trick :) Let's solve equations!</p>
+<p>So the equation i want to solve is this</p>
+<h1 id="begin_src-haskell_9">+BEGIN_SRC haskell</h1>
+<p>l(a) = 1 + a * l(a)
+l(a) - a * l(a) = 1
+l(a)(1 - a) = 1
+l(a) = 1 / 1 - a</p>
+<h1 id="end_src_11">+END_SRC</h1>
+<h1 id="begin_src-haskell_10">+BEGIN_SRC haskell</h1>
+<p>data List a = Nil | Cons a (List a)</p>
+<h1 id="end_src_12">+END_SRC</h1>
+<p>Now, unfortunately I cannot do division and subtraction.
+Does anybody recognize this? It is a sum of geometric sequence. For n = 0 to infinity a to the power of n.</p>
+<h1 id="begin_src_2">+BEGIN_SRC</h1>
+<p>~
+= E  a^n = 1 + a + (a * a) + (a * a * a) + ...
+ n=0       ^   ^      ^           ^
+           ^   ^      ^           ^
+       ^   ^      ^           ^
+          []  [a]   [a,a]      [a,a,a]</p>
+<h1 id="end_src_13">+END_SRC</h1>
+<p>What is not a trick or is a little trick that can be explained later is that this equation can be solved by substitution. This expantion ends in a /fixed point/. This can be formalized in a fixed point combinator. So this is how you get a list. </p>
+<h1 id="begin_src_3">+BEGIN_SRC</h1>
+<p>L(a) = 1 + a * (1 + a * L(a))
+     = 1 + a + a * a (1 + a * L(a))</p>
+<h1 id="end_src_14">+END_SRC</h1>
+<p>This is why these are called /algebraic data types/. We will get to the point when we do exponentials. Then our algebra will be really really interesting!</p>
+<ul>
+<li>6.1 Functors</li>
+</ul>
+<p>So today I want to talk about functors. So all previous lectures were just introduction to functors. Mathematicians will say /natural transformations/ are important and you need functors for it.</p>
+<p>Why are they important?</p>
+<p>There are things in category theory that are formalized that we thought were not. What is really universtal construction about? It about being able to define what is means to be a perfect embodiment of a idea, to be an ideal. It's like we say how do we define a product. Well we have all these possibilities, how do we pick one? Well we just say let's pick the best one. And we have these two types of universal construction, one for product one for coproduct and they sort of define slightly different ways what is more ideal than other thing. And the property of this perfect thing there is a morphism coming from any other candidate (product) which means anything else you throw at me can be /distilled/, any two objects with projections and I can distill it into this perfect thing called a product, finding a unique morphism.</p>
+<p>With a coproduct it means here is an ideal coproduct and any other candidate has an image in it because there is a morphism from this perfect ideal thing down to any other candidate that's not perfect, that kind of embedds it, finds this element of perfection. So <em>functors</em> now.</p>
+<p>Mathematically speaking it's a simple idea, Functor is just a mapping from one category to another. When we talked about products and coproduct I used a loose language, looking for a pattern. So we have this pattern which constists of single object (terminal, initial) or an object and two morphisms (product, coproduct) and now we are trying to find this pattern, match this pattern in our big category. What does it mean? </p>
+<p>So pattern recognition, category theory tells us how to formalize /pattern recognition/. Well if you want to recognize a pattern inside a category, you have to define what you mean by a pattern, a pattern must be some kind of structure and you sort of have to map this pattern into this category but you have to map it in such a way that you recognize this as a pattern, meaning you have to preserve the structure. What is structure? Well category is a definition of structure, its pure structure, dots and arrows. So if you want to say I want to recognize a certain structure it means you want to define your pattern as a category. </p>
+<p>So if you want to map one category to another category you first map the objects (small category example) and since objects form sets in a small category its just mapping of sets, and thats a function. </p>
+<p>But there is something funny about functions that i have not mentioned, that functions are sort of primitive, trivial. What we are really interested in are mappings that preserve structure and it so happens that function are <em>mappings between sets and sets have no structure</em> They have just a bunch of objects. It's really hard to implement something that totally disorganized on top of hardware thats organized so people implement trees. But in order to implement a tree you need to be able to compare elements.. what is important is to find mappings that <em>preserve structure</em>. We are not really used to thinking about what does it mean to preserve structure. </p>
+<p>/A discrete category corresponds to a single set/ </p>
+<p>Any category that is no discrete by definition has structure. So if we want to preserve structure our mapping has to have arrows.</p>
+<p>So first we preserve mapping between objects. </p>
+<h1 id="begin_src_4">+BEGIN_SRC</h1>
+<p><em>C</em>                                   <em>D</em></p>
+<p>a -------------- F ------------------&gt; Fa
+|\                                     |  \
+| \                                    |   \ 
+f   g.f                                | Ff \  <br />
+|    \                                 |     \ F(g.f)
+|                                      |      \
+b------------------------------------&gt; Fb      \
+ \                                      \
+  \                                   Fg \Fb
+   \                                      \
+    c                                      Fc</p>
+<p>C(a,b) ----------------------------&gt; D(Fa, Fb)</p>
+<p>F (g.f) = Fg . Ff</p>
+<h1 id="end_src_15">+END_SRC</h1>
+<p>/Hom-set/ <em>C(a, b)</em>               <br />
+/Hom-set/ <em>D(Fa, Fb)</em></p>
+<p>A functor is /huge/ potentially number of separate functions. One function per every hom-set. And I haven't even talked about preserving structure, which is defined by composition. I have to map composition I want to preserve structure.</p>
+<p>A /functor/ is this kind of mapping of objects and morphisms that preserves composition and identity. This is sort of obvious way to define a functor. And this also formalizes this idea what does it mean to preserve structure. So functor is something that preserves structure. What else can be say about this functor. Whenever objects are connected in source category they will be connected in target category. Doesn't mean every morphism will have a corresponding morphism, it doesnt have to be surjective of injective, but we can never destroy connections. If you done calculus it is sort of like /continuous transformation/. Essentially thinking about this continuity. Otherwise you can shrink things, you can collapse things, and in particular you can define functors that don't break things.</p>
+<p>If the mapping of /hom-sets/ is /injective/ than we call such mapping /faithful/. So a /faithful functor/ is injective on all hom-sets</p>
+<p>So a functor is /full/ when /surjective/ on hom-sets.</p>
+<p>So it can collapse objects and still be /injective/ on morphisms. Or it can map the whole category into a tiny category and still be surjective on hom-sets. </p>
+<p>The most beautiful is the /fully faithful functor/, the one that preserves, an isomorphism on hom-sets. Surjectivly, injectivly.</p>
+<p>What's a functor whose source is just a one object category (will have to have an ~id~)? So if we map it inside another category, well it has to be mapped into an identity as well, functor must map identity to identity. So that's equivalent to just picking just an object in this category. Just like we had with functions, from terminal object to another object. </p>
+<p>The other way around is a bit interesting. So, a functor that just mapps every object in this category into one single category, so it collapses every single, the whole category into a single object, a black hole, and all morphism collapse into one identity morphism.
+This is an important functor. This is called 
+/constant functor/. So this one is called ~delta C~ from c to c. Very important. </p>
+<p>OK, now what does all this have to do with programming?
+Most common functors in programming will just deal with single category because that is the category of types and functions. But I never said that C and D have to be different categories. In principle it can be the same category. Objects in this category can be mapped into the same objects in that category. That's called an /endo-functor/. (going inside)
+In Haskell these endofunctors are just called functors. </p>
+<p>So what is a functor translating this (image above)?</p>
+<p>A functor has to be a mapping of types, a total mapping, every object has to have an image, which means it's a /type constructor/ but that's just one part of a functor. The type constructor is a mapping on types, function that works on objects, but it also has to map morphisms which means it has to map functions, so let's just grab some examples and see how we can define, starting from a type constructor.</p>
+<h1 id="begin_src-haskell_11">+BEGIN_SRC haskell</h1>
+<p>data Maybe a</p>
+<h1 id="end_src_16">+END_SRC</h1>
+<p>So a is a parameter, so for every type a we are defining a new type a. So we are mapping types to types.</p>
+<h1 id="begin_src-haskell_12">+BEGIN_SRC haskell</h1>
+<p>a ----- Maybe -----&gt; Maybe a</p>
+<p>data Maybe a = Nothing | Just a</p>
+<h1 id="end_src_17">+END_SRC</h1>
+<p>Is this a functor? We need to define functions between hom-sets. If we have a and some b, b will go to some Maybe b, we have to define a function that goes from Maybe a to Maybe b, so if this is f this is the mapping of f using the functor. This mapping of functions is called fmap of f</p>
+<h1 id="begin_src_5">+BEGIN_SRC</h1>
+<pre><code>    Maybe
+</code></pre>
+<p>a -----------------&gt; Maybe a
+|                  |
+|                  |
+f                  | fmap f
+|                  |
+|                  |
+b -----------------&gt; Maybe b</p>
+<h1 id="end_src_18">+END_SRC</h1>
+<h1 id="begin_src-haskell_13">+BEGIN_SRC haskell</h1>
+<p>fmap :: (a -&gt; b) -&gt; (Maybe a -&gt; Maybe b)
+fmap f  Nothing = Nothing
+fmap f (Just x) = Just (f x)</p>
+<h1 id="end_src_19">+END_SRC</h1>
+<p>fmap for Maybe must be of this signature. What can we put instead of ~fmap f Nothing = Nothing~? .. mental block.. We could say.. It's nothing unless the type a is Integer, Just zero? Why not?</p>
+<p>There is somthing called /ad-hoc/ polymorphism but we don't want to use it here. We are kind of straying from mathematics when programming with Haskell. We are actually imposing stronger condition, parametric polymorphism, we are making it restrictive, leading to /theorems for free/. This is something that says because in Haskell can actually only implement functions of some limited kind, a certain type of polymorphism, that imposes the conditions of what we can do. 
+* 6.2 Functor II</p>
+<p>So we have defined a functor. Maybe we have maybe we haven't :)</p>
+<p>How do we know this preserves composition and identity. Well we cannot express this in Haskell, in type system we cannot encode these conditions. Unlike in other languages there is a way of using haskell on a whiteboard to prove things about the language. We would like to prove this functors preserves identity.</p>
+<p>~fmap id = id~</p>
+<p>Now this id works on a different object than this id.</p>
+<p>~fmap  id a = id Maybe a~</p>
+<p>and we want it to preserve composition:</p>
+<p>~fmap (g . f) = fmap g . fmap f~</p>
+<p>What does it mean functions are equal? They have equal values on equal arguments. Whats so special about Haskell is that every definition in Haskell is an equality. And it means what is says. These two things are equal. It is an equation. Left side is same as the right side. In programming this is sometimes called /inlining/, but if you have pure functions you can do /inlining/ and you can do the other way around, /refactoring/, turning an expression into a function call. </p>
+<p>When ~fmap~ acts on ~id~ it produces a function from ~Maybe a~ to ~Maybe a~, right? So I have two cases to check, this ~Maybe~ could be a ~Nothing~ or it could be a ~Just~</p>
+<p>~fmap id Nothing = Nothing = id Nothing~
+/see what did here? I did refactoring, replacing Nothing with id Nothing, so this checks/
+~fmap id (Just x) = Just (id x) = Just x~
+~id (Just x) = Just x~</p>
+<p>Let's talk how to define a functor in general in Haskell. </p>
+<p>/Lifting/</p>
+<h1 id="begin_src_6">+BEGIN_SRC</h1>
+<p>Maybe a--------&gt; Maybe b
+  ^     fmap f  ^
+  |             |
+  |             |
+  |             |
+  a ------------&gt; b</p>
+<h1 id="end_src_20">+END_SRC</h1>
+<p><em>fmap</em> is a higher order polymorphic function.</p>
+<p>It's not like you write one formula for fmap for all functors. So now you are seeing a different kind of polymorphism, in which depending on what your parameter is, in this case the functor, you get a different implementation of a function, fmap in this case. So this is an example of /ad hoc/ polymorphism. It's just we use a slightly different tool for /ad hoc/ polymorphism which is called a /typeclass/. A <em>Typeclass</em> is, you define a whole family, or a class of types that share some common interface. So in Haskell this is called a class.</p>
+<h1 id="begin_src-haskell_14">+BEGIN_SRC haskell</h1>
+<p>class Eq a where
+  (==) :: a -&gt; a -&gt; Bool</p>
+<h1 id="end_src_21">+END_SRC</h1>
+<p>So every type that supports this operator, that takes two a's and produces a boolean, but ~(==)~ is one name that will serve us for many different types, and its implementation will be different for every type, you implement equality different for integers, different for strings. So that's /ad-hoc/ polymorphism.</p>
+<p>Functors are actually /type constructors/. So Maybe is a functor, because it takes a type and produces a type.</p>
+<p>So if we want to define a functor we have to define it as a class.</p>
+<h1 id="begin_src-haskell_15">+BEGIN_SRC haskell</h1>
+<p>class Functor f where 
+  fmap :: (a -&gt; b) -&gt; (f a -&gt; fb)</p>
+<h1 id="end_src_22">+END_SRC</h1>
+<p>/So f here is actually a type constructor! a is a type, b is a type, then f must be something that acts on a type to produce another type./</p>
+<p>The most intuitive example of a functor is list.</p>
+<h1 id="begin_src-haskell_16">+BEGIN_SRC haskell</h1>
+<p>data List a = Nil | Cons a (List a)
+instance Functor List where
+  fmap _ Nil = Nil
+ -- h type of a, t type of list of a
+  fmap f (Cons h t) = Cons (f h) (fmap f t) </p>
+<h1 id="end_src_23">+END_SRC</h1>
+<p>fmap = map /map is just a particular implementation of fmap for lists/ But lists came earlier before functors, so they already had this map defined, but it's really fmap.</p>
+<h1 id="begin_src-haskell_17">+BEGIN_SRC haskell</h1>
+<p>type Reader r a = r -&gt; a</p>
+<h1 id="end_src_24">+END_SRC</h1>
+<p>The arrow itself
+~(-&gt;)~ arrow takes two types ~r~ and ~a~ and produces a type of function from ~r~ to ~a~. </p>
+<p>Now, so far we've been talking about these type constructors that just take one type as an argument, and here we something that takes two types. But we can always just fix one type and say, we only care about the second type. We fix the arrow and we say let's just /vary/ ~a~.</p>
+<h1 id="begin_src_7">+BEGIN_SRC</h1>
+<pre><code>Reader r
+</code></pre>
+<p>a -----------&gt; (r -&gt; a)</p>
+<h1 id="end_src_25">+END_SRC</h1>
+<p>First one is fixed to bool for example and second one varies. This is called partial application, currying. </p>
+<h1 id="begin_src-haskell_18">+BEGIN_SRC haskell</h1>
+<pre><code>                                g     f
+       f            g        (r --&gt; a --&gt; b)
+       ^            ^
+       ^            ^
+</code></pre>
+<p>fmap :: (a -&gt; b) -&gt; (r -&gt; a) -&gt; (r -&gt; b)
+-- functor acting on a functor acting on b
+fmap f g = f . g = (.) f g  -- I cross f g on both sides
+fmap = f . g = (.)
+fmap = (.)</p>
+<h1 id="end_src_26">+END_SRC</h1>
+<p>What is the general intuition behind this? I still haven't showed you identity or const functor. There is one intuition that works for endofunctors, some say it's bad some say it's good. The intuition is that a functor when it's acting on some type encapsulates, hides, the values of this type, so an element of the type Functor of a has elements of a in it, and something that has something inside is usually called a /container/. List is a container, it contains a's, a list of integers, a /tree/ which is a functor too is a container of objects, a vector is a container of elements and it's a Functor. But then there are these Functors that are problematic, like Maybe, it may contain an a or maybe not. A container can be empty? It kinda works and this idea that something is a container, what does it mean to apply a function to the contents of the container, just open this container, look at this stuff and apply the function. So this is what we did with Maybe, if it contains Nothing do nothing well if it contains an a just do this. But then we have this Reader guy, how is this a container? Look at a function that a Boolean and returns some other type? How many possible values does this function have. Two, true and false, so can I say it is a container of two values? I can memoize this function, replace it with a table lookup, which contains these two values. What about a function of integer, it is just an infinite sequence of ints, maybe I cannot memoize the whole thing, maybe I can partially and so on. So this distinction between a function and a data type, if you think about it is, /weak/. A list is a container, ok in Haskell I have a list from one to infinity ~[1..]~, obviously I cannot store it in memory, how is this implemented? As a function. All data types in Haskell, are /thunks/, they are function that can be evaluated to return a value, data are really functions, functions are really data. And we will talk about what function types are in category theory and you will see that it is actually an exponential, which is a data type. The only thing about Functor that's important is that you can apply a function to what it contains, there is no way at least the Functor does not provide you a way to retrieve this value, that's not a part of definition of a Functor. </p>
+<p>I want to leave you with this idea, that functors, /endofunctors/ are containers.</p>
+<ul>
+<li>7.1 Functoriality, bifunctors</li>
+</ul>
+<p>Remember, a functor is like lots of functions put together, there is one major function that mapps objects and that's an actual function only if the category is /small/, objects form a set and functor is just a function on objects, but it also has to /preserve structure/ and that is the most important part, we learned what it means to preserve structure, so functor maps not the only objects but also mapps connections between objects which are morphisms. So for every connection between objects we have this set of arrows between them, which we call a /hom-set/, and as these two ends of a hom-set are mapped from one category to another we define also a mapping of these morphisms between hom-sets, and since hom-sets are sets in a /locally small category/, that's also a function so for every hom-set there is a function that maps it to the corresponding hom-set in the second category. That means preserving connection between objects. </p>
+<p>Since functors are built from functions, we know that functions compose. </p>
+<p>Category in which functors are morphisms and categories are objects is called /Cat/. </p>
+<p>Let's combine two endofunctors we know about, ~Maybe~ and ~List~. There is this function called ~tail~ and tail takes a list of some a's and returns a list of a's.
+~tail :: [a] -&gt; [a]~
+It's defined so that it just throws away the head of the list, so it's well defined only for lists that are not empty. What if the list is empty? The program dies. The only reason people use it is because it's more optimal, because otherwise you always have to check is it empty? Otherwise it is the /achilles heal/ of ~Prelude~.</p>
+<p>But if we want to be sure, then let's define something called safe tail, that takes into account the possibility that list can be empty.</p>
+<h1 id="begin_src-haskell_19">+BEGIN_SRC haskell</h1>
+<p>safeTail :: [a] -&gt; Maybe [a]
+safeTail [] = Nothing
+safeTail (x:xs) = Just xs</p>
+<p>mis :: Maybe [Int]
+sq :: Int -&gt; Int</p>
+<p>fmap (fmap sq) mis
+(fmap . fmap) sq mis</p>
+<h1 id="end_src_27">+END_SRC</h1>
+<p>Most type constructors that you woul normally used are sort of automatically functorial, what it means is that you have a type constructor and defining fmap for it kinda falls out automatically, it's like most data structures are regular in this sense, what it means, that algebraic data structures are automatically functorial. How do you define them? You form them using things like products or sums and you apply it to a unit or a type variable. If you create an algebraic data type using these operations then you automatically have a functor, so we have to start by asking ourselves is a product a functor? </p>
+<p>So a product of two types ~(a,b)~, this can be rewriten as a type constructor acting on a,b ~(,) a b~ so we could ask is this a functor in b? If we fix a. It kinda is. It's a type constructor. We can construct a type by pairing it with some fixed type. If a function goes from ~a -&gt; b~ we can lift it ~(e,a)~ and ~(e,b)~ with ~fmap f~ where this fmap takes ~fmap f (e,x) = (e, fx)~.</p>
+<p>We can define something that is a product of two categories then a functor from a product of two categories would be equivalent to a functor of two arguments, one from one one from another category. We know in category theory products are these beasts and now I'm saying I want to do something bigger, a product of two categories! It turns out that a product of two categories is easier to define than a product from two objects in a category. </p>
+<p>OK, let me take two categories C and D and we take objects from C and D and we form a pair ~(c,d)~ that we call ~CxD~ (/c cross d/) in which objects are pairs of objects so really the objects are cartesian product of the sets of objects. What else do I need? Morphisms.
+And again, this is easy to do this pairing, I can do cartesian product of this hom-set and this hom-set. So I have a new category, called a /product category/.</p>
+<h1 id="begin_src_8">+BEGIN_SRC</h1>
+<p>(f', g') . (f, g) = (f'. f, g'. g)
+(id a, id b) = id (a,b)</p>
+<h1 id="end_src_28">+END_SRC</h1>
+<p>Now when I have a product category is just a category, now I can define a functor that goes from this category. ~C x D -&gt; E~ It means for every pair of objects I pick and object in E. And on morphisms, a morphism in C cross D is a pair of morphisms paired with a morphism in E. 
+This functor is called a /bifunctor/. A bifunctor is a functor from a product category. In haskell we would have to lift a morphism from a product category. This would be a product with a same category with itself. ~C x C -&gt; C~
+but notice that we are actually talking about a functor that's not set from set, or ~hask~ to ~hask~, it's a functor from some other category to hask, a product of two hasks, so we are already getting outside of hask and getting into /hask "squared"/</p>
+<p>What does it mean in terms of function we know? We have a mapping from two types into a type. That looks sort of like this ~(,) a b~. What about morphism? It is a pair of functions, we are lifting two functions /at the same time/. So if we want to define a bifunctor in haskell and just like functor it will be defined as a class.
+It will have to have this way of lifting two functions at the same time. This higher order function corresponding to fmap will be called ~bimap~</p>
+<h1 id="begin_src-haskell_20">+BEGIN_SRC haskell</h1>
+<p>class Bifunctor f where
+  bimap :: (a -&gt; a') -&gt; (b -&gt; b') -&gt; (f a b -&gt; f a' b')</p>
+<h1 id="end_src_29">+END_SRC</h1>
+<p>OK, product is /bifunctorial/. What about /sum/? mmm... Do we have to go through this construction and come up with a sum of two categories? What happens is that, we can use the same bifunctor idea for a sum so ~Either a b~ - thats the sum type, the canonical sum type of two types. Either a b is actually a bifunctor! So we can define the action of two actions of either a b. So Either a b takes a pair of types from a product category! It is a function of two arguments, takes two types and produces a third type of ~Either a b~. What we want to have in general is that if we have a product in a category, then this product /is/ actually a bifunctor and its a bifunctor of this type ~C x C -&gt; C~. Here we have two examples in /hask/ one is the product in hask one is in hask they both are bifunctors like this. So a coproduct is also a bifunctor. </p>
+<h1 id="begin_src_9">+BEGIN_SRC</h1>
+<pre><code>         a x b               
+       /   .   \               ------+
+ p   /   / . \   \q                    == ------&gt;
+   /    /  .  \    \           ......+
+ /     /   .   \     \
++ f.p /    .    \g.q  +        ......+ = f x g
+a    /     +     \    b
+|   /    a'x b'   \   |
+|  /   /      \    \  |
+</code></pre>
+<p>f| /  /          \   \ |g
+    |  /p'     q'     \   |
+    +/                  \ + 
+    a'                    b'</p>
+<p>(a, b)  -&gt; a x b
+(C x C) -&gt; C</p>
+<h1 id="end_src_30">+END_SRC</h1>
+<ul>
+<li>7.2 Monoidal Categories, Functoriality of ADTs</li>
+</ul>
+<p>In a monoidal category we would like to define what does it mean to multiply two objects, ha? (waves hands) :)
+So a product, categorical product is sort of way like multiplying object, we already have one part of a monoid, we have this binary operation, on object, right?</p>
+<p>What was the unit for product in Haskell. It was the unit type :D which is a singleton set (in set theory). How do we define a singleton set? Terminal object. Is this terminal object maybe good candidate for a unit in our newly formed monoid structure? It would mean if you construct a product in which you have some object ~a~ and you have this terminal object ~()~, so ~a x ()~ with ~a~ and ~()~ projections. So I want to prove that a is actualy product of a and terminal object and if you multiply a by terminal object you get back a. </p>
+<p>What are the projections here? ~id a~ and this is ~unit~, it's a good candidate, is it the best candidate? Let's try some other, a ~b~, a /candidate/ is really a triple, its an object plus two projections. It has to have a projection that goes to a, lets call it ~p~, and and one that goes to unit, call it ~unit b~ so in order to prove this is the best guy I have to show there is a unique morphism from ~b -&gt; a~</p>
+<h1 id="begin_src_10">+BEGIN_SRC</h1>
+<pre><code>                  b
+                / | \
+              /   |   \
+          p /     |p    \ unit b 
+          /       +       \
+        /   ida /   \       \
+      /      /         \unit a \
+     +    /               \     +
+       a +                 + ()
+</code></pre>
+<h1 id="end_src_31">+END_SRC</h1>
+<p>A product is defined up to unique isomorphism. So a categorical product, then you have this new structure, monoidal structure on objects, I can do the same thing with a coproduct, the unit would be the initial object, so that would also be a monoidal category with coproduct and initial object, in general maybe there are other things like this, but what we really need is a product which is a /bifunctor/, we need this binary operation on object, and we need this unit for the bifunctor and we get the monoidal category.</p>
+<p>What is a good name that could be a coproduct or a bifunctor, a good name is a /tensor product/. (writen as circle with a cross inside). </p>
+<p>I started all this discussion because I said ADTs are functorial. So product and coproduct are functorial. What else we use to construct data types? We can construct a datatype that does not depend on a data type. We have this way of constructing a trivial functor from a constant object, called a /Const Functor/, that takes two data types. Constant functor maps every object in one category into a single object in the second category, like a black hole, called ~delta c~ so in Haskell:</p>
+<h1 id="begin_src-haskell_21">+BEGIN_SRC haskell</h1>
+<p>data Const c a = Const c</p>
+<p>instance Functor (Const c) where
+ -- fmap :: (a -&gt; b) -&gt; Const c a -&gt; Const c b
+  fmap f (Const c) = Const c</p>
+<p>data Identity a = Identity a
+  fmap f (Identity a) = Identity (f a)</p>
+<p>data Maybe a = Nothing | Just a
+           -- Either () (Identity a)
+--                   ^
+--                   ^
+               Const () a                     </p>
+<h1 id="end_src_32">+END_SRC</h1>
+<p>There is an extesion in Haskell, 
+~{-# LANGUAGE DeriveFunctor #-}~, then you can just say ~data Maybe = .... deriving Functor~ and the compiler will derive you the correct ~fmap~. </p>
+<p>There is one more type constructor that takes two arguments? Right! Function, the arrow. ~(-&gt;) a b = a -&gt; b~
+So arrow is a type constructor, it takes two types a and b and produces a third type which is a type of functions from a to b. Now strictly speaking I have not yet talked about function types, next lecture.. </p>
+<h1 id="begin_src-haskell_22">+BEGIN_SRC haskell</h1>
+<p>newtype Reader c a = Reader (c -&gt; a)</p>
+<h1 id="end_src_33">+END_SRC</h1>
+<p>Is this a bifunctor?
+Well, let's just check if we fix the second, because here we are fixing c, this argument type, what if we instead fix the return type and vary the argument type, can we create fmap for it?</p>
+<h1 id="begin_src-haskell_23">+BEGIN_SRC haskell</h1>
+<p>data Op c a = Op (a -&gt; c) <br />
+  fmap :: (a -&gt; b) -&gt; Op c a -&gt; Op c b
+--           ^        a -&gt; c     b -&gt; c
+--           ^
+--       wrong arrow</p>
+<h1 id="end_src_34">+END_SRC</h1>
+<p>a -&gt; c, a -&gt; b, makes b -&gt; c not good, we need b -&gt; c to make it work. </p>
+<p>This kind of functor that works on the hask on inverted arrows is called /contravariant/</p>
+<h1 id="begin_src-haskell_24">+BEGIN_SRC haskell</h1>
+<p>class Contravariant f where
+  contramap :: (b -&gt; a) -&gt; (f a -&gt; f b)</p>
+<h1 id="end_src_35">+END_SRC</h1>
+<p>A contravariant functor, its not like a container, its sort of like a negative container, not only it does not contain it just actually requires a's for its action, needs "fuel" of type a. If you say instead of a's I will be providing you b's then you need to show how to convert b's to a's so that the functor accepts the a's. /"It contains the empty matter of type a, so you have to have a warp converter" :D/</p>
+<p>The arrow is a covariant functor in the second argument in the return type and its a contravariant functor in the first argument. Now if you combine these two things, another interesting thing, arrow itself as a functor thingy ~C^op x C -&gt; C~, you take a pair of morphism but the first one is flipped, so a thing of this kind of type is called a /profunctor/. Why is it called profunctor? I don't know..</p>
+<h1 id="begin_src-haskell_25">+BEGIN_SRC haskell</h1>
+<p>data class Profunctor p where
+  dimap :: (a' -&gt; a) -&gt; (b -&gt; b') -&gt; p a b -&gt; p a' b'
+--             f           g         (a-&gt;b)    (a'-&gt;b')
+--                                     h
+--            result: g . h . f
+{-</p>
+<pre><code>           a' ---f---&gt; a ---h---&gt; b
+           |                   /  
+    result |                /
+           |            / g
+           |        /   
+           b'   /
+</code></pre>
+<h1 id="end_src_36">+END_SRC</h1>
+<p>An arrow is indeed the simplest profunctor. 
+* 8.1 Function objects, exponentials</p>
+<p>Functions are separate from types. So far we've worked with this model in which types are objects in our category and morphisms are functions, types are objects soo.. functions are not on the same footing as types, right? If you are working in the category of set, which is approximation of what we do in programming, you can think of, you have object a and object b, functions between form a /hom-set/ so if types are sets, then functions are sets too. So this is sort of like sefl-referential thing about this particulary category of sets, so hom-set which is a set of morphisms between objects is also a set. But that's not generally true. In an arbitrary category we don't have this object, what we have is the /hom-set/ being an /external thing/. A hom-set being actually member of set. What we would like to have is an /internal hom-set/, an object in a category that corresponds to the sets of morphisms between two objects, a and b, somehow represents this set of morphisms. And it's possible to define it. So how would we go about this universal construction for a function object.</p>
+<p>First we define a pattern, then we define a ranking for matches and then we find the best match.</p>
+<p>So this /pattern/ for a function object must involve two types, argument type and return type, object a and b and the third part would be the third object, the candidate function object, let's call it ~z~. We have to have some kind of connection. </p>
+<p>What would define for us the action of a function on a argument that produces a result? We have to find a morphism between some of these objects that would represent this idea. But it is a relation between three objects. So we would like to put an arrow between these two objects and the third object, we can't do it in a category. How to do it in sets?</p>
+<p>Let's pick an element of this set that would be an argument and form a pair, function and an argument, this pair can be mapped to result, which is an element of b. So pairing in sets corresponds to taking a cartesian product of these two guys, ok so we can generalize it to a category called product and say ok, so we have a product</p>
+<h1 id="begin_src_11">+BEGIN_SRC</h1>
+<pre><code>z'       z' x a
+ |--|  |-------|
+ |  |  |       |\
+ |  |  |       | \
+ |--|  |       |  \
+  |     -------    \
+h |         |       \
+  |   h x id|        \ g'
+z +         +         \ 
+ |--|  |-------|       \
+ |  |  | z x a |        \
+</code></pre>
+<p>a-&gt;b |  |..|       | \       \
+     |  |  |       |  \       \ 
+     ----   ---.----   \g(eval)\
+               .        \       \
+           |--------|    \       \
+           |        |     +--------|
+           ----------     |        |
+               a          ----------
+                         b</p>
+<h1 id="end_src_37">+END_SRC</h1>
+<h1 id="begin_quote">+BEGIN_QUOTE</h1>
+<p>So thats the pattern we are looking at. But notice, that in order to define this pattern, we have to have a product in our category. And thats a very important thing. In order to define a function object in a category, you have to first define a product. If a category doesn't have a product, then we cannot perform this construction, and you will see later that it actually makes more sense when you think about function object as algebraicly as exponential, because an exponential is like iterated product, right? So if you don't have a product, how can you have an exponential? So thats the idea behind this.  </p>
+<h1 id="end_quote">+END_QUOTE</h1>
+<p>In the end we call this /eval/, that morphism is called evaluating a function. So thats the first thing to do. The next thing is ranking. So suppose that we have another candidate, ~z'~</p>
+<p>z with g is better than z' with g' only if there is a unique morphism h from z' to z such that this diagram commutes
+~g' = g (eval) . (h x id)~</p>
+<p>And finally the third part of universal construction is picking the winner, the function object. ~a~ changes name to ~a -&gt; b~ and ~g~ to ~eval~ meaning that for any other candidate ~z~ that has this function ~g~ from ~z x a~ to ~b~, there is a unique morphism ~h~ that maps z to ~a -&gt; b~ such that this triangle commutes.</p>
+<p>/We can think of g as a function of two arguments, f(x,y,z)/</p>
+<p>But now we are seeing something, that a function of two arguments, is equivalent to a single function that takes an argument and returns a /function type/, (hand points to z and then a -&gt; b).</p>
+<p>There is one to one correspondence between g and h, so I have equivalence of /two ways of thinking/, one way of thinking I have a function of two arguments as a function that takes a product, and the other one its a function of one argument but it produces a function. And that's called currying. </p>
+<p>~h :: z -&gt; (a -&gt; b)~ because in Haskell this function object is really represented by an arrow. And
+~g :: (z, a) -&gt; b~</p>
+<h1 id="begin_src-haskell_26">+BEGIN_SRC haskell</h1>
+<p>curry :: ((a, b) -&gt; c) -&gt; (a -&gt; (b -&gt; c))
+curry f = \a -&gt; (\b -&gt; f(a, b))</p>
+<p>uncurry :: (a -&gt; (b -&gt; c) -&gt; ((a, b) -&gt; c)
+uncurry f = (a,b) -&gt; (f a) b</p>
+<h1 id="end_src_38">+END_SRC</h1>
+<p>In category theory people often don't call this a function object, they call it an exponential. So a function from a to b would be called b to the power of a, b^a, argument goes to the top, result goes to the bottom. </p>
+<p>If we have a function that goes from ~Bool -&gt; Int~, so its really a pair of integers, one for false, one for true. So all possible functions from Bool to Int well there are just all possible pairs of Ints, so this is really a cartesian product of ints. So you can write it as ~Int x Int~ or ~Int^2~ (/Int squared/) so also Int to the power of Bool like</p>
+<p>1 - ()
+2 - Bool
+...</p>
+<p>The number of functions from a to b is really b to the power of a, if you look at all possible combinations, so by counting the number of possible functions you get the counting argument, and also this shows you the connection between product and exponential. An iterated product gives you an exponential. What we do want for programming in which we have exponentials, or function types. We definently want products. There are special kinds of categories called <em>CCC</em> /cartesian closed categories/ that are useful in programming. Cartesian category is one that has products for every pair of objects, /closed/ means it has exponentials as well, for every pair of objects a and b it has an exponential a to the power of b, and it also has a terminal object. Terminal object is like a /zeroth/ power of an object. Its like the first power is the object itself, second power of the object is ~a x a~, then we can have these exponentials, but the zero power is terminal object.</p>
+<p>We actually want a little bit more in programming, we want /coproducts/ and /initial object/ so something that has not only cartesian products but also coproducts is called <em>BCCC</em> /bicartesian closed category/ and in a BCCC we can do our beautiful algebra of types. So far we've seen the algebra using products, coproducts, initial and terminal objects, first we saw that products form a monoid, coproducts form another monoid but we can combine them and they give you this /semiring/ and now we are adding exponentials. With exponentials we can do more algebra!</p>
+<p>For instance, whats a to the power of zero ~a ^ 0~? One. ~1~. But is it true for types? What is zero? Thats our initial object, it is ~void~</p>
+<p>~a ^ 0 = 1~
+~Void -&gt; a ~ ()~
+~absurd~</p>
+<p>So its a function from void to a, the right hand side is /One/, one is a terminal object, that the unit type. Are these two types equivalent. A unit type is a type that has one element. So if this is a singleton as well then we are done. So first of all, is there a function from void to a and how many are there? Well we seen this function it is called absurd. It takes a void and produces an a, so there is a function likee this, absurd.</p>
+<p>What about ~1 ^ a = 1~ This is a function that takes an argument of type a and produces a unit
+~a -&gt; () ~ ()~ so there is only one function like this, it maps all elements of a into this unit element, this is collapsing, a const turning everything into a single values.</p>
+<p>~a ^ 1 = a~ First power of an object is the object itself, but it also has this meaning ~() -&gt; a ~ a~ unit to a is isomorphic to type a and remember what this is, its a function that takes one element from a. There is one to one correspondence, I call it generalized element (mathematicians call it a global element)</p>
+<ul>
+<li>8.2 Type alegbra, Curry-Howard-Lambek isomorphism.</li>
+</ul>
+<p>~a^b + c = a^b x a^c~
+~Either b c -&gt; a~
+~(b -&gt; a, c -&gt; a)~</p>
+<p>~(a^b)^c = a^b x c~
+~c -&gt; (b -&gt; a) ~ (b, c) -&gt; a~ Currying!</p>
+<p>~(a x b)^c = a^c x b^c~
+~c -&gt; (a, b) ~ (c -&gt; a, c -&gt; b)~  </p>
+<p>Sort of like you have to learn just one thing, and then everything else kinda falls out. So probably like the best thing is to start, instead of going to highschool, just start with category theory and then everything else will just follow from this. </p>
+<p>The other thing that, exactly the same structures for types and categories appear in logic. And thats the basis of famous Curry Howard isomorphism, or sometimes called propositions as types. </p>
+<p>So this isomorphism between type theory and programming in general and logic on the other side starts with identifying what it means to, what is a proposition. In logic is a statement that can be true or false so these propositions correspond to types in programming. Just as a proposition can be true or false, type can be inhabited or not, so the truth of a proposition means that type that corresponds to it has elements, members, its inhabited and most of the types we deal with are inhabited, so they are kinda like true propositions but there are types that are not inhibited, and they correspond to false propositions, and we know one such type, thats void.</p>
+<p>So if you want to prove a proposition you just have to prove that a type has an element. In logic there are these two basic values, true and false. So the corresponding things in type theory would be void type which corresponds to false, and unit type which corresponds to true. Unit type is always inhabited with one element.</p>
+<p>|---------------------------------+----------+---------+-----------------+---------------------+--------|
+| Curry Howard Lambek isomorphism |          |         |                 |                     |        |
+|---------------------------------+----------+---------+-----------------+---------------------+--------|
+| /Logic/                         | true     | false   | and             | a or b              | a =&gt; b |
+|---------------------------------+----------+---------+-----------------+---------------------+--------|
+| /Types/                         | ()       | Void    | (a,b)           | Either a b          | a -&gt; b |
+|---------------------------------+----------+---------+-----------------+---------------------+--------|
+| /Category/                      | terminal | initial | a x b (product) | a sum b (coproduct) | b^a    |
+|---------------------------------+----------+---------+-----------------+---------------------+--------|</p>
+<p>(a =&gt; b), a) -&gt; b
+a =&gt; b <em>and</em> a -&gt; b   /modus ponens/</p>
+<ul>
+<li>9.1 Natural Transformations</li>
+</ul>
+<p>Triad of things that are foundations of category theory:
+1. Category 
+2. Functors
+3. Natural Transformations.</p>
+<p>Category is about structure, what it means. Functors are these mappings between categories that preserve structure, intuition is that they take a category and embedd it inside another category, sometimes called modelling. What if we have two different functors? How are two images related? So we would like to be able to compare images given by functors. So natural transformations are defined as mappings between functors. And these mappings have to preserve structure. </p>
+<p>Let's start with two categories ~C~ and ~D~, lets concentrate on a single object in category C, object ~a~. One functor maps this object into ~F a~ in category D, second functor ~G~ maps the same object to some object ~G a~. </p>
+<p>A /natural transformation/ would be picking a morphism between these two objects (In D, one morphism from this /hom-set/, ~Fa -&gt; Ga~. In this way I am creating a whole family of morphism, these are /components/ of natural transformation. So the related morphism in D would be called ~alpha a~, between ~Fa -&gt; Ga~
+Now we map object b the same way ~Fb -&gt; Gb~ and we have ~alpha b~</p>
+<p>Having a natural transformation between two functors means they are somehow related. <em>See naturality square</em></p>
+<h1 id="begin_quote_1">+BEGIN_QUOTE</h1>
+<p>personal notu: This seem like an abstract jump to a higher level. Feeling kinda lost now but am continuing to watch the lecture. Need time to process and contemplate. Same actions are used but all together somehow making a much more complex /image/. As Bartosz says natural transformation gives us a higher level language of commuting diagrams. Notice natural transformation is a higher level language in category theory while just describing commuting diagrams is like /assembly language/. And then instead of just talking about commuting diagrams you begin to notice relations between functors. In this sense products and coproduts are just a case of limits and colimits and later there will be adjunctions etc..</p>
+<h1 id="end_quote_1">+END_QUOTE</h1>
+<p>In programming, natural transformation would be a family of functions between endofunctors, parametirized by a type, so a natural transformation would be a polymorphic function. </p>
+<h1 id="begin_src-haskell_27">+BEGIN_SRC haskell</h1>
+<p>alpha :: forall a . Fa -&gt; Ga</p>
+<h1 id="end_src_39">+END_SRC</h1>
+<p>The subtle difference being, in this haskell example, in this form, we are assuming parametric polymorphism meaning if we want to define this function we must use one single formula for all a's. We cannot say do this thing for integers and do this thing for booleans. One single formula for all. And this is /much stronger/ than a categorical definition.</p>
+<h1 id="begin_src-haskell_28">+BEGIN_SRC haskell</h1>
+<p>alpha . fmap f = fmap f . alpha</p>
+<h1 id="end_src_40">+END_SRC</h1>
+<p>Let's pick a list functor and a maybe functor. We talked about safe tail, lets talk about safe head.</p>
+<h1 id="begin_src-haskell_29">+BEGIN_SRC haskell</h1>
+<p>safeHead :: [a] -&gt; Maybe a
+safeHead [] = Nothing
+safeHead (x:xs) = Just x</p>
+<h1 id="end_src_41">+END_SRC</h1>
+<p>This is a function that works for every ~a~, a total function, parametric polymorphic so it is automatically /natural/. But lets prove it, lets do equational reasoning on it. Show it on both empty list and non-empty list.</p>
+<h1 id="begin_src-haskell_30">+BEGIN_SRC haskell</h1>
+<p>safeHead . fmap f []             safeHead [] </p>
+<p>Nothing                .        Nothing</p>
+<pre><code>                               Nothing
+</code></pre>
+<p>safeHead . fmap f (x:xs)
+           f x : fmap f xs</p>
+<p>Just (f x)
+       \
+        \    safeHead (x:xs)
+         \       Just x
+          - - -Just (f x)</p>
+<h1 id="end_src_42">+END_SRC</h1>
+<p>If you look at it it is actually an /optimization/. Applying an fmap on a list is expensive, so being able to safeHead first and then fmap is cheaper, of course not in Haskell, because Haskell is lazy.</p>
+<p>Basically we use a lot of natural transformations in programming so ~a -&gt; [a]~, thats actually a naturally transformation because ~a~ is just an identity functor acting on ~a~. There are also these function that take polymorphic object and return a number, like ~length~ of a list. Takes arbitrary type of list and returns a length. Thats also a functor, the ~const~ functor which ignores its argument. Natural transformation from a list to a const functor. If you have a function from one ADT to another ADT its a natural transformation because algebraic data types are functors. Not all are because we have these /contravariant/ functors, so if we have a polymorphic function which turns weird stuff it would not be a natural transformation. At some point you might learn about generalized natural transformations which operates on mixed convariants.</p>
+<h1 id="begin_src-haskell_31">+BEGIN_SRC haskell</h1>
+<p>return :: a -&gt; m a</p>
+<h1 id="end_src_43">+END_SRC</h1>
+<p>is actually a function from identity functor to ~m~, a natural transformation and when we talk about monads this thing will be defined as a natural transformation, so a Kleisli category really has to take into account that these transformations are natural. </p>
+<ul>
+<li>9.2 Bicategories</li>
+</ul>
+<p>OK, lets talk about category theory but just like in a really really wide area, I want to give you the view of category theory as far as I was able to look into it. Because we have these basic part of category theory, categories, functors and natural transformations. </p>
+<p>Natural transformations are mapping of functors, now every time we have mappings of things we ask ourselves do these mappings compose? That should be the first thing on our mind. What does it mean to compose natural transformations?</p>
+<p>\alpha F -&gt; G
+\beta  G -&gt; H</p>
+<p>\beta . \alpha
+Is this a natural transformation? We have to check, we have to have another object b</p>
+<p>a -&gt; b -&gt; (-&gt; F G H) -&gt; (Fa -&gt; Ga -&gt; Ha) -&gt; (Ff Gf Hf) -&gt;
+Fb -&gt; Gb -&gt; Hb</p>
+<p>Notation used is [C, D] or D^C, that suggests something :)</p>
+<p>Note: Feeling lost now, but following along. Its all abstracted while using the same words like before, product, category, functor, it seems simple yet still not reachable, like being there but still blind not able to remember the last movement, thus feeling lost in a known environment. </p>
+<p>...</p>
+<ul>
+<li>10.1 Monads</li>
+</ul>
+<p>A monad is really such a simple concept. Why do people have problems with monads. It's the wrong approach of explaining what a monad is. Suppose you explain what function is, it like you go to a tropical island, there are some friendly natives and they want to learn functional programming from you and they ask you what is a function? You try to explain and give them an example, like you can have a function that takes a list of fisherman and orders them by the number of fish they caught, or another function takes  person and gives you their age, or another function that takes grain and gives you alcohol, right? And they say wow this is some amazing stuff, it does all these things, and more? Function is some powerful.. then you realize maybe thats not the best approach of explaining what a function is. </p>
+<p>Maybe we try this, function is like an animal, it has a mouth and it eats input and produces output on the other side, thats a better analogy but you get in big trouble when you try to explain function composition (laugh :D)</p>
+<p>Why do we use function? So that we can structure our program, so that we can decompose our program into smaller pieces and recompose it, and the power of function is really in the dot. Thats what the power is. Dot is the composition operator in Haskell, combines the output of one into input of the other. Functions are about composition, and so is the Monad.</p>
+<p>People start by giving examples of monads, there is state monad, there is exception monad, you know, thats, these are completely different things, what do exceptions have to do with state, with input output? Well its just like with functions, functions can be used to implement so many things, but really functions are about composition and so is the monad. Monad is all about composing stuff. It replaces this dot with the /Kleisli/ arrow. ~&gt;=&gt;~</p>
+<p>The so called fish operator. Ok dot ~.~ is used for this simple functions, where output matches the input, the most trivial way of composing stuff. The fish operator is used to compose these functions whose output type is /embellished/, it really the output type of a function type would ~b~, but now we are embellishing it with some stuff, with logging, by adding a string to it, the logging Kleisli arrow, but then in order to compose these things, we have like unpack the return type before we can send it to the next so actually inside the /dot/ not much is happening, just one function is called and the result is passed to another function. Inside /fish/ much more is happening because there is unpacking and there is the passing of the argument to the next function, and also, maybe some decision is taken, like in the case of exceptions we will see that. Once we have this additional step of combining functions we can make decisions, maybe we don't want to call the next function at all?
+A lot of stuff can happen inside the fish.</p>
+<p>And just like we have the identity function here, identity with respect to the dot, here we have this kleisli arrow that represents identity that return the embellished result of the same type and we call it ~return~ in haskell. And its called return because at some point you want to be able to program like imperative programmer. It's not like imperative programming is bad. It could be good as long as its control, and the monad lets you do in this kinda imperative style, sometimes is easier to understand your code even though it is immediately translated into this style of composing function, so this is just for our convenience.</p>
+<p>Using the kleisli arrow is equivalent of using the dot. We don't see many programs even in Haskell that are written using dots, this is called point free style where you just compose function after function and never mention arguments to these function, they are hidden, they are not given any names, they just go straight from output from one function to the input of another function. Point free style is popular with some people but it is considered hard to read. So this definition of a monad with fish operator is not the main definition that is used in other languages. </p>
+<p>** Fish anatomy</p>
+<h1 id="begin_src-haskell_32">+BEGIN_SRC haskell</h1>
+<p>~(&gt;=&gt;)~ :: (a -&gt; m b) -&gt; (b -&gt; m c) -&gt; (a -&gt; m c)</p>
+<p>f &gt;=&gt; g = \a -&gt; let mb = f a 
+                in mb &gt;&gt;= g</p>
+<p>|--&gt;   (&gt;&gt;=) :: m b -&gt; (b -&gt; m c) -&gt; m c
+|
+|
+|                  class Monad m where
+|                  (&gt;&gt;=) :: m a -&gt; (a -&gt; mb) -&gt; m b
+|                  return :: a -&gt; m a
+|                ------------------------
+|                class Functor m =&gt; Monad m where
+|                   join :: m(ma) -&gt; ma
+|                   return :: a -&gt; ma
+|
+|   -- but mathematicians go deeper into the fish, how to implement
+|    -- bind?
+|
+|--&gt;   ma &gt;&gt;= f =   join ( fmap f ma)
+                   /      (a -&gt; ma) m a
+                  /        m (mb)
+                 /
+                /
+               /
+            join :: m(ma) -&gt; m a</p>
+<h1 id="end_src_44">+END_SRC</h1>
+<p>Remember this is all polymorphic in a, b and c. A, b and c are completely arbitrary types, we have to be able to define the fish operator for /any/ type a,b,c. Once you say this is any type it means you cannot do anything type specific, which means you cannot do anything :D
+except! you have a function here that takes an ~a~, thats like you only chance to do something to a, well apply ~f~ to ~a~. So the sytax is ~let mb = f a~ like defining a local variable in other languages, in Haskell it just means giving a name, binding a name to some value.  </p>
+<p>Why are we using these monads? Monads are used to provide composition for kleisli arrows, but why kleisli arrows? The magic is not in what a monad is, its just composition, the magis is why are these kleisli arrows so useful, what kind of problems they solve and why? The idea was that functional programming, everything is a pure function, and as programmers we know pure functions cannot express everything, there are so many computation like basic things, input output is not pure, a function that getChar if it returns a different character, it returns a different character every time you call it, so its not a pure functions. Then there are functions that throw exceptions. It turns out and this is a miracle that everything that can be computed using non-pure function, they can all be converted as long as you replace pure functions with functions that return an embellished result. This result is encapsulated in some weird way, this is the interesting part. Where does the monad come in, when we say I have this gigantic function that starts with argument a and produces this embellished result, and do I have to write it all inline? No, I want to chop it into pieces, into hundred side effects and then compose it. This is where monad comes in play, when you want to compose these functions you use the monad. The monad lets you split you computations into smaller computations and glue them together. One example are functions that are not defined for everything, so called /partial functions/. Square root is defined for positive integers for example, what you do? The program can blow up or it can throw an exception, but a function is not pure if it throws an exception. So we can use ~Maybe~.</p>
+<h1 id="begin_src-haskell_33">+BEGIN_SRC haskell</h1>
+<p>a -&gt; b
+a -&gt; Maybe b</p>
+<p>join :: Maybe (Maybe a) -&gt; Maybe a
+join (Just (Just a)) = Just a
+join _ = Nothing</p>
+<p>-- this doesn't explain the cleverness of maybe so let me
+-- define bind</p>
+<p>Nothing &gt;&gt;= f = Nothing
+Just a  &gt;&gt;= f = f a
+return a = Just a</p>
+<p>-- Notice we are shortcircuiting, like exceptions, this
+-- function f serves like continuation. If the first part
+-- of the computation fails, abandon the computation
+-- If we want to pass information about the arrow
+-- then instead of Maybe we use the Either type, either string
+-- or value</p>
+<h1 id="end_src_45">+END_SRC</h1>
+<p>Second example is /State/</p>
+<h1 id="begin_src-haskell_34">+BEGIN_SRC haskell</h1>
+<p>-- you have a computation from a to b that accesses some
+-- external state S, reading of modifying it but it can be turned
+-- into pure function as long as we pass the state
+-- explicitly</p>
+<p>a -&gt; b</p>
+<p>(a, s) -&gt; (b, s)</p>
+<p>-- using currying. This is a kleisli arrow!</p>
+<p>a -&gt; (s -&gt; (b, s))</p>
+<p>newtype State s a = State (s -&gt; (a, s))</p>
+<h1 id="end_src_46">+END_SRC</h1>
+<h1 id="begin_src-haskell_35">+BEGIN_SRC haskell</h1>
+<p>-- categorical terms</p>
+<p>m -&gt; T
+join -&gt; \mu
+return -&gt; \eta</p>
+<p>\eta :: Id -&gt; T
+\mu  :: </p>
+<p>m (m a) -&gt; m a
+T . T --.--&gt; T</p>
+<pre><code>              Id
+       ----------------&gt;
+      +        |         +
+     C    \eta |        C
+               |         
+       ----------------&gt;
+               T
+
+
+
+       T           T 
+    C -----&gt;  C  ----&gt; C 
+    \         T       /
+     \ ------------&gt; /
+      \      |      /
+       \     |\mu  /
+         \   |   /
+           \   /
+             T
+</code></pre>
+<h1 id="end_src_47">+END_SRC</h1>
+<p>For better diagrams google /horizontal composition of two natural transformations/. These are now two dimensional diagrams!</p>
+<ul>
+<li>10.2 Monoid in the category of endofunctors
+** Monad Graham Hutton tutorial </li>
+</ul>
+<p>Note: At this point Graham Hutton's [[https://youtu.be/t1e8gqXLbsU][Monad tutorial]] seems intuitive so I will follow along and write the code leading up to the monad itself.</p>
+<p>Monads are a concept invented in mathematics in 1960s, rediscovered in computer science in the 90s and what it gives you  is a new way of thinking about programming with effects. This is one of the most important new ideas in programming languages in last 25 years.</p>
+<p>The example we are going to look at is the idea of writing a function that evaluates simple experessions. What we are going to start with is by defining a simple data type for the kind of expressions that we are going to be evaluating.</p>
+<h1 id="begin_src-haskell_36">+BEGIN_SRC haskell</h1>
+<p>-- data type Expr has two new constructors
+-- Val builds expressions from Integers
+-- Div builds expressions from two sub-expressions
+-- 1                 Val 1
+-- 6 / 2             Div (Val 6) (Val 2)
+-- 6 / (3 / 1)       Div (Val 6) (Div (Val 3) (Val 1))</p>
+<p>data Expr = Val Int | Div Expr Expr</p>
+<p>-- first version of evaluator
+eval :: Expr -&gt; Int</p>
+<p>eval (Val n)   = n
+eval (Div x y) = eval x / eval y</p>
+<p>safediv :: Int -&gt; Int -&gt; Maybe Int
+safediv n m = if m == 0 then
+                 Nothing
+              else 
+                 Just (n / m)
+-- new evaluator</p>
+<p>eval :: Expr -&gt; Maybe Int
+eval (Val n)   = Just n
+eval (Div x y) = case eval x of
+                    Nothing -&gt; Nothing
+                    Just n  -&gt; case eval y of
+                         Nothing -&gt; Nothing
+                         Just m  -&gt; safediv n m</p>
+<p>-- too much management of failure, too much noise
+-- the idea here is we are going to observe a common pattern
+-- there are two case analysis.
+-- when you see the same thing multiple times you 
+-- abstract them out and have them as a definition</p>
+<pre><code>        m
+</code></pre>
+<p>case __(maybe value)_____ of</p>
+<pre><code>Nothing -&gt; Nothing       f    
+Just x -&gt; __(function to process result)_____ x
+</code></pre>
+<p>m &gt;&gt;= f = case m of
+            Nothing -&gt; Nothing
+            Just x -&gt; f x</p>
+<hr />
+<p>eval :: Expr -&gt; Maybe Int
+eval (Val n)   = return n
+eval (Div x y) = eval x &gt;&gt;= (\n -&gt; 
+                 eval y &gt;&gt;= (\m -&gt;
+                 safediv n m))</p>
+<hr />
+<p>eval :: Expr -&gt; Maybe Int
+eval (Val n)   = return n
+eval (Div x y) = do n &lt;- eval x
+                    m &lt;- eval y
+                    safediv n m</p>
+<p>-- the maybe monad
+return :: a -&gt; Maybe a</p>
+<blockquote>
+<blockquote>
+<p>=    :: Maybe a -&gt; (a -&gt; Maybe b) -&gt; Maybe b</p>
+</blockquote>
+</blockquote>
+<h1 id="end_src_48">+END_SRC</h1>
+<ol>
+<li>Same idea works for other effects as well</li>
+<li>Supports pure programming with effects</li>
+<li>Use of effects is explicit in types</li>
+<li>Functions that work for any polymorphism</li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../code/" title="Code" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Code
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../observations/" title="Observations" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Observations
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.22b62ea4.min.js"></script>
+      <script src="../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.f6ebf1dc.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
